@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono');
+
+p {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 24px;
+  margin: auto;
+  margin-top: 24px;
+  max-width: 960px;
+}
+
+p::selection {
+  color: #535ec8;
+}
+
+a {
+  color: #535ec8;
+  text-decoration-color: #535ec8;
+  font-weight: 600;
+}
+
+a::selection {
+  color: #fff;
+  background: #535ec8;
+}
+
+a:visited {
+  color: #535ec8; 
+}
