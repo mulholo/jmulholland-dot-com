@@ -16,7 +16,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "a5196f35caea2588f2708baf7f36681f",
+        "contentDigest": "70ee5e6e4ec8ed370cdd8c15f858e6f9",
         "description": "Plugin dev-404-page",
         "owner": "internal-data-bridge"
       }
@@ -271,6 +271,100 @@
         "owner": "internal-data-bridge"
       }
     },
+    "Plugin gatsby-source-contentful": {
+      "resolve": "/Users/jamesmulholland/proj/jmulholland-dot-com/node_modules/gatsby-source-contentful",
+      "id": "Plugin gatsby-source-contentful",
+      "name": "gatsby-source-contentful",
+      "version": "1.3.54",
+      "pluginOptions": {
+        "plugins": [],
+        "spaceId": "kq8wdn6jzau5",
+        "accessToken": "726564cc1fcbde2c10f97557983782f304c52f9af2850fde099e2b8bd3bd2f23"
+      },
+      "nodeAPIs": [
+        "setFieldsOnGraphQLNodeType",
+        "sourceNodes",
+        "onPreBootstrap",
+        "onPreExtractQueries"
+      ],
+      "browserAPIs": [],
+      "ssrAPIs": [],
+      "pluginFilepath": "/Users/jamesmulholland/proj/jmulholland-dot-com/node_modules/gatsby-source-contentful",
+      "packageJson": {
+        "name": "gatsby-source-contentful",
+        "description": "Gatsby source plugin for building websites using the Contentful CMS as a data source",
+        "version": "1.3.54",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin",
+          "gatsby-source-plugin"
+        ],
+        "author": "Marcus Ericsson <mericsson@gmail.com> (mericsson.com)",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "axios",
+            "version": "^0.16.2"
+          },
+          {
+            "name": "babel-runtime",
+            "version": "^6.26.0"
+          },
+          {
+            "name": "base64-img",
+            "version": "^1.0.3"
+          },
+          {
+            "name": "bluebird",
+            "version": "^3.5.0"
+          },
+          {
+            "name": "contentful",
+            "version": "^6.1.0"
+          },
+          {
+            "name": "deep-map",
+            "version": "^1.5.0"
+          },
+          {
+            "name": "fs-extra",
+            "version": "^4.0.2"
+          },
+          {
+            "name": "gatsby-plugin-sharp",
+            "version": "^1.6.48"
+          },
+          {
+            "name": "json-stringify-safe",
+            "version": "^5.0.1"
+          },
+          {
+            "name": "lodash",
+            "version": "^4.17.4"
+          },
+          {
+            "name": "qs",
+            "version": "^6.4.0"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "cross-env",
+            "version": "^5.0.5"
+          }
+        ],
+        "peerDependencies": [],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "c8e1b157bf791253cd4f294bb4a02c86",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
     "Plugin gatsby-plugin-styled-components": {
       "resolve": "/Users/jamesmulholland/proj/jmulholland-dot-com/node_modules/gatsby-plugin-styled-components",
       "id": "Plugin gatsby-plugin-styled-components",
@@ -340,11 +434,13 @@
       "resolve": "/Users/jamesmulholland/proj/jmulholland-dot-com",
       "id": "Plugin default-site-plugin",
       "name": "default-site-plugin",
-      "version": "109f6f91a1ba724d7aaa4844a6b86052",
+      "version": "ba3647b715a55af7b3c93bca29ca8148",
       "pluginOptions": {
         "plugins": []
       },
-      "nodeAPIs": [],
+      "nodeAPIs": [
+        "createPages"
+      ],
       "browserAPIs": [],
       "ssrAPIs": [],
       "pluginFilepath": "/Users/jamesmulholland/proj/jmulholland-dot-com",
@@ -370,6 +466,10 @@
             "version": "^1.7.19"
           },
           {
+            "name": "gatsby-source-contentful",
+            "version": "^1.3.54"
+          },
+          {
             "name": "styled-components",
             "version": "^3.3.3"
           }
@@ -382,7 +482,7 @@
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "a448a123eac4fa5d1cf543213e9929e9",
+        "contentDigest": "f3472e6909d7a34afd175b37fee1f95f",
         "type": "SitePlugin",
         "owner": "internal-data-bridge"
       }
@@ -472,13 +572,110 @@
       "host": "localhost",
       "pathPrefix": "",
       "polyfill": true,
-      "buildTime": "2018-07-29T16:33:09.542Z",
+      "buildTime": "2018-07-29T20:01:58.740Z",
       "id": "Site",
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "12fea0455bd97eb1323f2219ff9a3f1b",
+        "contentDigest": "f3b5dd2487270d7ec00a765ad1483dde",
         "type": "Site",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "BlogPost": {
+      "id": "BlogPost",
+      "parent": null,
+      "children": [],
+      "name": "BlogPost",
+      "displayField": "title",
+      "description": "I really don't need to explain this...",
+      "internal": {
+        "type": "ContentfulContentType",
+        "contentDigest": "7fadd197d1d2e378038685e7d06bece0",
+        "owner": "gatsby-source-contentful"
+      }
+    },
+    "c6wTa6VfxzG8IYGawO4WaMe": {
+      "title": "This is a test blog post",
+      "slug": "this-is-a-test-blog-post",
+      "tags": [
+        "meow",
+        "wow"
+      ],
+      "body___NODE": "c6wTa6VfxzG8IYGawO4WaMebodyTextNode",
+      "id": "c6wTa6VfxzG8IYGawO4WaMe",
+      "contentful_id": "6wTa6VfxzG8IYGawO4WaMe",
+      "createdAt": "2018-07-29T19:12:53.648Z",
+      "updatedAt": "2018-07-29T19:12:53.648Z",
+      "parent": "BlogPost",
+      "children": [
+        "c6wTa6VfxzG8IYGawO4WaMebodyTextNode"
+      ],
+      "internal": {
+        "type": "ContentfulBlogPost",
+        "contentDigest": "c14e873a85c0cdb6fd51242977f232a0",
+        "owner": "gatsby-source-contentful"
+      },
+      "node_locale": "en-GB"
+    },
+    "c6wTa6VfxzG8IYGawO4WaMebodyTextNode": {
+      "id": "c6wTa6VfxzG8IYGawO4WaMebodyTextNode",
+      "parent": "c6wTa6VfxzG8IYGawO4WaMe",
+      "children": [],
+      "body": "# Test\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tortor urna, efficitur venenatis ante rutrum, suscipit commodo lectus. Praesent aliquam nisi vitae erat tempus blandit. Ut lobortis facilisis orci faucibus condimentum. Proin sit amet risus efficitur, pellentesque neque a, malesuada mauris. Nulla gravida, ligula sed gravida hendrerit, odio purus semper velit, a iaculis augue mi id nulla. Ut placerat, dui eget rhoncus placerat, eros velit congue diam, eu ullamcorper magna eros a arcu. Nam id nisl odio. Suspendisse in dapibus odio, at ultrices nunc.\n\n![webcam-7/29/2018, 8:12:20 PM](//images.ctfassets.net/kq8wdn6jzau5/6tmdwL84CIQesQ0eyiUA22/f1dea90a2b9efd532c6168d0310b2191/webcam-7_29_2018__8_12_20_PM.png)",
+      "internal": {
+        "type": "contentfulBlogPostBodyTextNode",
+        "mediaType": "text/markdown",
+        "content": "# Test\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tortor urna, efficitur venenatis ante rutrum, suscipit commodo lectus. Praesent aliquam nisi vitae erat tempus blandit. Ut lobortis facilisis orci faucibus condimentum. Proin sit amet risus efficitur, pellentesque neque a, malesuada mauris. Nulla gravida, ligula sed gravida hendrerit, odio purus semper velit, a iaculis augue mi id nulla. Ut placerat, dui eget rhoncus placerat, eros velit congue diam, eu ullamcorper magna eros a arcu. Nam id nisl odio. Suspendisse in dapibus odio, at ultrices nunc.\n\n![webcam-7/29/2018, 8:12:20 PM](//images.ctfassets.net/kq8wdn6jzau5/6tmdwL84CIQesQ0eyiUA22/f1dea90a2b9efd532c6168d0310b2191/webcam-7_29_2018__8_12_20_PM.png)",
+        "contentDigest": "610ed3716a02283da37c17bc32ee2782",
+        "owner": "gatsby-source-contentful"
+      }
+    },
+    "c6tmdwL84CIQesQ0eyiUA22": {
+      "id": "c6tmdwL84CIQesQ0eyiUA22",
+      "parent": null,
+      "children": [],
+      "file": {
+        "url": "//images.ctfassets.net/kq8wdn6jzau5/6tmdwL84CIQesQ0eyiUA22/f1dea90a2b9efd532c6168d0310b2191/webcam-7_29_2018__8_12_20_PM.png",
+        "details": {
+          "size": 399851,
+          "image": {
+            "width": 640,
+            "height": 480
+          }
+        },
+        "fileName": "webcam-7/29/2018, 8:12:20 PM.png",
+        "contentType": "image/png"
+      },
+      "title": "webcam-7/29/2018, 8:12:20 PM",
+      "description": "",
+      "node_locale": "en-GB",
+      "internal": {
+        "type": "ContentfulAsset",
+        "contentDigest": "f48c438c891e15fbfaa17e95ac8861ea",
+        "owner": "gatsby-source-contentful"
+      }
+    },
+    "SitePage /this-is-a-test-blog-post": {
+      "layout": "index",
+      "jsonName": "this-is-a-test-blog-post.json",
+      "internalComponentName": "ComponentThisIsATestBlogPost",
+      "path": "/this-is-a-test-blog-post",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/BlogPost.js",
+      "componentChunkName": "component---src-templates-blog-post-js",
+      "context": {
+        "slug": "this-is-a-test-blog-post"
+      },
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/BlogPost.js",
+      "id": "SitePage /this-is-a-test-blog-post",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "d7a880742caa2f17d9d42d388f9cc47d",
+        "description": "Your site's \"gatsby-node.js\"",
         "owner": "internal-data-bridge"
       }
     },
@@ -498,18 +695,26 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "3a3f3107899c4ae2d9c2c2d206debc24",
+        "contentDigest": "77ac3a215b24c4e422c4f5d9f3393294",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
     }
   },
   "status": {
-    "plugins": {},
-    "PLUGINS_HASH": "d854431ece3944301d6b17e13f516d32"
+    "plugins": {
+      "gatsby-source-contentful": {
+        "kq8wdn6jzau5-master": "w5ZGw6JFwqZmVcKsE8Kow4grw45QdyYEw40vT8OywrPCjcOzRgrCmsOzw73DisOOwqZaC8KlwqJrSMO6wrLCm8O7aRgAbsKww5tTAzVYwqdBw4fChxzCrcKsfcKtwoXClsOuwqMVAMKhwpB7dzPCtsONKsOnY8OIC3M"
+      }
+    },
+    "PLUGINS_HASH": "0da156285a96c72ddebeff57326b54a3"
   },
   "componentDataDependencies": {
-    "nodes": {},
+    "nodes": {
+      "c6wTa6VfxzG8IYGawO4WaMe": [
+        "/this-is-a-test-blog-post"
+      ]
+    },
     "connections": {
       "SitePage": [
         "/dev-404-page/"
