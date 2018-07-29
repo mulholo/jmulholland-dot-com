@@ -1,1 +1,1 @@
-{"data":{"allSitePage":{"totalCount":2,"edges":[{"node":{"path":"/this-is-a-test-blog-post"}},{"node":{"path":"/"}}]}},"pathContext":{}}
+{"data":{"allSitePage":{"totalCount":3,"edges":[{"node":{"path":"/this-is-a-test-blog-post"}},{"node":{"path":"/"}},{"node":{"path":"/blog/"}}]}},"pathContext":{}}

@@ -4,8 +4,10 @@ import PropTypes from 'prop-types';
 export default class BlogPost extends Component {
   render() {
     const {
-      title
+      title,
+      body,
     } = this.props.data.contentfulBlogPost;
+    console.log(this.props.data.contentfulBlogPost);
     return (
       <div>
         <h1>{title}</h1>
