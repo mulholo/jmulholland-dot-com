@@ -9,6 +9,7 @@ export default () =>
 const StyledFooter = styled.footer`
   border-top: 1px solid #BABABA;
   padding-top: 1rem;
+  margin-top: 2rem;
 `
 
 const StyledSpan = styled.span`

@@ -4,9 +4,9 @@ import styled from 'styled-components';
 
 export default () =>
   <StyledHeader>
-    <Link to="/">
-      <SiteName>J. Mulholland</SiteName>
-    </Link>
+    <StyledLink to="/">
+      <SiteName>James Mulholland</SiteName>
+    </StyledLink>
     <StyledUl>
       <ListLink to="/blog">Blog</ListLink>
       <ListLink to="/projects">Projects</ListLink>
@@ -14,21 +14,40 @@ export default () =>
   </StyledHeader>
 
 const ListLink = props =>
-  <StyledLink>
-    <Link to={props.to}>{props.children}</Link>
-  </StyledLink>
+  <StyledLi>
+    <StyledLink
+      to={props.to}
+      style={{ textDecoration: 'none' }}
+      activeStyle={{ textDecoration: 'none' }}>
+      {props.children}
+    </StyledLink>
+  </StyledLi>
 
 
 // styled components
 
-const StyledLink = styled.li`
+const StyledLi = styled.li`
   display: inline-block;
-  margin-right: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #000;
+
+  &:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+  }
+
+  &:focus, &:hover, &:active {
+    color: #dd9801;
+  }
 `;
 
 const StyledUl = styled.ul`
   listStyle: none;
-  float: right:
+  margin: 0;
 `;
 
 const SiteName = styled.h4`
@@ -38,4 +57,7 @@ const SiteName = styled.h4`
 const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
+  padding-bottom: 0;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #DD9801;
 `;

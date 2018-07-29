@@ -7,7 +7,6 @@ import styled from 'styled-components';
 const StyledPage = styled.div`
   margin: 0 auto;
   padding: 1.25rem 1rem;
-  max-width: 650px;
 `;
 
 export default ({ children }) =>

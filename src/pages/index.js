@@ -3,29 +3,38 @@ import styled from 'styled-components';
 
 export default () =>
   <div>
-    <SplashText>
-      I'm James, a front-end developer from the U.K.
-    </SplashText>
-    <p>
-      Mostly, this is a blog so you should head over to that. You can also find me on
-      <StyledLink color={twitterBlue} href="https://twitter.com/mulholio">Twitter</StyledLink>,
-      <StyledLink href="https://vsco.com/mulholio">VSCO</StyledLink>, 
-      <StyledLink color={githubGreen} href="https://github.com/mulholio">Github</StyledLink> or good, old-fashioned
-      <StyledLink color={braunYellow} href="mailto:james@jmulholland.com">email</StyledLink>.
-    </p>
+    <StyledBody>
+      I'm James, a front-end developer from the UK.
+      I currently work at <StyledA color={'#70a0dc'} href="https://www.peoplegoal.com/">Evermind Digital</StyledA>&nbsp;
+      where I spend most of my time making things with React. I also run a newsletter called&nbsp;
+      <StyledA color={copyThatPurple} href="https://copythat.io">Copy That!</StyledA> which you should
+      check out if you want to get better at HTML, CSS and JS.
+    </StyledBody>
+    <StyledBody>
+      Mostly, this is a <StyledA href="/blog">blog</StyledA> so you should head over to that. You can also find me on&nbsp;
+      <StyledA color={twitterBlue} href="https://twitter.com/mulholio">Twitter</StyledA>,&nbsp;
+      <StyledA color={'rgba(0,0,0,0.7)'} href="https://vsco.com/mulholio">VSCO</StyledA>,&nbsp;
+      <StyledA color={githubGreen} href="https://github.com/mulholio">Github</StyledA> or good, old-fashioned&nbsp;
+      <StyledA color={braunYellow} href="mailto:james@jmulholland.com">email</StyledA>.
+    </StyledBody>
   </div>
 
-
-const SplashText = styled.h2`
-  font-size: 2rem;
-`
-
-const StyledLink = styled.a`
+const StyledBody = styled.p`
+  font-size: 2.25rem;
   font-weight: 600;
-  text-decoration: none;
-  color: ${props => props.color || '#000'}
-`
+`;
+
+
+const StyledA = styled.a`
+  font-weight: 600;
+  color: #000;
+
+  &:hover {
+    color: ${props => props.color || braunYellow}
+  }
+`;
 
 const twitterBlue = '#45a1eb';
 const braunYellow = '#DD9801';
 const githubGreen = '#337203';
+const copyThatPurple = '#535ec8';
