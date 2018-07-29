@@ -1,10 +1,8 @@
-# gatsby-starter-hello-world
-Starter with the bare essentials needed for a [Gatsby](https://www.gatsbyjs.org/) site
+# jmulholland.com
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-```
-gatsby new gatsby-site https://github.com/gatsbyjs/gatsby-starter-hello-world
-```
+This is the repo for my personal website, jmulholland.com.
 
-## Running in development
-`gatsby develop`
+## Stack
+* [Gatsby](https://www.gatsbyjs.org/) (using [React](https://reactjs.org))
+* [Contentful](https://contentful.com)
+* [Typography.js](http://kyleamathews.github.io/typography.js)
