@@ -16,7 +16,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "332942bac6ac26690c2f7c695a62ff35",
+        "contentDigest": "c7e4bc9f0fa631781cb3669f8a95b42a",
         "description": "Plugin dev-404-page",
         "owner": "internal-data-bridge"
       }
@@ -202,11 +202,80 @@
         "owner": "internal-data-bridge"
       }
     },
+    "Plugin gatsby-plugin-typography": {
+      "resolve": "/Users/jamesmulholland/proj/jmulholland-dot-com/node_modules/gatsby-plugin-typography",
+      "id": "Plugin gatsby-plugin-typography",
+      "name": "gatsby-plugin-typography",
+      "version": "1.7.19",
+      "pluginOptions": {
+        "plugins": [],
+        "pathToConfigModule": "src/utils/typography.js"
+      },
+      "nodeAPIs": [
+        "onPreBootstrap"
+      ],
+      "browserAPIs": [
+        "onClientEntry"
+      ],
+      "ssrAPIs": [
+        "onRenderBody"
+      ],
+      "pluginFilepath": "/Users/jamesmulholland/proj/jmulholland-dot-com/node_modules/gatsby-plugin-typography",
+      "packageJson": {
+        "name": "gatsby-plugin-typography",
+        "description": "Gatsby plugin to setup server rendering of Typography.js' CSS",
+        "version": "1.7.19",
+        "main": "index.js",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin",
+          "typography",
+          "typography.js"
+        ],
+        "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "babel-runtime",
+            "version": "^6.26.0"
+          },
+          {
+            "name": "react-typography",
+            "version": "^0.16.1"
+          },
+          {
+            "name": "typography",
+            "version": "^0.16.0"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "cross-env",
+            "version": "^5.0.5"
+          }
+        ],
+        "peerDependencies": [
+          {
+            "name": "gatsby",
+            "version": "^1.0.0"
+          }
+        ],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "5bf950d1553e4a9b1b1bf6ce4e00ab66",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
     "Plugin default-site-plugin": {
       "resolve": "/Users/jamesmulholland/proj/jmulholland-dot-com",
       "id": "Plugin default-site-plugin",
       "name": "default-site-plugin",
-      "version": "d41d8cd98f00b204e9800998ecf8427e",
+      "version": "cf432722453702a652ca59edd5797b01",
       "pluginOptions": {
         "plugins": []
       },
@@ -226,6 +295,10 @@
           {
             "name": "gatsby-link",
             "version": "^1.6.46"
+          },
+          {
+            "name": "gatsby-plugin-typography",
+            "version": "^1.7.19"
           }
         ],
         "devDependencies": [],
@@ -236,7 +309,7 @@
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "c9553d024de60007ab9f3be2af5c5bf5",
+        "contentDigest": "5b51d858e9950196cdae74858c8a4833",
         "type": "SitePlugin",
         "owner": "internal-data-bridge"
       }
@@ -326,12 +399,12 @@
       "host": "localhost",
       "pathPrefix": "",
       "polyfill": true,
-      "buildTime": "2018-07-29T16:03:10.160Z",
+      "buildTime": "2018-07-29T16:21:00.232Z",
       "id": "Site",
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "92fa631c47c1eb9b927ff3dde253c56d",
+        "contentDigest": "e28b45b7006a76f63c6b329079bbe0a6",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -352,7 +425,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "2265ee9e68c24d6ac5d6f0eef029c239",
+        "contentDigest": "61d8fb2a35102d1c8c95ad280aeb167c",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -360,7 +433,7 @@
   },
   "status": {
     "plugins": {},
-    "PLUGINS_HASH": "c1e04581cec0c01244a7882d346bbf70"
+    "PLUGINS_HASH": "c0ffd99ce1b40a8519fba47e56b921f5"
   },
   "componentDataDependencies": {
     "nodes": {},
