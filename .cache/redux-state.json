@@ -16,7 +16,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "c7e4bc9f0fa631781cb3669f8a95b42a",
+        "contentDigest": "a5196f35caea2588f2708baf7f36681f",
         "description": "Plugin dev-404-page",
         "owner": "internal-data-bridge"
       }
@@ -271,11 +271,76 @@
         "owner": "internal-data-bridge"
       }
     },
+    "Plugin gatsby-plugin-styled-components": {
+      "resolve": "/Users/jamesmulholland/proj/jmulholland-dot-com/node_modules/gatsby-plugin-styled-components",
+      "id": "Plugin gatsby-plugin-styled-components",
+      "name": "gatsby-plugin-styled-components",
+      "version": "2.0.11",
+      "pluginOptions": {
+        "plugins": []
+      },
+      "nodeAPIs": [
+        "modifyBabelrc"
+      ],
+      "browserAPIs": [],
+      "ssrAPIs": [
+        "replaceRenderer"
+      ],
+      "pluginFilepath": "/Users/jamesmulholland/proj/jmulholland-dot-com/node_modules/gatsby-plugin-styled-components",
+      "packageJson": {
+        "name": "gatsby-plugin-styled-components",
+        "description": "Gatsby plugin to add support for styled components",
+        "version": "2.0.11",
+        "main": "index.js",
+        "keywords": [
+          "gatsby",
+          "gatsby-plugin",
+          "styled-components"
+        ],
+        "author": "Guten Ye <ywzhaifei@gmail.com>",
+        "license": "MIT",
+        "dependencies": [
+          {
+            "name": "babel-runtime",
+            "version": "^6.26.0"
+          }
+        ],
+        "devDependencies": [
+          {
+            "name": "babel-cli",
+            "version": "^6.26.0"
+          }
+        ],
+        "peerDependencies": [
+          {
+            "name": "babel-plugin-styled-components",
+            "version": ">1.5.0"
+          },
+          {
+            "name": "gatsby",
+            "version": "^1.0.0"
+          },
+          {
+            "name": "styled-components",
+            "version": ">= 2.0.0"
+          }
+        ],
+        "optionalDependecies": [],
+        "bundledDependecies": []
+      },
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "contentDigest": "382dbe7686a7cb42d3e243acc5395159",
+        "type": "SitePlugin",
+        "owner": "internal-data-bridge"
+      }
+    },
     "Plugin default-site-plugin": {
       "resolve": "/Users/jamesmulholland/proj/jmulholland-dot-com",
       "id": "Plugin default-site-plugin",
       "name": "default-site-plugin",
-      "version": "cf432722453702a652ca59edd5797b01",
+      "version": "109f6f91a1ba724d7aaa4844a6b86052",
       "pluginOptions": {
         "plugins": []
       },
@@ -297,8 +362,16 @@
             "version": "^1.6.46"
           },
           {
+            "name": "gatsby-plugin-styled-components",
+            "version": "^2.0.11"
+          },
+          {
             "name": "gatsby-plugin-typography",
             "version": "^1.7.19"
+          },
+          {
+            "name": "styled-components",
+            "version": "^3.3.3"
           }
         ],
         "devDependencies": [],
@@ -309,7 +382,7 @@
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "5b51d858e9950196cdae74858c8a4833",
+        "contentDigest": "a448a123eac4fa5d1cf543213e9929e9",
         "type": "SitePlugin",
         "owner": "internal-data-bridge"
       }
@@ -399,12 +472,12 @@
       "host": "localhost",
       "pathPrefix": "",
       "polyfill": true,
-      "buildTime": "2018-07-29T16:21:00.232Z",
+      "buildTime": "2018-07-29T16:33:09.542Z",
       "id": "Site",
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "e28b45b7006a76f63c6b329079bbe0a6",
+        "contentDigest": "12fea0455bd97eb1323f2219ff9a3f1b",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -425,7 +498,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "61d8fb2a35102d1c8c95ad280aeb167c",
+        "contentDigest": "3a3f3107899c4ae2d9c2c2d206debc24",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -433,7 +506,7 @@
   },
   "status": {
     "plugins": {},
-    "PLUGINS_HASH": "c0ffd99ce1b40a8519fba47e56b921f5"
+    "PLUGINS_HASH": "d854431ece3944301d6b17e13f516d32"
   },
   "componentDataDependencies": {
     "nodes": {},

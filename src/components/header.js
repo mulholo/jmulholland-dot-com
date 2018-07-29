@@ -1,18 +1,41 @@
 import React from 'react';
 import Link from 'gatsby-link';
+import styled from 'styled-components';
 
 export default () =>
-  <header style={{ marginBottom: '1.5rem'}}>
+  <StyledHeader>
     <Link to="/">
-      <h4 style={{ display: 'inline' }}>J. Mulholland</h4>
+      <SiteName>J. Mulholland</SiteName>
     </Link>
-    <ul style={{ listStyle: 'none', float: 'right' }}>
+    <StyledUl>
       <ListLink to="/blog">Blog</ListLink>
       <ListLink to="/projects">Projects</ListLink>
-    </ul>
-  </header>
+    </StyledUl>
+  </StyledHeader>
 
 const ListLink = props =>
-  <li style={{ display: 'inline-block', marginRight: '1rem' }}>
+  <StyledLink>
     <Link to={props.to}>{props.children}</Link>
-  </li>
+  </StyledLink>
+
+
+// styled components
+
+const StyledLink = styled.li`
+  display: inline-block;
+  margin-right: 1rem;
+`;
+
+const StyledUl = styled.ul`
+  listStyle: none;
+  float: right:
+`;
+
+const SiteName = styled.h4`
+  display: inline;
+`;
+
+const StyledHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+`;
