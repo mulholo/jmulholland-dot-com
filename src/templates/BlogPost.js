@@ -11,6 +11,7 @@ export default class BlogPost extends Component {
     return (
       <div>
         <h1>{title}</h1>
+        <div dangerouslySetInnerHTML={{__html: body.childMarkdownRemark.html}}></div>
       </div>
     )
   }
@@ -25,6 +26,12 @@ export const pageQuery = graphql`
     contentfulBlogPost(slug: {eq: $slug}) {
       title
       slug
+      body {
+        childMarkdownRemark {
+          html
+          excerpt
+        }
+      }
     }
   }
-`
+`;

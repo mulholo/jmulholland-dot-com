@@ -27,4 +27,4 @@ export const pageQuery = graphql`
   }
 `;
 
-export default BlogPage
+export default BlogPage;
