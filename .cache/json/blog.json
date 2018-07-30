@@ -1,1 +1,1 @@
-{"data":{"allContentfulBlogPost":{"edges":[{"node":{"title":"This is a test blog post","slug":"this-is-a-test-blog-post"}}]}},"pathContext":{}}
+{"data":{"allContentfulBlogPost":{"edges":[{"node":{"title":"This is a test blog post","slug":"this-is-a-test-blog-post","body":{"childMarkdownRemark":{"excerpt":"Test Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tortor urna, efficitur venenatis ante rutrum, suscipit commodo lectus…"}}}}]}},"pathContext":{}}

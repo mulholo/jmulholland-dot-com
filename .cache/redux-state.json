@@ -16,7 +16,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "72d50376e3ac1160b7ea17bf892f8291",
+        "contentDigest": "d132925d87a14567310d2d53a3266432",
         "description": "Plugin dev-404-page",
         "owner": "internal-data-bridge"
       }
@@ -711,12 +711,12 @@
       "host": "localhost",
       "pathPrefix": "",
       "polyfill": true,
-      "buildTime": "2018-07-30T08:32:08.493Z",
+      "buildTime": "2018-07-30T08:41:47.861Z",
       "id": "Site",
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "f714ebb5ddcc93801d238e9e6443d826",
+        "contentDigest": "8f4ec3d20e21a04e1ade86ca17585dc5",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -833,7 +833,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "31579baebdcc623f9c984832ded0bfdb",
+        "contentDigest": "801c58ee74c222f8168aace04a26c5d3",
         "description": "Your site's \"gatsby-node.js\"",
         "owner": "internal-data-bridge"
       }
@@ -854,7 +854,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "32e151d1632d6de4ee3d994e3eec99ac",
+        "contentDigest": "86cd0ca9dae154fa097c31ef4f98ed00",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -875,7 +875,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "001682187a1cea8dc4097fa166f167ef",
+        "contentDigest": "0e3dc7f467f4b6f2f0e1069feccfba6b",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -895,10 +895,12 @@
         "/this-is-a-test-blog-post"
       ],
       "c6wTa6VfxzG8IYGawO4WaMebodyTextNode": [
-        "/this-is-a-test-blog-post"
+        "/this-is-a-test-blog-post",
+        "/blog/"
       ],
       "c6wTa6VfxzG8IYGawO4WaMebodyTextNode >>> MarkdownRemark": [
-        "/this-is-a-test-blog-post"
+        "/this-is-a-test-blog-post",
+        "/blog/"
       ]
     },
     "connections": {
