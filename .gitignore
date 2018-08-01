@@ -1,4 +1,9 @@
-node_modules
-API_KEYS.js
+node_modules/
+public
+.DS_Store
+.cache/
+.gatsby-context.js
+.DS_Store
+.intermediate-representation/
 .env
 
