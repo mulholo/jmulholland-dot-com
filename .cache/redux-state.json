@@ -16,7 +16,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "2ccf0b7bc6f0271d23ae5d79b958d363",
+        "contentDigest": "2545cd5fcdb1fb184e0681d6b998ff54",
         "description": "Plugin dev-404-page",
         "owner": "internal-data-bridge"
       }
@@ -711,12 +711,12 @@
       "host": "localhost",
       "pathPrefix": "",
       "polyfill": true,
-      "buildTime": "2018-07-30T11:25:32.208Z",
+      "buildTime": "2018-08-01T17:16:26.298Z",
       "id": "Site",
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "d0628b60cde25d234f4d551b9ac22eeb",
+        "contentDigest": "150da0caf3f2bc29a2f09a030c9e652b",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -735,42 +735,28 @@
       }
     },
     "c6wTa6VfxzG8IYGawO4WaMe": {
-      "title": "This is a test blog post",
-      "slug": "this-is-a-test-blog-post",
+      "title": "A new home for my thoughts",
+      "slug": "first",
       "tags": [
         "meow",
         "wow"
       ],
+      "publishDate": "2018-08-01",
       "body___NODE": "c6wTa6VfxzG8IYGawO4WaMebodyTextNode",
       "id": "c6wTa6VfxzG8IYGawO4WaMe",
       "contentful_id": "6wTa6VfxzG8IYGawO4WaMe",
       "createdAt": "2018-07-29T19:12:53.648Z",
-      "updatedAt": "2018-07-29T19:12:53.648Z",
+      "updatedAt": "2018-08-01T17:15:50.428Z",
       "parent": "BlogPost",
       "children": [
         "c6wTa6VfxzG8IYGawO4WaMebodyTextNode"
       ],
       "internal": {
         "type": "ContentfulBlogPost",
-        "contentDigest": "c14e873a85c0cdb6fd51242977f232a0",
+        "contentDigest": "c13c063e304f23fd6903118df54abd58",
         "owner": "gatsby-source-contentful"
       },
       "node_locale": "en-GB"
-    },
-    "c6wTa6VfxzG8IYGawO4WaMebodyTextNode": {
-      "id": "c6wTa6VfxzG8IYGawO4WaMebodyTextNode",
-      "parent": "c6wTa6VfxzG8IYGawO4WaMe",
-      "children": [
-        "c6wTa6VfxzG8IYGawO4WaMebodyTextNode >>> MarkdownRemark"
-      ],
-      "body": "# Test\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tortor urna, efficitur venenatis ante rutrum, suscipit commodo lectus. Praesent aliquam nisi vitae erat tempus blandit. Ut lobortis facilisis orci faucibus condimentum. Proin sit amet risus efficitur, pellentesque neque a, malesuada mauris. Nulla gravida, ligula sed gravida hendrerit, odio purus semper velit, a iaculis augue mi id nulla. Ut placerat, dui eget rhoncus placerat, eros velit congue diam, eu ullamcorper magna eros a arcu. Nam id nisl odio. Suspendisse in dapibus odio, at ultrices nunc.\n\n![webcam-7/29/2018, 8:12:20 PM](//images.ctfassets.net/kq8wdn6jzau5/6tmdwL84CIQesQ0eyiUA22/f1dea90a2b9efd532c6168d0310b2191/webcam-7_29_2018__8_12_20_PM.png)",
-      "internal": {
-        "type": "contentfulBlogPostBodyTextNode",
-        "mediaType": "text/markdown",
-        "content": "# Test\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tortor urna, efficitur venenatis ante rutrum, suscipit commodo lectus. Praesent aliquam nisi vitae erat tempus blandit. Ut lobortis facilisis orci faucibus condimentum. Proin sit amet risus efficitur, pellentesque neque a, malesuada mauris. Nulla gravida, ligula sed gravida hendrerit, odio purus semper velit, a iaculis augue mi id nulla. Ut placerat, dui eget rhoncus placerat, eros velit congue diam, eu ullamcorper magna eros a arcu. Nam id nisl odio. Suspendisse in dapibus odio, at ultrices nunc.\n\n![webcam-7/29/2018, 8:12:20 PM](//images.ctfassets.net/kq8wdn6jzau5/6tmdwL84CIQesQ0eyiUA22/f1dea90a2b9efd532c6168d0310b2191/webcam-7_29_2018__8_12_20_PM.png)",
-        "contentDigest": "610ed3716a02283da37c17bc32ee2782",
-        "owner": "gatsby-source-contentful"
-      }
     },
     "c6tmdwL84CIQesQ0eyiUA22": {
       "id": "c6tmdwL84CIQesQ0eyiUA22",
@@ -797,14 +783,29 @@
         "owner": "gatsby-source-contentful"
       }
     },
+    "c6wTa6VfxzG8IYGawO4WaMebodyTextNode": {
+      "id": "c6wTa6VfxzG8IYGawO4WaMebodyTextNode",
+      "parent": "c6wTa6VfxzG8IYGawO4WaMe",
+      "children": [
+        "c6wTa6VfxzG8IYGawO4WaMebodyTextNode >>> MarkdownRemark"
+      ],
+      "body": "I've been journalling a lot recently and wanted to transfer that process of active reflection into a semi-public domain.\n\nSo here it is: my blog. It's a little empty right now, but it will grow soon enough.\n",
+      "internal": {
+        "type": "contentfulBlogPostBodyTextNode",
+        "mediaType": "text/markdown",
+        "content": "I've been journalling a lot recently and wanted to transfer that process of active reflection into a semi-public domain.\n\nSo here it is: my blog. It's a little empty right now, but it will grow soon enough.\n",
+        "contentDigest": "4bd65a83c8a7bc0635f4fa670e65d41f",
+        "owner": "gatsby-source-contentful"
+      }
+    },
     "c6wTa6VfxzG8IYGawO4WaMebodyTextNode >>> MarkdownRemark": {
       "id": "c6wTa6VfxzG8IYGawO4WaMebodyTextNode >>> MarkdownRemark",
       "children": [],
       "parent": "c6wTa6VfxzG8IYGawO4WaMebodyTextNode",
       "internal": {
-        "content": "# Test\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tortor urna, efficitur venenatis ante rutrum, suscipit commodo lectus. Praesent aliquam nisi vitae erat tempus blandit. Ut lobortis facilisis orci faucibus condimentum. Proin sit amet risus efficitur, pellentesque neque a, malesuada mauris. Nulla gravida, ligula sed gravida hendrerit, odio purus semper velit, a iaculis augue mi id nulla. Ut placerat, dui eget rhoncus placerat, eros velit congue diam, eu ullamcorper magna eros a arcu. Nam id nisl odio. Suspendisse in dapibus odio, at ultrices nunc.\n\n![webcam-7/29/2018, 8:12:20 PM](//images.ctfassets.net/kq8wdn6jzau5/6tmdwL84CIQesQ0eyiUA22/f1dea90a2b9efd532c6168d0310b2191/webcam-7_29_2018__8_12_20_PM.png)",
+        "content": "I've been journalling a lot recently and wanted to transfer that process of active reflection into a semi-public domain.\n\nSo here it is: my blog. It's a little empty right now, but it will grow soon enough.\n",
         "type": "MarkdownRemark",
-        "contentDigest": "836b91dd11dec9159d4bc009e7dbe9b2",
+        "contentDigest": "0cca352fabf9e34961db5d9e672ce654",
         "owner": "gatsby-transformer-remark"
       },
       "frontmatter": {
@@ -813,28 +814,49 @@
         "parent": "c6wTa6VfxzG8IYGawO4WaMebodyTextNode"
       },
       "excerpt": "",
-      "rawMarkdownBody": "# Test\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tortor urna, efficitur venenatis ante rutrum, suscipit commodo lectus. Praesent aliquam nisi vitae erat tempus blandit. Ut lobortis facilisis orci faucibus condimentum. Proin sit amet risus efficitur, pellentesque neque a, malesuada mauris. Nulla gravida, ligula sed gravida hendrerit, odio purus semper velit, a iaculis augue mi id nulla. Ut placerat, dui eget rhoncus placerat, eros velit congue diam, eu ullamcorper magna eros a arcu. Nam id nisl odio. Suspendisse in dapibus odio, at ultrices nunc.\n\n![webcam-7/29/2018, 8:12:20 PM](//images.ctfassets.net/kq8wdn6jzau5/6tmdwL84CIQesQ0eyiUA22/f1dea90a2b9efd532c6168d0310b2191/webcam-7_29_2018__8_12_20_PM.png)"
+      "rawMarkdownBody": "I've been journalling a lot recently and wanted to transfer that process of active reflection into a semi-public domain.\n\nSo here it is: my blog. It's a little empty right now, but it will grow soon enough.\n"
     },
-    "SitePage /this-is-a-test-blog-post": {
+    "SitePage /first": {
       "layout": "index",
-      "jsonName": "this-is-a-test-blog-post.json",
-      "internalComponentName": "ComponentThisIsATestBlogPost",
-      "path": "/this-is-a-test-blog-post",
+      "jsonName": "first.json",
+      "internalComponentName": "ComponentFirst",
+      "path": "/first",
       "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/BlogPost.js",
       "componentChunkName": "component---src-templates-blog-post-js",
       "context": {
-        "slug": "this-is-a-test-blog-post"
+        "slug": "first"
       },
       "pluginCreator___NODE": "Plugin default-site-plugin",
       "pluginCreatorId": "Plugin default-site-plugin",
       "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/BlogPost.js",
-      "id": "SitePage /this-is-a-test-blog-post",
+      "id": "SitePage /first",
       "parent": "SOURCE",
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "83fe9740fd850ae2ceb6dd43b70459ca",
+        "contentDigest": "a406719eda8aa8aa6cad55d8f2bc6cea",
         "description": "Your site's \"gatsby-node.js\"",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /404/": {
+      "layout": "index",
+      "jsonName": "404.json",
+      "internalComponentName": "Component404",
+      "path": "/404/",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
+      "componentChunkName": "component---src-pages-404-js",
+      "context": {},
+      "pluginCreator___NODE": "Plugin gatsby-plugin-page-creator",
+      "pluginCreatorId": "Plugin gatsby-plugin-page-creator",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
+      "id": "SitePage /404/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "704751b942d0dfac04fab6fcb624fccd",
+        "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
     },
@@ -854,7 +876,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "998f8232be566dc77c000066205e754c",
+        "contentDigest": "8c6ab7860c4c273e1799e42cca97eb36",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -875,28 +897,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "1da0bb06a33e2cddca73980da63312de",
-        "description": "Plugin gatsby-plugin-page-creator",
-        "owner": "internal-data-bridge"
-      }
-    },
-    "SitePage /404/": {
-      "layout": "index",
-      "jsonName": "404.json",
-      "internalComponentName": "Component404",
-      "path": "/404/",
-      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
-      "componentChunkName": "component---src-pages-404-js",
-      "context": {},
-      "pluginCreator___NODE": "Plugin gatsby-plugin-page-creator",
-      "pluginCreatorId": "Plugin gatsby-plugin-page-creator",
-      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
-      "id": "SitePage /404/",
-      "parent": "SOURCE",
-      "children": [],
-      "internal": {
-        "type": "SitePage",
-        "contentDigest": "3c243b3654edcd348caa018c48858ebe",
+        "contentDigest": "4e05c33c3a2e5d90bf7ea8ae03c5e88e",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -917,7 +918,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "87499d6f6968b5e30c64c8d223f9dce1",
+        "contentDigest": "a5f6f367293cbb8e957e3e97f6e3bf07",
         "description": "Plugin prod-404",
         "owner": "internal-data-bridge"
       }
@@ -926,7 +927,7 @@
   "status": {
     "plugins": {
       "gatsby-source-contentful": {
-        "kq8wdn6jzau5-master": "w5ZGw6JFwqZmVcKsE8Kow4grw45QdyYEw40vT8OywrPCjcOzRgrCmsOzw73DisOOwqZaC8KlwqJrSMO6wrLCm8O7aRgAbsKww5tTAzVYwqdBw4fChxzCrcKsfcKtwoXClsOuwqMVAMKhwpB7dzPCtsONKsOnY8OIC3M"
+        "kq8wdn6jzau5-master": "w5ZGw6JFwqZmVcKsE8Kow4grw45QdybDv8Kye07Dh8O4CCQ7KMKrw48PdV01w4hLwoVeQUXDo8KNw5sFG8KdXcOpwqVowpoBw54lVzTDuXMxwovCigExwq9HbsKzw5QFw67CucO6DcKkwq8ow5TDinx0BzM"
       }
     },
     "PLUGINS_HASH": "c7ef6a077c7f7542a2f3d98520cf877b"
@@ -934,15 +935,18 @@
   "componentDataDependencies": {
     "nodes": {
       "c6wTa6VfxzG8IYGawO4WaMe": [
-        "/this-is-a-test-blog-post"
+        "/this-is-a-test-blog-post",
+        "/first"
       ],
       "c6wTa6VfxzG8IYGawO4WaMebodyTextNode": [
         "/this-is-a-test-blog-post",
-        "/blog/"
+        "/blog/",
+        "/first"
       ],
       "c6wTa6VfxzG8IYGawO4WaMebodyTextNode >>> MarkdownRemark": [
         "/this-is-a-test-blog-post",
-        "/blog/"
+        "/blog/",
+        "/first"
       ]
     },
     "connections": {
