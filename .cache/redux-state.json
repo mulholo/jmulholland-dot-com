@@ -16,7 +16,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "2545cd5fcdb1fb184e0681d6b998ff54",
+        "contentDigest": "1f515f57b6f31102be924033cf42497d",
         "description": "Plugin dev-404-page",
         "owner": "internal-data-bridge"
       }
@@ -569,7 +569,7 @@
       "resolve": "/Users/jamesmulholland/proj/jmulholland-dot-com",
       "id": "Plugin default-site-plugin",
       "name": "default-site-plugin",
-      "version": "00ef2f56ebbefc3ac10e6dcc08f463ae",
+      "version": "193ac61f0eaf3d8328eea4077f4d4a18",
       "pluginOptions": {
         "plugins": []
       },
@@ -613,7 +613,12 @@
             "version": "^3.3.3"
           }
         ],
-        "devDependencies": [],
+        "devDependencies": [
+          {
+            "name": "dotenv",
+            "version": "^6.0.0"
+          }
+        ],
         "peerDependencies": [],
         "optionalDependecies": [],
         "bundledDependecies": []
@@ -621,7 +626,7 @@
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "8b6e8901d3ff532271a41d60f10efdf5",
+        "contentDigest": "aebfae68342c9836be21a6f9a48f9077",
         "type": "SitePlugin",
         "owner": "internal-data-bridge"
       }
@@ -711,12 +716,12 @@
       "host": "localhost",
       "pathPrefix": "",
       "polyfill": true,
-      "buildTime": "2018-08-01T17:16:26.298Z",
+      "buildTime": "2018-08-01T17:25:26.578Z",
       "id": "Site",
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "150da0caf3f2bc29a2f09a030c9e652b",
+        "contentDigest": "d8a52461e6da9be3e6dea4da631f945e",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -758,6 +763,21 @@
       },
       "node_locale": "en-GB"
     },
+    "c6wTa6VfxzG8IYGawO4WaMebodyTextNode": {
+      "id": "c6wTa6VfxzG8IYGawO4WaMebodyTextNode",
+      "parent": "c6wTa6VfxzG8IYGawO4WaMe",
+      "children": [
+        "c6wTa6VfxzG8IYGawO4WaMebodyTextNode >>> MarkdownRemark"
+      ],
+      "body": "I've been journalling a lot recently and wanted to transfer that process of active reflection into a semi-public domain.\n\nSo here it is: my blog. It's a little empty right now, but it will grow soon enough.\n",
+      "internal": {
+        "type": "contentfulBlogPostBodyTextNode",
+        "mediaType": "text/markdown",
+        "content": "I've been journalling a lot recently and wanted to transfer that process of active reflection into a semi-public domain.\n\nSo here it is: my blog. It's a little empty right now, but it will grow soon enough.\n",
+        "contentDigest": "4bd65a83c8a7bc0635f4fa670e65d41f",
+        "owner": "gatsby-source-contentful"
+      }
+    },
     "c6tmdwL84CIQesQ0eyiUA22": {
       "id": "c6tmdwL84CIQesQ0eyiUA22",
       "parent": null,
@@ -780,21 +800,6 @@
       "internal": {
         "type": "ContentfulAsset",
         "contentDigest": "f48c438c891e15fbfaa17e95ac8861ea",
-        "owner": "gatsby-source-contentful"
-      }
-    },
-    "c6wTa6VfxzG8IYGawO4WaMebodyTextNode": {
-      "id": "c6wTa6VfxzG8IYGawO4WaMebodyTextNode",
-      "parent": "c6wTa6VfxzG8IYGawO4WaMe",
-      "children": [
-        "c6wTa6VfxzG8IYGawO4WaMebodyTextNode >>> MarkdownRemark"
-      ],
-      "body": "I've been journalling a lot recently and wanted to transfer that process of active reflection into a semi-public domain.\n\nSo here it is: my blog. It's a little empty right now, but it will grow soon enough.\n",
-      "internal": {
-        "type": "contentfulBlogPostBodyTextNode",
-        "mediaType": "text/markdown",
-        "content": "I've been journalling a lot recently and wanted to transfer that process of active reflection into a semi-public domain.\n\nSo here it is: my blog. It's a little empty right now, but it will grow soon enough.\n",
-        "contentDigest": "4bd65a83c8a7bc0635f4fa670e65d41f",
         "owner": "gatsby-source-contentful"
       }
     },
@@ -834,7 +839,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "a406719eda8aa8aa6cad55d8f2bc6cea",
+        "contentDigest": "a9ea5f15191e05c70cb730e2124d2f92",
         "description": "Your site's \"gatsby-node.js\"",
         "owner": "internal-data-bridge"
       }
@@ -855,7 +860,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "704751b942d0dfac04fab6fcb624fccd",
+        "contentDigest": "ba1c56217dd5e1f17e58cb197b1ff298",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -876,7 +881,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "8c6ab7860c4c273e1799e42cca97eb36",
+        "contentDigest": "29f416b8131c4effc28cb181e88e9201",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -897,7 +902,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "4e05c33c3a2e5d90bf7ea8ae03c5e88e",
+        "contentDigest": "b4f100901a50335691105dc6c38ee486",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -918,7 +923,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "a5f6f367293cbb8e957e3e97f6e3bf07",
+        "contentDigest": "a1d30f8caf6b5ef0089b1c924f0b252c",
         "description": "Plugin prod-404",
         "owner": "internal-data-bridge"
       }
@@ -930,23 +935,20 @@
         "kq8wdn6jzau5-master": "w5ZGw6JFwqZmVcKsE8Kow4grw45QdybDv8Kye07Dh8O4CCQ7KMKrw48PdV01w4hLwoVeQUXDo8KNw5sFG8KdXcOpwqVowpoBw54lVzTDuXMxwovCigExwq9HbsKzw5QFw67CucO6DcKkwq8ow5TDinx0BzM"
       }
     },
-    "PLUGINS_HASH": "c7ef6a077c7f7542a2f3d98520cf877b"
+    "PLUGINS_HASH": "d358cec4edbe4a03161d158a88c0e9de"
   },
   "componentDataDependencies": {
     "nodes": {
       "c6wTa6VfxzG8IYGawO4WaMe": [
-        "/this-is-a-test-blog-post",
         "/first"
       ],
       "c6wTa6VfxzG8IYGawO4WaMebodyTextNode": [
-        "/this-is-a-test-blog-post",
-        "/blog/",
-        "/first"
+        "/first",
+        "/blog/"
       ],
       "c6wTa6VfxzG8IYGawO4WaMebodyTextNode >>> MarkdownRemark": [
-        "/this-is-a-test-blog-post",
-        "/blog/",
-        "/first"
+        "/first",
+        "/blog/"
       ]
     },
     "connections": {
