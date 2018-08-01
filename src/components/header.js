@@ -8,8 +8,8 @@ export default () =>
       <SiteName>James Mulholland</SiteName>
     </StyledLink>
     <StyledUl>
+      <ListLink to="/">Home</ListLink>
       <ListLink to="/blog">Blog</ListLink>
-      <ListLink to="/projects">Projects</ListLink>
     </StyledUl>
   </StyledHeader>
 

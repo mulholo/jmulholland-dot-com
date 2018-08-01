@@ -16,7 +16,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "d132925d87a14567310d2d53a3266432",
+        "contentDigest": "2ccf0b7bc6f0271d23ae5d79b958d363",
         "description": "Plugin dev-404-page",
         "owner": "internal-data-bridge"
       }
@@ -711,12 +711,12 @@
       "host": "localhost",
       "pathPrefix": "",
       "polyfill": true,
-      "buildTime": "2018-07-30T08:41:47.861Z",
+      "buildTime": "2018-07-30T11:25:32.208Z",
       "id": "Site",
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "8f4ec3d20e21a04e1ade86ca17585dc5",
+        "contentDigest": "d0628b60cde25d234f4d551b9ac22eeb",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -833,7 +833,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "801c58ee74c222f8168aace04a26c5d3",
+        "contentDigest": "83fe9740fd850ae2ceb6dd43b70459ca",
         "description": "Your site's \"gatsby-node.js\"",
         "owner": "internal-data-bridge"
       }
@@ -854,7 +854,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "86cd0ca9dae154fa097c31ef4f98ed00",
+        "contentDigest": "998f8232be566dc77c000066205e754c",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -875,8 +875,50 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "0e3dc7f467f4b6f2f0e1069feccfba6b",
+        "contentDigest": "1da0bb06a33e2cddca73980da63312de",
         "description": "Plugin gatsby-plugin-page-creator",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /404/": {
+      "layout": "index",
+      "jsonName": "404.json",
+      "internalComponentName": "Component404",
+      "path": "/404/",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
+      "componentChunkName": "component---src-pages-404-js",
+      "context": {},
+      "pluginCreator___NODE": "Plugin gatsby-plugin-page-creator",
+      "pluginCreatorId": "Plugin gatsby-plugin-page-creator",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
+      "id": "SitePage /404/",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "3c243b3654edcd348caa018c48858ebe",
+        "description": "Plugin gatsby-plugin-page-creator",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /404.html": {
+      "layout": "index",
+      "jsonName": "404-html.json",
+      "internalComponentName": "Component404Html",
+      "path": "/404.html",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
+      "componentChunkName": "component---src-pages-404-js",
+      "context": {},
+      "pluginCreator___NODE": "Plugin prod-404",
+      "pluginCreatorId": "Plugin prod-404",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
+      "id": "SitePage /404.html",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "87499d6f6968b5e30c64c8d223f9dce1",
+        "description": "Plugin prod-404",
         "owner": "internal-data-bridge"
       }
     }
