@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const BlogPost = ({ data }) => {
+  if (!data) return null;
   const { title, body } = data.contentfulBlogPost;
   return (
     <div>
