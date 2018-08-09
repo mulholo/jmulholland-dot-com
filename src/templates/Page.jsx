@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Page = ({ data }) => {
-  const { contentfulPage } = data;
-  const { title, body } = contenfulPage;
+  const { title, body } = data.contentfulPage;
   return (
     <div>
       <h1>{title}</h1>
@@ -34,7 +33,6 @@ export const query = graphql`
       body {
         childMarkdownRemark {
           html
-          excerpt
         }
       }
     }

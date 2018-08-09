@@ -14,6 +14,13 @@
         "path": "/thoughts"
     },
     {
+        "componentChunkName": "component---src-templates-page-jsx",
+        "layout": "layout---index",
+        "layoutComponentChunkName": "component---src-layouts-index-jsx",
+        "jsonName": "uses.json",
+        "path": "/uses"
+    },
+    {
         "componentChunkName": "component---cache-dev-404-page-js",
         "layout": "layout---index",
         "layoutComponentChunkName": "component---src-layouts-index-jsx",
