@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import styled from 'styled-components';
 
-export default () =>
+export default () => (
   <StyledHeader>
     <StyledLink to="/">
       <SiteName>James Mulholland</SiteName>
@@ -10,19 +11,23 @@ export default () =>
     <StyledUl>
       <ListLink to="/">Home</ListLink>
       <ListLink to="/blog">Blog</ListLink>
+      <ListLink to="/thoughts">Thoughts</ListLink>
     </StyledUl>
   </StyledHeader>
+);
 
-const ListLink = props =>
+const ListLink = ({ to, children }) => (
   <StyledLi>
-    <StyledLink
-      to={props.to}
-      style={{ textDecoration: 'none' }}
-      activeStyle={{ textDecoration: 'none' }}>
-      {props.children}
+    <StyledLink to={to} style={{ textDecoration: 'none' }} activeStyle={{ textDecoration: 'none' }}>
+      {children}
     </StyledLink>
   </StyledLi>
+);
 
+ListLink.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  to: PropTypes.string.isRequired,
+};
 
 // styled components
 
@@ -36,17 +41,23 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   color: #000;
 
-  &:focus, &:hover, &:visited, &:link, &:active {
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
     text-decoration: none;
   }
 
-  &:focus, &:hover, &:active {
+  &:focus,
+  &:hover,
+  &:active {
     color: #dd9801;
   }
 `;
 
 const StyledUl = styled.ul`
-  listStyle: none;
+  liststyle: none;
   margin: 0;
 `;
 
@@ -59,5 +70,5 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   padding-bottom: 0;
   margin-bottom: 2rem;
-  border-bottom: 2px solid #DD9801;
+  border-bottom: 2px solid #dd9801;
 `;

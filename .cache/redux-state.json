@@ -16,7 +16,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "1f515f57b6f31102be924033cf42497d",
+        "contentDigest": "4cd81cc1c959635f66ab5e3c3e19f6bb",
         "description": "Plugin dev-404-page",
         "owner": "internal-data-bridge"
       }
@@ -569,7 +569,7 @@
       "resolve": "/Users/jamesmulholland/proj/jmulholland-dot-com",
       "id": "Plugin default-site-plugin",
       "name": "default-site-plugin",
-      "version": "193ac61f0eaf3d8328eea4077f4d4a18",
+      "version": "16199c2ca1720e466086e1ce89b84201",
       "pluginOptions": {
         "plugins": []
       },
@@ -609,6 +609,14 @@
             "version": "^1.7.44"
           },
           {
+            "name": "prop-types",
+            "version": "^15.6.2"
+          },
+          {
+            "name": "react",
+            "version": "^16.4.2"
+          },
+          {
             "name": "styled-components",
             "version": "^3.3.3"
           }
@@ -617,6 +625,26 @@
           {
             "name": "dotenv",
             "version": "^6.0.0"
+          },
+          {
+            "name": "eslint",
+            "version": "^4.19.1"
+          },
+          {
+            "name": "eslint-config-airbnb",
+            "version": "^17.0.0"
+          },
+          {
+            "name": "eslint-plugin-import",
+            "version": "^2.13.0"
+          },
+          {
+            "name": "eslint-plugin-jsx-a11y",
+            "version": "^6.1.1"
+          },
+          {
+            "name": "eslint-plugin-react",
+            "version": "^7.10.0"
           }
         ],
         "peerDependencies": [],
@@ -626,7 +654,7 @@
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "aebfae68342c9836be21a6f9a48f9077",
+        "contentDigest": "828bbd8c5e11829e8a89b6e955d1cdae",
         "type": "SitePlugin",
         "owner": "internal-data-bridge"
       }
@@ -716,12 +744,12 @@
       "host": "localhost",
       "pathPrefix": "",
       "polyfill": true,
-      "buildTime": "2018-08-01T17:25:26.578Z",
+      "buildTime": "2018-08-09T11:54:00.323Z",
       "id": "Site",
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "d8a52461e6da9be3e6dea4da631f945e",
+        "contentDigest": "8f30ad5717fea5dd57cbfdd95f4023b8",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -778,6 +806,39 @@
         "owner": "gatsby-source-contentful"
       }
     },
+    "Page": {
+      "id": "Page",
+      "parent": null,
+      "children": [],
+      "name": "Page",
+      "displayField": "slug",
+      "description": "Like posts, but not.",
+      "internal": {
+        "type": "ContentfulContentType",
+        "contentDigest": "6d158d72f53c95fc304ab1ac497eb847",
+        "owner": "gatsby-source-contentful"
+      }
+    },
+    "c6QDV1LDhscmMG6K0eEYuGo": {
+      "title": "Thoughts",
+      "slug": "thoughts",
+      "menu": true,
+      "body___NODE": "c6QDV1LDhscmMG6K0eEYuGobodyTextNode",
+      "id": "c6QDV1LDhscmMG6K0eEYuGo",
+      "contentful_id": "6QDV1LDhscmMG6K0eEYuGo",
+      "createdAt": "2018-08-05T11:30:48.437Z",
+      "updatedAt": "2018-08-09T11:21:59.854Z",
+      "parent": "Page",
+      "children": [
+        "c6QDV1LDhscmMG6K0eEYuGobodyTextNode"
+      ],
+      "internal": {
+        "type": "ContentfulPage",
+        "contentDigest": "699e9a06b769469ec9ce10825cdf5a1e",
+        "owner": "gatsby-source-contentful"
+      },
+      "node_locale": "en-GB"
+    },
     "c6tmdwL84CIQesQ0eyiUA22": {
       "id": "c6tmdwL84CIQesQ0eyiUA22",
       "parent": null,
@@ -821,25 +882,157 @@
       "excerpt": "",
       "rawMarkdownBody": "I've been journalling a lot recently and wanted to transfer that process of active reflection into a semi-public domain.\n\nSo here it is: my blog. It's a little empty right now, but it will grow soon enough.\n"
     },
+    "c68ReiZHBo4UGu8cMuAeSGm": {
+      "title": "Uses",
+      "slug": "uses",
+      "menu": false,
+      "body___NODE": "c68ReiZHBo4UGu8cMuAeSGmbodyTextNode",
+      "id": "c68ReiZHBo4UGu8cMuAeSGm",
+      "contentful_id": "68ReiZHBo4UGu8cMuAeSGm",
+      "createdAt": "2018-08-09T11:37:07.558Z",
+      "updatedAt": "2018-08-09T11:51:54.039Z",
+      "parent": "Page",
+      "children": [
+        "c68ReiZHBo4UGu8cMuAeSGmbodyTextNode"
+      ],
+      "internal": {
+        "type": "ContentfulPage",
+        "contentDigest": "678a2231ff41a6dfba2241de0fd3fd04",
+        "owner": "gatsby-source-contentful"
+      },
+      "node_locale": "en-GB"
+    },
+    "c6QDV1LDhscmMG6K0eEYuGobodyTextNode": {
+      "id": "c6QDV1LDhscmMG6K0eEYuGobodyTextNode",
+      "parent": "c6QDV1LDhscmMG6K0eEYuGo",
+      "children": [
+        "c6QDV1LDhscmMG6K0eEYuGobodyTextNode >>> MarkdownRemark"
+      ],
+      "body": "Here you can find a collection of my interests and beliefs. On the semi-anonymous internet, it's a way I can tell you a bit about myself.\n\n## Interests\n\nThese are things that I am currently interested in, reading about or working on. I try to focus on what is on this list and exclude anything that is not.\n\n**Design Systems and the Fusion of Design and Development**\n\nSince becoming a front-end developer, I have been fascinated by two recurring problems in my work.\n\nFirstly, there is the issue of bridging the gap between design and code. Although lots of work is being done in this area, for the time being, I still feel there is too much of a chasm between pixels and code. I am interested in tools and methodologies which let designers deliver more useful deliverables to developers (i.e. code rather than images) and which let developers appreciate more fully the oft-undervalued world of design.\n\nThe second problem is scaling design. I am interested in making good design more maintainable and easier to implement. I see design systems as tools to abstract what makes a product aesthetic and usable.\n\n**Programming**\n\nLearning to code is the best example I know of a positive feedback loop: the more you learn, the more you want to learn. It is my favourite method for obtaining [flow](https://en.wikipedia.org/wiki/Mihaly_Csikszentmihalyi#Flow) and is one of the most consistent tools I have for lifting my mood.\n\nCurrently, I am interested in nailing the [last 20%](https://en.wikipedia.org/wiki/Pareto_principle) of JavaScript and React. I am always looking to explore new CSS and HTML techniques and share a few examples from my [newsletter](https://www.copythat.io/) on [CodePen](https://codepen.io/mulholio/#). For other projects, head over to my [GitHub](https://github.com/mulholio).\n\n**Philosophy**\n\nI studied philosophy at university and I think of it as a fantastic lens through which you can view everything else in life. It is a foundation that prompts you to examine first principles, not surface-level truths and its methodology of precise examination feels infinitely applicable.\n\nThere are instances where it is specifically and pragmatically useful (e.g. [truth-tables](https://en.wikipedia.org/wiki/Truth_table) making more complex uses of Javascript's ternary operator a breeze) and also when it helps improve broader skills (e.g. in the ability to construct a well-formed argument).\n\nI am also still holding out that, despite still struggling to find a real-world application, decision theory might one day be useful to me.\n\n**Meta-learning and Productivity**\n\nWhen I began to learn to code while simultaneously studying for my degree, I became increasingly interested in meta-learning (learning how to learn) and its power to exponentially boost all other skills. It is an area I am constantly working and I always seek new ways of improving focus, knowledge retention and skill-acquisition.\n\n**Street Photography**\n\nMy primary form of consuming and creating art is through street photography. It is a niche discipline that far too few people know about and I love its emphasis of content above and beyond mere aesthetics.\n\nI'm working on a proper place to showcase the photos I am happy with but for now, you can check out my poorly-updated [VSCO](https://vsco.co/mulholio/).\n\n## Future Interests\n\nThese are things I would like to learn more about in the coming months and years but that I don't feel knowledgeable enough about at the present moment.\n\n- The automation of design and creativity\n- AI\n- Learning how to use [Vim](https://www.vim.org/)\n- Healthcare\n\n## Beliefs\n\nI find the act of explicitly articulating your beliefs clarifies them and separates the important from the trivial. This list is an ongoing attempt to do that.\n\n- [Flow](https://en.wikipedia.org/wiki/Mihaly_Csikszentmihalyi#Flow) is the biggest determinant of enjoyment and meaning at work and it is, therefore, a moral imperative to maximise its occurrence.\n- Healthcare should be accessible to all.\n- You should block news content. You're better off consuming older information like books that contain higher quality information and will be useful for a longer period of time. Of course, if something is truly important news, you'll probably hear about it anyway.\n- Politics is an ineffective vehicle for change for 80% of people. Of course, *some* people **should be interested in politics but for most it serves only as a talking point on which action is never taken.\n- Driving should be avoided where possible. This covers both the personal and societal level; choose to live closer to work, walk and cycle, design better infrastructure.\n- [Good design is as little design as possible](https://www.vitsoe.com/gb/about/good-design)\n- You should aim to be [anti-fragile](https://www.amazon.co.uk/Antifragile-Things-that-Gain-Disorder/dp/0141038225).\n- Creativity is not as magical as it's made out to be.\n- It is useful to remember your own mortality.\n- Decision theory is (almost?) always a waste of time.\n",
+      "internal": {
+        "type": "contentfulPageBodyTextNode",
+        "mediaType": "text/markdown",
+        "content": "Here you can find a collection of my interests and beliefs. On the semi-anonymous internet, it's a way I can tell you a bit about myself.\n\n## Interests\n\nThese are things that I am currently interested in, reading about or working on. I try to focus on what is on this list and exclude anything that is not.\n\n**Design Systems and the Fusion of Design and Development**\n\nSince becoming a front-end developer, I have been fascinated by two recurring problems in my work.\n\nFirstly, there is the issue of bridging the gap between design and code. Although lots of work is being done in this area, for the time being, I still feel there is too much of a chasm between pixels and code. I am interested in tools and methodologies which let designers deliver more useful deliverables to developers (i.e. code rather than images) and which let developers appreciate more fully the oft-undervalued world of design.\n\nThe second problem is scaling design. I am interested in making good design more maintainable and easier to implement. I see design systems as tools to abstract what makes a product aesthetic and usable.\n\n**Programming**\n\nLearning to code is the best example I know of a positive feedback loop: the more you learn, the more you want to learn. It is my favourite method for obtaining [flow](https://en.wikipedia.org/wiki/Mihaly_Csikszentmihalyi#Flow) and is one of the most consistent tools I have for lifting my mood.\n\nCurrently, I am interested in nailing the [last 20%](https://en.wikipedia.org/wiki/Pareto_principle) of JavaScript and React. I am always looking to explore new CSS and HTML techniques and share a few examples from my [newsletter](https://www.copythat.io/) on [CodePen](https://codepen.io/mulholio/#). For other projects, head over to my [GitHub](https://github.com/mulholio).\n\n**Philosophy**\n\nI studied philosophy at university and I think of it as a fantastic lens through which you can view everything else in life. It is a foundation that prompts you to examine first principles, not surface-level truths and its methodology of precise examination feels infinitely applicable.\n\nThere are instances where it is specifically and pragmatically useful (e.g. [truth-tables](https://en.wikipedia.org/wiki/Truth_table) making more complex uses of Javascript's ternary operator a breeze) and also when it helps improve broader skills (e.g. in the ability to construct a well-formed argument).\n\nI am also still holding out that, despite still struggling to find a real-world application, decision theory might one day be useful to me.\n\n**Meta-learning and Productivity**\n\nWhen I began to learn to code while simultaneously studying for my degree, I became increasingly interested in meta-learning (learning how to learn) and its power to exponentially boost all other skills. It is an area I am constantly working and I always seek new ways of improving focus, knowledge retention and skill-acquisition.\n\n**Street Photography**\n\nMy primary form of consuming and creating art is through street photography. It is a niche discipline that far too few people know about and I love its emphasis of content above and beyond mere aesthetics.\n\nI'm working on a proper place to showcase the photos I am happy with but for now, you can check out my poorly-updated [VSCO](https://vsco.co/mulholio/).\n\n## Future Interests\n\nThese are things I would like to learn more about in the coming months and years but that I don't feel knowledgeable enough about at the present moment.\n\n- The automation of design and creativity\n- AI\n- Learning how to use [Vim](https://www.vim.org/)\n- Healthcare\n\n## Beliefs\n\nI find the act of explicitly articulating your beliefs clarifies them and separates the important from the trivial. This list is an ongoing attempt to do that.\n\n- [Flow](https://en.wikipedia.org/wiki/Mihaly_Csikszentmihalyi#Flow) is the biggest determinant of enjoyment and meaning at work and it is, therefore, a moral imperative to maximise its occurrence.\n- Healthcare should be accessible to all.\n- You should block news content. You're better off consuming older information like books that contain higher quality information and will be useful for a longer period of time. Of course, if something is truly important news, you'll probably hear about it anyway.\n- Politics is an ineffective vehicle for change for 80% of people. Of course, *some* people **should be interested in politics but for most it serves only as a talking point on which action is never taken.\n- Driving should be avoided where possible. This covers both the personal and societal level; choose to live closer to work, walk and cycle, design better infrastructure.\n- [Good design is as little design as possible](https://www.vitsoe.com/gb/about/good-design)\n- You should aim to be [anti-fragile](https://www.amazon.co.uk/Antifragile-Things-that-Gain-Disorder/dp/0141038225).\n- Creativity is not as magical as it's made out to be.\n- It is useful to remember your own mortality.\n- Decision theory is (almost?) always a waste of time.\n",
+        "contentDigest": "7fe458d4bacf881d36a79e714ecc7ec5",
+        "owner": "gatsby-source-contentful"
+      }
+    },
+    "c6QDV1LDhscmMG6K0eEYuGobodyTextNode >>> MarkdownRemark": {
+      "id": "c6QDV1LDhscmMG6K0eEYuGobodyTextNode >>> MarkdownRemark",
+      "children": [],
+      "parent": "c6QDV1LDhscmMG6K0eEYuGobodyTextNode",
+      "internal": {
+        "content": "Here you can find a collection of my interests and beliefs. On the semi-anonymous internet, it's a way I can tell you a bit about myself.\n\n## Interests\n\nThese are things that I am currently interested in, reading about or working on. I try to focus on what is on this list and exclude anything that is not.\n\n**Design Systems and the Fusion of Design and Development**\n\nSince becoming a front-end developer, I have been fascinated by two recurring problems in my work.\n\nFirstly, there is the issue of bridging the gap between design and code. Although lots of work is being done in this area, for the time being, I still feel there is too much of a chasm between pixels and code. I am interested in tools and methodologies which let designers deliver more useful deliverables to developers (i.e. code rather than images) and which let developers appreciate more fully the oft-undervalued world of design.\n\nThe second problem is scaling design. I am interested in making good design more maintainable and easier to implement. I see design systems as tools to abstract what makes a product aesthetic and usable.\n\n**Programming**\n\nLearning to code is the best example I know of a positive feedback loop: the more you learn, the more you want to learn. It is my favourite method for obtaining [flow](https://en.wikipedia.org/wiki/Mihaly_Csikszentmihalyi#Flow) and is one of the most consistent tools I have for lifting my mood.\n\nCurrently, I am interested in nailing the [last 20%](https://en.wikipedia.org/wiki/Pareto_principle) of JavaScript and React. I am always looking to explore new CSS and HTML techniques and share a few examples from my [newsletter](https://www.copythat.io/) on [CodePen](https://codepen.io/mulholio/#). For other projects, head over to my [GitHub](https://github.com/mulholio).\n\n**Philosophy**\n\nI studied philosophy at university and I think of it as a fantastic lens through which you can view everything else in life. It is a foundation that prompts you to examine first principles, not surface-level truths and its methodology of precise examination feels infinitely applicable.\n\nThere are instances where it is specifically and pragmatically useful (e.g. [truth-tables](https://en.wikipedia.org/wiki/Truth_table) making more complex uses of Javascript's ternary operator a breeze) and also when it helps improve broader skills (e.g. in the ability to construct a well-formed argument).\n\nI am also still holding out that, despite still struggling to find a real-world application, decision theory might one day be useful to me.\n\n**Meta-learning and Productivity**\n\nWhen I began to learn to code while simultaneously studying for my degree, I became increasingly interested in meta-learning (learning how to learn) and its power to exponentially boost all other skills. It is an area I am constantly working and I always seek new ways of improving focus, knowledge retention and skill-acquisition.\n\n**Street Photography**\n\nMy primary form of consuming and creating art is through street photography. It is a niche discipline that far too few people know about and I love its emphasis of content above and beyond mere aesthetics.\n\nI'm working on a proper place to showcase the photos I am happy with but for now, you can check out my poorly-updated [VSCO](https://vsco.co/mulholio/).\n\n## Future Interests\n\nThese are things I would like to learn more about in the coming months and years but that I don't feel knowledgeable enough about at the present moment.\n\n- The automation of design and creativity\n- AI\n- Learning how to use [Vim](https://www.vim.org/)\n- Healthcare\n\n## Beliefs\n\nI find the act of explicitly articulating your beliefs clarifies them and separates the important from the trivial. This list is an ongoing attempt to do that.\n\n- [Flow](https://en.wikipedia.org/wiki/Mihaly_Csikszentmihalyi#Flow) is the biggest determinant of enjoyment and meaning at work and it is, therefore, a moral imperative to maximise its occurrence.\n- Healthcare should be accessible to all.\n- You should block news content. You're better off consuming older information like books that contain higher quality information and will be useful for a longer period of time. Of course, if something is truly important news, you'll probably hear about it anyway.\n- Politics is an ineffective vehicle for change for 80% of people. Of course, *some* people **should be interested in politics but for most it serves only as a talking point on which action is never taken.\n- Driving should be avoided where possible. This covers both the personal and societal level; choose to live closer to work, walk and cycle, design better infrastructure.\n- [Good design is as little design as possible](https://www.vitsoe.com/gb/about/good-design)\n- You should aim to be [anti-fragile](https://www.amazon.co.uk/Antifragile-Things-that-Gain-Disorder/dp/0141038225).\n- Creativity is not as magical as it's made out to be.\n- It is useful to remember your own mortality.\n- Decision theory is (almost?) always a waste of time.\n",
+        "type": "MarkdownRemark",
+        "contentDigest": "90dbd3bba8be6b0dc92d1e8a65408509",
+        "owner": "gatsby-transformer-remark"
+      },
+      "frontmatter": {
+        "title": "",
+        "_PARENT": "c6QDV1LDhscmMG6K0eEYuGobodyTextNode",
+        "parent": "c6QDV1LDhscmMG6K0eEYuGobodyTextNode"
+      },
+      "excerpt": "",
+      "rawMarkdownBody": "Here you can find a collection of my interests and beliefs. On the semi-anonymous internet, it's a way I can tell you a bit about myself.\n\n## Interests\n\nThese are things that I am currently interested in, reading about or working on. I try to focus on what is on this list and exclude anything that is not.\n\n**Design Systems and the Fusion of Design and Development**\n\nSince becoming a front-end developer, I have been fascinated by two recurring problems in my work.\n\nFirstly, there is the issue of bridging the gap between design and code. Although lots of work is being done in this area, for the time being, I still feel there is too much of a chasm between pixels and code. I am interested in tools and methodologies which let designers deliver more useful deliverables to developers (i.e. code rather than images) and which let developers appreciate more fully the oft-undervalued world of design.\n\nThe second problem is scaling design. I am interested in making good design more maintainable and easier to implement. I see design systems as tools to abstract what makes a product aesthetic and usable.\n\n**Programming**\n\nLearning to code is the best example I know of a positive feedback loop: the more you learn, the more you want to learn. It is my favourite method for obtaining [flow](https://en.wikipedia.org/wiki/Mihaly_Csikszentmihalyi#Flow) and is one of the most consistent tools I have for lifting my mood.\n\nCurrently, I am interested in nailing the [last 20%](https://en.wikipedia.org/wiki/Pareto_principle) of JavaScript and React. I am always looking to explore new CSS and HTML techniques and share a few examples from my [newsletter](https://www.copythat.io/) on [CodePen](https://codepen.io/mulholio/#). For other projects, head over to my [GitHub](https://github.com/mulholio).\n\n**Philosophy**\n\nI studied philosophy at university and I think of it as a fantastic lens through which you can view everything else in life. It is a foundation that prompts you to examine first principles, not surface-level truths and its methodology of precise examination feels infinitely applicable.\n\nThere are instances where it is specifically and pragmatically useful (e.g. [truth-tables](https://en.wikipedia.org/wiki/Truth_table) making more complex uses of Javascript's ternary operator a breeze) and also when it helps improve broader skills (e.g. in the ability to construct a well-formed argument).\n\nI am also still holding out that, despite still struggling to find a real-world application, decision theory might one day be useful to me.\n\n**Meta-learning and Productivity**\n\nWhen I began to learn to code while simultaneously studying for my degree, I became increasingly interested in meta-learning (learning how to learn) and its power to exponentially boost all other skills. It is an area I am constantly working and I always seek new ways of improving focus, knowledge retention and skill-acquisition.\n\n**Street Photography**\n\nMy primary form of consuming and creating art is through street photography. It is a niche discipline that far too few people know about and I love its emphasis of content above and beyond mere aesthetics.\n\nI'm working on a proper place to showcase the photos I am happy with but for now, you can check out my poorly-updated [VSCO](https://vsco.co/mulholio/).\n\n## Future Interests\n\nThese are things I would like to learn more about in the coming months and years but that I don't feel knowledgeable enough about at the present moment.\n\n- The automation of design and creativity\n- AI\n- Learning how to use [Vim](https://www.vim.org/)\n- Healthcare\n\n## Beliefs\n\nI find the act of explicitly articulating your beliefs clarifies them and separates the important from the trivial. This list is an ongoing attempt to do that.\n\n- [Flow](https://en.wikipedia.org/wiki/Mihaly_Csikszentmihalyi#Flow) is the biggest determinant of enjoyment and meaning at work and it is, therefore, a moral imperative to maximise its occurrence.\n- Healthcare should be accessible to all.\n- You should block news content. You're better off consuming older information like books that contain higher quality information and will be useful for a longer period of time. Of course, if something is truly important news, you'll probably hear about it anyway.\n- Politics is an ineffective vehicle for change for 80% of people. Of course, *some* people **should be interested in politics but for most it serves only as a talking point on which action is never taken.\n- Driving should be avoided where possible. This covers both the personal and societal level; choose to live closer to work, walk and cycle, design better infrastructure.\n- [Good design is as little design as possible](https://www.vitsoe.com/gb/about/good-design)\n- You should aim to be [anti-fragile](https://www.amazon.co.uk/Antifragile-Things-that-Gain-Disorder/dp/0141038225).\n- Creativity is not as magical as it's made out to be.\n- It is useful to remember your own mortality.\n- Decision theory is (almost?) always a waste of time.\n"
+    },
+    "c68ReiZHBo4UGu8cMuAeSGmbodyTextNode": {
+      "id": "c68ReiZHBo4UGu8cMuAeSGmbodyTextNode",
+      "parent": "c68ReiZHBo4UGu8cMuAeSGm",
+      "children": [
+        "c68ReiZHBo4UGu8cMuAeSGmbodyTextNode >>> MarkdownRemark"
+      ],
+      "body": "Because people sometimes ask, this is a list of all the gear, apps and things that I use on a daily basis.\n\n# Apps\n\n## Cross-platform\n* Things - GTD todo list \n* Notion - general note taking and writing app\n* Evernote - reference material\n* Airtable - managing data and lists\n* Anki - flashcards\n* DayOne - journalling\n* 1Password\n* Pocket\n* Airmail\n* Spotify\n* Slack\n* Meetup\n* Google Sheets\n* Buffer\n* Dropbox\n\n## macOS/Web\n* Toggl - time tracking\n* iTerm - terminal\n* vim - text editor (currently switching)\n* VSCode - text editor\n* Firefox Developer Addition\n* Lightroom\n* Tweetdeck\n* Sketch\n* Invision Studio\n* Photoshop\n* Egghead.io\n* Treehouse\n* Iconjar\n* Cloudapp\n* Bartender\n* Contrast\n* Progress Bar\n* Lunar\n* PixelSnap\n* MuzzleM* Rocket\n* Alfred\n* Magnet\n* Rescuetime\n* Clean My Mac\n* Flux\n* Muzzle\n* Grammarly\n* Keynote\n* PDF Expert\n\n\n## iOS\n* Monzo - banking\n* Calendar.app\n* Uber\n* MyFitnessPal - food tracking\n* Due - super annoying reminders\n* Strava - running\n* Headspace\n* Oak\n* Google Photos\n* Snapseed\n* VSCO\n* Twitter native app\n* Overcast\n* Noizio\n* Anylist\n* Google Maps\n* Google trips\n* Work Hard Anywhere\n* Dice\n* Citymapper\n* Babylon\n* Apple Heatlh\n* Fitbod\n* Zero\n* Oura (soon)\n* Eidetic\n* Pocket :(\n* Kindle\n* Audible\n* Telegram\n* Trello\n* Grammarly keyboard",
+      "internal": {
+        "type": "contentfulPageBodyTextNode",
+        "mediaType": "text/markdown",
+        "content": "Because people sometimes ask, this is a list of all the gear, apps and things that I use on a daily basis.\n\n# Apps\n\n## Cross-platform\n* Things - GTD todo list \n* Notion - general note taking and writing app\n* Evernote - reference material\n* Airtable - managing data and lists\n* Anki - flashcards\n* DayOne - journalling\n* 1Password\n* Pocket\n* Airmail\n* Spotify\n* Slack\n* Meetup\n* Google Sheets\n* Buffer\n* Dropbox\n\n## macOS/Web\n* Toggl - time tracking\n* iTerm - terminal\n* vim - text editor (currently switching)\n* VSCode - text editor\n* Firefox Developer Addition\n* Lightroom\n* Tweetdeck\n* Sketch\n* Invision Studio\n* Photoshop\n* Egghead.io\n* Treehouse\n* Iconjar\n* Cloudapp\n* Bartender\n* Contrast\n* Progress Bar\n* Lunar\n* PixelSnap\n* MuzzleM* Rocket\n* Alfred\n* Magnet\n* Rescuetime\n* Clean My Mac\n* Flux\n* Muzzle\n* Grammarly\n* Keynote\n* PDF Expert\n\n\n## iOS\n* Monzo - banking\n* Calendar.app\n* Uber\n* MyFitnessPal - food tracking\n* Due - super annoying reminders\n* Strava - running\n* Headspace\n* Oak\n* Google Photos\n* Snapseed\n* VSCO\n* Twitter native app\n* Overcast\n* Noizio\n* Anylist\n* Google Maps\n* Google trips\n* Work Hard Anywhere\n* Dice\n* Citymapper\n* Babylon\n* Apple Heatlh\n* Fitbod\n* Zero\n* Oura (soon)\n* Eidetic\n* Pocket :(\n* Kindle\n* Audible\n* Telegram\n* Trello\n* Grammarly keyboard",
+        "contentDigest": "c534c1d8337cad92d4c99155c8d39366",
+        "owner": "gatsby-source-contentful"
+      }
+    },
+    "c68ReiZHBo4UGu8cMuAeSGmbodyTextNode >>> MarkdownRemark": {
+      "id": "c68ReiZHBo4UGu8cMuAeSGmbodyTextNode >>> MarkdownRemark",
+      "children": [],
+      "parent": "c68ReiZHBo4UGu8cMuAeSGmbodyTextNode",
+      "internal": {
+        "content": "Because people sometimes ask, this is a list of all the gear, apps and things that I use on a daily basis.\n\n# Apps\n\n## Cross-platform\n* Things - GTD todo list \n* Notion - general note taking and writing app\n* Evernote - reference material\n* Airtable - managing data and lists\n* Anki - flashcards\n* DayOne - journalling\n* 1Password\n* Pocket\n* Airmail\n* Spotify\n* Slack\n* Meetup\n* Google Sheets\n* Buffer\n* Dropbox\n\n## macOS/Web\n* Toggl - time tracking\n* iTerm - terminal\n* vim - text editor (currently switching)\n* VSCode - text editor\n* Firefox Developer Addition\n* Lightroom\n* Tweetdeck\n* Sketch\n* Invision Studio\n* Photoshop\n* Egghead.io\n* Treehouse\n* Iconjar\n* Cloudapp\n* Bartender\n* Contrast\n* Progress Bar\n* Lunar\n* PixelSnap\n* MuzzleM* Rocket\n* Alfred\n* Magnet\n* Rescuetime\n* Clean My Mac\n* Flux\n* Muzzle\n* Grammarly\n* Keynote\n* PDF Expert\n\n\n## iOS\n* Monzo - banking\n* Calendar.app\n* Uber\n* MyFitnessPal - food tracking\n* Due - super annoying reminders\n* Strava - running\n* Headspace\n* Oak\n* Google Photos\n* Snapseed\n* VSCO\n* Twitter native app\n* Overcast\n* Noizio\n* Anylist\n* Google Maps\n* Google trips\n* Work Hard Anywhere\n* Dice\n* Citymapper\n* Babylon\n* Apple Heatlh\n* Fitbod\n* Zero\n* Oura (soon)\n* Eidetic\n* Pocket :(\n* Kindle\n* Audible\n* Telegram\n* Trello\n* Grammarly keyboard",
+        "type": "MarkdownRemark",
+        "contentDigest": "ec5fd54e7915d5e097fa50d520575c45",
+        "owner": "gatsby-transformer-remark"
+      },
+      "frontmatter": {
+        "title": "",
+        "_PARENT": "c68ReiZHBo4UGu8cMuAeSGmbodyTextNode",
+        "parent": "c68ReiZHBo4UGu8cMuAeSGmbodyTextNode"
+      },
+      "excerpt": "",
+      "rawMarkdownBody": "Because people sometimes ask, this is a list of all the gear, apps and things that I use on a daily basis.\n\n# Apps\n\n## Cross-platform\n* Things - GTD todo list \n* Notion - general note taking and writing app\n* Evernote - reference material\n* Airtable - managing data and lists\n* Anki - flashcards\n* DayOne - journalling\n* 1Password\n* Pocket\n* Airmail\n* Spotify\n* Slack\n* Meetup\n* Google Sheets\n* Buffer\n* Dropbox\n\n## macOS/Web\n* Toggl - time tracking\n* iTerm - terminal\n* vim - text editor (currently switching)\n* VSCode - text editor\n* Firefox Developer Addition\n* Lightroom\n* Tweetdeck\n* Sketch\n* Invision Studio\n* Photoshop\n* Egghead.io\n* Treehouse\n* Iconjar\n* Cloudapp\n* Bartender\n* Contrast\n* Progress Bar\n* Lunar\n* PixelSnap\n* MuzzleM* Rocket\n* Alfred\n* Magnet\n* Rescuetime\n* Clean My Mac\n* Flux\n* Muzzle\n* Grammarly\n* Keynote\n* PDF Expert\n\n\n## iOS\n* Monzo - banking\n* Calendar.app\n* Uber\n* MyFitnessPal - food tracking\n* Due - super annoying reminders\n* Strava - running\n* Headspace\n* Oak\n* Google Photos\n* Snapseed\n* VSCO\n* Twitter native app\n* Overcast\n* Noizio\n* Anylist\n* Google Maps\n* Google trips\n* Work Hard Anywhere\n* Dice\n* Citymapper\n* Babylon\n* Apple Heatlh\n* Fitbod\n* Zero\n* Oura (soon)\n* Eidetic\n* Pocket :(\n* Kindle\n* Audible\n* Telegram\n* Trello\n* Grammarly keyboard"
+    },
     "SitePage /first": {
       "layout": "index",
       "jsonName": "first.json",
       "internalComponentName": "ComponentFirst",
       "path": "/first",
-      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/BlogPost.js",
-      "componentChunkName": "component---src-templates-blog-post-js",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/BlogPost.jsx",
+      "componentChunkName": "component---src-templates-blog-post-jsx",
       "context": {
         "slug": "first"
       },
       "pluginCreator___NODE": "Plugin default-site-plugin",
       "pluginCreatorId": "Plugin default-site-plugin",
-      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/BlogPost.js",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/BlogPost.jsx",
       "id": "SitePage /first",
       "parent": "SOURCE",
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "a9ea5f15191e05c70cb730e2124d2f92",
+        "contentDigest": "92ff081c1dabecbb94c4562ba317031a",
+        "description": "Your site's \"gatsby-node.js\"",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /thoughts": {
+      "layout": "index",
+      "jsonName": "thoughts.json",
+      "internalComponentName": "ComponentThoughts",
+      "path": "/thoughts",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/Page.jsx",
+      "componentChunkName": "component---src-templates-page-jsx",
+      "context": {
+        "slug": "thoughts"
+      },
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/Page.jsx",
+      "id": "SitePage /thoughts",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "7b4dd246cc1ebd9a3cb93c016e2452da",
+        "description": "Your site's \"gatsby-node.js\"",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /uses": {
+      "layout": "index",
+      "jsonName": "uses.json",
+      "internalComponentName": "ComponentUses",
+      "path": "/uses",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/Page.jsx",
+      "componentChunkName": "component---src-templates-page-jsx",
+      "context": {
+        "slug": "uses"
+      },
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/Page.jsx",
+      "id": "SitePage /uses",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "1bcc0cfaeed0ff01f9bd2ded9ef9f0c3",
         "description": "Your site's \"gatsby-node.js\"",
         "owner": "internal-data-bridge"
       }
@@ -849,18 +1042,18 @@
       "jsonName": "404.json",
       "internalComponentName": "Component404",
       "path": "/404/",
-      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
-      "componentChunkName": "component---src-pages-404-js",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.jsx",
+      "componentChunkName": "component---src-pages-404-jsx",
       "context": {},
       "pluginCreator___NODE": "Plugin gatsby-plugin-page-creator",
       "pluginCreatorId": "Plugin gatsby-plugin-page-creator",
-      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.jsx",
       "id": "SitePage /404/",
       "parent": "SOURCE",
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "ba1c56217dd5e1f17e58cb197b1ff298",
+        "contentDigest": "639d163299b3188ef30f2b44eacf9c73",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -870,18 +1063,18 @@
       "jsonName": "blog.json",
       "internalComponentName": "ComponentBlog",
       "path": "/blog/",
-      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/blog.js",
-      "componentChunkName": "component---src-pages-blog-js",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/blog.jsx",
+      "componentChunkName": "component---src-pages-blog-jsx",
       "context": {},
       "pluginCreator___NODE": "Plugin gatsby-plugin-page-creator",
       "pluginCreatorId": "Plugin gatsby-plugin-page-creator",
-      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/blog.js",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/blog.jsx",
       "id": "SitePage /blog/",
       "parent": "SOURCE",
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "29f416b8131c4effc28cb181e88e9201",
+        "contentDigest": "d3f8aa4210cbfb81ccdae6d3c844fe6a",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -891,18 +1084,18 @@
       "jsonName": "index.json",
       "internalComponentName": "ComponentIndex",
       "path": "/",
-      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/index.js",
-      "componentChunkName": "component---src-pages-index-js",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/index.jsx",
+      "componentChunkName": "component---src-pages-index-jsx",
       "context": {},
       "pluginCreator___NODE": "Plugin gatsby-plugin-page-creator",
       "pluginCreatorId": "Plugin gatsby-plugin-page-creator",
-      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/index.js",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/index.jsx",
       "id": "SitePage /",
       "parent": "SOURCE",
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "b4f100901a50335691105dc6c38ee486",
+        "contentDigest": "d6cb8c97abd378a4d862a122b014f105",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -912,18 +1105,18 @@
       "jsonName": "404-html.json",
       "internalComponentName": "Component404Html",
       "path": "/404.html",
-      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
-      "componentChunkName": "component---src-pages-404-js",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.jsx",
+      "componentChunkName": "component---src-pages-404-jsx",
       "context": {},
       "pluginCreator___NODE": "Plugin prod-404",
       "pluginCreatorId": "Plugin prod-404",
-      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.jsx",
       "id": "SitePage /404.html",
       "parent": "SOURCE",
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "a1d30f8caf6b5ef0089b1c924f0b252c",
+        "contentDigest": "92af51ffe9df3adae765bff84754ef21",
         "description": "Plugin prod-404",
         "owner": "internal-data-bridge"
       }
@@ -932,10 +1125,10 @@
   "status": {
     "plugins": {
       "gatsby-source-contentful": {
-        "kq8wdn6jzau5-master": "w5ZGw6JFwqZmVcKsE8Kow4grw45QdybDv8Kye07Dh8O4CCQ7KMKrw48PdV01w4hLwoVeQUXDo8KNw5sFG8KdXcOpwqVowpoBw54lVzTDuXMxwovCigExwq9HbsKzw5QFw67CucO6DcKkwq8ow5TDinx0BzM"
+        "kq8wdn6jzau5-master": "w5ZGw6JFwqZmVcKsE8Kow4grw45QdyZ0e8OEwopOQjREwqbDlsKawoDDi8KwwrfCqMOHRcOcaMObw7tkw54iO8OWwqoAZcODIyrDlMOBwq_Cjh5gREoxdsKHbcKoKsObw5rCvR3CgB49wofCgCp4wpdMw5nDsSgv"
       }
     },
-    "PLUGINS_HASH": "d358cec4edbe4a03161d158a88c0e9de"
+    "PLUGINS_HASH": "6dc349b5981af6ddce62a72214a7989c"
   },
   "componentDataDependencies": {
     "nodes": {
@@ -944,11 +1137,34 @@
       ],
       "c6wTa6VfxzG8IYGawO4WaMebodyTextNode": [
         "/first",
-        "/blog/"
+        "/blog/",
+        "/"
       ],
       "c6wTa6VfxzG8IYGawO4WaMebodyTextNode >>> MarkdownRemark": [
         "/first",
-        "/blog/"
+        "/blog/",
+        "/"
+      ],
+      "c6QDV1LDhscmMG6K0eEYuGo": [
+        "/",
+        "/thoughts"
+      ],
+      "c6QDV1LDhscmMG6K0eEYuGobodyTextNode": [
+        "/",
+        "/thoughts"
+      ],
+      "c6QDV1LDhscmMG6K0eEYuGobodyTextNode >>> MarkdownRemark": [
+        "/",
+        "/thoughts"
+      ],
+      "c68ReiZHBo4UGu8cMuAeSGm": [
+        "/uses"
+      ],
+      "c68ReiZHBo4UGu8cMuAeSGmbodyTextNode": [
+        "/uses"
+      ],
+      "c68ReiZHBo4UGu8cMuAeSGmbodyTextNode >>> MarkdownRemark": [
+        "/uses"
       ]
     },
     "connections": {
