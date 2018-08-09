@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Page = ({ data }) => {
+  if (!data) return null;
   const { title, body } = data.contentfulPage;
   return (
     <div>
