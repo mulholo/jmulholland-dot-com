@@ -16,7 +16,7 @@
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "e33d90f81394b0d64b001159333c6f30",
+        "contentDigest": "03ccb2134d80cfcc6d56b11bedfdd0b3",
         "description": "Plugin dev-404-page",
         "owner": "internal-data-bridge"
       }
@@ -569,7 +569,7 @@
       "resolve": "/Users/jamesmulholland/proj/jmulholland-dot-com",
       "id": "Plugin default-site-plugin",
       "name": "default-site-plugin",
-      "version": "aa63e34675f8d12cc44e2f341a5ab9e2",
+      "version": "16199c2ca1720e466086e1ce89b84201",
       "pluginOptions": {
         "plugins": []
       },
@@ -609,6 +609,14 @@
             "version": "^1.7.44"
           },
           {
+            "name": "prop-types",
+            "version": "^15.6.2"
+          },
+          {
+            "name": "react",
+            "version": "^16.4.2"
+          },
+          {
             "name": "styled-components",
             "version": "^3.3.3"
           }
@@ -646,7 +654,7 @@
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "3e8911046929e7fa52dae2caff0c54e1",
+        "contentDigest": "828bbd8c5e11829e8a89b6e955d1cdae",
         "type": "SitePlugin",
         "owner": "internal-data-bridge"
       }
@@ -736,12 +744,12 @@
       "host": "localhost",
       "pathPrefix": "",
       "polyfill": true,
-      "buildTime": "2018-08-08T06:43:02.448Z",
+      "buildTime": "2018-08-09T10:41:04.698Z",
       "id": "Site",
       "parent": "SOURCE",
       "children": [],
       "internal": {
-        "contentDigest": "b0a73945a9bf222773474b51afca480f",
+        "contentDigest": "35f7b1089d67466d169a3450d7c08187",
         "type": "Site",
         "owner": "internal-data-bridge"
       }
@@ -912,20 +920,43 @@
       "jsonName": "first.json",
       "internalComponentName": "ComponentFirst",
       "path": "/first",
-      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/BlogPost.js",
-      "componentChunkName": "component---src-templates-blog-post-js",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/BlogPost.jsx",
+      "componentChunkName": "component---src-templates-blog-post-jsx",
       "context": {
         "slug": "first"
       },
       "pluginCreator___NODE": "Plugin default-site-plugin",
       "pluginCreatorId": "Plugin default-site-plugin",
-      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/BlogPost.js",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/BlogPost.jsx",
       "id": "SitePage /first",
       "parent": "SOURCE",
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "5acbf8b5ef5dec20f6fbf6ae0da4d1fe",
+        "contentDigest": "37721983210c774d3593dde472b2cf14",
+        "description": "Your site's \"gatsby-node.js\"",
+        "owner": "internal-data-bridge"
+      }
+    },
+    "SitePage /thoughts": {
+      "layout": "index",
+      "jsonName": "thoughts.json",
+      "internalComponentName": "ComponentThoughts",
+      "path": "/thoughts",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/Page.jsx",
+      "componentChunkName": "component---src-templates-page-jsx",
+      "context": {
+        "slug": "thoughts"
+      },
+      "pluginCreator___NODE": "Plugin default-site-plugin",
+      "pluginCreatorId": "Plugin default-site-plugin",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/templates/Page.jsx",
+      "id": "SitePage /thoughts",
+      "parent": "SOURCE",
+      "children": [],
+      "internal": {
+        "type": "SitePage",
+        "contentDigest": "5ea781deb7f7058c9e1380150c1abe98",
         "description": "Your site's \"gatsby-node.js\"",
         "owner": "internal-data-bridge"
       }
@@ -935,18 +966,18 @@
       "jsonName": "404.json",
       "internalComponentName": "Component404",
       "path": "/404/",
-      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
-      "componentChunkName": "component---src-pages-404-js",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.jsx",
+      "componentChunkName": "component---src-pages-404-jsx",
       "context": {},
       "pluginCreator___NODE": "Plugin gatsby-plugin-page-creator",
       "pluginCreatorId": "Plugin gatsby-plugin-page-creator",
-      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.jsx",
       "id": "SitePage /404/",
       "parent": "SOURCE",
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "83eec9f9b3689e1b6b8cf8c0540c78fa",
+        "contentDigest": "6d3df4804cf7ddc973f12be3e59ec9fd",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -956,18 +987,18 @@
       "jsonName": "blog.json",
       "internalComponentName": "ComponentBlog",
       "path": "/blog/",
-      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/blog.js",
-      "componentChunkName": "component---src-pages-blog-js",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/blog.jsx",
+      "componentChunkName": "component---src-pages-blog-jsx",
       "context": {},
       "pluginCreator___NODE": "Plugin gatsby-plugin-page-creator",
       "pluginCreatorId": "Plugin gatsby-plugin-page-creator",
-      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/blog.js",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/blog.jsx",
       "id": "SitePage /blog/",
       "parent": "SOURCE",
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "7a90602d38324544ebe96349b35e8839",
+        "contentDigest": "d14df4588d54a072df91aa280b64513c",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -977,18 +1008,18 @@
       "jsonName": "index.json",
       "internalComponentName": "ComponentIndex",
       "path": "/",
-      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/index.js",
-      "componentChunkName": "component---src-pages-index-js",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/index.jsx",
+      "componentChunkName": "component---src-pages-index-jsx",
       "context": {},
       "pluginCreator___NODE": "Plugin gatsby-plugin-page-creator",
       "pluginCreatorId": "Plugin gatsby-plugin-page-creator",
-      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/index.js",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/index.jsx",
       "id": "SitePage /",
       "parent": "SOURCE",
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "f993baab799a7e3216a6d50c98f052dc",
+        "contentDigest": "5fab5835c72d11040211781716703673",
         "description": "Plugin gatsby-plugin-page-creator",
         "owner": "internal-data-bridge"
       }
@@ -998,18 +1029,18 @@
       "jsonName": "404-html.json",
       "internalComponentName": "Component404Html",
       "path": "/404.html",
-      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
-      "componentChunkName": "component---src-pages-404-js",
+      "component": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.jsx",
+      "componentChunkName": "component---src-pages-404-jsx",
       "context": {},
       "pluginCreator___NODE": "Plugin prod-404",
       "pluginCreatorId": "Plugin prod-404",
-      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.js",
+      "componentPath": "/Users/jamesmulholland/proj/jmulholland-dot-com/src/pages/404.jsx",
       "id": "SitePage /404.html",
       "parent": "SOURCE",
       "children": [],
       "internal": {
         "type": "SitePage",
-        "contentDigest": "d3607d48fb6038efd8a25119ba6f0a9a",
+        "contentDigest": "47b11cb89718dc1bfc7a5ed446d9a24f",
         "description": "Plugin prod-404",
         "owner": "internal-data-bridge"
       }
@@ -1021,7 +1052,7 @@
         "kq8wdn6jzau5-master": "w5ZGw6JFwqZmVcKsE8Kow4grw45QdyZswp9DC8KcWsODwrICR1bDksOBwo9uw4nCt8K6bFVpw5XCtiXDiytGbxsYWS84JCkNAEtlwrMOL8KPw7jCtHnDoMOFEMKDw4Z4SMOTa8KYwokcJsK0Z8ORwr9d"
       }
     },
-    "PLUGINS_HASH": "07841ca66e70f86745497caa0349eacd"
+    "PLUGINS_HASH": "6dc349b5981af6ddce62a72214a7989c"
   },
   "componentDataDependencies": {
     "nodes": {
@@ -1035,6 +1066,15 @@
       "c6wTa6VfxzG8IYGawO4WaMebodyTextNode >>> MarkdownRemark": [
         "/first",
         "/blog/"
+      ],
+      "c6QDV1LDhscmMG6K0eEYuGo": [
+        "/thoughts"
+      ],
+      "c6QDV1LDhscmMG6K0eEYuGobodyTextNode": [
+        "/thoughts"
+      ],
+      "c6QDV1LDhscmMG6K0eEYuGobodyTextNode >>> MarkdownRemark": [
+        "/thoughts"
       ]
     },
     "connections": {
