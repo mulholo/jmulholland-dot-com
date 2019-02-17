@@ -1,11 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
+import { graphql, Link } from 'gatsby';
+import styled from 'styled-components';
+import Layout from '../components/Layout';
 
-const BlogPage = ({ data }) => (
-  <ul>
-    {data.allContentfulBlogPost.edges.map(({ node }) => <BlogPost node={node} />)}
-  </ul>
+const StyledList = styled.ul`
+  margin: 0;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  li {
+    list-style: none;
+    margin-left: 0;
+  }
+`;
+
+const BlogPage = ({ data, location }) => (
+  <Layout pathname={location.pathname}>
+    <StyledList>
+      {data.allContentfulBlogPost.edges.map(({ node }) => <BlogPost node={node} key={node.slug} />)}
+    </StyledList>
+  </Layout>
 );
 
 BlogPage.propTypes = {
@@ -25,16 +43,14 @@ BlogPage.propTypes = {
 };
 
 const BlogPost = ({ node }) => (
-  <li>
-    <Link
-      to={node.slug}
-    >
-      {node.title}
-    </Link>
-    <div>
-      {node.body.childMarkdownRemark.excerpt}
-    </div>
-  </li>
+  <Link to={node.slug}>
+    <li>
+      <h4>{node.title}</h4>
+      <div>
+        <p>{node.body.childMarkdownRemark.excerpt}</p>
+      </div>
+    </li>
+  </Link>
 );
 
 BlogPost.propTypes = {
@@ -50,23 +66,20 @@ BlogPost.propTypes = {
 
 export const query = graphql`
   query blogQuery {
-    allContentfulBlogPost(filter: {
-      node_locale: {eq: "en-GB"}
-    }) {
-        edges {
-          node {
-            title
-            slug
-            body {
-              childMarkdownRemark {
-                excerpt
-              }
+    allContentfulBlogPost(filter: { node_locale: { eq: "en-GB" } }) {
+      edges {
+        node {
+          title
+          slug
+          body {
+            childMarkdownRemark {
+              excerpt
             }
           }
         }
+      }
     }
   }
 `;
 
 export default BlogPage;
-

@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import Layout from '../components/Layout';
 
-export default () => {
-  return (
-    <div>
-      <h2>404</h2>
-      <p>There's not a page here yet. Probably never will be.</p>
-    </div>
-  )
-}
+export default ({ location }) => (
+  <Layout pathname={location.pathname}>
+    <h2>404</h2>
+    <p>
+      There's a page here, just probably not the one you were looking for.
+    </p>
+  </Layout>
+);

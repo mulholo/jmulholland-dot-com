@@ -1,29 +1,35 @@
 {
-  "name": "gatsby-starter-hello-world",
-  "description": "Gatsby hello world starter",
+  "name": "jmulholland.com",
+  "description": "My personal website",
   "license": "MIT",
   "scripts": {
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "eslint": "eslint --ext .jsx,.js ./src"
   },
   "dependencies": {
-    "gatsby": "^1.9.277",
-    "gatsby-link": "^1.6.46",
-    "gatsby-plugin-styled-components": "^2.0.11",
-    "gatsby-plugin-typography": "^1.7.19",
-    "gatsby-source-contentful": "^1.3.54",
-    "gatsby-transformer-remark": "^1.7.44",
-    "prop-types": "^15.6.2",
-    "react": "^16.4.2",
-    "styled-components": "^3.3.3"
+    "babel-plugin-styled-components": "^1.10.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "gatsby": "^2.1.4",
+    "gatsby-plugin-react-helmet": "^3.0.6",
+    "gatsby-plugin-styled-components": "^3.0.5",
+    "gatsby-plugin-typography": "^2.2.7",
+    "gatsby-source-contentful": "^2.0.29",
+    "gatsby-transformer-remark": "^2.2.5",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-helmet": "^5.2.0",
+    "react-typography": "^0.16.18",
+    "styled-components": "^4.1.3",
+    "typography": "^0.16.18"
   },
   "devDependencies": {
     "dotenv": "^6.0.0",
     "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^17.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.10.0"
+    "eslint-plugin-react": "^7.11.1"
   }
 }
