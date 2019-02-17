@@ -1,24 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 export default () => (
   <StyledHeader>
-    <StyledLink to="/">
+    <StyledLink to='/'>
       <SiteName>James Mulholland</SiteName>
     </StyledLink>
     <StyledUl>
-      <ListLink to="/">Home</ListLink>
-      <ListLink to="/blog">Blog</ListLink>
-      <ListLink to="/thoughts">Thoughts</ListLink>
+      <ListLink to='/'>Home</ListLink>
+      <ListLink to='/blog'>Blog</ListLink>
+      <ListLink to='/thoughts'>Thoughts</ListLink>
     </StyledUl>
   </StyledHeader>
 );
 
 const ListLink = ({ to, children }) => (
   <StyledLi>
-    <StyledLink to={to} style={{ textDecoration: 'none' }} activeStyle={{ textDecoration: 'none' }}>
+    <StyledLink
+      to={to}
+      style={{ textDecoration: 'none' }}
+      activeStyle={{ textDecoration: 'none' }}
+    >
       {children}
     </StyledLink>
   </StyledLi>

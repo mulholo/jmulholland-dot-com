@@ -1,14 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import Layout from '../components/Layout';
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ data, location }) => {
   if (!data) return null;
   const { title, body } = data.contentfulBlogPost;
   return (
-    <div>
+    <Layout pathname={location.pathname}>
       <h1>{title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }} />
-    </div>
+      <div
+        // eslint-disable-next-line
+        dangerouslySetInnerHTML={{
+          __html: body.childMarkdownRemark.html,
+        }}
+      />
+    </Layout>
   );
 };
 
