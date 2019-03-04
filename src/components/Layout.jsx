@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Footer from './footer'
 import Header from './header'
 import Meta from './Meta'
+import './Layout.css'
 
 const StyledPage = styled.div`
   margin: 0 auto;
