@@ -1,8 +1,8 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import { graphql, StaticQuery } from 'gatsby';
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import { graphql, StaticQuery } from 'gatsby'
 
-import card from '../assets/twitter-card.png';
+import card from '../assets/twitter-card.png'
 
 const SiteMetadata = ({ pathname }) => (
   <StaticQuery
@@ -31,7 +31,11 @@ const SiteMetadata = ({ pathname }) => (
           content='width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover'
         />
 
-        <link rel='shortcut icon' type='image/png' href='/favicon.png' />
+        <link
+          rel='shortcut icon'
+          type='image/png'
+          href='/favicon.png'
+        />
 
         <meta property='og:url' content={siteUrl} />
         <meta property='og:type' content='website' />
@@ -46,6 +50,6 @@ const SiteMetadata = ({ pathname }) => (
       </Helmet>
     )}
   />
-);
+)
 
-export default SiteMetadata;
+export default SiteMetadata

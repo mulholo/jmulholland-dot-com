@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
 
 const Page = ({ data, location }) => {
-  if (!data) return null;
-  const { title, body } = data.contentfulPage;
+  if (!data) return null
+  const { title, body } = data.contentfulPage
   return (
     <Layout pathname={location.pathname}>
       <h1>{title}</h1>
@@ -16,8 +16,8 @@ const Page = ({ data, location }) => {
         }}
       />
     </Layout>
-  );
-};
+  )
+}
 
 Page.propTypes = {
   data: PropTypes.shape({
@@ -31,7 +31,7 @@ Page.propTypes = {
       }),
     }),
   }).isRequired,
-};
+}
 
 export const query = graphql`
   query pageQuery($slug: String!) {
@@ -45,6 +45,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default Page;
+export default Page

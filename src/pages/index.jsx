@@ -1,19 +1,18 @@
-import React from 'react';
-import styled from 'styled-components';
-import Layout from '../components/Layout';
+import React from 'react'
+import styled from 'styled-components'
+import Layout from '../components/Layout'
 
 // TODO: Move into a theme! (17/02/2019 - 13:01 @jamesmulholland)
-const twitterBlue = '#45a1eb';
-const braunYellow = '#DD9801';
-const githubGreen = '#337203';
-const copyThatPurple = '#535ec8';
+const twitterBlue = '#45a1eb'
+const braunYellow = '#DD9801'
+const githubGreen = '#337203'
+const copyThatPurple = '#535ec8'
 
-export default ({ location }) => (
+const Index = ({ location }) => (
   <Layout pathname={location.pathname}>
     <StyledBody>
       I'm James, a front-end developer from the UK. I currently work
-      at
-      {' '}
+      at{' '}
       <StyledA color='#70a0dc' href='https://www.peoplegoal.com/'>
         Evermind Digital
       </StyledA>
@@ -21,17 +20,12 @@ export default ({ location }) => (
       also run a newsletter called&nbsp;
       <StyledA color={copyThatPurple} href='https://copythat.io'>
         Copy That!
-      </StyledA>
-      {' '}
+      </StyledA>{' '}
       which you should check out if you want to get better at HTML,
       CSS and JS.
     </StyledBody>
     <StyledBody>
-      Mostly, this is a
-      {' '}
-      <StyledA href='/blog'>blog</StyledA>
-      {' '}
-so you
+      Mostly, this is a <StyledA href='/blog'>blog</StyledA> so you
       should head over to that. You can also find me on&nbsp;
       <StyledA
         color={twitterBlue}
@@ -49,8 +43,7 @@ so you
       ,&nbsp;
       <StyledA color={githubGreen} href='https://github.com/mulholio'>
         Github
-      </StyledA>
-      {' '}
+      </StyledA>{' '}
       or good, old-fashioned&nbsp;
       <StyledA
         color={braunYellow}
@@ -61,12 +54,12 @@ so you
       .
     </StyledBody>
   </Layout>
-);
+)
 
 const StyledBody = styled.p`
   font-size: 2.25rem;
   font-weight: 600;
-`;
+`
 
 const StyledA = styled.a`
   font-weight: 600;
@@ -75,4 +68,6 @@ const StyledA = styled.a`
   &:hover {
     color: ${props => props.color || braunYellow};
   }
-`;
+`
+
+export default Index

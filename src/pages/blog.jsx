@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
-import styled from 'styled-components';
-import Layout from '../components/Layout';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql, Link } from 'gatsby'
+import styled from 'styled-components'
+import Layout from '../components/Layout'
 
 const StyledList = styled.ul`
   margin: 0;
@@ -16,15 +16,17 @@ const StyledList = styled.ul`
     list-style: none;
     margin-left: 0;
   }
-`;
+`
 
 const BlogPage = ({ data, location }) => (
   <Layout pathname={location.pathname}>
     <StyledList>
-      {data.allContentfulBlogPost.edges.map(({ node }) => <BlogPost node={node} key={node.slug} />)}
+      {data.allContentfulBlogPost.edges.map(({ node }) => (
+        <BlogPost node={node} key={node.slug} />
+      ))}
     </StyledList>
   </Layout>
-);
+)
 
 BlogPage.propTypes = {
   data: PropTypes.shape({
@@ -40,7 +42,7 @@ BlogPage.propTypes = {
       }),
     }),
   }).isRequired,
-};
+}
 
 const BlogPost = ({ node }) => (
   <Link to={node.slug}>
@@ -51,7 +53,7 @@ const BlogPost = ({ node }) => (
       </div>
     </li>
   </Link>
-);
+)
 
 BlogPost.propTypes = {
   node: PropTypes.shape({
@@ -62,7 +64,7 @@ BlogPost.propTypes = {
       }),
     }),
   }).isRequired,
-};
+}
 
 export const query = graphql`
   query blogQuery {
@@ -80,6 +82,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default BlogPage;
+export default BlogPage
