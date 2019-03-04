@@ -9,8 +9,7 @@
     "lint": "eslint src --fix",
     "prettier": "prettier \"**/*.+(js|jsx|json|css|md|mdx|graphql)\"",
     "format": "yarn prettier --write",
-    "validate": "yarn lint && yarn prettier --list-different",
-    "precommit": "lint-staged"
+    "validate": "yarn lint && yarn prettier --list-different"
   },
   "dependencies": {
     "gatsby": "^2.1.4",
@@ -46,5 +45,10 @@
     "jest": "^24.1.0",
     "lint-staged": "^8.1.5",
     "prettier": "^1.16.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
