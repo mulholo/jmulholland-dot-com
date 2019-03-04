@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 
-export default () => (
+const Header = () => (
   <StyledHeader>
     <StyledLink to='/'>
       <SiteName>James Mulholland</SiteName>
@@ -76,3 +76,5 @@ const StyledHeader = styled.header`
   margin-bottom: 2rem;
   border-bottom: 2px solid #dd9801;
 `
+
+export default Header

@@ -9,8 +9,7 @@ const StyledPage = styled.div`
   padding: 1.25rem 1rem;
   max-width: 650px;
 `
-
-export default ({ children, pathname }) => (
+const Layout = ({ children, pathname }) => (
   <StyledPage>
     <Meta pathname={pathname} />
     <Header />
@@ -18,3 +17,5 @@ export default ({ children, pathname }) => (
     <Footer />
   </StyledPage>
 )
+
+export default Layout

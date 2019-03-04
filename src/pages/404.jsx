@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/Layout'
 
-export default ({ location }) => (
+const FourOhFour = ({ location }) => (
   <Layout pathname={location.pathname}>
     <h2>404</h2>
     <p>
@@ -10,3 +10,5 @@ export default ({ location }) => (
     </p>
   </Layout>
 )
+
+export default FourOhFour

@@ -8,7 +8,7 @@ const braunYellow = '#DD9801'
 const githubGreen = '#337203'
 const copyThatPurple = '#535ec8'
 
-export default ({ location }) => (
+const Index = ({ location }) => (
   <Layout pathname={location.pathname}>
     <StyledBody>
       I'm James, a front-end developer from the UK. I currently work
@@ -69,3 +69,5 @@ const StyledA = styled.a`
     color: ${props => props.color || braunYellow};
   }
 `
+
+export default Index

@@ -2,18 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import readingTime from '../utils/readingTime'
 
 const BlogPost = ({ data, location }) => {
   if (!data) return null
   const { title, body } = data.contentfulBlogPost
+  const { childMarkdownRemark } = body
+  const { html, wordCount } = childMarkdownRemark
   return (
     <Layout pathname={location.pathname}>
       <h1>{title}</h1>
+      <p>{readingTime(wordCount.words)}</p>
       <div
         // eslint-disable-next-line
-        dangerouslySetInnerHTML={{
-          __html: body.childMarkdownRemark.html,
-        }}
+        dangerouslySetInnerHTML={{ __html: html }}
       />
     </Layout>
   )
@@ -41,7 +43,9 @@ export const query = graphql`
       body {
         childMarkdownRemark {
           html
-          excerpt
+          wordCount {
+            words
+          }
         }
       }
     }
