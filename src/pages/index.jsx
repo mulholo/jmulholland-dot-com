@@ -11,8 +11,7 @@ const copyThatPurple = '#535ec8'
 const Index = ({ location }) => (
   <Layout pathname={location.pathname}>
     <StyledBody>
-      I'm James, a front-end developer from the UK. I currently work
-      at{' '}
+      I'm James, a front-end engineer from the UK. I currently work at{' '}
       <StyledA color='#70a0dc' href='https://www.peoplegoal.com/'>
         Evermind Digital
       </StyledA>
