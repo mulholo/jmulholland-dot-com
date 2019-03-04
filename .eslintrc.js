@@ -1,13 +1,16 @@
 module.exports = {
-  'extends': [
-    'eslint-config-airbnb',
+  env: {
+    'jest/globals': true,
+  },
+  extends: [
+    'standard',
+    'plugin:jest/recommended',
+    'eslint-config-prettier', // must be last
   ],
-  'plugins': [
-    'react',
-  ],
-  'rules': {
+  plugins: ['react', 'jest'],
+  rules: {
     'react/prop-types': 0,
-    'jsx-quotes': [ 'error', 'prefer-single' ],
+    'jsx-quotes': ['error', 'prefer-single'],
     'react/no-unescaped-entities': 0,
-  }
-};
+  },
+}
