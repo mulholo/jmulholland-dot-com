@@ -12,7 +12,9 @@ const BlogPost = ({ data, location }) => {
   return (
     <Layout pathname={location.pathname}>
       <h1>{title}</h1>
-      <p>{readingTime(wordCount.words)}</p>
+      <p>
+        <em>{readingTime(wordCount.words)}</em>
+      </p>
       <div
         // eslint-disable-next-line
         dangerouslySetInnerHTML={{ __html: html }}
