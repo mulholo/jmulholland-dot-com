@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
 
 const BlogPost = ({ data, location }) => {
-  if (!data) return null;
-  const { title, body } = data.contentfulBlogPost;
+  if (!data) return null
+  const { title, body } = data.contentfulBlogPost
   return (
     <Layout pathname={location.pathname}>
       <h1>{title}</h1>
@@ -16,8 +16,8 @@ const BlogPost = ({ data, location }) => {
         }}
       />
     </Layout>
-  );
-};
+  )
+}
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
@@ -31,7 +31,7 @@ BlogPost.propTypes = {
       }),
     }),
   }).isRequired,
-};
+}
 
 export const query = graphql`
   query blogPostQuery($slug: String!) {
@@ -46,6 +46,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default BlogPost;
+export default BlogPost
