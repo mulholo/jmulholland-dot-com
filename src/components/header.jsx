@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '../utils/styled-components'
 
 const Header = () => (
   <StyledHeader>
@@ -9,7 +9,7 @@ const Header = () => (
 
 const SiteName = styled.h4`
   display: inline;
-  color: ${props => props.theme.B500};
+  color: ${props => props.theme.b100};
 `
 
 const StyledHeader = styled.header`

@@ -7,14 +7,16 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "lint": "eslint src --fix",
-    "prettier": "prettier \"**/*.+(js|jsx|json|css|md|mdx|graphql)\"",
+    "prettier": "prettier \"**/*.+(js|jsx|ts|tsx|json|css|md|mdx|graphql)\"",
     "format": "yarn prettier --write",
     "validate": "yarn lint && yarn prettier --list-different"
   },
   "dependencies": {
+    "@types/styled-components": "^4.1.12",
     "gatsby": "^2.1.4",
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-styled-components": "^3.0.5",
+    "gatsby-plugin-typescript": "^2.0.10",
     "gatsby-plugin-typography": "^2.2.7",
     "gatsby-remark-prismjs": "^3.2.4",
     "gatsby-source-contentful": "^2.0.29",
@@ -29,6 +31,8 @@
     "typography": "^0.16.18"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
+    "@typescript-eslint/parser": "^1.4.2",
     "babel-jest": "^24.1.0",
     "babel-plugin-styled-components": "^1.10.0",
     "babel-preset-gatsby": "^0.1.8",
