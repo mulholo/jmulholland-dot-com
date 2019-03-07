@@ -1,22 +1,26 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import Footer from './footer'
 import Header from './header'
 import Meta from './Meta'
 import './Layout.css'
+import theme from '../utils/theme'
 
 const StyledPage = styled.div`
   margin: 0 auto;
   padding: 1.25rem 1rem;
   max-width: 650px;
 `
+
 const Layout = ({ children, pathname }) => (
-  <StyledPage>
-    <Meta pathname={pathname} />
-    <Header />
-    {children}
-    <Footer />
-  </StyledPage>
+  <ThemeProvider theme={theme}>
+    <StyledPage>
+      <Meta pathname={pathname} />
+      <Header />
+      {children}
+      <Footer />
+    </StyledPage>
+  </ThemeProvider>
 )
 
 export default Layout
