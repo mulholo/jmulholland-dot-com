@@ -1,5 +1,5 @@
 module.exports = {
-  //parser: '@typescript-eslint/parser',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -9,14 +9,14 @@ module.exports = {
   env: {
     'jest/globals': true,
   },
-  plugins: ['react', 'jest' /*'@typescript-eslint' */],
+  plugins: ['react', 'jest', '@typescript-eslint'],
   extends: [
     'standard',
-    // 'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:jest/recommended',
     'plugin:react/recommended',
     'eslint-config-prettier', // must be last
-    // 'prettier/@typescript-eslint',
+    'prettier/@typescript-eslint',
   ],
   rules: {
     'react/prop-types': 0,
