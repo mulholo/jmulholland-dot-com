@@ -7,7 +7,9 @@ const Footer = () => (
   </StyledFooter>
 )
 
-const StyledFooter = styled.footer``
+const StyledFooter = styled.footer`
+  margin-top: auto;
+`
 
 const StyledSpan = styled.span``
 

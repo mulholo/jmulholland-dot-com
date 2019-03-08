@@ -80,11 +80,24 @@ export default {
   s20: '5rem' as '5rem',
   s24: '6rem' as '6rem',
   s32: '8rem' as '8rem', // 128px
+
   xs: '20rem' as '20rem',
   sm: '30rem' as '30rem',
   md: '40rem' as '40rem',
   lg: '50rem' as '50rem',
   xl: '60rem' as '60rem', // 720px - container width
+
+  borderSmall: '2px' as '2px',
+  border: '4px' as '4px',
+  borderLarge: '8px' as '8px',
+
+  /* Shadows --------------------------------------------- */
+
+  shadow1: '0 1px 3px hsla(0, 0%, 0%, 0.2)' as '0 1px 3px hsla(0, 0%, 0%, 0.2)',
+  shadow2: '0 4px 6px hsla(0, 0%, 0%, 0.2)' as '0 4px 6px hsla(0, 0%, 0%, 0.2)',
+  shadow3: '0 5px 15px hsla(0, 0%, 0%, 0.2)' as '0 5px 15px hsla(0, 0%, 0%, 0.2)',
+  shadow4: '0 10px 24px hsla(0, 0%, 0%, 0.2)' as '0 10px 24px hsla(0, 0%, 0%, 0.2)',
+  shadow5: '0 15px 35px hsla(0, 0%, 0%, 0.2)' as '0 15px 35px hsla(0, 0%, 0%, 0.2)',
 
   /* Typography ------------------------------------------ */
 
