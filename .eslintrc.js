@@ -27,6 +27,15 @@ module.exports = {
     'jsx-quotes': ['error', 'prefer-single'],
     'react/no-unescaped-entities': 0,
   },
+  overrides: [
+    {
+      files: ['*.js'],
+      rules: {
+        'no-unused-expressions': 'off',
+        '@typescript-eslint/no-var-requires': 0,
+      },
+    },
+  ],
   settings: {
     react: {
       version: 'detect',
