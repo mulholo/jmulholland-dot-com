@@ -3,19 +3,7 @@ import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
 
-const StyledList = styled.ul`
-  margin: 0;
-
-  a {
-    text-decoration: none;
-    color: black;
-  }
-
-  li {
-    list-style: none;
-    margin-left: 0;
-  }
-`
+const StyledList = styled.ul``
 
 const BlogPage = ({ data, location }) => (
   <Layout pathname={location.pathname}>

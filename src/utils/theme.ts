@@ -1,5 +1,5 @@
 // typecasting with as lets you get literals on autocomplete popup
-const theme = {
+export default {
   /* Colours --------------------------------------------- */
 
   // 100 is darkest
@@ -109,5 +109,3 @@ const theme = {
   semiBold: '600' as '600',
   bold: '700' as '700',
 }
-
-export default theme

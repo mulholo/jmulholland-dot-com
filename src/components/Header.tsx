@@ -7,17 +7,8 @@ const Header = () => (
   </StyledHeader>
 )
 
-const SiteName = styled.h4`
-  display: inline;
-  color: ${props => props.theme.b100};
-`
+const SiteName = styled.h4``
 
-const StyledHeader = styled.header`
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 0;
-  margin-bottom: 2rem;
-  border-bottom: 2px solid #dd9801;
-`
+const StyledHeader = styled.header``
 
 export default Header

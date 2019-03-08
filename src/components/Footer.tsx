@@ -7,14 +7,8 @@ const Footer = () => (
   </StyledFooter>
 )
 
-const StyledFooter = styled.footer`
-  border-top: 1px solid #bababa;
-  padding-top: 1rem;
-  margin-top: 2rem;
-`
+const StyledFooter = styled.footer``
 
-const StyledSpan = styled.span`
-  color: #bababa;
-`
+const StyledSpan = styled.span``
 
 export default Footer

@@ -1,4 +1,4 @@
-import * as SC from 'styled-components'
+import * as styledComponents from 'styled-components'
 import theme from './theme'
 
 type Theme = typeof theme
@@ -9,7 +9,9 @@ const {
   createGlobalStyle,
   keyframes,
   ThemeProvider,
-} = SC as SC.ThemedStyledComponentsModule<Theme>
+} = styledComponents as styledComponents.ThemedStyledComponentsModule<
+  Theme
+>
 
 export { css, createGlobalStyle, keyframes, ThemeProvider }
 export default styled
