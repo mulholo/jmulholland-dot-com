@@ -4,17 +4,21 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    project: './tsconfig.json',
+    ecmaVersion: 2018,
+    sourceType: 'module',
   },
   env: {
+    browser: true,
+    node: true,
+    es6: true,
     'jest/globals': true,
   },
-  plugins: ['react', 'jest', '@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'react', 'jest'],
   extends: [
     'standard',
+    'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:jest/recommended',
-    'plugin:react/recommended',
     'eslint-config-prettier', // must be last
     'prettier/@typescript-eslint',
   ],
@@ -25,7 +29,7 @@ module.exports = {
   },
   settings: {
     react: {
-      version: 'detect', // React version. "detect" automatically picks the version you have installed.
+      version: 'detect',
     },
     linkComponents: [
       // Components used as alternatives to <a> for linking, eg. <Link to={ url } />

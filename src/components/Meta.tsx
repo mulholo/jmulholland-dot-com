@@ -1,8 +1,9 @@
-import React from 'react'
+import * as React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql, StaticQuery } from 'gatsby'
 
-import card from '../assets/twitter-card.png'
+// TODO import card
+// import card from '../assets/twitter-card.png'
 
 const SiteMetadata = ({ pathname }) => (
   <StaticQuery
@@ -41,7 +42,7 @@ const SiteMetadata = ({ pathname }) => (
         <meta property='og:type' content='website' />
         <meta property='og:locale' content='en' />
         <meta property='og:site_name' content={title} />
-        <meta property='og:image' content={`${siteUrl}${card}`} />
+        {/* TODO twitter card <meta property='og:image' content={`${siteUrl}${card}`} /> */}
         <meta property='og:image:width' content='1200' />
         <meta property='og:image:height' content='675' />
 

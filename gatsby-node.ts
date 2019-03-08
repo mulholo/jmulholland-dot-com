@@ -1,10 +1,10 @@
-const path = require('path');
+import path = require('path')
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators;
+  const { createPage } = boundActionCreators
   return new Promise((resolve, reject) => {
-    const BlogPost = path.resolve('./src/templates/BlogPost.jsx');
-    const Page = path.resolve('./src/templates/Page.jsx');
+    const BlogPost = path.resolve('./src/templates/BlogPost.tsx')
+    const Page = path.resolve('./src/templates/Page.tsx')
     resolve(
       graphql(`
         {
@@ -25,17 +25,19 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
       `).then(result => {
         if (result.errors) {
-          reject(result.errors);
+          reject(result.errors)
         }
-        result.data.allContentfulBlogPost.edges.forEach(({ node }) => {
-          createPage({
-            path: node.slug,
-            component: BlogPost,
-            context: {
-              slug: node.slug,
-            },
-          });
-        });
+        result.data.allContentfulBlogPost.edges.forEach(
+          ({ node }) => {
+            createPage({
+              path: node.slug,
+              component: BlogPost,
+              context: {
+                slug: node.slug,
+              },
+            })
+          }
+        )
         result.data.allContentfulPage.edges.forEach(({ node }) => {
           createPage({
             path: node.slug,
@@ -43,9 +45,9 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             context: {
               slug: node.slug,
             },
-          });
-        });
-      }),
-    );
-  });
-};
+          })
+        })
+      })
+    )
+  })
+}
