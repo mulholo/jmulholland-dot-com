@@ -31,11 +31,16 @@ type Media = { [P in keyof Sizes]: ThemedCssFunction<any> }
  *
  */
 const media = Object.keys(sizes).reduce((acc, label) => {
-  acc[label] = (...args) => css`
-    @media (max-width: ${sizes[label] / 16}em) {
-      ${args.length >= 1 && css(...args)}}
-    }
-  `
+  acc[label] = (...args) =>
+    css`
+      @media (max-width: ${sizes[label] / 16}em) {
+        ${
+          // @ts-ignore
+          args.length >= 1 && css(...args)
+        }
+        }
+      }
+    `
   return acc
 }, {}) as Media
 
