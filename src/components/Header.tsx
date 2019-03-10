@@ -9,7 +9,7 @@ const SiteName = styled.h1`
 
 const StyledHeader = styled.header`
   width: 100%;
-  margin: auto;
+  margin: 0 auto;
   box-shadow: ${props => props.theme.shadow2};
   background: ${props => props.theme.n900};
 `
