@@ -5,8 +5,25 @@ This is the repo for my personal website,
 
 ## Stack
 
-- [Gatsby](https://www.gatsbyjs.org/) (using
+- [Gatsby](https://www.gatsbyjs.org/) using
   [React](https://reactjs.org))
-- [Contentful](https://contentful.com) for CMS
-- [Typography.js](http://kyleamathews.github.io/typography.js)
+- [TypeScript](http://typescript.com)
 - [Styled Components](https://styled-components.com)
+- [MDX](https://mdxjs.com)
+
+## Usage
+
+- Clone the repo
+- `yarn install`
+- `yarn dev`
+
+## Notes
+
+- To resolve a `@types` issue between `styled-components` and React,
+  the React version must be specified in the `package.json`
+  resolutions:
+  ```json
+  "resolutions": {
+    "@types/react": "^16.8.7"
+  },
+  ```

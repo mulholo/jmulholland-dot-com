@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
@@ -17,20 +16,6 @@ const Page = ({ data, location }) => {
       />
     </Layout>
   )
-}
-
-Page.propTypes = {
-  data: PropTypes.shape({
-    contentfulPage: PropTypes.shape({
-      title: PropTypes.string,
-      body: PropTypes.shape({
-        childMarkdownRemark: PropTypes.shape({
-          html: PropTypes.string,
-          excerpt: PropTypes.string,
-        }),
-      }),
-    }),
-  }).isRequired,
 }
 
 export const query = graphql`

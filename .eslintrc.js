@@ -1,27 +1,45 @@
 module.exports = {
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
+    ecmaVersion: 2018,
+    sourceType: 'module',
   },
   env: {
+    browser: true,
+    node: true,
+    es6: true,
     'jest/globals': true,
   },
+  plugins: ['@typescript-eslint', 'react', 'jest'],
   extends: [
     'standard',
-    'plugin:jest/recommended',
     'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:jest/recommended',
     'eslint-config-prettier', // must be last
+    'prettier/@typescript-eslint',
   ],
-  plugins: ['react', 'jest'],
   rules: {
     'react/prop-types': 0,
     'jsx-quotes': ['error', 'prefer-single'],
     'react/no-unescaped-entities': 0,
+    '@typescript-eslint/explicit-function-return-type': 0,
   },
+  overrides: [
+    {
+      files: ['*.js'],
+      rules: {
+        'no-unused-expressions': 'off',
+        '@typescript-eslint/no-var-requires': 0,
+      },
+    },
+  ],
   settings: {
     react: {
-      version: 'detect', // React version. "detect" automatically picks the version you have installed.
+      version: 'detect',
     },
     linkComponents: [
       // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
