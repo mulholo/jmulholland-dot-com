@@ -132,10 +132,10 @@ const Header = () => {
             <li onClick={() => setMenuOpen(false)}>
               <Link to='/'>Home</Link>
             </li>
-            <li>
+            <li onClick={() => setMenuOpen(false)}>
               <Link to='/thoughts'>Think</Link>
             </li>
-            <li>
+            <li onClick={() => setMenuOpen(false)}>
               <Link to='/blog'>Blog</Link>
             </li>
           </ul>
