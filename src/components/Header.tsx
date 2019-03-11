@@ -101,9 +101,11 @@ const LinksContainer = styled('div')<{ open: boolean }>`
 `
 
 const Header = () => {
-  const [size, setSize] = React.useState(window.innerWidth)
   const [menuOpen, setMenuOpen] = React.useState(false)
 
+  const [size, setSize] = React.useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1000
+  )
   React.useEffect(() => {
     const updateSize = () => {
       setSize(window.innerWidth)
