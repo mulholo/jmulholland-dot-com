@@ -75,6 +75,8 @@ const LinksContainer = styled('div')<{ open: boolean }>`
     position: fixed;
     top: ${props => props.theme.s4};
     right: ${props => props.theme.s4};
+    border: none;
+    background: none;
   }
 
   ${media.tablet`
