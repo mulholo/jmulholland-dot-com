@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: ${props => props.theme.tMedium};
   }
 
-  p, li, ul, span, a, blockquote {
+  span, p, li, ul, span, a, blockquote {
     line-height: 1.45;
     color: ${props => props.theme.n400};
   }
@@ -84,6 +84,7 @@ const StyledPage = styled.div`
 const StyledContent = styled.div`
   max-width: ${props => props.theme.lg};
   margin: auto;
+  padding: ${props => props.theme.s3};
 `
 
 const Layout = ({ children, pathname }) => (
