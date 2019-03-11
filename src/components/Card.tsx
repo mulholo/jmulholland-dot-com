@@ -6,12 +6,14 @@ import { Link } from 'gatsby'
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+  font-weight: ${props => props.theme.regular};
 
   &:focus,
   &:hover,
   &:visited,
   &:link,
   &:active {
+    font-weight: ${props => props.theme.regular};
     text-decoration: none;
   }
 `
@@ -24,6 +26,7 @@ const StyledA = styled.a`
   &:visited,
   &:link,
   &:active {
+    font-weight: ${props => props.theme.regular};
     text-decoration: none;
   }
 `
@@ -35,7 +38,10 @@ const StyledButton = styled.button`
   padding: 0;
 `
 
-const CardStyles = styled('div')<{ animate: boolean }>`
+const CardStyles = styled('div')<{
+  animate: boolean
+  fullWidth: boolean
+}>`
   background: ${props => props.theme.n900};
   box-shadow: ${props => props.theme.shadow3};
   padding: ${props => props.theme.s4};
@@ -72,6 +78,8 @@ const CardStyles = styled('div')<{ animate: boolean }>`
     box-shadow: ${props => props.theme.shadow4};
     transform: translateY(-3px);
   }`}
+
+  ${props => props.fullWidth && `max-width: 100%;`}
 `
 
 /* Utility --------------------------------------------- */
@@ -86,21 +94,23 @@ interface CardPropTypes {
   title?: string
   content?: string | React.ReactNode
   detail?: string
-  shouldTrim?: boolean
+  trimLength?: number // 0 for no trimming
   // @ts-ignore
   onClick?: () => any
   link?: string
   externalLink?: string
+  fullWidth?: boolean
 }
 
 const Card = ({
   title,
   content,
   detail,
-  shouldTrim,
+  trimLength = 135,
   onClick,
   link,
   externalLink,
+  fullWidth,
 }: CardPropTypes): React.ReactElement => {
   const shouldAnimate =
     typeof onClick !== 'undefined' ||
@@ -108,10 +118,15 @@ const Card = ({
     typeof externalLink !== 'undefined'
 
   const cardBody = (
-    <CardStyles animate={shouldAnimate}>
+    <CardStyles
+      fullWidth={fullWidth || false}
+      animate={shouldAnimate}
+    >
       {title && <h4>{title}</h4>}
       {content && typeof content === 'string' ? (
-        <p>{shouldTrim ? trim(135)(content) : content}</p>
+        <p>
+          {trimLength === 0 ? content : trim(trimLength)(content)}
+        </p>
       ) : (
         content
       )}

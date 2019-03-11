@@ -7,13 +7,21 @@ import theme from '../utils/theme'
 import Footer from './Footer'
 import Header from './Header'
 import Meta from './Meta'
-import './Layout.css'
+import './code.css'
 
 const GlobalStyle = createGlobalStyle`
-  * {
+  html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+    }
 
   body {
     color: ${props => props.theme.n400};
@@ -26,9 +34,25 @@ const GlobalStyle = createGlobalStyle`
     font-size: ${props => props.theme.tMedium};
   }
 
-  span, p, li, ul, span, a, blockquote {
+  body *::selection {
+    background: ${props => props.theme.b500};
+    color: ${props => props.theme.n900};
+  }
+  
+  span, p, li, ul, span, blockquote {
     line-height: 1.45;
     color: ${props => props.theme.n400};
+  }
+  
+  a {
+    line-height: 1.45;
+    color: ${props => props.theme.b500};
+    font-weight: ${props => props.theme.semiBold};
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: ${props => props.theme.b600};
   }
 
   h1, h2, h3, h4, h5, h6   {
@@ -71,7 +95,6 @@ const GlobalStyle = createGlobalStyle`
   blockquote:before, blockquote:after {
     content: '"'
   }
-  }
 `
 
 const StyledPage = styled.div`
@@ -83,8 +106,13 @@ const StyledPage = styled.div`
 
 const StyledContent = styled.div`
   max-width: ${props => props.theme.lg};
-  margin: auto;
+  width: 100%;
+  margin: 0 auto;
   padding: ${props => props.theme.s3};
+
+  img {
+    width: 100%;
+  }
 `
 
 const Layout = ({ children, pathname }) => (

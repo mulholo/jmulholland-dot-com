@@ -1,10 +1,12 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 import styled from '../utils/styled-components'
+import media from '../utils/media'
 
 const SiteName = styled.h1`
   font-size: ${props => props.theme.tLarger};
   margin: 0;
+  flex-grow: 1;
 `
 
 const StyledHeader = styled.header`
@@ -37,8 +39,70 @@ const StyledButton = styled.button`
   padding: ${props => props.theme.s1} ${props => props.theme.s3};
 `
 
+const MobileButton = styled(StyledButton)`
+  ${media.tablet`display: none;`}
+`
+
+const LinksContainer = styled('div')<{ open: boolean }>`
+  ${props =>
+    !props.open &&
+    `
+    display: none;
+  `}
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: ${props => props.theme.n900};
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin: ${props => props.theme.s4};
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    font-size: ${props => props.theme.tLargerStill};
+  }
+
+  button.close {
+    font-size: ${props => props.theme.tLarge};
+    color: ${props => props.theme.n500};
+    font-weight: ${props => props.theme.bold};
+    position: fixed;
+    top: ${props => props.theme.s4};
+    right: ${props => props.theme.s4};
+  }
+
+  ${media.tablet`
+    display: block;
+    position: static;
+
+    ul {
+      flex-direction: row;
+      justify-content: flex-end;
+      margin: 0;
+    }
+
+    li {
+      font-size: ${props => props.theme.tLarge};
+      margin: 0 0 0 ${props => props.theme.s4};
+    }
+
+    button.close {
+      width: 0;
+      height: 0;
+      display: none;
+    }
+  `}
+`
+
 const Header = () => {
   const [size, setSize] = React.useState(window.innerWidth)
+  const [menuOpen, setMenuOpen] = React.useState(false)
 
   React.useEffect(() => {
     const updateSize = () => {
@@ -49,16 +113,37 @@ const Header = () => {
       window.removeEventListener('resize', updateSize)
     }
   })
-  console.log(size)
+
   return (
     <StyledHeader>
       <StyledHeaderContent>
-        <Link to='/'>
+        <Link to='/' style={{ width: '100%' }}>
           <SiteName>{`J${
             size < 350 ? '.' : 'ames'
           } Mulholland`}</SiteName>
         </Link>
-        <StyledButton>Menu</StyledButton>
+        <MobileButton onClick={() => setMenuOpen(true)}>
+          Menu
+        </MobileButton>
+        <LinksContainer open={menuOpen}>
+          <ul>
+            <li onClick={() => setMenuOpen(false)}>
+              <Link to='/'>Home</Link>
+            </li>
+            <li>
+              <Link to='/thoughts'>Think</Link>
+            </li>
+            <li>
+              <Link to='/blog'>Blog</Link>
+            </li>
+          </ul>
+          <button
+            className='close'
+            onClick={() => setMenuOpen(false)}
+          >
+            X
+          </button>
+        </LinksContainer>
       </StyledHeaderContent>
     </StyledHeader>
   )

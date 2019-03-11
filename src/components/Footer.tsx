@@ -10,21 +10,21 @@ const StyledFooter = styled.footer`
 
 const StyledContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   max-width: ${props => props.theme.lg};
   padding: ${props => props.theme.s3};
   margin: auto;
 
-  ${media.tablet`flex-direction: column;`}
+  ${media.tablet`flex-direction: row;`}
 `
 
 const StyledSection = styled.div`
   color: ${props => props.theme.n500};
-  width: 50%;
-  padding-right: ${props => props.theme.s8};
+  width: 100%;
 
-  ${media.tablet`width: 100%; padding-right: 0;`}
+  ${media.tablet`width: 50%; padding-right: ${props =>
+    props.theme.s8};`}
 `
 
 const StyledHeader = styled.h4`
