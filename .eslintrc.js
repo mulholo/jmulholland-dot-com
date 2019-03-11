@@ -26,6 +26,7 @@ module.exports = {
     'react/prop-types': 0,
     'jsx-quotes': ['error', 'prefer-single'],
     'react/no-unescaped-entities': 0,
+    '@typescript-eslint/explicit-function-return-type': 0,
   },
   overrides: [
     {
