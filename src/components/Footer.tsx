@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from '../utils/styled-components'
+import styled from 'styled-components'
 import media from '../utils/media'
 
 const StyledFooter = styled.footer`

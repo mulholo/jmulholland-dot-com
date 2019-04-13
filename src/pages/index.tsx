@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
-import styled from '../utils/styled-components'
+import styled from 'styled-components'
 import Layout from '../components/Layout'
 import Card from '../components/Card'
 import { format } from 'date-fns'

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import styled from '../utils/styled-components'
+import styled from 'styled-components'
 import media from '../utils/media'
 
 const SiteName = styled.h1`

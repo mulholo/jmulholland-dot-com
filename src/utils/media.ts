@@ -1,5 +1,4 @@
-import { css } from './styled-components'
-import { ThemedCssFunction } from 'styled-components'
+import { css, ThemedCssFunction } from 'styled-components'
 
 interface Sizes {
   desktopLarge: number // macbook pro 15"
