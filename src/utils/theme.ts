@@ -1,4 +1,4 @@
-// typecasting with as lets you get literals on autocomplete popup
+// typecasting with `as` lets you get literals on autocomplete popup
 export default {
   /* Colours --------------------------------------------- */
 

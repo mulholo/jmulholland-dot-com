@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled, {
   createGlobalStyle,
   ThemeProvider,
-} from '../utils/styled-components'
+} from 'styled-components'
 import theme from '../utils/theme'
 import Footer from './Footer'
 import Header from './Header'
