@@ -37,10 +37,7 @@ const Index = ({ data, location }) => (
       <a color='#70a0dc' href='https://www.peoplegoal.com/'>
         Evermind Digital
       </a>
-      &nbsp; where I spend most of my time making things with React. I
-      also run a newsletter called&nbsp;
-      <a href='https://copythat.io'>Copy That!</a> which you should
-      check out if you want to get better at HTML, CSS and JS.
+      &nbsp; where I spend most of my time making things with React.
     </StyledP>
     <BlogCardsContainer>
       <StyledHeader>Recent Blog Posts</StyledHeader>
