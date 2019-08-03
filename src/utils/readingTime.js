@@ -14,6 +14,8 @@ export const formatToString = n =>
 
 /**
  * Formats a reading time to display e.g. 12 minutes read
+ *
+ * @param {number} n - number of words
  */
 const readingTime = n => formatToString(wordsToMinutes(n))
 
