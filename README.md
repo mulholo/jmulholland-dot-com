@@ -17,6 +17,11 @@ This is the repo for my personal website,
 - `yarn install`
 - `yarn dev`
 
+### Deployment
+
+- Auto-deploy to
+  [Netlify](https://app.netlify.com/sites/james/overview) on merge
+
 ## Notes
 
 - To resolve a `@types` issue between `styled-components` and React,
