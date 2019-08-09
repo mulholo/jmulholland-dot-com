@@ -34,9 +34,7 @@ const Index = ({ data, location }) => (
   <Layout pathname={location.pathname}>
     <StyledP>
       I'm James, a front-end engineer from the UK. I currently work at{' '}
-      <a color='#70a0dc' href='https://www.peoplegoal.com/'>
-        Evermind Digital
-      </a>
+      <a href='https://www.memrise.com/'>Memrise</a>
       &nbsp; where I spend most of my time making things with React.
     </StyledP>
     <BlogCardsContainer>
