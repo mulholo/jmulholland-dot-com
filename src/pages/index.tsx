@@ -3,16 +3,10 @@ import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
 import Card from '../components/Card'
+import CardsContainer from '../components/styles/CardsContainer'
 import { format } from 'date-fns'
 
 const BlogCardsContainer = styled.div`
-  .cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 100%;
-  }
-
   .readMore {
     font-weight: ${props => props.theme.semiBold};
     color: ${props => props.theme.n300};
@@ -41,7 +35,7 @@ const Index = ({ data, location }) => (
     </StyledP>
     <BlogCardsContainer>
       <StyledHeader>Recent Blog Posts</StyledHeader>
-      <div className='cards'>
+      <CardsContainer>
         {data.allContentfulBlogPost.edges.map(({ node }) => (
           <Card
             key={node.slug}
@@ -52,7 +46,7 @@ const Index = ({ data, location }) => (
             fullWidth
           />
         ))}
-      </div>
+      </CardsContainer>
       <Link to='blog'>
         <p className='readMore'>Read More →</p>
       </Link>
