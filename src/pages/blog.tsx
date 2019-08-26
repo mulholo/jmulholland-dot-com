@@ -1,17 +1,13 @@
 import * as React from 'react'
-import { graphql, Link } from 'gatsby'
-import styled from 'styled-components'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Card from '../components/Card'
 import { format } from 'date-fns'
-
-const StyledList = styled.ul`
-  padding: 0;
-`
+import CardsContainer from '../components/styles/CardsContainer'
 
 const BlogPage = ({ data, location }) => (
   <Layout pathname={location.pathname}>
-    <StyledList>
+    <CardsContainer>
       {data.allContentfulBlogPost.edges.map(({ node }) => (
         <Card
           key={node.slug}
@@ -23,7 +19,7 @@ const BlogPage = ({ data, location }) => (
           trimLength={0}
         />
       ))}
-    </StyledList>
+    </CardsContainer>
   </Layout>
 )
 
