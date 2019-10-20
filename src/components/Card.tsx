@@ -1,5 +1,5 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
 
 /* Styles ---------------------------------------------- */
@@ -38,7 +38,7 @@ const StyledButton = styled.button`
   padding: 0;
 `
 
-const CardStyles = styled('div')<{
+const CardStyles = styled.div<{
   animate: boolean
   fullWidth: boolean
 }>`
@@ -74,10 +74,12 @@ const CardStyles = styled('div')<{
 
   ${props =>
     props.animate &&
-    `&&:hover {
-    box-shadow: ${props => props.theme.shadow4};
-    transform: translateY(-3px);
-  }`}
+    css`
+      &&:hover {
+        box-shadow: ${props => props.theme.shadow4};
+        transform: translateY(-3px);
+      }
+    `}
 
   ${props => props.fullWidth && `max-width: 100%;`}
 `
@@ -95,8 +97,7 @@ interface CardPropTypes {
   content?: string | React.ReactNode
   detail?: string
   trimLength?: number // 0 for no trimming
-  // @ts-ignore
-  onClick?: () => any
+  onClick?: () => void
   link?: string
   externalLink?: string
   fullWidth?: boolean

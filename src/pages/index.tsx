@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 import Card from '../components/Card'
 import CardsContainer from '../components/styles/CardsContainer'
 import { format } from 'date-fns'
+import { BlogPostEdge } from './blog'
 
 const BlogCardsContainer = styled.div`
   .readMore {
@@ -24,7 +25,15 @@ const StyledP = styled.p`
 
 const StyledHeader = styled.h4``
 
-const Index = ({ data, location }) => (
+interface IndexProps extends GatsbyPageProps {
+  data: {
+    allContentfulBlogPost: {
+      edges: BlogPostEdge[]
+    }
+  }
+}
+
+const Index = ({ data, location }: IndexProps) => (
   <Layout pathname={location.pathname}>
     <StyledP>
       I'm James, a front-end engineer from the UK. I currently work at{' '}
@@ -40,7 +49,7 @@ const Index = ({ data, location }) => (
             link={node.slug}
             title={node.title}
             content={node.body.childMarkdownRemark.excerpt}
-            detail={format(new Date(node.publishDate), 'Do MMM YYYY')}
+            detail={format(new Date(node.publishDate), 'Do MMM yyyy')}
             fullWidth
           />
         ))}

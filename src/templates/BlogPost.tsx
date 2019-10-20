@@ -3,7 +3,27 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import readingTime from '../utils/readingTime'
 
-const BlogPost = ({ data, location }) => {
+interface BlogPostProps {
+  data: {
+    contentfulBlogPost: {
+      title: string
+      slug: string
+      body: {
+        childMarkdownRemark: {
+          html: string
+          wordCount: {
+            words: number
+          }
+        }
+      }
+    }
+  }
+  location: {
+    pathname: string
+  }
+}
+
+const BlogPost = ({ data, location }: BlogPostProps) => {
   if (!data) return null
   const { title, body } = data.contentfulBlogPost
   const { childMarkdownRemark } = body
@@ -14,10 +34,7 @@ const BlogPost = ({ data, location }) => {
       <p>
         <em>{readingTime(wordCount.words)}</em>
       </p>
-      <div
-        // eslint-disable-next-line
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
+      <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   )
 }

@@ -5,7 +5,28 @@ import Card from '../components/Card'
 import { format } from 'date-fns'
 import CardsContainer from '../components/styles/CardsContainer'
 
-const BlogPage = ({ data, location }) => (
+export interface BlogPostEdge {
+  node: {
+    slug: string
+    title: string
+    publishDate: string
+    body: {
+      childMarkdownRemark: {
+        excerpt: string
+      }
+    }
+  }
+}
+
+interface BlogPageProps extends GatsbyPageProps {
+  data: {
+    allContentfulBlogPost: {
+      edges: BlogPostEdge[]
+    }
+  }
+}
+
+const BlogPage = ({ data, location }: BlogPageProps) => (
   <Layout pathname={location.pathname}>
     <CardsContainer>
       {data.allContentfulBlogPost.edges.map(({ node }) => (
@@ -14,7 +35,7 @@ const BlogPage = ({ data, location }) => (
           link={node.slug}
           title={node.title}
           content={node.body.childMarkdownRemark.excerpt}
-          detail={format(new Date(node.publishDate), 'Do MMM YYYY')}
+          detail={format(new Date(node.publishDate), 'Do MMM yyyy')}
           fullWidth
           trimLength={0}
         />
