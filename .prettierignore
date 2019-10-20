@@ -6,8 +6,4 @@ public
 .DS_Store
 .intermediate-representation/
 .env
-jest.config.js
-jest-preprocess.js
-gatsby-node.js
-loadershim.js
 

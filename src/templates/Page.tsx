@@ -2,7 +2,23 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
-const Page = ({ data, location }) => {
+interface PageProps {
+  data: {
+    contentfulPage: {
+      title: string
+      body: {
+        childMarkdownRemark: {
+          html: string
+        }
+      }
+    }
+  }
+  location: {
+    pathname: string
+  }
+}
+
+const Page = ({ data, location }: PageProps) => {
   if (!data) return null
   const { title, body } = data.contentfulPage
   return (

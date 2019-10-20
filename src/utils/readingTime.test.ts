@@ -1,4 +1,4 @@
-import { wordsToMinutes } from '../readingTime'
+import { wordsToMinutes } from './readingTime'
 
 describe('wordsToMinutes', () => {
   it('returns some correct values', () => {

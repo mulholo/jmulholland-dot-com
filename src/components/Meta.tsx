@@ -5,7 +5,7 @@ import { graphql, StaticQuery } from 'gatsby'
 // TODO import card
 // import card from '../assets/twitter-card.png'
 
-const SiteMetadata = ({ pathname }) => (
+const SiteMetadata = ({ pathname }: { pathname: string }) => (
   <StaticQuery
     query={graphql`
       query SiteMetadata {

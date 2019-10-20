@@ -1,7 +1,9 @@
 import * as React from 'react'
 import Layout from '../components/Layout'
 
-const FourOhFour = ({ location }) => (
+interface FourOhFourProps extends GatsbyPageProps {}
+
+const FourOhFour = ({ location }: FourOhFourProps) => (
   <Layout pathname={location.pathname}>
     <h2>404</h2>
     <p>

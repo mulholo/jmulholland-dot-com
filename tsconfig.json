@@ -7,6 +7,7 @@
     "allowJs": false,
     "esModuleInterop": true,
     "noEmit": true,
+    "strict": true,
     "types": ["react", "jest"]
   },
   "exclude": ["./node_modules", "public", ".cache"]

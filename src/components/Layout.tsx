@@ -115,7 +115,12 @@ const StyledContent = styled.div`
   }
 `
 
-const Layout = ({ children, pathname }) => (
+interface LayoutProps {
+  children: React.ReactNode
+  pathname: string
+}
+
+const Layout = ({ children, pathname }: LayoutProps) => (
   <ThemeProvider theme={theme}>
     <>
       <GlobalStyle />
