@@ -2,7 +2,7 @@
  * Takes a word-count and calcs the number of mins it would take
  * to read it on average
  */
-export const wordsToMinutes = n => {
+export const wordsToMinutes = (n: number): number => {
   const minsInSecond = 60
   const wordPerSecond = 4.8 // according to Ulysses writing app
   const minutesToRead = n / wordPerSecond / minsInSecond
@@ -14,8 +14,6 @@ export const formatToString = n =>
 
 /**
  * Formats a reading time to display e.g. 12 minutes read
- *
- * @param {number} n - number of words
  */
 const readingTime = n => formatToString(wordsToMinutes(n))
 

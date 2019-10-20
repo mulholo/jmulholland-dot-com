@@ -6,6 +6,7 @@
     "dev": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "test": "jest",
     "lint": "eslint src --fix",
     "prettier": "prettier \"**/*.+(js|jsx|ts|tsx|json|css|md|mdx|graphql)\"",
     "format": "yarn prettier --write",
@@ -30,6 +31,7 @@
     "gatsby-transformer-remark": "^2.3.0",
     "prismjs": "^1.15.0",
     "prop-types": "^15.7.2",
+    "ramda": "^0.26.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-helmet": "^5.2.0",
@@ -59,6 +61,7 @@
     "jest": "^24.1.0",
     "lint-staged": "^8.1.5",
     "prettier": "^1.16.4",
+    "ts-jest": "^24.1.0",
     "typescript": "^3.3.3333"
   },
   "husky": {
