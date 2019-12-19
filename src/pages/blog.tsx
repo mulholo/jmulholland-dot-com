@@ -35,7 +35,7 @@ const BlogPage = ({ data, location }: BlogPageProps) => (
           link={node.slug}
           title={node.title}
           content={node.body.childMarkdownRemark.excerpt}
-          detail={format(new Date(node.publishDate), 'Do MMM yyyy')}
+          detail={format(new Date(node.publishDate), 'do MMM yyyy')}
           fullWidth
           trimLength={0}
         />
