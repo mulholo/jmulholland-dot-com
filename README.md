@@ -1,5 +1,7 @@
 # jmulholland.com
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f78a46a9-01dd-402b-8db6-872418d056dc/deploy-status)](https://app.netlify.com/sites/james/deploys)
+
 This is the repo for my personal website,
 [jmulholland.com](https://jmulholland.com).
 
