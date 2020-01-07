@@ -11,7 +11,6 @@ This is the repo for my personal website,
   [React](https://reactjs.org))
 - [TypeScript](http://typescript.com)
 - [Styled Components](https://styled-components.com)
-- [MDX](https://mdxjs.com)
 
 ## Usage
 
