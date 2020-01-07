@@ -5,7 +5,22 @@ import Layout from '../components/Layout'
 import Card from '../components/Card'
 import CardsContainer from '../components/styles/CardsContainer'
 import { format } from 'date-fns'
-import { BlogPostEdge } from './blog'
+
+export interface BlogPostEdge {
+  node: {
+    frontmatter: {
+      title: string
+      date: string
+    }
+    fields: {
+      slug: string
+    }
+    excerpt: string
+    wordCount: {
+      words: number
+    }
+  }
+}
 
 const BlogCardsContainer = styled.div`
   .readMore {
@@ -65,6 +80,7 @@ export const query = graphql`
   query recentBlogQuery {
     allMarkdownRemark(
       filter: { frontmatter: { type: { ne: "page" } } }
+      sort: { order: DESC, fields: frontmatter___date }
     ) {
       edges {
         node {
