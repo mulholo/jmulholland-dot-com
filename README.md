@@ -18,7 +18,7 @@ This is the repo for my personal website,
 - `yarn install`
 - `yarn dev`
 
-### Deployment
+### Deployment
 
 - Auto-deploys to
   [Netlify](https://app.netlify.com/sites/james/overview) on merge to
