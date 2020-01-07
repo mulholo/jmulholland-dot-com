@@ -24,7 +24,6 @@ const Page = ({ data, location }: PageProps) => {
     <Layout pathname={location.pathname}>
       <h1>{frontmatter.title}</h1>
       <div
-        eslint-disable-next-line
         dangerouslySetInnerHTML={{
           __html: html,
         }}
