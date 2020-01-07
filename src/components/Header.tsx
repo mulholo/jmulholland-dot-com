@@ -135,7 +135,7 @@ const Header = () => {
               <Link to='/'>Blog</Link>
             </li>
             <li onClick={() => setMenuOpen(false)}>
-              <Link to='/thoughts'>Think</Link>
+              <Link to='/thoughts'>Thoughts</Link>
             </li>
           </ul>
           <button
