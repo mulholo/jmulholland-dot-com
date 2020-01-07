@@ -21,14 +21,41 @@ This is the repo for my personal website,
 
 ### Deployment
 
-- Auto-deploy to
-  [Netlify](https://app.netlify.com/sites/james/overview) on merge
+- Auto-deploys to
+  [Netlify](https://app.netlify.com/sites/james/overview) on merge to
+  master
+
+### Adding a new blog post
+
+1. Create a new `.md` file in `src/content/posts`
+2. Add frontmatter with the following fields:
+
+```markdown
+---
+date: '2019-05-04'
+title: 'My blog post'
+---
+```
+
+### Adding a new page
+
+1. Create a new `.md` file in `src/content/pages`
+2. Add frontmatter with the following fields:
+
+```markdown
+---
+date: '2019-05-04'
+title: 'My blog post'
+type: 'page'
+---
+```
 
 ## Notes
 
 - To resolve a `@types` issue between `styled-components` and React,
   the React version must be specified in the `package.json`
   resolutions:
+
   ```json
   "resolutions": {
     "@types/react": "^16.8.7"
