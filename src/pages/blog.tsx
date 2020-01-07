@@ -7,20 +7,23 @@ import CardsContainer from '../components/styles/CardsContainer'
 
 export interface BlogPostEdge {
   node: {
-    slug: string
-    title: string
-    publishDate: string
-    body: {
-      childMarkdownRemark: {
-        excerpt: string
-      }
+    frontmatter: {
+      title: string
+      date: string
+    }
+    fields: {
+      slug: string
+    }
+    excerpt: string
+    wordCount: {
+      words: number
     }
   }
 }
 
 interface BlogPageProps extends GatsbyPageProps {
   data: {
-    allContentfulBlogPost: {
+    allMarkdownRemark: {
       edges: BlogPostEdge[]
     }
   }
@@ -29,13 +32,16 @@ interface BlogPageProps extends GatsbyPageProps {
 const BlogPage = ({ data, location }: BlogPageProps) => (
   <Layout pathname={location.pathname}>
     <CardsContainer>
-      {data.allContentfulBlogPost.edges.map(({ node }) => (
+      {data.allMarkdownRemark.edges.map(({ node }) => (
         <Card
-          key={node.slug}
-          link={node.slug}
-          title={node.title}
-          content={node.body.childMarkdownRemark.excerpt}
-          detail={format(new Date(node.publishDate), 'do MMM yyyy')}
+          key={node.fields.slug}
+          link={node.fields.slug}
+          title={node.frontmatter.title}
+          content={node.excerpt}
+          detail={format(
+            new Date(node.frontmatter.date),
+            'do MMM yyyy'
+          )}
           fullWidth
           trimLength={0}
         />
@@ -46,16 +52,19 @@ const BlogPage = ({ data, location }: BlogPageProps) => (
 
 export const query = graphql`
   query blogQuery {
-    allContentfulBlogPost(filter: { node_locale: { eq: "en-GB" } }) {
+    allMarkdownRemark {
       edges {
         node {
-          title
-          slug
-          publishDate
-          body {
-            childMarkdownRemark {
-              excerpt
-            }
+          frontmatter {
+            title
+            date
+          }
+          fields {
+            slug
+          }
+          excerpt(format: PLAIN)
+          wordCount {
+            words
           }
         }
       }

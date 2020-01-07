@@ -1,53 +1,52 @@
-const path = require('path')
+const path = require(`path`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.createPages = ({ graphql, actions }) => {
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === 'MarkdownRemark') {
+    const slug = createFilePath({ node, getNode, basePath: `posts` })
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+  }
+}
+
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  return new Promise((resolve, reject) => {
-    const BlogPost = path.resolve('./src/templates/BlogPost.tsx')
-    const Page = path.resolve('./src/templates/Page.tsx')
-    resolve(
-      graphql(`
-        {
-          allContentfulBlogPost {
-            edges {
-              node {
-                slug
-              }
+  const result = await graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
             }
-          }
-          allContentfulPage {
-            edges {
-              node {
-                slug
-              }
+            frontmatter {
+              type
             }
+            html
           }
         }
-      `).then(result => {
-        if (result.errors) {
-          reject(result.errors)
-        }
-        result.data.allContentfulBlogPost.edges.forEach(
-          ({ node }) => {
-            createPage({
-              path: node.slug,
-              component: BlogPost,
-              context: {
-                slug: node.slug,
-              },
-            })
-          }
-        )
-        result.data.allContentfulPage.edges.forEach(({ node }) => {
-          createPage({
-            path: node.slug,
-            component: Page,
-            context: {
-              slug: node.slug,
-            },
-          })
-        })
-      })
-    )
+      }
+    }
+  `)
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    const { fields, frontmatter } = node
+    const { slug } = fields
+    const { type } = frontmatter
+    createPage({
+      path: slug,
+      component: path.resolve(
+        `./src/templates/${type === 'page' ? 'Page' : 'BlogPost'}.tsx`
+      ),
+      // context is the fields available to gql queries
+      context: {
+        slug,
+        html: node.html,
+        type,
+      },
+    })
   })
 }

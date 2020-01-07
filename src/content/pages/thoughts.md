@@ -1,4 +1,7 @@
-# Thoughts
+---
+title: 'Thoughts'
+type: 'page'
+---
 
 Here you can find a collection of my interests and beliefs. On the
 semi-anonymous internet, it's a way I can tell you a bit about myself.

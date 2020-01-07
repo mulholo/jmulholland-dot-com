@@ -30,7 +30,7 @@
     "gatsby-plugin-styled-components": "^3.0.5",
     "gatsby-plugin-typescript": "^2.0.10",
     "gatsby-remark-prismjs": "^3.2.4",
-    "gatsby-source-contentful": "^2.0.29",
+    "gatsby-source-filesystem": "^2.1.43",
     "gatsby-transformer-remark": "^2.3.0",
     "prismjs": "^1.15.0",
     "prop-types": "^15.7.2",
