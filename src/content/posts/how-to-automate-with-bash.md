@@ -1,0 +1,463 @@
+---
+title: 'How To Automate Basic Development Tasks with Bash'
+date: '2019-02-28'
+---
+
+As a software engineer, I love automating things (or, rather, hate
+repeating things). One of the best ways you can save yourself some
+precious development time is by learning Bash. I’ve had a great ROI on
+learning the basics of Bash, so I wanted to share the 80% of stuff you
+need to get going and start making meaningful improvements to your
+development productivity.
+
+## Intro to Bash
+
+If you're comfortable with what bash is, you can skip this section. If
+not, read on.
+
+Bash is the language and prompt that you use when interacting with the
+Linux/macOS command line. If you've ever typed `cd` or `mkdir`, that's
+Bash.
+
+From the command line, Bash is an interface to pretty much anything
+within your computer. You can access, move, and edit files; you can
+run and kill a series of commands; you can grab information about your
+system. When you realise that a command prompt used to be the only way
+people used to interact with computers, you'll realise how powerful
+Bash can be.
+
+Although you'll most commonly interact with Bash through the command
+prompt, Bash's real power comes in when you start writing scripts. If
+you repeatedly do anything through the command line, it might be worth
+investigating whether you can express that activity with a Bash
+script.
+
+Want to automatically update your local database with up to data from
+production, keep two files in sync or bundle multiple DevOps commands
+into one? All easy with Bash.
+
+So now that we know what Bash is, let’s see how we can use it.
+
+## Bash In the command line
+
+There’s loads you can do with Bash (check out
+[this cheatsheet](https://devhints.io/bash) for a sample) but we’ll
+stick to the basics here. My goal here is to make you productive with
+the minimal effort, then let you go from there.
+
+### File and Directory Manipulation
+
+A lot of what you’ll be doing in Bash is manipulating your filesystem.
+Before we start manipulating, however, let’s deal with navigation so
+we know where we are and how to get where we want to go. `pwd` Prints
+the Working Directory, that is, it tells us which repository we are
+in. You might also have the current directory shown to you in the
+command prompt.
+
+![command-line-pwd](//images.ctfassets.net/kq8wdn6jzau5/2hazzQ3nMrnyhFL7V8Rtz1/245135cec25e9eb22fd85d0f5375934b/command-line-pwd.png 'My command line, showing the current working directory as `~/proj`')
+
+If you want to change directory, `cd my-project` will take you to the
+folder called `my-project`. If you’re unsure of what folders you can
+navigate to from the working directory are, type `ls` to list all the
+files and directories in the current directory. If you want to see
+hidden files too, type `ls -a`. The `-a` is an example of an option
+which you can pass to commands which allow you to modify their
+behaviour. You can also list within nested directories with
+`ls -a some/nested/path`.
+
+Now we know where we are, let’s create a new file. `touch foo.txt`
+will create a text file named ‘foo’ in the current working directory.
+`mkdir my-repo-name` does the same thing but for repositories. If you
+want to make nested repositories, you’ll need `mkdir -p my-repo-name`.
+
+Once you’ve created a file, you can copy it to a new location with
+`cp file new/file/location/`. If you want to move it, it’s the same
+thing but with `mv` instead of `cp`. `mv` is also used to rename files
+(what’s the difference between moving `old-name.txt` to `new-name.txt`
+and renaming `old-name.txt` to `new-name.txt` ?)
+
+Finally, you can delete files with `rm file.txt`. If you need to
+recursively delete a repo and all the files within it, use
+`rm -r folder-name`.
+
+### Directing Output and Passing Data Around
+
+You don’t want to just move files and edit their names, however, you
+also want to be able to edit their contents. Let’s create a new file,
+but this time, populate it with some text.
+
+```bash
+$ echo "node_modules" > .gitignore
+```
+
+`echo` outputs some text to the console. Rather than simply print
+“node*modules”, however, we can \_redirect* the output to a file
+called `.gitignore` using `>`. `>` tells the prompt to take the output
+of the left hand side and put it in the contents of the file on the
+right hand side.
+
+We can read the contents of `.gitignore` to check this has worked
+using `cat`. You should see the contents of `.gitignore` appear in
+your command line:
+
+```bash
+$ cat .gitignore
+node_modules
+```
+
+`>` is limited in that it can only add/replace the entire contents of
+a file. If you want to _append_ something to a file you need `>>`. For
+example, let’s say you later remember you want to ignore not only
+`node_modules`, but also your built code, found in the `dist`
+directory. Adding `dist` to `.gitignore` is as easy as
+`echo "dist" >> .gitignore`.
+
+One of the most useful things to know in Bash is the pipe command
+(`|`). Whereas `>` and `>>` redirect command outputs into files, `|`
+redirects output into other commands. This is super-useful when you
+need chain together multiple commands into one.
+
+`grep` is a useful command line tool for searching through text and
+we’ll use to demonstrate the pipe command. When you pass in some data
+to `grep`, it can search through it for a given set of
+characters/pattern. Let’s say we’ve forgotten whether we added
+`node_modules` to our `.gitignore` earlier. We can search the
+`.gitignore` file for ‘node_modules’ using `grep` and it will print
+any lines in the searched file which contain a match.
+
+```bash
+$ grep node_modules .gitignore
+.gitignore
+```
+
+We can rewrite this to use two commands, threaded together with a
+pipe:
+
+```bash
+$ cat .gitignore | grep node_modules
+```
+
+This command tells Bash to take the output of `.gitignore` and pass it
+as an argument to the `grep` search for ‘node_modules’. If you've ever
+used a `.then(callback)` in JavaScript, it's a little bit like that.
+
+Although it doesn’t necessarily make sense to use a pipe in this
+instance, `|` can be incredibly useful when you have more dynamic data
+being passed around, or longer chains going on.
+
+One last command to know before we move onto writing a Bash script is
+`&&`. `&&` is super-easy to grok: all it does is run one command after
+another.
+
+```bash
+$ echo "hello" && echo "world"
+hello
+world
+```
+
+## Creating a Bash Script
+
+Now we’ve got the basics mastered, time to write a script. We’re going
+to be making a script that sets up a new web project folder, including
+creating some basic files, initialising git and initialising yarn.
+
+### Creating a basic Bash Script
+
+Let’s start by creating a new `.sh` (Bash) file.
+
+```bash
+touch new-proj.sh
+```
+
+Open up the newly created file (e.g. if you like to use VSCode, type
+`code new-proj.sh`) and then type in the following:
+
+```bash
+#!/bin/bash
+echo "Making a new project"
+```
+
+`#!/bin/bash` tells the computer that this is a Bash file and that you
+can run it even if it doesn’t end in `.sh` (we’ll get to that later).
+
+Save your file. You’ve created your first Bash script!
+
+Let’s run it. To do this, all we need to do is type `./new-proj.sh`
+(`./` stands for the current directory).
+
+```bash
+$ ./new-proj.sh
+permission denied: ./new-proj.sh
+```
+
+Oh no! Error! The permissions when you create a new Bash script are a
+little weird. To allow your account to run the script, we need to
+modify these permissions. Do that with the following command:
+
+```bash
+$ chmod u+x new-proj.sh
+```
+
+And try again:
+
+```bash
+$ ./new-proj.sh
+Making a new project
+```
+
+Wonderful.
+
+Of course, we want to be able to do a little more than just print a
+statement. Time to add some more useful functionality. I’ll put in
+some comments to stub out what we’ll be doing in our script. In Bash,
+comments start with `#`.
+
+```bash
+#!/bin/bash
+echo "Making a new project"
+# make a new folder
+# make index.js, index.html and style.css files
+# initialise git
+# initialise yarn
+```
+
+Making a new folder is easy; we learnt how to do it with the `mkdir`
+command earlier. But what do we call the folder we want to make?
+Presumably you don’t want every project you make to have the same
+folder name.
+
+This is where we can introduce parameters. The parameters to a bash
+script can be accessed in the order they were passed in using `$1`,
+`$2`, …, `$n` where n is the position of the argument that was passed
+in. So, if we want to call `./new-proj.sh my-proj` to create a folder
+called `my proj`, we’ll need to add the following to the script:
+
+```bash
+# ...
+# make a new folder with the name of the first param
+mkdir $1
+# ...
+```
+
+Running the script will now make a directory for us with the specified
+name.
+
+```bash
+$ ./new-proj.sh testRepo
+```
+
+What if we want to reuse this variable? Wouldn’t it be nice to have it
+named at the top of the file so we don’t have to wonder what `$1`
+means?
+
+```bash
+DIRNAME=$1
+```
+
+The above line will create a variable named `DIRNAME` which we can
+then access throughout the rest of the script with `$DIRNAME`. Much
+more readable.
+
+```bash
+DIRNAME=$1
+echo "Making repo named $DIRNAME"
+mkdir $DIRNAME
+```
+
+Now we can make some files…
+
+```bash
+# make index.js, index.html and style.css files
+touch $DIRNAME/index.html
+touch $DIRNAME/style.css
+touch $DIRNAME/index.js
+```
+
+…and initialise git, including adding a `.gitignore file`…
+
+```bash
+# initialise git
+git init $DIRNAME
+echo "node_modules" > $DIRNAME/.gitignore
+echo "dist" >> $DIRNAME/.gitignore
+```
+
+…and jump into the new directory to initialise yarn.
+
+```bash
+# initiaise yarn, answering 'yes' to all Qs
+cd $DIRNAME
+yarn init --quiet --yes
+```
+
+Great, you have a new project folder set up for you at just a few
+characters’ notice.
+
+### Adding Options
+
+Not all projects are the same, however. What if we don’t always want
+JavaScript or Git in the project? This is where options come in.
+
+This section gets a little bit more fiddly than above as Bash’s syntax
+isn’t always the most readable, but I’ll explain everything as clearly
+as possible so that there’s no magic going on.
+
+The first thing we need to do is set some variables according to
+whether certain flags are passed. i.e. `./new-proj.sh -j -g newProj`
+will set `$JS` and `$GIT` to true, whereas `./new-proj.sh. newProj`
+will have both those variable set to false.
+
+Take a minute to read through this code, then we’ll go through it
+step-by-step.
+
+```bash
+while [[ $# -gt 0 ]]  # while number of args ($#) > (-gt) 0
+do                    # do everything between here and 'done'
+case $1 in # start of switch statement, switching on next parameter
+  -j | --javascript ) # if next var is -j or --javascript
+    JS=true           # set the $JS variable to true
+    shift             # shift the position of the arguments by 1
+    ;;
+  -g | --git ) # if next var = -g or --git
+    GIT=true   # set the $GIT variable to true
+    shift      # shift the position of the arguments along by 1
+    ;;
+  *)
+    DIRNAME=$1 # set any other param as the directory name
+    shift      # shift the position of the arguments along by 1
+esac; # end switch statement (case backwards)
+done  # end while loop
+```
+
+What we have here is a loop which loops over each passed-in parameter
+and then checks via a switch statement if that parameter matches
+either the Git or JavaScript options. If it does, a corresponding
+variable is set to true. If it doesn’t, we set that param as the
+directory name (`*` means ‘anything else’).
+
+The `shift` command is a slightly strange one. It tells the computer
+to shift all the arguments being passed along by one position. This
+allows the loop to step through each passed in parameter in turn. You
+can read more about `switch`
+[here]([https://www.computerhope.com/unix/bash/shift.htm]).
+
+The loop keeps running while the condition inside `[[ ]]` is true.
+`$#` is the number of arguments, decreasing by one each loop thanks to
+the `shift` commands and `-gt` is the greater-than operator (\<).
+
+It’s also worth pointing out that the catch-all statement at the end
+where we set `DIRNAME` isn’t completely idiot-proof. If we run
+`./new-proj.sh projA projB` the script will only run for `projB`. You
+could throw this as an error (see below) or create multiple repos but
+we’ll just bear this in mind for now.
+
+### Error Catching
+
+What we do want to check though, is that at least one directory name
+has been passed. This snippet checks to see if the `$DIRNAME` variable
+is set and throws an error if it isn’t.
+
+```bash
+# exit if directory name isn't set
+if [ -z ${DIRNAME+x} ]; then
+  echo "ERROR: Could not find a directory name"
+  exit 1
+fi
+```
+
+`exit 0` signals the completion of the program. Exiting with any other
+number is an error. So all `exit 1` tells us is that the program
+failed.
+
+### Functions
+
+To clean our code up a bit, let’s create some functions to extract the
+JavaScript and Git setup logic.
+
+```bash
+setup-git() {
+  echo "Setting up Git"
+  if [[ $1 = true ]]; then # first param is $JS's value
+    # add JS relevant lines to .gitignore
+    echo "node_modules" >> $DIRNAME/.gitignore
+    echo "dist" >> $DIRNAME/.gitignore
+  fi
+  git init --quiet $DIRNAME
+}
+```
+
+```bash
+setup-js() {
+  echo "Setting up JavaScript"
+  # create index.js
+  touch "$DIRNAME"/index.js
+  # change working directory to our passed in directoyr name
+  cd $DIRNAME
+  # init package.json and yarn, auto-answer yes to all Qs
+  yarn init --silent --yes
+  # jump back to level above
+  cd ..
+}
+```
+
+All this does is wrap our code from before in an executable, named
+block. `setup-js` takes no params, whereas the first param of
+`setup-git` is the value of `$JS` which we can use to create
+js-relevant lines in `.gitignore`.
+
+Our final step is to run these functions, conditional on the value of
+our `$JS` and `$GIT` variables.
+
+```bash
+if [ "$JS" = true ]; then
+  setup-js
+fi
+
+if [ "$GIT" = true ]; then
+  setup-git "$JS"
+fi
+```
+
+That’s it! You can find the completed script as a gist
+[here](https://gist.github.com/mulholio/6d3930847ccbb072d89ecedad40f6e37).
+
+`./new-proj.sh -g -j myProj` will create a new project folder with git
+and javascript setup, `./new-proj.sh myProj` will create a new project
+folder with just a css and html file (and any other combo you like). A
+nice, reusable and flexible Bash script.
+
+### Making the Script Runnable from Anywhere
+
+The one final step is to make sure we can run this script from
+anywhere; at the moment we have to either be in the same directory as
+the script or manually type in a long path to get to it.
+
+There’s a quick solution: all we have to do is copy the script to a
+globally executable location. `usr/local/bin` fits this description so
+let’s copy the script there, cutting off that awkward `.sh` (remember
+us adding `#!/bin/bash` at the top of the file so we don’t need
+`.sh`?).
+
+```bash
+$ cp new-proj.sh /usr/local/bin/new-proj
+```
+
+Now you can create new projects from anywhere on your system!
+
+---
+
+## Resources
+
+- [Bash Cheat Sheet](https://devhints.io/bash)
+- [Bash - GNU Project - Free Software Foundation ](https://www.gnu.org/software/bash/)
+- [Awesome Bash](https://github.com/awesome-lists/awesome-bash) - a
+  list of Bash resources
+
+---
+
+Have any questions?
+[Reach out to me on Twitter](https://twitter.com/mulholio).
+
+**Epistemic Effort:** Medium: I knew everything needed to write this
+post beforehand but had to think about a good example that was
+beginner friendly and re-world enough to be useful/make sense.
