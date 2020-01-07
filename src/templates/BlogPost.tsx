@@ -5,16 +5,14 @@ import readingTime from '../utils/readingTime'
 
 interface BlogPostProps {
   data: {
-    contentfulBlogPost: {
-      title: string
+    markdownRemark: {
+      frontmatter: {
+        title: string
+      }
       slug: string
-      body: {
-        childMarkdownRemark: {
-          html: string
-          wordCount: {
-            words: number
-          }
-        }
+      html: string
+      wordCount: {
+        words: number
       }
     }
   }
@@ -25,9 +23,8 @@ interface BlogPostProps {
 
 const BlogPost = ({ data, location }: BlogPostProps) => {
   if (!data) return null
-  const { title, body } = data.contentfulBlogPost
-  const { childMarkdownRemark } = body
-  const { html, wordCount } = childMarkdownRemark
+  const { frontmatter, html, wordCount } = data.markdownRemark
+  const { title } = frontmatter
   return (
     <Layout pathname={location.pathname}>
       <h1>{title}</h1>
@@ -40,17 +37,14 @@ const BlogPost = ({ data, location }: BlogPostProps) => {
 }
 
 export const query = graphql`
-  query blogPostQuery($slug: String!) {
-    contentfulBlogPost(slug: { eq: $slug }) {
-      title
-      slug
-      body {
-        childMarkdownRemark {
-          html
-          wordCount {
-            words
-          }
-        }
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        title
+      }
+      wordCount {
+        words
       }
     }
   }

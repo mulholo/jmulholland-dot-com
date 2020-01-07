@@ -4,13 +4,11 @@ import Layout from '../components/Layout'
 
 interface PageProps {
   data: {
-    contentfulPage: {
-      title: string
-      body: {
-        childMarkdownRemark: {
-          html: string
-        }
+    markdownRemark: {
+      frontmatter: {
+        title: string
       }
+      html: string
     }
   }
   location: {
@@ -20,14 +18,14 @@ interface PageProps {
 
 const Page = ({ data, location }: PageProps) => {
   if (!data) return null
-  const { title, body } = data.contentfulPage
+  const { markdownRemark } = data
+  const { frontmatter, html } = markdownRemark
   return (
     <Layout pathname={location.pathname}>
-      <h1>{title}</h1>
+      <h1>{frontmatter.title}</h1>
       <div
-        // eslint-disable-next-line
         dangerouslySetInnerHTML={{
-          __html: body.childMarkdownRemark.html,
+          __html: html,
         }}
       />
     </Layout>
@@ -36,14 +34,11 @@ const Page = ({ data, location }: PageProps) => {
 
 export const query = graphql`
   query pageQuery($slug: String!) {
-    contentfulPage(slug: { eq: $slug }) {
-      title
-      slug
-      body {
-        childMarkdownRemark {
-          html
-        }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
       }
+      html
     }
   }
 `

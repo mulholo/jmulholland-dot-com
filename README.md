@@ -11,7 +11,6 @@ This is the repo for my personal website,
   [React](https://reactjs.org))
 - [TypeScript](http://typescript.com)
 - [Styled Components](https://styled-components.com)
-- [MDX](https://mdxjs.com)
 
 ## Usage
 
@@ -21,14 +20,52 @@ This is the repo for my personal website,
 
 ### Deployment
 
-- Auto-deploy to
-  [Netlify](https://app.netlify.com/sites/james/overview) on merge
+- Auto-deploys to
+  [Netlify](https://app.netlify.com/sites/james/overview) on merge to
+  master
+
+### Content
+
+#### Adding a new blog post
+
+1. Create a new `.md` file in `src/content/posts`
+2. Add frontmatter with the following fields:
+
+```markdown
+---
+date: '2019-05-04'
+title: 'My blog post'
+---
+```
+
+#### Adding a new page
+
+1. Create a new `.md` file in `src/content/pages`
+2. Add frontmatter with the following fields:
+
+```markdown
+---
+date: '2019-05-04'
+title: 'My blog post'
+type: 'page'
+---
+```
+
+#### Adding Images to `.md` files
+
+1. Add an image in the same directory as the markdown post
+2. Link to in the markdown like so:
+
+```markdown
+![my-caption-alt](my-image-in-same-folder.jpg)
+```
 
 ## Notes
 
 - To resolve a `@types` issue between `styled-components` and React,
   the React version must be specified in the `package.json`
   resolutions:
+
   ```json
   "resolutions": {
     "@types/react": "^16.8.7"

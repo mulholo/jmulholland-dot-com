@@ -5,7 +5,22 @@ import Layout from '../components/Layout'
 import Card from '../components/Card'
 import CardsContainer from '../components/styles/CardsContainer'
 import { format } from 'date-fns'
-import { BlogPostEdge } from './blog'
+
+export interface BlogPostEdge {
+  node: {
+    frontmatter: {
+      title: string
+      date: string
+    }
+    fields: {
+      slug: string
+    }
+    excerpt: string
+    wordCount: {
+      words: number
+    }
+  }
+}
 
 const BlogCardsContainer = styled.div`
   .readMore {
@@ -27,7 +42,7 @@ const StyledHeader = styled.h4``
 
 interface IndexProps extends GatsbyPageProps {
   data: {
-    allContentfulBlogPost: {
+    allMarkdownRemark: {
       edges: BlogPostEdge[]
     }
   }
@@ -41,39 +56,42 @@ const Index = ({ data, location }: IndexProps) => (
       &nbsp; where I spend most of my time making things with React.
     </StyledP>
     <BlogCardsContainer>
-      <StyledHeader>Recent Blog Posts</StyledHeader>
+      <StyledHeader>Blog Posts</StyledHeader>
       <CardsContainer>
-        {data.allContentfulBlogPost.edges.map(({ node }) => (
+        {data.allMarkdownRemark.edges.map(({ node }) => (
           <Card
-            key={node.slug}
-            link={node.slug}
-            title={node.title}
-            content={node.body.childMarkdownRemark.excerpt}
-            detail={format(new Date(node.publishDate), 'do MMM yyyy')}
+            key={node.fields.slug}
+            link={node.fields.slug}
+            title={node.frontmatter.title}
+            content={node.excerpt}
+            detail={format(
+              new Date(node.frontmatter.date),
+              'do MMM yyyy'
+            )}
             fullWidth
           />
         ))}
       </CardsContainer>
-      <Link to='blog'>
-        <p className='readMore'>Read More →</p>
-      </Link>
     </BlogCardsContainer>
   </Layout>
 )
 
 export const query = graphql`
   query recentBlogQuery {
-    allContentfulBlogPost(filter: { node_locale: { eq: "en-GB" } }) {
+    allMarkdownRemark(
+      filter: { frontmatter: { type: { ne: "page" } } }
+      sort: { order: DESC, fields: frontmatter___date }
+    ) {
       edges {
         node {
-          title
-          slug
-          publishDate
-          body {
-            childMarkdownRemark {
-              excerpt
-            }
+          frontmatter {
+            title
+            date
           }
+          fields {
+            slug
+          }
+          excerpt
         }
       }
     }

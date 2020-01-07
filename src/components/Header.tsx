@@ -132,13 +132,10 @@ const Header = () => {
         <LinksContainer open={menuOpen}>
           <ul>
             <li onClick={() => setMenuOpen(false)}>
-              <Link to='/'>Home</Link>
+              <Link to='/'>Blog</Link>
             </li>
             <li onClick={() => setMenuOpen(false)}>
-              <Link to='/thoughts'>Think</Link>
-            </li>
-            <li onClick={() => setMenuOpen(false)}>
-              <Link to='/blog'>Blog</Link>
+              <Link to='/thoughts'>Thoughts</Link>
             </li>
           </ul>
           <button
