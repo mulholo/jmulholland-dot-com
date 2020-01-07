@@ -28,9 +28,9 @@ also seem to like
 and [Kinesis’s](https://kinesis-ergo.com/shop/advantage2/)
 alternatives.
 
-![Work Setup](//images.ctfassets.net/kq8wdn6jzau5/282VGgCeyQzzjGquuHRLSm/a77c5227c8f0a0e7238fafc8e7f699a1/UNADJUSTEDNONRAW_thumb_2839.3fbc9878b47b40bf9525665c46edf0ab.jpg)
+![Work Setup](work-setup.jpg)
 
-![Home Setup](//images.ctfassets.net/kq8wdn6jzau5/457PXKlxkiLQbkStPg3VGV/86e24df946741dd0a8793b73f8a0d7d4/UNADJUSTEDNONRAW_thumb_283f.0b412b567af54a2d94c13b1f6408c9db.jpg)
+![Home Setup](home-setup.jpg)
 
 Although the way it fits my hands is a vast improvement over a laptop
 keyboard, the real advantage of the ErgoDox is being able to

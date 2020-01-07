@@ -54,7 +54,7 @@ the Working Directory, that is, it tells us which repository we are
 in. You might also have the current directory shown to you in the
 command prompt.
 
-![command-line-pwd](//images.ctfassets.net/kq8wdn6jzau5/2hazzQ3nMrnyhFL7V8Rtz1/245135cec25e9eb22fd85d0f5375934b/command-line-pwd.png 'My command line, showing the current working directory as `~/proj`')
+![command-line-pwd](command-line-pwd.png 'My command line, showing the current working directory as `~/proj`')
 
 If you want to change directory, `cd my-project` will take you to the
 folder called `my-project`. If you’re unsure of what folders you can
