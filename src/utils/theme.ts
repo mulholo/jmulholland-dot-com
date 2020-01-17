@@ -102,7 +102,8 @@ export default {
   /* Typography ------------------------------------------ */
 
   // system fonts. One day I shall have Univers Next
-  fontStack: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"' as '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+  fontStack: "'Inter var', Helvetica, sans-serif" as "'Inter var', Helvetica, sans-serif",
+  fontStackFallback: "'Inter', Helvetica, sans-serif" as "'Inter', Helvetica, sans-serif",
 
   // size
   tSmaller: '0.75rem' as '0.75rem', // 12px
