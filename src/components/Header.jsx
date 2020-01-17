@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import media from '../utils/media'
@@ -43,7 +43,7 @@ const MobileButton = styled(StyledButton)`
   ${media.tablet`display: none;`}
 `
 
-const LinksContainer = styled('div')<{ open: boolean }>`
+const LinksContainer = styled('div')`
   ${props =>
     !props.open &&
     `

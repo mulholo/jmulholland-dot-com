@@ -1,22 +1,8 @@
-import * as React from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
-interface PageProps {
-  data: {
-    markdownRemark: {
-      frontmatter: {
-        title: string
-      }
-      html: string
-    }
-  }
-  location: {
-    pathname: string
-  }
-}
-
-const Page = ({ data, location }: PageProps) => {
+const Page = ({ data, location }) => {
   if (!data) return null
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark

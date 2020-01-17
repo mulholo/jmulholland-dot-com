@@ -1,27 +1,9 @@
-import * as React from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import readingTime from '../utils/readingTime'
 
-interface BlogPostProps {
-  data: {
-    markdownRemark: {
-      frontmatter: {
-        title: string
-      }
-      slug: string
-      html: string
-      wordCount: {
-        words: number
-      }
-    }
-  }
-  location: {
-    pathname: string
-  }
-}
-
-const BlogPost = ({ data, location }: BlogPostProps) => {
+const BlogPost = ({ data, location }) => {
   if (!data) return null
   const { frontmatter, html, wordCount } = data.markdownRemark
   const { title } = frontmatter

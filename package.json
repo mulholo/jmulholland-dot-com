@@ -7,29 +7,19 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "test": "jest",
-    "lint": "eslint ./src/**/*.{ts,tsx}",
+    "lint": "eslint ./src/**/*.{js,jsx}",
     "lint:fix": "yarn lint --fix",
     "prettier": "prettier \"**/*.+(js|jsx|ts|tsx|json|css|md|mdx|graphql)\"",
     "format": "yarn prettier --write",
-    "type-check": "tsc",
-    "validate": "yarn lint && yarn prettier --list-different && yarn type-check"
-  },
-  "resolutions": {
-    "@types/react": "^16.8.7"
+    "validate": "yarn lint && yarn prettier --list-different"
   },
   "dependencies": {
-    "@types/jest": "^24.0.9",
-    "@types/react": "^16.8.7",
-    "@types/react-dom": "^16.8.2",
-    "@types/react-helmet": "^5.0.12",
-    "@types/styled-components": "^4.1.14",
     "date-fns": "^2.5.1",
     "gatsby": "^2.1.4",
     "gatsby-plugin-google-analytics": "^2.1.31",
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-sharp": "^2.3.10",
     "gatsby-plugin-styled-components": "^3.0.5",
-    "gatsby-plugin-typescript": "^2.0.10",
     "gatsby-remark-copy-linked-files": "^2.1.33",
     "gatsby-remark-images": "^3.1.39",
     "gatsby-remark-prismjs": "^3.2.4",
@@ -45,8 +35,6 @@
     "typography": "^0.16.18"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.4.0",
-    "@typescript-eslint/parser": "^2.4.0",
     "babel-jest": "^24.1.0",
     "babel-plugin-styled-components": "^1.10.0",
     "babel-preset-gatsby": "^0.2.20",
@@ -65,13 +53,11 @@
     "husky": "^3.0.9",
     "jest": "^24.1.0",
     "lint-staged": "^9.4.2",
-    "prettier": "^1.16.4",
-    "ts-jest": "^24.1.0",
-    "typescript": "^3.3.3333"
+    "prettier": "^1.16.4"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn type-check"
+      "pre-commit": "lint-staged"
     }
   }
 }

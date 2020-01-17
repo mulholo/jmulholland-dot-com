@@ -1,26 +1,12 @@
-import {
-  css,
-  ThemedCssFunction,
-  DefaultTheme,
-} from 'styled-components'
+import { css } from 'styled-components'
 
-interface Sizes {
-  desktopLarge: number // macbook pro 15"
-  desktop: number // 13" macbook air
-  tabletLarge: number // iPad pro
-  tablet: number // ipad
-  mobile: number // just larger than 7Plus
-}
-
-const sizes: Sizes = {
+const sizes = {
   desktopLarge: 2560, // macbook pro 15"
   desktop: 1440, // 13" macbook air
   tabletLarge: 1024, // iPad pro
   tablet: 800, // ipad is 768
   mobile: 450, // just larger than 7Plus
 }
-
-type Media = { [P in keyof Sizes]: ThemedCssFunction<DefaultTheme> }
 
 /**
  * Produces media queries to be used in styled-components
@@ -34,19 +20,14 @@ type Media = { [P in keyof Sizes]: ThemedCssFunction<DefaultTheme> }
  *
  */
 const media = Object.keys(sizes).reduce((acc, label) => {
-  // @ts-ignore
   acc[label] = (...args) =>
     css`
-  // @ts-ignore
       @media (min-width: ${sizes[label] / 16}em) {
-        ${
-          // @ts-ignore
-          args.length >= 1 && css(...args)
-        }
+        ${args.length >= 1 && css(...args)}
         }
       }
     `
   return acc
-}, {}) as Media
+}, {})
 
 export default media

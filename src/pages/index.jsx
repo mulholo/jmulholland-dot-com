@@ -1,26 +1,10 @@
-import * as React from 'react'
-import { Link, graphql } from 'gatsby'
+import React from 'react'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
 import Card from '../components/Card'
 import CardsContainer from '../components/styles/CardsContainer'
 import { format } from 'date-fns'
-
-export interface BlogPostEdge {
-  node: {
-    frontmatter: {
-      title: string
-      date: string
-    }
-    fields: {
-      slug: string
-    }
-    excerpt: string
-    wordCount: {
-      words: number
-    }
-  }
-}
 
 const BlogCardsContainer = styled.div`
   .readMore {
@@ -38,17 +22,7 @@ const StyledP = styled.p`
   font-size: ${props => props.theme.tMedium};
 `
 
-const StyledHeader = styled.h4``
-
-interface IndexProps extends GatsbyPageProps {
-  data: {
-    allMarkdownRemark: {
-      edges: BlogPostEdge[]
-    }
-  }
-}
-
-const Index = ({ data, location }: IndexProps) => (
+const Index = ({ data, location }) => (
   <Layout pathname={location.pathname}>
     <StyledP>
       I'm James, a front-end engineer from the UK. I currently work at{' '}
@@ -56,7 +30,7 @@ const Index = ({ data, location }: IndexProps) => (
       &nbsp; where I spend most of my time making things with React.
     </StyledP>
     <BlogCardsContainer>
-      <StyledHeader>Blog Posts</StyledHeader>
+      <h4>Blog Posts</h4>
       <CardsContainer>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <Card
