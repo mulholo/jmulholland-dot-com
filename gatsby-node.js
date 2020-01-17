@@ -39,7 +39,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: slug,
       component: path.resolve(
-        `./src/templates/${type === 'page' ? 'Page' : 'BlogPost'}.tsx`
+        `./src/templates/${type === 'page' ? 'Page' : 'BlogPost'}.jsx`
       ),
       // context is the fields available to gql queries
       context: {

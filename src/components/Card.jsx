@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
 
@@ -38,10 +38,11 @@ const StyledButton = styled.button`
   padding: 0;
 `
 
-const CardStyles = styled.div<{
-  animate: boolean
-  fullWidth: boolean
-}>`
+/**
+ * @param {bool} animate
+ * @param {bool} fullWidth
+ */
+const CardStyles = styled.div`
   background: ${props => props.theme.n900};
   box-shadow: ${props => props.theme.shadow3};
   padding: ${props => props.theme.s4};
@@ -87,21 +88,10 @@ const CardStyles = styled.div<{
 /* Utility --------------------------------------------- */
 
 /** Returns a trimmed version of a string which is below a certain character length */
-const trim = (chars = 180) => (s: string): string =>
+const trim = (chars = 180) => s =>
   s.length < chars ? s : `${s.slice(0, chars)}...`
 
 /* Main Component -------------------------------------- */
-
-interface CardPropTypes {
-  title?: string
-  content?: string | React.ReactNode
-  detail?: string
-  trimLength?: number // 0 for no trimming
-  onClick?: () => void
-  link?: string
-  externalLink?: string
-  fullWidth?: boolean
-}
 
 const Card = ({
   title,
@@ -112,7 +102,7 @@ const Card = ({
   link,
   externalLink,
   fullWidth,
-}: CardPropTypes): React.ReactElement => {
+}) => {
   const shouldAnimate =
     typeof onClick !== 'undefined' ||
     typeof link !== 'undefined' ||

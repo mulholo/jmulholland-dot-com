@@ -1,11 +1,11 @@
-import * as React from 'react'
+import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql, StaticQuery } from 'gatsby'
 
 // TODO import card
 // import card from '../assets/twitter-card.png'
 
-const SiteMetadata = ({ pathname }: { pathname: string }) => (
+const SiteMetadata = ({ pathname }) => (
   <StaticQuery
     query={graphql`
       query SiteMetadata {

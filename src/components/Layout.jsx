@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import styled, {
   createGlobalStyle,
   ThemeProvider,
@@ -123,12 +123,7 @@ const StyledContent = styled.div`
   }
 `
 
-interface LayoutProps {
-  children: React.ReactNode
-  pathname: string
-}
-
-const Layout = ({ children, pathname }: LayoutProps) => (
+const Layout = ({ children, pathname }) => (
   <ThemeProvider theme={theme}>
     <>
       <GlobalStyle />
