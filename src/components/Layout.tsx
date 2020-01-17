@@ -10,10 +10,19 @@ import Meta from './Meta'
 import './code.css'
 
 const GlobalStyle = createGlobalStyle`
+  @import url('https://rsms.me/inter/inter.css');
+
+  @supports (font-variation-settings: normal) {
+    html {
+      font-family: ${({ theme }) => theme.fontStack};
+    }
+  }
+
   html {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    font-family: ${({ theme }) => theme.fontStackFallback};
   }
   *, *:before, *:after {
     -webkit-font-smoothing: antialiased;
@@ -26,7 +35,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     color: ${props => props.theme.n400};
     background: ${props => props.theme.n800};
-    font-family: ${props => props.theme.fontStack};
     margin: 0;
   }
 
