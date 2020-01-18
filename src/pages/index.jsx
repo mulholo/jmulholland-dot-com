@@ -1,22 +1,9 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import styled from 'styled-components'
 import Layout from '../components/Layout'
 import BlogCard from '../components/BlogCard'
 import CardsContainer from '../components/styles/CardsContainer'
 import { format } from 'date-fns'
-
-const BlogCardsContainer = styled.div`
-  .readMore {
-    font-weight: ${props => props.theme.semiBold};
-    color: ${props => props.theme.n300};
-    margin-top: ${props => props.theme.s4};
-  }
-
-  .readMore:hover {
-    color: ${props => props.theme.n400};
-  }
-`
 
 const Index = ({ data, location }) => (
   <Layout pathname={location.pathname}>
@@ -47,13 +34,7 @@ const Index = ({ data, location }) => (
       <a href='https://twitter.com/mulholio'>DM me</a> or let me buy
       you a coffee if you're in London.
     </p>
-    <p>
-      If you would like to find me elsewhere on the internet I'm on
-      <a href='https://twitter.com/mulholio'>Twitter</a>,&nbsp;
-      <a href='https://github.com/mulholio'>GitHub</a>, and email
-      (james at thissite.com).
-    </p>
-    <BlogCardsContainer>
+    <div>
       <h4>Articles</h4>
       <CardsContainer>
         {data.allMarkdownRemark.edges.map(({ node }) => (
@@ -68,7 +49,7 @@ const Index = ({ data, location }) => (
           />
         ))}
       </CardsContainer>
-    </BlogCardsContainer>
+    </div>
   </Layout>
 )
 
