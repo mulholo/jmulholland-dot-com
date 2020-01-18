@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
 import BlogCard from '../components/BlogCard'
@@ -18,17 +18,41 @@ const BlogCardsContainer = styled.div`
   }
 `
 
-const StyledP = styled.p`
-  font-size: ${props => props.theme.tMedium};
-`
-
 const Index = ({ data, location }) => (
   <Layout pathname={location.pathname}>
-    <StyledP>
-      I'm James, a front-end engineer from the UK. I currently work at{' '}
-      <a href='https://www.memrise.com/'>Memrise</a>
-      &nbsp; where I spend most of my time making things with React.
-    </StyledP>
+    <p>
+      I'm a software engineer living in London where I spend most of
+      my time building things at{' '}
+      <a href='https://www.memrise.com/'>Memrise</a> and&nbsp;
+      <a href='https://github.com/mulholio'>
+        for other random projects
+      </a>
+      .
+    </p>
+    <p>
+      Outside of code, I'm into{' '}
+      <Link to='/thoughts#philosophy'>philosophy</Link> (my previous
+      primary subject matter), systems-thinking,&nbsp;
+      <Link to='/thoughts#design'>design,</Link>
+      <Link to='/thoughts#meta-learning-and-productivity'>
+        {' '}
+        personal development
+      </Link>{' '}
+      and the future. If you're interested in finding out more about
+      me then head to <Link to='/thoughts'>/thoughts</Link>.
+    </p>
+    <p>
+      I view this blog as a vehicle for meeting interesting people so,
+      if there is anything here you find interesting,&nbsp;
+      <a href='https://twitter.com/mulholio'>DM me</a> or let me buy
+      you a coffee if you're in London.
+    </p>
+    <p>
+      If you would like to find me elsewhere on the internet I'm on
+      <a href='https://twitter.com/mulholio'>Twitter</a>,&nbsp;
+      <a href='https://github.com/mulholio'>GitHub</a>, and email
+      (james at thissite.com).
+    </p>
     <BlogCardsContainer>
       <h4>Articles</h4>
       <CardsContainer>
