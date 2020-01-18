@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/Layout'
-import Card from '../components/Card'
+import BlogCard from '../components/BlogCard'
 import CardsContainer from '../components/styles/CardsContainer'
 import { format } from 'date-fns'
 
@@ -33,16 +33,14 @@ const Index = ({ data, location }) => (
       <h4>Blog Posts</h4>
       <CardsContainer>
         {data.allMarkdownRemark.edges.map(({ node }) => (
-          <Card
+          <BlogCard
             key={node.fields.slug}
             link={node.fields.slug}
             title={node.frontmatter.title}
-            content={node.excerpt}
             detail={format(
               new Date(node.frontmatter.date),
               'do MMM yyyy'
             )}
-            fullWidth
           />
         ))}
       </CardsContainer>
