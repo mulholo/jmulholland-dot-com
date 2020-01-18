@@ -30,7 +30,7 @@ const Index = ({ data, location }) => (
       &nbsp; where I spend most of my time making things with React.
     </StyledP>
     <BlogCardsContainer>
-      <h4>Blog Posts</h4>
+      <h4>Articles</h4>
       <CardsContainer>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <BlogCard
