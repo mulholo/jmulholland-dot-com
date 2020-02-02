@@ -19,10 +19,10 @@ naturally comes up from the one below it.
 
 ### Table of Contents
 
-- [Daily Meeze](/#daily-meeze)
-- [Weekly Meeze](/#weekly-meeze)
-- [Quarterly Meeze](/#quarterly-meeze)
-- [Annual Meeze](/#quarterly-meeze)
+- [Daily Meeze](#daily-meeze)
+- [Weekly Meeze](#weekly-meeze)
+- [Quarterly Meeze](#quarterly-meeze)
+- [Annual Meeze](#quarterly-meeze)
 
 ### Daily Meeze
 
@@ -227,7 +227,7 @@ travel-based layout to inspire me to pick some good trips. I also plan
 festivals, gigs and other events far in advance so that I have a good
 backlog of things to look forward to.
 
-![Daunt Books (Source: [@lucie_e](https://www.instagram.com/lucie_e/))](daunt-books.tiff)
+![Daunt Books](daunt-books.jpg)
 
 It will be somewhat misleading to publish everything I’ve written here
 as a static entity when, in fact, the process is always changing. Yet
@@ -260,8 +260,8 @@ post and generally, I maintain a list on this site at
 
 [^2]:
 
-  The term ‘meeze’ comes from the
-  book[Work Clean](https://www.amazon.co.uk/dp/B01AXE98PU/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)
+  The term ‘meeze’ comes from the book
+  [Work Clean](https://www.amazon.co.uk/dp/B01AXE98PU/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1)
   and is simply an end of day process you run through to clean and
   prep for the next day. I’ve somewhat expanded the term personally so
   that it also encompasses weekly and quarterly check-ins but, in
