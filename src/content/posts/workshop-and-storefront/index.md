@@ -106,6 +106,17 @@ My idea here is only a model, and
 However, I’ve found it to be a useful one and I hope it can be for you
 too.
 
+---
+
+#### Edit: Talk Available
+
+I gave a version of this blog post as a talk during a
+[Building a Second Brain Meetup](https://www.eventbrite.co.uk/e/3-second-brain-meetup-london-tickets-90751858251).
+[Maggie Appleton](https://maggieappleton.com/) was kind enough to
+record the talk so if you'd rather consume this in video form head
+over to
+[the talk on YouTube here](https://www.youtube.com/watch?v=WWWRmDjxSRw).
+
 [^1]:
 
   My favourite input methods are [Instapaper](http://instapaper.com/)
