@@ -128,6 +128,11 @@ const Header = () => {
             <li onClick={() => setMenuOpen(false)}>
               <Link to='/thoughts'>Thoughts</Link>
             </li>
+            <li>
+              <a href='https://buttondown.email/mulholio'>
+                Newsletter
+              </a>
+            </li>
           </ul>
           <button
             className='close'
