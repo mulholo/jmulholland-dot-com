@@ -6,4 +6,4 @@ public
 .DS_Store
 .intermediate-representation/
 .env
-
+*.plist

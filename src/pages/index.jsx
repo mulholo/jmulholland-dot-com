@@ -1,9 +1,36 @@
 import React from 'react'
+import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
+import { format } from 'date-fns'
 import Layout from '../components/Layout'
 import BlogCard from '../components/BlogCard'
+import _Button from '../components/styles/Button'
 import CardsContainer from '../components/styles/CardsContainer'
-import { format } from 'date-fns'
+import _Input from '../components/styles/Input'
+import media from '../utils/media'
+
+const EmailForm = styled.form`
+  display: flex;
+  padding: 0 0 2rem 0;
+  width: 100%;
+
+  ${media.tablet`
+    width: 50%;
+  `}
+`
+
+const Button = styled(_Button)`
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  padding: ${({ theme }) => `${theme.s2} ${theme.s4}`};
+`
+
+const Input = styled(_Input)`
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  flex-grow: 1;
+  padding: ${({ theme }) => `${theme.s2} ${theme.s4}`};
+`
 
 const Index = ({ data, location }) => (
   <Layout pathname={location.pathname}>
@@ -49,6 +76,27 @@ const Index = ({ data, location }) => (
           />
         ))}
       </CardsContainer>
+    </div>
+    <div>
+      <h4>Newsletter</h4>
+      <EmailForm
+        action='https://buttondown.email/api/emails/embed-subscribe/mulholio'
+        method='post'
+        target='popupwindow'
+        onSubmit="window.open('https://buttondown.email/mulholio', 'popupwindow')"
+        className='embeddable-buttondown-form'
+      >
+        <Input
+          type='email'
+          name='email'
+          id='bd-email'
+          placeholder='email@address.com'
+        ></Input>
+        <input type='hidden' value='1' name='embed'></input>
+        <Button type='submit' value='Subscribe'>
+          Subscribe
+        </Button>
+      </EmailForm>
     </div>
   </Layout>
 )
