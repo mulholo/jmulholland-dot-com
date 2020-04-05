@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+import Button from './styles/Button'
 import media from '../utils/media'
 
 const SiteName = styled.h1`
@@ -29,17 +30,7 @@ const StyledHeaderContent = styled.header`
   }
 `
 
-const StyledButton = styled.button`
-  color: ${props => props.theme.n900};
-  background: ${props => props.theme.b500};
-  border-radius: ${props => props.theme.border};
-  font-weight: ${props => props.theme.bold};
-  box-shadow: ${props => props.theme.shadow1};
-  font-size: ${props => props.theme.tMedium};
-  padding: ${props => props.theme.s1} ${props => props.theme.s3};
-`
-
-const MobileButton = styled(StyledButton)`
+const MobileButton = styled(Button)`
   ${media.tablet`display: none;`}
 `
 
