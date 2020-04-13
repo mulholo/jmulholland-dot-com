@@ -1,28 +1,19 @@
 import React from 'react'
-import styled, {
-  createGlobalStyle,
-  ThemeProvider,
-} from 'styled-components'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import theme from '../utils/theme'
-import Footer from './Footer'
-import Header from './Header'
 import Meta from './Meta'
+
 import './code.css'
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://rsms.me/inter/inter.css');
-
-  @supports (font-variation-settings: normal) {
-    html {
-      font-family: ${({ theme }) => theme.fontStack};
-    }
-  }
+  @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 
   html {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: ${({ theme }) => theme.fontStackFallback};
+    font-family: ${({ theme }) => theme.fonts[0]};
   }
   *, *:before, *:after {
     -webkit-font-smoothing: antialiased;
@@ -30,96 +21,60 @@ const GlobalStyle = createGlobalStyle`
     -webkit-box-sizing: inherit;
     -moz-box-sizing: inherit;
     box-sizing: inherit;
-    }
+    hyphens: auto;
+  }
 
   body {
-    color: ${props => props.theme.n400};
-    background: ${props => props.theme.n800};
     margin: 0;
   }
 
-  p {
-    font-size: ${props => props.theme.tMedium};
+  body *::selection {
+    background: ${props => props.theme.colors.n100};
+    color: ${props => props.theme.colors.n900};
   }
 
-  body *::selection {
-    background: ${props => props.theme.b500};
-    color: ${props => props.theme.n900};
+  h1, h2, h3, h4, h5, h6 {
+    color: ${props => props.theme.colors.n200};
+  }
+
+  p, li, ul, blockquote {
+    font-size: ${props => props.theme.fontSizes[2]};
+    line-height: 1.625;
+    color: ${props => props.theme.colors.n200};
   }
   
-  span, p, li, ul, span, blockquote {
-    line-height: 1.45;
-    color: ${props => props.theme.n400};
+  li {
+    margin: 0.5rem 0;
+  }
+
+  ul {
+    padding-left: ${props => props.theme.sizes[4]};
+  }
+
+  figure {
+    margin: ${props => props.theme.sizes[6]} 0;
+  }
+
+  figcaption {
+    font-family: ${props => props.theme.fonts[1]};
+    font-size: ${props => props.theme.fontSizes[1]};
+    text-align: center;
+    margin-top: ${props => props.theme.sizes[3]};
+    color: ${props => props.theme.colors.n300};
   }
   
   a {
-    line-height: 1.45;
-    color: ${props => props.theme.b500};
-    font-weight: ${props => props.theme.semiBold};
+    font-weight: 600;
     text-decoration: none;
+    color: ${props => props.theme.colors.b400};
   }
 
   a:hover {
-    color: ${props => props.theme.b600};
-  }
-
-  h1, h2, h3, h4, h5, h6   {
-    color: ${props => props.theme.n200};
-  }
-
-  h1 {
-    font-size: ${props => props.theme.tLargest};
-  }
-
-  h2 {
-    font-size: ${props => props.theme.tLargerStill};
-  }
-
-  h3 {
-    font-size: ${props => props.theme.tLarger};
-  }
-
-  h4 {
-    font-size: ${props => props.theme.tLarge};
-  }
-
-  h5 {
-    font-size: ${props => props.theme.tMediumLarge};
-  }
-
-  h6 {
-    font-size: ${props => props.theme.tMedium};
-  }
-
-  blockquote {
-    margin-left: -1.5rem;
-    margin-right: 1.5rem;
-    padding-left: 1.5rem;
-    border-left: 4px solid ${props => props.theme.b400};
-    font-style: italic;
-    font-size: ${props => props.theme.tLarger};
+    color: ${props => props.theme.colors.b500};
   }
 
   blockquote:before, blockquote:after {
     content: '"'
-  }
-`
-
-const StyledPage = styled.div`
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  justify-content: space-between;
-`
-
-const StyledContent = styled.div`
-  max-width: ${props => props.theme.lg};
-  width: 100%;
-  margin: 0 auto;
-  padding: ${props => props.theme.s3};
-
-  img {
-    width: 100%;
   }
 `
 
@@ -128,11 +83,7 @@ const Layout = ({ children, pathname }) => (
     <>
       <GlobalStyle />
       <Meta pathname={pathname} />
-      <StyledPage>
-        <Header />
-        <StyledContent>{children}</StyledContent>
-        <Footer />
-      </StyledPage>
+      {children}
     </>
   </ThemeProvider>
 )

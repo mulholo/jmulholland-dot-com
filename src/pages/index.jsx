@@ -1,126 +1,162 @@
-import React from 'react'
-import styled from 'styled-components'
-import { graphql, Link } from 'gatsby'
-import { format } from 'date-fns'
+import React, { useState } from 'react'
+import { Link } from 'gatsby'
 import Layout from '../components/Layout'
-import BlogCard from '../components/BlogCard'
-import _Button from '../components/styles/Button'
-import CardsContainer from '../components/styles/CardsContainer'
-import _Input from '../components/styles/Input'
-import media from '../utils/media'
+import Box from '../components/layout/Box'
+import Stack from '../components/layout/Stack'
+import Grid from '../components/layout/Grid'
+import Header from '../components/Header'
+import { H1, H4 } from '../components/typography'
+import styled from 'styled-components'
+import { typography } from 'styled-system'
 
-const EmailForm = styled.form`
-  display: flex;
-  padding: 0 0 2rem 0;
-  width: 100%;
+const TitleRow = styled.div({
+  display: 'flex',
+  width: '100%',
+  justifyContent: 'space-between',
+})
 
-  ${media.tablet`
-    width: 50%;
-  `}
-`
+const CloseButton = styled.span({
+  children: 'X',
+  fontWeight: 'bold',
+  fontSize: 5,
+  marginLeft: 'auto',
+})
 
-const Button = styled(_Button)`
+const WrapperButton = styled.button(
+  {
+    padding: 0,
+    height: '100%',
+    border: 'none',
+    textAlign: 'left',
+    cursor: 'pointer',
+  },
+  typography
+)
+WrapperButton.defaultProps = {
+  fontSize: 2,
+}
+
+const Option = ({ title, children, link }) => {
+  const [isOpen, setIsOpen] = useState(false)
+  const toggleOpen = children ? () => setIsOpen(!isOpen) : null
+  const contents = (
+    <Box p={4} bg='n900' height='100%' css={{ cursor: 'pointer' }}>
+      <TitleRow onClick={toggleOpen} disabled={link}>
+        <H4 fontSize={5} display='inline'>
+          {title}
+        </H4>
+        {isOpen && <CloseButton />}
+      </TitleRow>
+      {isOpen && children}
+    </Box>
+  )
+  const Wrapper = link
+    ? props => <Link to={link} {...props} />
+    : props => <WrapperButton onClick={toggleOpen} {...props} />
+  return <Wrapper>{contents}</Wrapper>
+}
+
+const EmailForm = styled.form({
+  display: 'flex',
+  padding: '0 0 2rem 0',
+  width: '100%',
+})
+
+const Button = styled.button`
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
   padding: ${({ theme }) => `${theme.s2} ${theme.s4}`};
 `
 
-const Input = styled(_Input)`
+const Input = styled.input`
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
   flex-grow: 1;
   padding: ${({ theme }) => `${theme.s2} ${theme.s4}`};
 `
 
-const Index = ({ data, location }) => (
-  <Layout pathname={location.pathname}>
-    <p>
-      I'm a software engineer living in London where I spend most of
-      my time building things at{' '}
-      <a href='https://www.memrise.com/'>Memrise</a> and&nbsp;
-      <a href='https://github.com/mulholio'>
-        for other random projects
-      </a>
-      .
-    </p>
-    <p>
-      Outside of code, I'm into{' '}
-      <Link to='/thoughts#philosophy'>philosophy</Link> (my previous
-      primary subject matter), systems-thinking,&nbsp;
-      <Link to='/thoughts#design'>design,</Link>
-      <Link to='/thoughts#meta-learning-and-productivity'>
-        {' '}
-        personal development
-      </Link>{' '}
-      and the future. If you're interested in finding out more about
-      me then head to <Link to='/thoughts'>/thoughts</Link>.
-    </p>
-    <p>
-      I view this blog as a vehicle for meeting interesting people so,
-      if there is anything here you find interesting,&nbsp;
-      <a href='https://twitter.com/mulholio'>DM me</a> or let me buy
-      you a coffee if you're in London.
-    </p>
-    <div>
-      <h4>Articles</h4>
-      <CardsContainer>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
-          <BlogCard
-            key={node.fields.slug}
-            link={node.fields.slug}
-            title={node.frontmatter.title}
-            detail={format(
-              new Date(node.frontmatter.date),
-              'do MMM yyyy'
-            )}
-          />
-        ))}
-      </CardsContainer>
-    </div>
-    <div>
-      <h4>Newsletter</h4>
-      <EmailForm
-        action='https://buttondown.email/api/emails/embed-subscribe/mulholio'
-        method='post'
-        target='popupwindow'
-        onSubmit="window.open('https://buttondown.email/mulholio', 'popupwindow')"
-        className='embeddable-buttondown-form'
-      >
-        <Input
-          type='email'
-          name='email'
-          id='bd-email'
-          placeholder='email@address.com'
-        ></Input>
-        <input type='hidden' value='1' name='embed'></input>
-        <Button type='submit' value='Subscribe'>
-          Subscribe
-        </Button>
-      </EmailForm>
-    </div>
-  </Layout>
-)
+const Start = () => {
+  return (
+    <Layout>
+      <Stack height='100vh' minHeight='100vh'>
+        <Header />
+        <Box px={4} py={2} bg='n900'>
+          <H1 fontSize={3} color='n100'>
+            What brings you here?
+          </H1>
+        </Box>
+        <Grid
+          gridTemplateColumns={['1fr', '1fr 1fr']}
+          gridTemplateRows={['1fr 1fr 1fr 1fr', '1fr 1fr']}
+          gridGap={1}
+          height='100%'
+          bg='n200'
+          borderY={1}
+        >
+          <Option title='About'>
+            <p>
+              I'm a software engineer living in London where I spend
+              most of my time building things at{' '}
+              <a href='https://www.memrise.com/'>Memrise</a> and&nbsp;
+              <a href='https://github.com/mulholio'>
+                for other random projects
+              </a>
+              .
+            </p>
+            <p>
+              Outside of code, I'm into{' '}
+              <Link to='/thoughts#philosophy'>philosophy</Link> (my
+              previous primary subject matter),
+              systems-thinking,&nbsp;
+              <Link to='/thoughts#design'>design,</Link>
+              <Link to='/thoughts#meta-learning-and-productivity'>
+                {' '}
+                personal development
+              </Link>{' '}
+              and the future. If you're interested in finding out more
+              about me then head to{' '}
+              <Link to='/thoughts'>/thoughts</Link>.
+            </p>
+            <p>
+              I view this blog as a vehicle for meeting interesting
+              people so, if there is anything here you find
+              interesting,&nbsp;
+              <a href='https://twitter.com/mulholio'>DM me</a> or let
+              me buy you a coffee if you're in London.
+            </p>
+          </Option>
+          <Option title='Writing' link='/blog' />
+          <Option title='Newsletter'>
+            <EmailForm
+              action='https://buttondown.email/api/emails/embed-subscribe/mulholio'
+              method='post'
+              target='popupwindow'
+              onSubmit={() =>
+                window.open(
+                  'https://buttondown.email/mulholio',
+                  'popupwindow'
+                )
+              }
+              className='embeddable-buttondown-form'
+            >
+              <Input
+                type='email'
+                name='email'
+                id='bd-email'
+                placeholder='email@address.com'
+              ></Input>
+              <input type='hidden' value='1' name='embed'></input>
+              <Button type='submit' value='Subscribe'>
+                Subscribe
+              </Button>
+            </EmailForm>
+          </Option>
+          <Option title='Other'></Option>
+        </Grid>
+        <Box flexGrow='1' bg='n200' />
+      </Stack>
+    </Layout>
+  )
+}
 
-export const query = graphql`
-  query recentBlogQuery {
-    allMarkdownRemark(
-      filter: { frontmatter: { type: { ne: "page" } } }
-      sort: { order: DESC, fields: frontmatter___date }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date
-          }
-          fields {
-            slug
-          }
-          excerpt
-        }
-      }
-    }
-  }
-`
-
-export default Index
+export default Start

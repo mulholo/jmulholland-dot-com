@@ -179,8 +179,9 @@ session. I review key metrics from the last three months (sleep,
 time-tracking, habit tracking data, daily mood logs) and carry out a
 quick 80/20 review of my activities so that I can do more of the good
 and less of the bad.
-![My 80/20 analysis section in Notion](eighty-twenty-analysis.png) I
-use this quantitative basis as a starting point to write freeform on
+![My 80/20 analysis section in Notion](eighty-twenty-analysis.png)
+
+I use this quantitative basis as a starting point to write freeform on
 how the quarter has gone. I move through three stages: Review,
 Visualise and Narrow. Hopefully, these are self-explanatory but, if
 you’re interested, you can find all my favourite journaling questions

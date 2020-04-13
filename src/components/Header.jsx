@@ -1,149 +1,68 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import Button from './styles/Button'
-import media from '../utils/media'
+import { space, border } from 'styled-system'
+import { H1, H2 } from './typography'
+import Spacer from '../components/layout/Spacer'
 
-const SiteName = styled.h1`
-  font-size: ${props => props.theme.tLarger};
-  margin: 0;
-  flex-grow: 1;
-`
-
-const StyledHeader = styled.header`
-  width: 100%;
-  margin: 0 auto;
-  box-shadow: ${props => props.theme.shadow2};
-  background: ${props => props.theme.n900};
-`
-
-const StyledHeaderContent = styled.header`
-  max-width: ${props => props.theme.lg};
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: ${props => props.theme.s4} ${props => props.theme.s4};
-
-  a {
-    text-decoration: none;
-  }
-`
-
-const MobileButton = styled(Button)`
-  ${media.tablet`display: none;`}
-`
-
-const LinksContainer = styled('div')`
-  ${props =>
-    !props.open &&
-    `
-    display: none;
-  `}
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background: ${props => props.theme.n900};
-
-  ul {
-    display: flex;
-    flex-direction: column;
-    margin: ${props => props.theme.s4};
-    padding: 0;
-  }
-
-  li {
-    list-style: none;
-    font-size: ${props => props.theme.tLargerStill};
-  }
-
-  button.close {
-    font-size: ${props => props.theme.tLarge};
-    color: ${props => props.theme.n500};
-    font-weight: ${props => props.theme.bold};
-    position: fixed;
-    top: ${props => props.theme.s4};
-    right: ${props => props.theme.s4};
-    border: none;
-    background: none;
-  }
-
-  ${media.tablet`
-    display: block;
-    position: static;
-
-    ul {
-      flex-direction: row;
-      justify-content: flex-end;
-      margin: 0;
-    }
-
-    li {
-      font-size: ${props => props.theme.tLarge};
-      margin: 0 0 0 ${props => props.theme.s4};
-    }
-
-    button.close {
-      width: 0;
-      height: 0;
-      display: none;
-    }
-  `}
-`
-
-const Header = () => {
-  const [menuOpen, setMenuOpen] = React.useState(false)
-
-  const [size, setSize] = React.useState(
-    typeof window !== 'undefined' ? window.innerWidth : 1000
-  )
-  React.useEffect(() => {
-    const updateSize = () => {
-      setSize(window.innerWidth)
-    }
-    window.addEventListener('resize', updateSize)
-    return () => {
-      window.removeEventListener('resize', updateSize)
-    }
-  })
-
-  return (
-    <StyledHeader>
-      <StyledHeaderContent>
-        <Link to='/' style={{ width: '100%' }}>
-          <SiteName>{`J${
-            size < 350 ? '.' : 'ames'
-          } Mulholland`}</SiteName>
-        </Link>
-        <MobileButton onClick={() => setMenuOpen(true)}>
-          Menu
-        </MobileButton>
-        <LinksContainer open={menuOpen}>
-          <ul>
-            <li onClick={() => setMenuOpen(false)}>
-              <Link to='/'>Blog</Link>
-            </li>
-            <li onClick={() => setMenuOpen(false)}>
-              <Link to='/thoughts'>Thoughts</Link>
-            </li>
-            <li>
-              <a href='https://buttondown.email/mulholio'>
-                Newsletter
-              </a>
-            </li>
-          </ul>
-          <button
-            className='close'
-            onClick={() => setMenuOpen(false)}
-          >
-            X
-          </button>
-        </LinksContainer>
-      </StyledHeaderContent>
-    </StyledHeader>
-  )
+const HeaderContainer = styled.header(
+  {
+    display: 'flex',
+    alignItems: 'baseline',
+    width: '100%',
+  },
+  space,
+  border
+)
+HeaderContainer.defaultProps = {
+  px: 6,
+  py: 4,
+  borderBottom: 1,
 }
+
+const J = styled.span({
+  fontWeight: 'bold',
+})
+
+const Ames = styled.span({
+  display: 'none',
+  '@media (min-width: 25rem)': {
+    display: 'inline',
+  },
+})
+
+const M = styled.span({
+  fontWeight: 'bold',
+})
+
+const Ulholland = styled.span({
+  display: 'none',
+  '@media (min-width: 20rem)': {
+    display: 'inline',
+  },
+})
+
+const Header = ({ pageName }) => (
+  <HeaderContainer>
+    <Link to='/'>
+      <H1 fontSize={4}>
+        <J>J</J>
+        <Ames>ames </Ames>
+        <M>M</M>
+        <Ulholland>ulholland</Ulholland>
+      </H1>
+    </Link>
+    {pageName && (
+      <>
+        <Spacer width={2} />
+        <H2 fontSize={4} fontWeight='300'>{`/`}</H2>
+        <Spacer width={2} />
+        <H2 pLeft={2} fontSize={4} color='n400' fontWeight='500'>
+          {pageName}
+        </H2>
+      </>
+    )}
+  </HeaderContainer>
+)
 
 export default Header
