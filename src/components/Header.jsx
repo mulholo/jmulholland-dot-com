@@ -1,23 +1,26 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import { space, border } from 'styled-system'
+import { space, border, layout } from 'styled-system'
 import { H1, H2 } from './typography'
 import Spacer from '../components/layout/Spacer'
 
 const HeaderContainer = styled.header(
   {
     display: 'flex',
-    alignItems: 'baseline',
+    alignItems: 'center',
     width: '100%',
+    layout: '10px',
   },
   space,
-  border
+  border,
+  layout
 )
 HeaderContainer.defaultProps = {
   px: 6,
   py: 4,
   borderBottom: 1,
+  minHeight: 7,
 }
 
 const J = styled.span({

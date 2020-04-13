@@ -9,26 +9,16 @@ import { H4 } from '../components/typography'
 import styled from 'styled-components'
 import { typography } from 'styled-system'
 
-const TitleRow = styled.div({
-  display: 'flex',
-  width: '100%',
-  justifyContent: 'space-between',
-})
-
-const CloseButton = styled.span({
-  children: 'X',
-  fontWeight: 'bold',
-  fontSize: 5,
-  marginLeft: 'auto',
-})
-
 const WrapperButton = styled.button(
   {
     padding: 0,
-    height: '100%',
     border: 'none',
-    textAlign: 'left',
     cursor: 'pointer',
+    textAlign: 'left',
+    display: 'flex',
+    alignItems: 'stretch',
+    flexDirection: 'column',
+    flex: 1,
   },
   typography
 )
@@ -36,30 +26,31 @@ WrapperButton.defaultProps = {
   fontSize: 2,
 }
 
+const WrapperLink = styled(Link)({
+  display: 'flex',
+  alignItems: 'stretch',
+  border: 'none',
+  flexDirection: 'column',
+  flex: 1,
+})
+
 const Option = ({ title, children, link }) => {
   const [isOpen, setIsOpen] = useState(false)
   const toggleOpen = children ? () => setIsOpen(!isOpen) : null
   const contents = (
-    <Box
-      px={6}
-      py={4}
-      bg='n900'
-      height='100%'
-      css={{ cursor: 'pointer' }}
-    >
-      <TitleRow onClick={toggleOpen} disabled={link}>
-        <H4 fontSize={5} display='inline'>
-          {title}
-        </H4>
-        {isOpen && <CloseButton />}
-      </TitleRow>
+    <Box px={6} py={4} bg='n900' flex={1}>
+      <H4 fontSize={5}>{title}</H4>
       {isOpen && children}
     </Box>
   )
   const Wrapper = link
-    ? props => <Link to={link} {...props} />
+    ? props => <WrapperLink to={link} {...props} />
     : props => <WrapperButton onClick={toggleOpen} {...props} />
-  return <Wrapper>{contents}</Wrapper>
+  return (
+    <Stack alignItems='stretch'>
+      <Wrapper>{contents}</Wrapper>
+    </Stack>
+  )
 }
 
 const EmailForm = styled.form({
@@ -84,14 +75,13 @@ const Input = styled.input`
 const Start = () => {
   return (
     <Layout>
-      <Stack height='100vh' minHeight='100vh'>
+      <Stack height='100vh' alignItems='stretch'>
         <Header pageName='What brings you here?' />
         <Grid
           gridTemplateColumns={['1fr', '1fr 1fr']}
           gridTemplateRows={['1fr 1fr 1fr 1fr', '1fr 1fr']}
-          gridGap={1}
-          height='100%'
           bg='n200'
+          flex='1 1 100%'
         >
           <Option title='About'>
             <p>
