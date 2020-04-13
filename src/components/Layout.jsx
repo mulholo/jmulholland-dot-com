@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
+    background: ${props => props.theme.colors.n900};
   }
 
   body *::selection {

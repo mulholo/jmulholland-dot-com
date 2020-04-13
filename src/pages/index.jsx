@@ -5,7 +5,7 @@ import Box from '../components/layout/Box'
 import Stack from '../components/layout/Stack'
 import Grid from '../components/layout/Grid'
 import Header from '../components/Header'
-import { H1, H4 } from '../components/typography'
+import { H4 } from '../components/typography'
 import styled from 'styled-components'
 import { typography } from 'styled-system'
 
@@ -40,7 +40,13 @@ const Option = ({ title, children, link }) => {
   const [isOpen, setIsOpen] = useState(false)
   const toggleOpen = children ? () => setIsOpen(!isOpen) : null
   const contents = (
-    <Box p={4} bg='n900' height='100%' css={{ cursor: 'pointer' }}>
+    <Box
+      px={6}
+      py={4}
+      bg='n900'
+      height='100%'
+      css={{ cursor: 'pointer' }}
+    >
       <TitleRow onClick={toggleOpen} disabled={link}>
         <H4 fontSize={5} display='inline'>
           {title}
@@ -79,19 +85,13 @@ const Start = () => {
   return (
     <Layout>
       <Stack height='100vh' minHeight='100vh'>
-        <Header />
-        <Box px={4} py={2} bg='n900'>
-          <H1 fontSize={3} color='n100'>
-            What brings you here?
-          </H1>
-        </Box>
+        <Header pageName='What brings you here?' />
         <Grid
           gridTemplateColumns={['1fr', '1fr 1fr']}
           gridTemplateRows={['1fr 1fr 1fr 1fr', '1fr 1fr']}
           gridGap={1}
           height='100%'
           bg='n200'
-          borderY={1}
         >
           <Option title='About'>
             <p>

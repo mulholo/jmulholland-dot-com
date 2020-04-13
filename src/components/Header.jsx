@@ -26,7 +26,7 @@ const J = styled.span({
 
 const Ames = styled.span({
   display: 'none',
-  '@media (min-width: 25rem)': {
+  '@media (min-width: 30rem)': {
     display: 'inline',
   },
 })
@@ -37,7 +37,7 @@ const M = styled.span({
 
 const Ulholland = styled.span({
   display: 'none',
-  '@media (min-width: 20rem)': {
+  '@media (min-width: 25rem)': {
     display: 'inline',
   },
 })

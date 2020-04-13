@@ -19,10 +19,11 @@ const BlogCard = ({
 }) => (
   <Link to={link}>
     <Box
-      px={4}
-      py={4}
+      px={6}
+      py={6}
       bg='n900'
       display='flex'
+      height='100%'
       flexDirection='column'
     >
       <H4 fontSize={4}>{title}</H4>
@@ -42,7 +43,7 @@ const Blog = ({ data }) => {
           gridGap={1}
           height='100%'
           bg='n200'
-          borderY={1}
+          borderBottom={1}
         >
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <BlogCard
