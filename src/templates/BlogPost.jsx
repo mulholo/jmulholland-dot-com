@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Layout, TextColumn } from '../components'
+import { Detail, Layout, TextColumn } from '../components'
 import { readingTime } from '../utils'
 
 const BlogPost = ({ data }) => {
@@ -11,7 +11,7 @@ const BlogPost = ({ data }) => {
     <Layout pageName='Blog'>
       <TextColumn>
         <h1>{title}</h1>
-        <span>{readingTime(wordCount.words)}</span>
+        <Detail>{readingTime(wordCount.words)}</Detail>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </TextColumn>
     </Layout>

@@ -62,8 +62,17 @@ const Header = ({ pageName }) => {
         onMouseLeave={() => setLinkIsHovered(false)}
         to='/'
         css={`
+          &:active,
+          &:focus,
+          &:hover {
+            text-decoration: none;
+          }
+          &:active h1,
+          &:focus h1,
           &:hover h1 {
             color: ${({ theme }) => theme.colors.b400};
+            text-decoration: none;
+            outline: none;
           }
         `}
       >

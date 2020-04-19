@@ -9,6 +9,7 @@ import {
   Spacer,
   Stack,
 } from '../components'
+import { media } from '../utils'
 
 const BlogBox = ({
   /**
@@ -41,6 +42,10 @@ const BlogBox = ({
         <h4
           css={`
             margin: 0;
+            font-size: ${({ theme }) => theme.fontSizes[3]};
+            ${media.tablet`
+              font-size: ${({ theme }) => theme.fontSizes[4]};
+            `}
           `}
         >
           {title}

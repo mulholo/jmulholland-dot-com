@@ -10,6 +10,13 @@ const Button = styled.button(
     margin: 0;
     padding: ${theme.space[4]} ${theme.space[4]};
     text-transform: uppercase;
+    transition: 0.2s background;
+
+    &:focus,
+    &:active {
+      outline: none;
+      background: ${theme.colors.b300};
+    }
   `
 )
 

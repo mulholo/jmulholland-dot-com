@@ -105,9 +105,18 @@ const GlobalStyle = createGlobalStyle`
     hyphens: auto;
   }
   
-  a:active,
+  button:active,
+  input:active,
+  input:focus,
   button:focus {
     outline: 2px solid ${({ theme }) => theme.colors.b500};
+  }
+
+  a:active,
+  a:focus {
+    text-decoration: underline;
+    color: ${props => props.theme.colors.b500};
+    outline: none;
   }
 
   a,
