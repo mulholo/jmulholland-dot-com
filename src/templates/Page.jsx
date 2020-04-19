@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import { TextColumn, Layout } from '../components'
 
 const Page = ({ data }) => {
-  if (!data) return null
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
   const { title } = frontmatter
