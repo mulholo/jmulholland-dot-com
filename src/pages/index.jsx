@@ -32,6 +32,7 @@ const WrapperLink = styled(Link)`
     box-shadow: inset 0px 0px 0px 8px
       ${({ theme }) => theme.colors.b500};
   }
+  &:focus h4,
   &:hover h4 {
     color: ${({ theme }) => theme.colors.b400};
   }
