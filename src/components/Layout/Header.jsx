@@ -1,48 +1,28 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
-import { space, border, layout } from 'styled-system'
-import { Spacer } from '..'
 
-const HeaderContainer = styled.header(
-  {
-    display: 'flex',
-    alignItems: 'center',
-    width: '100%',
-    layout: '10px',
-  },
-  space,
-  border,
-  layout
-)
-HeaderContainer.defaultProps = {
-  px: 6,
-  py: 4,
-  borderBottom: 1,
-  minHeight: 7,
-}
+const J = styled.span`
+  font-weight: 800;
+`
 
-const J = styled.span({
-  fontWeight: 'bold',
-})
+const Ames = styled.span`
+  display: none;
+  @media (min-width: 30rem) {
+    display: inline;
+  }
+`
 
-const Ames = styled.span({
-  display: 'none',
-  '@media (min-width: 30rem)': {
-    display: 'inline',
-  },
-})
+const M = styled.span`
+  font-weight: 800;
+`
 
-const M = styled.span({
-  fontWeight: 'bold',
-})
-
-const Ulholland = styled.span({
-  display: 'none',
-  '@media (min-width: 25rem)': {
-    display: 'inline',
-  },
-})
+const Ulholland = styled.span`
+  display: none;
+  @media (min-width: 25rem) {
+    display: inline;
+  }
+`
 
 const secondaryCss = css`
   color: ${({ theme }) => theme.colors.n400};
@@ -56,7 +36,16 @@ const secondaryCss = css`
 const Header = ({ pageName }) => {
   const [linkIsHovered, setLinkIsHovered] = useState(false)
   return (
-    <HeaderContainer>
+    <header
+      css={`
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: ${({ theme }) =>
+          `${theme.space[4]} ${theme.space[6]}`};
+        border-bottom: 1px solid ${({ theme }) => theme.colors.n400};
+      `}
+    >
       <Link
         onMouseEnter={() => setLinkIsHovered(true)}
         onMouseLeave={() => setLinkIsHovered(false)}
@@ -90,17 +79,15 @@ const Header = ({ pageName }) => {
       </Link>
       {pageName && (
         <>
-          <Spacer width={2} />
           <h2
             css={`
               font-size: ${({ theme }) => theme.fontSizes[4]};
               font-weight: 300;
-              margin: 0;
+              margin: 0 ${({ theme }) => theme.sizes[2]};
             `}
           >
             {`/`}
           </h2>
-          <Spacer width={2} />
           <h2 hide={linkIsHovered} css={secondaryCss}>
             {pageName}
           </h2>
@@ -109,7 +96,7 @@ const Header = ({ pageName }) => {
           </h2>
         </>
       )}
-    </HeaderContainer>
+    </header>
   )
 }
 

@@ -1,14 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { format } from 'date-fns'
-import {
-  Box,
-  Detail,
-  Grid,
-  Layout,
-  Spacer,
-  Stack,
-} from '../components'
+import { Box, Detail, Grid, Layout, Stack } from '../components'
 import { media } from '../utils'
 
 const BlogBox = ({
@@ -38,7 +31,7 @@ const BlogBox = ({
     `}
   >
     <Box>
-      <Stack>
+      <Stack spacer={3}>
         <h4
           css={`
             margin: 0;
@@ -50,7 +43,6 @@ const BlogBox = ({
         >
           {title}
         </h4>
-        <Spacer height={3} />
         <Detail>{date}</Detail>
       </Stack>
     </Box>

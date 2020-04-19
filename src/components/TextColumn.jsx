@@ -1,5 +1,4 @@
 import React from 'react'
-import Spacer from './Spacer'
 import Stack from './Stack'
 import { media } from '../utils'
 
@@ -17,9 +16,9 @@ const TextColumn = ({ children }) => (
       };
     `}
   >
-    <Spacer />
+    <div />
     <Stack>{children}</Stack>
-    <Spacer />
+    <div />
   </div>
 )
 

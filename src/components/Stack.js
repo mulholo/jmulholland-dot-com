@@ -9,6 +9,13 @@ const Stack = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+
+  ${({ spacer, theme }) =>
+    spacer &&
+    `
+  & > * + * {
+    margin-top: ${theme.space[spacer]}
+  }`}
 `
 
 export default Stack

@@ -33,7 +33,6 @@
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.18",
     "styled-components": "^5.0.0",
-    "styled-system": "^5.1.5",
     "typography": "^0.16.18"
   },
   "devDependencies": {
