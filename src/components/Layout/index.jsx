@@ -5,6 +5,7 @@ import { Stack } from '..'
 import { GlobalStyle } from './globalStyles'
 import Meta from './Meta'
 import Header from './Header'
+import Footer from './Footer'
 
 const Layout = ({ children, pathname, pageName }) => (
   <ThemeProvider theme={theme}>
@@ -14,6 +15,7 @@ const Layout = ({ children, pathname, pageName }) => (
       <Stack>
         <Header pageName={pageName} />
         {children}
+        <Footer />
       </Stack>
     </>
   </ThemeProvider>

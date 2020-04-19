@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import {
   Box,
   Button,
@@ -17,18 +17,36 @@ const WrapperLink = styled(Link)`
   border: none;
   flex-direction: column;
   flex: 1;
+  & div {
+    transition: box-shadow 0.2s;
+  }
+  & h4 {
+    transition: color 0.2s;
+  }
+  &:focus,
+  &:active {
+    outline: none;
+  }
+  &:focus ${Box}, &:hover ${Box} {
+    box-shadow: inset 0px 0px 0px 8px
+      ${({ theme }) => theme.colors.b500};
+  }
+  &:hover h4 {
+    color: ${({ theme }) => theme.colors.b400};
+  }
+`
+
+const optionTitleCss = css`
+  font-weight: 600;
+  margin: 0;
+  font-size: ${({ theme, big }) =>
+    big ? theme.fontSizes[9] : theme.fontSizes[6]};
 `
 
 const Option = ({ title, children, link }) => {
   const contents = (
     <Box>
-      <h4
-        css={`
-          font-size: ${({ theme }) => theme.fontSizes[5]};
-          font-weight: 600;
-          margin: 0;
-        `}
-      >
+      <h4 big={typeof children === 'undefined'} css={optionTitleCss}>
         {title}
       </h4>
       {children}
@@ -116,10 +134,12 @@ const Start = () => {
         <Option title='Other'>
           <ul>
             <li>
-              <Link to='/thoughts'>Thoughts</Link>
+              <Link to='/thoughts'>Thoughts</Link> - My thoughts,
+              articulated.
             </li>
             <li>
-              <Link to='/uses'>Uses</Link>
+              <Link to='/uses'>Uses</Link> - A list of tools and apps
+              I use.
             </li>
           </ul>
         </Option>

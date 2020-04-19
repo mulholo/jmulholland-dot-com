@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { space, border, layout } from 'styled-system'
 import { Spacer } from '..'
 
@@ -44,49 +44,64 @@ const Ulholland = styled.span({
   },
 })
 
-const Header = ({ pageName }) => (
-  <HeaderContainer>
-    <Link to='/'>
-      <h1
+const secondaryCss = css`
+  color: ${({ theme }) => theme.colors.n400};
+  font-size: ${({ theme }) => theme.fontSizes[4]};
+  font-weight: 500;
+  padding-left: ${({ theme }) => theme.sizes[2]};
+  margin: 0;
+  display: ${({ hide }) => (hide ? 'none' : 'block')};
+`
+
+const Header = ({ pageName }) => {
+  const [linkIsHovered, setLinkIsHovered] = useState(false)
+  return (
+    <HeaderContainer>
+      <Link
+        onMouseEnter={() => setLinkIsHovered(true)}
+        onMouseLeave={() => setLinkIsHovered(false)}
+        to='/'
         css={`
-          font-size: ${({ theme }) => theme.fontSizes[4]};
-          margin: 0;
+          &:hover h1 {
+            color: ${({ theme }) => theme.colors.b400};
+          }
         `}
       >
-        <J>J</J>
-        <Ames>ames </Ames>
-        <M>M</M>
-        <Ulholland>ulholland</Ulholland>
-      </h1>
-    </Link>
-    {pageName && (
-      <>
-        <Spacer width={2} />
-
-        <h2
+        <h1
           css={`
             font-size: ${({ theme }) => theme.fontSizes[4]};
-            font-weight: 300;
             margin: 0;
           `}
         >
-          {`/`}
-        </h2>
-        <Spacer width={2} />
-        <h2
-          css={`
-            color: ${({ theme }) => theme.colors.n400};
-            font-size: ${({ theme }) => theme.fontSizes[4]};
-            font-weight: 500;
-            padding-left: ${({ theme }) => theme.sizes[2]};
-            margin: 0;
-          `}
-        >
-          {pageName}
-        </h2>
-      </>
-    )}
-  </HeaderContainer>
-)
+          <J>J</J>
+          <Ames>ames </Ames>
+          <M>M</M>
+          <Ulholland>ulholland</Ulholland>
+        </h1>
+      </Link>
+      {pageName && (
+        <>
+          <Spacer width={2} />
+          <h2
+            css={`
+              font-size: ${({ theme }) => theme.fontSizes[4]};
+              font-weight: 300;
+              margin: 0;
+            `}
+          >
+            {`/`}
+          </h2>
+          <Spacer width={2} />
+          <h2 hide={linkIsHovered} css={secondaryCss}>
+            {pageName}
+          </h2>
+          <h2 hide={!linkIsHovered} css={secondaryCss}>
+            Go home
+          </h2>
+        </>
+      )}
+    </HeaderContainer>
+  )
+}
 
 export default Header

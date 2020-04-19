@@ -104,6 +104,16 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: inherit;
     hyphens: auto;
   }
+  
+  a:active,
+  button:focus {
+    outline: 2px solid ${({ theme }) => theme.colors.b500};
+  }
+
+  a,
+  button {
+    transition: outline 0.1s;
+  }
 
   body {
     margin: 0;
@@ -111,7 +121,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body *::selection {
-    background: ${props => props.theme.colors.n100};
+    background: ${props => props.theme.colors.b500};
     color: ${props => props.theme.colors.n900};
   }
 

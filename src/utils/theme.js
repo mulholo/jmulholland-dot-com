@@ -90,8 +90,8 @@ export default {
     '1.875rem', // 30px
     '2.25rem', // 36px
     '3rem', // 48px
-    '3rem', // 48px
     '3.75rem', // 60px
+    '4.5rem', // 72px
   ],
   borders: [
     `none`, // n100

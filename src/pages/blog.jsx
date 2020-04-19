@@ -23,6 +23,17 @@ const BlogBox = ({
     css={`
       display: flex;
       flex-direction: column;
+      ${Box} {
+        transition: box-shadow 0.2s;
+      }
+      &:focus,
+      &:active {
+        outline: none;
+      }
+      &:focus ${Box}, &:hover ${Box} {
+        box-shadow: inset 0px 0px 0px 8px
+          ${({ theme }) => theme.colors.b500};
+      }
     `}
   >
     <Box>
