@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Layout, Header, Stack, Spacer } from '../components'
-import { media, readingTime } from '../utils'
+import { Layout, Header, Stack, TextColumn } from '../components'
+import { readingTime } from '../utils'
 
 const BlogPost = ({ data }) => {
   if (!data) return null
@@ -11,27 +11,11 @@ const BlogPost = ({ data }) => {
     <Layout>
       <Stack>
         <Header pageName='Blog' />
-        <div
-          css={`
-            display: grid;
-            grid-template-columns: 2rem 1fr 2rem;
-            ${media.tablet`
-              grid-template-columns: minMax(2rem, 1fr) 40rem minMax(2rem, 1fr);
-            `}
-            ${media.desktop`
-              grid-template-columns: 2fr 40rem 3fr;
-            `}
-            };
-          `}
-        >
-          <Spacer />
-          <Stack>
-            <h1>{title}</h1>
-            <span>{readingTime(wordCount.words)}</span>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
-          </Stack>
-          <Spacer />
-        </div>
+        <TextColumn>
+          <h1>{title}</h1>
+          <span>{readingTime(wordCount.words)}</span>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </TextColumn>
       </Stack>
     </Layout>
   )
