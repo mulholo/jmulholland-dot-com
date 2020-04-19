@@ -93,16 +93,9 @@ export default {
     '3.75rem', // 60px
     '4.5rem', // 72px
   ],
-  borders: [
-    `none`, // n100
-    `1px solid hsl(200,17%,16%)`, // n200
-    `2px solid hsl(200,17%,16%)`,
-  ],
-
   fonts: [
     // One day I shall have Univers Next
     "'Inter var', Helvetica, sans-serif",
     "'Source Code Pro', Menlo, monospace",
   ],
-  lineHeights: [1, 1.2, 1.4, 1.5],
 }
