@@ -23,8 +23,8 @@ const BlogCard = ({
       py={6}
       bg='n900'
       display='flex'
-      height='100%'
       flexDirection='column'
+      flex='1 1 100%'
     >
       <H4 fontSize={4}>{title}</H4>
       <Spacer height={3} />
@@ -41,9 +41,8 @@ const Blog = ({ data }) => {
         <Grid
           gridTemplateColumns={['1fr', '1fr 1fr']}
           gridGap={1}
-          height='100%'
           bg='n200'
-          borderBottom={1}
+          flex={1}
         >
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <BlogCard

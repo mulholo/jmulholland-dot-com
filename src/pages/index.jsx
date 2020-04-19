@@ -75,11 +75,12 @@ const Input = styled.input`
 const Start = () => {
   return (
     <Layout>
-      <Stack height='100vh' alignItems='stretch'>
+      <Stack>
         <Header pageName='What brings you here?' />
         <Grid
           gridTemplateColumns={['1fr', '1fr 1fr']}
           gridTemplateRows={['1fr 1fr 1fr 1fr', '1fr 1fr']}
+          gridGap={1}
           bg='n200'
           flex='1 1 100%'
         >
