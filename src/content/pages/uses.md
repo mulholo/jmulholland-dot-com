@@ -28,7 +28,7 @@ things that I use on a daily basis.
 - Citymapper - Better than Google Maps for navigating London
 - Alfred - Spotlight on steroids
 
-### Productivity
+### Productivity
 
 - Things - GTD todo list
 - Roam Research - Exploratory notes
@@ -85,7 +85,7 @@ things that I use on a daily basis.
 - Google Photos - Backup and photo resurfacing
 - VSCO - Filters & sharing
 
-### Misc
+### Misc.
 
 - Anylist - Grocery list manager
 - Bartender - keep your menu bar clearn
