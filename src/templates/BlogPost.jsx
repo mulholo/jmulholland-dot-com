@@ -1,11 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Header from '../components/Header'
-import Stack from '../components/layout/Stack'
-import Spacer from '../components/layout/Spacer'
-import Grid from '../components/layout/Grid'
-import { Detail } from '../components/typography'
+import {
+  Detail,
+  Grid,
+  Layout,
+  Header,
+  Stack,
+  Spacer,
+} from '../components'
 import readingTime from '../utils/readingTime'
 
 const BlogPost = ({ data }) => {

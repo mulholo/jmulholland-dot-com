@@ -1,13 +1,16 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { format } from 'date-fns'
-import Header from '../components/Header'
-import { H4, Detail } from '../components/typography'
-import Layout from '../components/Layout'
-import Stack from '../components/layout/Stack'
-import Grid from '../components/layout/Grid'
-import Box from '../components/layout/Box'
-import Spacer from '../components/layout/Spacer'
+import {
+  Box,
+  Detail,
+  Grid,
+  H4,
+  Header,
+  Layout,
+  Spacer,
+  Stack,
+} from '../components'
 
 const BlogCard = ({
   /**

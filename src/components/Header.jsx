@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { space, border, layout } from 'styled-system'
 import { H1, H2 } from './typography'
-import Spacer from '../components/layout/Spacer'
+import Spacer from './Spacer'
 
 const HeaderContainer = styled.header(
   {

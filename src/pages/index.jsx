@@ -1,11 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Box from '../components/layout/Box'
-import Stack from '../components/layout/Stack'
-import Grid from '../components/layout/Grid'
-import Header from '../components/Header'
-import { H4 } from '../components/typography'
+import { Layout, Box, Stack, Grid, Header, H4 } from '../components'
 import styled from 'styled-components'
 import { typography } from 'styled-system'
 
