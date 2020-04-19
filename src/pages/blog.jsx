@@ -54,25 +54,23 @@ const BlogBox = ({
   </Link>
 )
 
-const Blog = ({ data }) => {
-  return (
-    <Layout pageName='Blog'>
-      <Grid>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
-          <BlogBox
-            key={node.fields.slug}
-            link={node.fields.slug}
-            title={node.frontmatter.title}
-            date={format(
-              new Date(node.frontmatter.date),
-              'do MMM yyyy'
-            )}
-          />
-        ))}
-      </Grid>
-    </Layout>
-  )
-}
+const Blog = ({ data }) => (
+  <Layout pageName='Blog'>
+    <Grid>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <BlogBox
+          key={node.fields.slug}
+          link={node.fields.slug}
+          title={node.frontmatter.title}
+          date={format(
+            new Date(node.frontmatter.date),
+            'do MMM yyyy'
+          )}
+        />
+      ))}
+    </Grid>
+  </Layout>
+)
 
 export const query = graphql`
   query blogQuery {
