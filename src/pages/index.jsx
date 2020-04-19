@@ -62,6 +62,36 @@ const Option = ({ title, children, link }) => {
   )
 }
 
+const NewsletterSignUp = () => (
+  <form
+    css={`
+      display: flex;
+      flex-direction: column;
+      ${media.tablet`
+                flex-direction: row;
+              `}
+    `}
+    action='https://buttondown.email/api/emails/embed-subscribe/mulholio'
+    method='post'
+    target='popupwindow'
+    onSubmit={() =>
+      window.open('https://buttondown.email/mulholio', 'popupwindow')
+    }
+    className='embeddable-buttondown-form'
+  >
+    <Input
+      type='email'
+      name='email'
+      id='bd-email'
+      placeholder='email@address.com'
+    ></Input>
+    <input type='hidden' value='1' name='embed'></input>
+    <Button type='submit' value='Subscribe'>
+      Subscribe
+    </Button>
+  </form>
+)
+
 const Start = () => {
   return (
     <Layout pageName='What brings you here?'>
@@ -99,37 +129,12 @@ const Start = () => {
         </Option>
         <Option title='Writing' link='/blog' />
         <Option title='Newsletter'>
-          <form
-            css={`
-              display: flex;
-              padding: ${({ theme }) => theme.space[4]} 0;
-              flex-direction: column;
-              ${media.tablet`
-                flex-direction: row;
-              `}
-            `}
-            action='https://buttondown.email/api/emails/embed-subscribe/mulholio'
-            method='post'
-            target='popupwindow'
-            onSubmit={() =>
-              window.open(
-                'https://buttondown.email/mulholio',
-                'popupwindow'
-              )
-            }
-            className='embeddable-buttondown-form'
-          >
-            <Input
-              type='email'
-              name='email'
-              id='bd-email'
-              placeholder='email@address.com'
-            ></Input>
-            <input type='hidden' value='1' name='embed'></input>
-            <Button type='submit' value='Subscribe'>
-              Subscribe
-            </Button>
-          </form>
+          <p>
+            I write about technology, the future, self-imporvement,
+            and philosophy. If you would like to join me in exploring
+            these topics, sign up here.
+          </p>
+          <NewsletterSignUp />
         </Option>
         <Option title='Other'>
           <ul>
