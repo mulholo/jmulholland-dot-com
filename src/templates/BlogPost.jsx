@@ -1,19 +1,18 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import readingTime from '../utils/readingTime'
+import { Detail, Layout, TextColumn } from '../components'
+import { readingTime } from '../utils'
 
-const BlogPost = ({ data, location }) => {
-  if (!data) return null
+const BlogPost = ({ data }) => {
   const { frontmatter, html, wordCount } = data.markdownRemark
   const { title } = frontmatter
   return (
-    <Layout pathname={location.pathname}>
-      <h1>{title}</h1>
-      <p>
-        <em>{readingTime(wordCount.words)}</em>
-      </p>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+    <Layout pageName='Blog'>
+      <TextColumn>
+        <h1>{title}</h1>
+        <Detail>{readingTime(wordCount.words)}</Detail>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </TextColumn>
     </Layout>
   )
 }

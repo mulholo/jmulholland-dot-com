@@ -1,19 +1,16 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import { TextColumn, Layout } from '../components'
 
-const Page = ({ data, location }) => {
-  if (!data) return null
+const Page = ({ data }) => {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
+  const { title } = frontmatter
   return (
-    <Layout pathname={location.pathname}>
-      <h1>{frontmatter.title}</h1>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: html,
-        }}
-      />
+    <Layout pageName={title}>
+      <TextColumn>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </TextColumn>
     </Layout>
   )
 }

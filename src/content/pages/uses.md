@@ -8,88 +8,98 @@ things that I use on a daily basis.
 
 ## Apps
 
-### Cross-platform
+### Core
+
+- Brave - Browser (and occassionally Firefox Developer edition)
+- Dropbox
+- Spotify
+- Superhuman
+- 1Password
+- Slack
+- Google Docs
+- Instapaper - Saving and reading articles
+- Anki - Flashcards
+- Memrise - Language flashcards
+- DayOne - Journalling
+- Revolut - Banking
+- YNAB - Budgeting
+- Kindle - eBooks
+- Audible - Audiobooks1
+- Citymapper - Better than Google Maps for navigating London
+- Alfred - Spotlight on steroids
+
+### Productivity
 
 - Things - GTD todo list
-- Notion - general note taking and writing app
-- Evernote - reference material
-- Instapaper - saving and reading articles
-- Anki - flashcards
-- DayOne - journalling
-- 1Password
-- Airtable - managing data and lists. Google sheets on steroids
-- Spark - email
-- Spotify
-- Slack
-- Meetup
-- Google Sheets
-- Buffer
-- Dropbox
+- Roam Research - Exploratory notes
+- Notion - Systematised notes
+- Evernote - Some reference material
+- Due - Super annoying reminders
+- Rescuetime - Automated time tracking
+- Toggl - Manual time tracking
+- Grammarly - Grammar and writing help
+- Ulysses - Minimal writing app
+- PDF Expert - PDF reader
+- Native Apple Calendar
+- Backblaze - Automated backups of your hardrive
+- Noizio - Ambient noise generator
 
-### macOS/Web
+### Programming
 
-- Toggl - time tracking
-- iTerm - terminal
-- vim - text editor
-- VSCode - text editor (mainly for navigating particular kinds of
-  codebase; used rarely)
-- Firefox Developer Addition
-- Lightroom
-- Tweetdeck
-- Sketch
-- Invision Studio
-- Photoshop
-- Egghead.io
-- Treehouse
-- Iconjar
-- Cloudapp
-- Bartender
-- Contrast
-- Progress Bar
-- Lunar
-- PixelSnap
-- MuzzleM\* Rocket
-- Alfred
-- Magnet
-- Rescuetime
-- Clean My Mac
-- Flux
-- Muzzle
-- Grammarly
-- Keynote
-- PDF Expert
+- iTerm - Terminal emulator
+- vim - Text editor, workhorse
+- VSCode - Text editor, pairing and other edge cases
+- Egghead.io - The best educational JS videos
 
-### iOS
+### Communication and Social Media
 
-- Monzo - banking
-- Calendar.app
-- Uber
-- MyFitnessPal - food tracking
-- Due - super annoying reminders
-- Strava - running
-- Headspace
-- Oak
-- Google Photos
-- Snapseed
-- VSCO
-- Twitter native app
-- Overcast
-- Noizio
-- Anylist
-- Google Maps
-- Google trips
-- Work Hard Anywhere
-- Dice
-- Citymapper
-- Babylon
-- Apple Heatlh
-- Fitbod
-- Zero
-- Oura (soon)
-- Eidetic
-- Pocket :(
-- Kindle
-- Audible
+- Buffer - Tweet schedular
+- Overcast - Podcatcher
+- Work Hard Anywhere - Find workspaces on the move
 - Telegram
-- Trello
-- Grammarly keyboard
+
+### Health and Fitness
+
+- Oura - Smart ring and companion app
+- Zero - Fasting
+- Strava - Running
+- Fitbod - Weight lifting
+- Waking Up App - Meditation
+- Oak - Meditation
+- Apple Heatlh - For combining all of the above
+
+### Design
+
+- Sketch - Solid design tool
+- Figma - UI design tool and for anytime you want to draw something
+- Contrast - Check the accessibility of your apps and grab colours
+- Iconjar - SVG icon manager
+- PixelSnap - Measure things on your screen
+
+### Art
+
+- Snapseed - Mobile photo editing
+- Darkroom - Mobile photo editing
+- Adobe Lightroom and Photoshop - Serious editing and photo
+  organisation
+- Google Photos - Backup and photo resurfacing
+- VSCO - Filters & sharing
+
+### Misc.
+
+- Anylist - Grocery list manager
+- Bartender - keep your menu bar clearn
+- Muzzle - Hide notifications when on calls
+- Magnet - Snap your MacOS windows in place
+- Flux - Stop your computer keeping you awake at night
+- Dice - Gigs Logic Pro X - Music making
+
+## Hardware
+
+- Bose QC35
+- Ergodox EZ Keyboard
+- 15" Macbook Pro, Touchbar
+- Yeti Blue Audio Mic
+- Magic Trackpad
+- FujiFilm X-Pro2 - Camera
+- Korg Monologue - Analogue synth and MIDI controller
