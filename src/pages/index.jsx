@@ -1,40 +1,45 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
-import { Layout, Box, Stack, Grid, Header, H4 } from '../components'
-import styled from 'styled-components'
-import { typography } from 'styled-system'
+import styled, { css } from 'styled-components'
+import { Layout, Box, Stack, Grid, Header } from '../components'
 
 const WrapperButton = styled.button(
-  {
-    padding: 0,
-    border: 'none',
-    cursor: 'pointer',
-    textAlign: 'left',
-    display: 'flex',
-    alignItems: 'stretch',
-    flexDirection: 'column',
-    flex: 1,
-  },
-  typography
+  ({ theme }) => css`
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    margin: 0;
+    align-items: stretch;
+    font-size: ${theme.fontSizes[2]};
+    flex-direction: column;
+    flex: 1;
+  `
 )
-WrapperButton.defaultProps = {
-  fontSize: 2,
-}
 
-const WrapperLink = styled(Link)({
-  display: 'flex',
-  alignItems: 'stretch',
-  border: 'none',
-  flexDirection: 'column',
-  flex: 1,
-})
+const WrapperLink = styled(Link)`
+  display: flex;
+  align-items: stretch;
+  border: none;
+  flex-direction: column;
+  flex: 1;
+`
 
 const Option = ({ title, children, link }) => {
   const [isOpen, setIsOpen] = useState(false)
   const toggleOpen = children ? () => setIsOpen(!isOpen) : null
   const contents = (
-    <Box px={6} py={4} bg='n900' flex={1}>
-      <H4 fontSize={5}>{title}</H4>
+    <Box>
+      <h4
+        css={`
+          font-size: ${({ theme }) => theme.fontSizes[5]};
+          font-weight: 600;
+          margin: 0;
+        `}
+      >
+        {title}
+      </h4>
       {isOpen && children}
     </Box>
   )
@@ -48,11 +53,11 @@ const Option = ({ title, children, link }) => {
   )
 }
 
-const EmailForm = styled.form({
-  display: 'flex',
-  padding: '0 0 2rem 0',
-  width: '100%',
-})
+const EmailForm = styled.form`
+  display: flex;
+  padding: 0 0 2rem 0;
+  width: 100%;
+`
 
 const Button = styled.button`
   border-bottom-left-radius: 0;
@@ -72,13 +77,7 @@ const Start = () => {
     <Layout>
       <Stack>
         <Header pageName='What brings you here?' />
-        <Grid
-          gridTemplateColumns={['1fr', '1fr 1fr']}
-          gridTemplateRows={['1fr 1fr 1fr 1fr', '1fr 1fr']}
-          gridGap={1}
-          bg='n200'
-          flex='1 1 100%'
-        >
+        <Grid>
           <Option title='About'>
             <p>
               I'm a software engineer living in London where I spend
@@ -139,7 +138,6 @@ const Start = () => {
           </Option>
           <Option title='Other'></Option>
         </Grid>
-        <Box flexGrow='1' bg='n200' />
       </Stack>
     </Layout>
   )

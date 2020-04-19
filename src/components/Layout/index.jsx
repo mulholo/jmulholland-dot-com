@@ -1,19 +1,103 @@
 import React from 'react'
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import {
+  createGlobalStyle,
+  ThemeProvider,
+  css,
+} from 'styled-components'
 import theme from '../../utils/theme'
 import Meta from './Meta'
 
 import './code.css'
 
+/*
+Variation of:
+
+http://meyerweb.com/eric/tools/css/reset/ 
+v2.0 | 20110126
+License: none (public domain)
+*/
+const reset = css`
+  html,
+  body,
+  div,
+  iframe,
+  figure,
+  figcaption,
+  summary,
+  section,
+  fieldset,
+  form,
+  label,
+  legend,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  th,
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  footer,
+  header,
+  menu,
+  nav,
+  img,
+  audio,
+  video {
+    font: inherit;
+    vertical-align: baseline;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  /* HTML5 display-role reset for older browsers */
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
+    display: block;
+  }
+
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: '';
+    content: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+`
+
 const GlobalStyle = createGlobalStyle`
   @import url('https://rsms.me/inter/inter.css');
   @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+  ${reset}
 
   html {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     font-family: ${({ theme }) => theme.fonts[0]};
+    height: 100%;
   }
   *, *:before, *:after {
     -webkit-font-smoothing: antialiased;
@@ -32,6 +116,12 @@ const GlobalStyle = createGlobalStyle`
   body *::selection {
     background: ${props => props.theme.colors.n100};
     color: ${props => props.theme.colors.n900};
+  }
+
+  html, body, #___gatsby, #gatsby-focus-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   h1, h2, h3, h4, h5, h6 {

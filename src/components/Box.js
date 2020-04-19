@@ -1,13 +1,16 @@
-import styled from 'styled-components'
-import {
-  border,
-  color,
-  flexbox,
-  layout,
-  space,
-  compose,
-} from 'styled-system'
+import styled, { css } from 'styled-components'
 
-const Box = styled.div(compose(space, layout, border, flexbox, color))
+/**
+ * Styles a box with some background.
+ *
+ * Not a layout component.
+ */
+const Box = styled.div(
+  ({ theme }) => css`
+    background: ${theme.colors.n900};
+    flex-grow: 1;
+    padding: ${theme.space[6]};
+  `
+)
 
 export default Box

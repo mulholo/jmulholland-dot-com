@@ -5,14 +5,13 @@ import {
   Box,
   Detail,
   Grid,
-  H4,
   Header,
   Layout,
   Spacer,
   Stack,
 } from '../components'
 
-const BlogCard = ({
+const BlogBox = ({
   /**
    * Internal page to link to
    */
@@ -20,18 +19,25 @@ const BlogCard = ({
   title,
   date,
 }) => (
-  <Link to={link}>
-    <Box
-      px={6}
-      py={6}
-      bg='n900'
-      display='flex'
-      flexDirection='column'
-      flex='1 1 100%'
-    >
-      <H4 fontSize={4}>{title}</H4>
-      <Spacer height={3} />
-      <Detail>{date}</Detail>
+  <Link
+    to={link}
+    css={`
+      display: flex;
+      flex-direction: column;
+    `}
+  >
+    <Box>
+      <Stack>
+        <h4
+          css={`
+            margin: 0;
+          `}
+        >
+          {title}
+        </h4>
+        <Spacer height={3} />
+        <Detail>{date}</Detail>
+      </Stack>
     </Box>
   </Link>
 )
@@ -39,16 +45,11 @@ const BlogCard = ({
 const Blog = ({ data }) => {
   return (
     <Layout>
-      <Stack minHeight='100vh'>
+      <Stack>
         <Header pageName='Blog' />
-        <Grid
-          gridTemplateColumns={['1fr', '1fr 1fr']}
-          gridGap={1}
-          bg='n200'
-          flex={1}
-        >
+        <Grid>
           {data.allMarkdownRemark.edges.map(({ node }) => (
-            <BlogCard
+            <BlogBox
               key={node.fields.slug}
               link={node.fields.slug}
               title={node.frontmatter.title}

@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { space, border, layout } from 'styled-system'
-import { H1, H2 } from './typography'
 import Spacer from './Spacer'
 
 const HeaderContainer = styled.header(
@@ -48,21 +47,43 @@ const Ulholland = styled.span({
 const Header = ({ pageName }) => (
   <HeaderContainer>
     <Link to='/'>
-      <H1 fontSize={4}>
+      <h1
+        css={`
+          font-size: ${({ theme }) => theme.fontSizes[4]};
+          margin: 0;
+        `}
+      >
         <J>J</J>
         <Ames>ames </Ames>
         <M>M</M>
         <Ulholland>ulholland</Ulholland>
-      </H1>
+      </h1>
     </Link>
     {pageName && (
       <>
         <Spacer width={2} />
-        <H2 fontSize={4} fontWeight='300'>{`/`}</H2>
+
+        <h2
+          css={`
+            font-size: ${({ theme }) => theme.fontSizes[4]};
+            font-weight: 300;
+            margin: 0;
+          `}
+        >
+          {`/`}
+        </h2>
         <Spacer width={2} />
-        <H2 pLeft={2} fontSize={4} color='n400' fontWeight='500'>
+        <h2
+          css={`
+            color: ${({ theme }) => theme.colors.n400};
+            font-size: ${({ theme }) => theme.fontSizes[4]};
+            font-weight: 500;
+            padding-left: ${({ theme }) => theme.sizes[2]};
+            margin: 0;
+          `}
+        >
           {pageName}
-        </H2>
+        </h2>
       </>
     )}
   </HeaderContainer>
