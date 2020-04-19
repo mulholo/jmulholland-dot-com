@@ -38,12 +38,13 @@ const Header = ({ pageName }) => {
   return (
     <header
       css={`
-        display: flex;
         align-items: center;
-        width: 100%;
+        border-bottom: 1px solid ${({ theme }) => theme.colors.n400};
+        display: flex;
+        min-height: ${({ theme }) => theme.sizes[7]};
         padding: ${({ theme }) =>
           `${theme.space[4]} ${theme.space[6]}`};
-        border-bottom: 1px solid ${({ theme }) => theme.colors.n400};
+        width: 100%;
       `}
     >
       <Link

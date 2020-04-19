@@ -6,7 +6,7 @@ const Footer = () => (
     css={`
       background: ${props => props.theme.colors.n900};
       border-top: 1px solid ${props => props.theme.colors.n400};
-      padding: ${({ theme }) => theme.space[2]}
+      padding: ${({ theme }) => theme.space[4]}
         ${({ theme }) => theme.space[6]};
     `}
   >
@@ -16,14 +16,22 @@ const Footer = () => (
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        max-width: ${props => props.theme.lg};
+        & > * + * {
+          margin-top: ${({ theme }) => theme.sizes[3]};
+        }
 
-        ${media.tablet`flex-direction: row;`}
+        ${media.tablet`
+          flex-direction: row;
+          & > * + * {
+            margin: 0;
+          }
+        `}
       `}
     >
       <ul
         css={`
           padding: 0;
+          margin: 0;
           list-style: none;
           display: flex;
           flex-direction: row;
@@ -37,6 +45,10 @@ const Footer = () => (
           a {
             margin: 0;
             font-size: ${({ theme }) => theme.fontSizes[1]};
+          }
+          li {
+            margin-top: 0;
+            margin-bottom: 0;
           }
         `}
       >

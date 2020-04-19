@@ -6,11 +6,15 @@ import styled, { css } from 'styled-components'
  * Not a layout component.
  */
 const Box = styled.div(
-  ({ theme }) => css`
+  ({ theme, padding }) => css`
     background: ${theme.colors.n900};
     flex: 1 1 0;
-    padding: ${theme.space[6]};
+    padding: ${theme.space[padding]};
   `
 )
+
+Box.defaultProps = {
+  padding: 6,
+}
 
 export default Box
