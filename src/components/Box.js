@@ -8,7 +8,7 @@ import styled, { css } from 'styled-components'
 const Box = styled.div(
   ({ theme }) => css`
     background: ${theme.colors.n900};
-    flex-grow: 1;
+    flex: 1 1 0;
     padding: ${theme.space[6]};
   `
 )

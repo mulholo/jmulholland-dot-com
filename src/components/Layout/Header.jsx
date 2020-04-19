@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { space, border, layout } from 'styled-system'
-import Spacer from './Spacer'
+import { Spacer } from '..'
 
 const HeaderContainer = styled.header(
   {

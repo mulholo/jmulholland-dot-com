@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { TextColumn, Layout, Header, Stack } from '../components'
+import { TextColumn, Layout } from '../components'
 
 const Page = ({ data }) => {
   if (!data) return null
@@ -8,13 +8,10 @@ const Page = ({ data }) => {
   const { frontmatter, html } = markdownRemark
   const { title } = frontmatter
   return (
-    <Layout>
-      <Stack>
-        <Header pageName={title} />
-        <TextColumn>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </TextColumn>
-      </Stack>
+    <Layout pageName={title}>
+      <TextColumn>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </TextColumn>
     </Layout>
   )
 }

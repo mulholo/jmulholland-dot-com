@@ -6,7 +6,7 @@ const numToGridProperty = n => '1fr '.repeat(n).trim()
 const Grid = styled.div(
   ({ theme, outline, numCols }) => css`
     display: inline-grid;
-    flex: 1 1 auto;
+    flex: 1 1 0;
     grid-auto-rows: 1fr;
     grid-template-columns: ${numToGridProperty(numCols[0])};
 

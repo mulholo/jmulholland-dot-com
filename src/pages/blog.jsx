@@ -5,7 +5,6 @@ import {
   Box,
   Detail,
   Grid,
-  Header,
   Layout,
   Spacer,
   Stack,
@@ -44,23 +43,20 @@ const BlogBox = ({
 
 const Blog = ({ data }) => {
   return (
-    <Layout>
-      <Stack>
-        <Header pageName='Blog' />
-        <Grid>
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-            <BlogBox
-              key={node.fields.slug}
-              link={node.fields.slug}
-              title={node.frontmatter.title}
-              date={format(
-                new Date(node.frontmatter.date),
-                'do MMM yyyy'
-              )}
-            />
-          ))}
-        </Grid>
-      </Stack>
+    <Layout pageName='Blog'>
+      <Grid>
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <BlogBox
+            key={node.fields.slug}
+            link={node.fields.slug}
+            title={node.frontmatter.title}
+            date={format(
+              new Date(node.frontmatter.date),
+              'do MMM yyyy'
+            )}
+          />
+        ))}
+      </Grid>
     </Layout>
   )
 }

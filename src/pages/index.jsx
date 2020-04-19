@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
-import { Layout, Box, Stack, Grid, Header } from '../components'
+import { Layout, Box, Stack, Grid } from '../components'
 
 const WrapperButton = styled.button(
   ({ theme }) => css`
@@ -74,71 +74,67 @@ const Input = styled.input`
 
 const Start = () => {
   return (
-    <Layout>
-      <Stack>
-        <Header pageName='What brings you here?' />
-        <Grid>
-          <Option title='About'>
-            <p>
-              I'm a software engineer living in London where I spend
-              most of my time building things at{' '}
-              <a href='https://www.memrise.com/'>Memrise</a> and&nbsp;
-              <a href='https://github.com/mulholio'>
-                for other random projects
-              </a>
-              .
-            </p>
-            <p>
-              Outside of code, I'm into{' '}
-              <Link to='/thoughts#philosophy'>philosophy</Link> (my
-              previous primary subject matter),
-              systems-thinking,&nbsp;
-              <Link to='/thoughts#design'>design,</Link>
-              <Link to='/thoughts#meta-learning-and-productivity'>
-                {' '}
-                personal development
-              </Link>{' '}
-              and the future. If you're interested in finding out more
-              about me then head to{' '}
-              <Link to='/thoughts'>/thoughts</Link>.
-            </p>
-            <p>
-              I view this blog as a vehicle for meeting interesting
-              people so, if there is anything here you find
-              interesting,&nbsp;
-              <a href='https://twitter.com/mulholio'>DM me</a> or let
-              me buy you a coffee if you're in London.
-            </p>
-          </Option>
-          <Option title='Writing' link='/blog' />
-          <Option title='Newsletter'>
-            <EmailForm
-              action='https://buttondown.email/api/emails/embed-subscribe/mulholio'
-              method='post'
-              target='popupwindow'
-              onSubmit={() =>
-                window.open(
-                  'https://buttondown.email/mulholio',
-                  'popupwindow'
-                )
-              }
-              className='embeddable-buttondown-form'
-            >
-              <Input
-                type='email'
-                name='email'
-                id='bd-email'
-                placeholder='email@address.com'
-              ></Input>
-              <input type='hidden' value='1' name='embed'></input>
-              <Button type='submit' value='Subscribe'>
-                Subscribe
-              </Button>
-            </EmailForm>
-          </Option>
-          <Option title='Other'></Option>
-        </Grid>
-      </Stack>
+    <Layout pageName='What brings you here?'>
+      <Grid>
+        <Option title='About'>
+          <p>
+            I'm a software engineer living in London where I spend
+            most of my time building things at{' '}
+            <a href='https://www.memrise.com/'>Memrise</a> and&nbsp;
+            <a href='https://github.com/mulholio'>
+              for other random projects
+            </a>
+            .
+          </p>
+          <p>
+            Outside of code, I'm into{' '}
+            <Link to='/thoughts#philosophy'>philosophy</Link> (my
+            previous primary subject matter), systems-thinking,&nbsp;
+            <Link to='/thoughts#design'>design,</Link>
+            <Link to='/thoughts#meta-learning-and-productivity'>
+              {' '}
+              personal development
+            </Link>{' '}
+            and the future. If you're interested in finding out more
+            about me then head to{' '}
+            <Link to='/thoughts'>/thoughts</Link>.
+          </p>
+          <p>
+            I view this blog as a vehicle for meeting interesting
+            people so, if there is anything here you find
+            interesting,&nbsp;
+            <a href='https://twitter.com/mulholio'>DM me</a> or let me
+            buy you a coffee if you're in London.
+          </p>
+        </Option>
+        <Option title='Writing' link='/blog' />
+        <Option title='Newsletter'>
+          <EmailForm
+            action='https://buttondown.email/api/emails/embed-subscribe/mulholio'
+            method='post'
+            target='popupwindow'
+            onSubmit={() =>
+              window.open(
+                'https://buttondown.email/mulholio',
+                'popupwindow'
+              )
+            }
+            className='embeddable-buttondown-form'
+          >
+            <Input
+              type='email'
+              name='email'
+              id='bd-email'
+              placeholder='email@address.com'
+            ></Input>
+            <input type='hidden' value='1' name='embed'></input>
+            <Button type='submit' value='Subscribe'>
+              Subscribe
+            </Button>
+          </EmailForm>
+        </Option>
+        <Option title='Other'></Option>
+      </Grid>
     </Layout>
   )
 }

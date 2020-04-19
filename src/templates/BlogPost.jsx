@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Layout, Header, Stack, TextColumn } from '../components'
+import { Layout, TextColumn } from '../components'
 import { readingTime } from '../utils'
 
 const BlogPost = ({ data }) => {
@@ -8,15 +8,12 @@ const BlogPost = ({ data }) => {
   const { frontmatter, html, wordCount } = data.markdownRemark
   const { title } = frontmatter
   return (
-    <Layout>
-      <Stack>
-        <Header pageName='Blog' />
-        <TextColumn>
-          <h1>{title}</h1>
-          <span>{readingTime(wordCount.words)}</span>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </TextColumn>
-      </Stack>
+    <Layout pageName='Blog'>
+      <TextColumn>
+        <h1>{title}</h1>
+        <span>{readingTime(wordCount.words)}</span>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </TextColumn>
     </Layout>
   )
 }
