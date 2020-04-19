@@ -1,22 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
-import styled, { css } from 'styled-components'
-import { Layout, Box, Stack, Grid } from '../components'
-
-const WrapperButton = styled.button(
-  ({ theme }) => css`
-    padding: 0;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    display: flex;
-    margin: 0;
-    align-items: stretch;
-    font-size: ${theme.fontSizes[2]};
-    flex-direction: column;
-    flex: 1;
-  `
-)
+import styled from 'styled-components'
+import {
+  Box,
+  Button,
+  Grid,
+  Input,
+  Layout,
+  Stack,
+} from '../components'
+import { media } from '../utils'
 
 const WrapperLink = styled(Link)`
   display: flex;
@@ -27,8 +20,6 @@ const WrapperLink = styled(Link)`
 `
 
 const Option = ({ title, children, link }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const toggleOpen = children ? () => setIsOpen(!isOpen) : null
   const contents = (
     <Box>
       <h4
@@ -40,37 +31,18 @@ const Option = ({ title, children, link }) => {
       >
         {title}
       </h4>
-      {isOpen && children}
+      {children}
     </Box>
   )
   const Wrapper = link
     ? props => <WrapperLink to={link} {...props} />
-    : props => <WrapperButton onClick={toggleOpen} {...props} />
+    : props => <>{props.children}</>
   return (
     <Stack alignItems='stretch'>
       <Wrapper>{contents}</Wrapper>
     </Stack>
   )
 }
-
-const EmailForm = styled.form`
-  display: flex;
-  padding: 0 0 2rem 0;
-  width: 100%;
-`
-
-const Button = styled.button`
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  padding: ${({ theme }) => `${theme.s2} ${theme.s4}`};
-`
-
-const Input = styled.input`
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-  flex-grow: 1;
-  padding: ${({ theme }) => `${theme.s2} ${theme.s4}`};
-`
 
 const Start = () => {
   return (
@@ -109,7 +81,15 @@ const Start = () => {
         </Option>
         <Option title='Writing' link='/blog' />
         <Option title='Newsletter'>
-          <EmailForm
+          <form
+            css={`
+              display: flex;
+              padding: ${({ theme }) => theme.space[4]} 0;
+              flex-direction: column;
+              ${media.tablet`
+                flex-direction: row;
+              `}
+            `}
             action='https://buttondown.email/api/emails/embed-subscribe/mulholio'
             method='post'
             target='popupwindow'
@@ -131,9 +111,18 @@ const Start = () => {
             <Button type='submit' value='Subscribe'>
               Subscribe
             </Button>
-          </EmailForm>
+          </form>
         </Option>
-        <Option title='Other'></Option>
+        <Option title='Other'>
+          <ul>
+            <li>
+              <Link to='/thoughts'>Thoughts</Link>
+            </li>
+            <li>
+              <Link to='/uses'>Uses</Link>
+            </li>
+          </ul>
+        </Option>
       </Grid>
     </Layout>
   )

@@ -7,7 +7,6 @@ const Grid = styled.div(
   ({ theme, outline, numCols }) => css`
     display: inline-grid;
     flex: 1 1 0;
-    grid-auto-rows: 1fr;
     grid-template-columns: ${numToGridProperty(numCols[0])};
 
     ${outline &&
@@ -19,6 +18,7 @@ const Grid = styled.div(
 
     ${media.tablet`
       grid-template-columns: ${numToGridProperty(numCols[1])};
+      grid-auto-rows: 1fr;
     `}
   `
 )
