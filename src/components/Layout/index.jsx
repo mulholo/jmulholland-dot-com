@@ -80,6 +80,10 @@ const reset = css`
     content: none;
   }
 
+  ul {
+    list-style: disc;
+  }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;

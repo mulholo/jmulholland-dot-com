@@ -195,7 +195,7 @@ Going to a new coffee shop and writing openly in this way is a very
 pleasant experience and I enjoy doing it slowly over a few hours do it
 to a sufficient depth.
 
-### Annual Meeze
+### Annual Meeze
 
 The Annual Meeze is, obviously, the most in-depth section of my
 productivity system. As well as doing a complete quarterly review, I
