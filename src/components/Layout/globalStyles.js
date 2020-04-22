@@ -56,6 +56,8 @@ const reset = css`
   }
 
   // Remove shadow on inputs
+  input[type='email'],
+  input[type='password'],
   input[type='text'] {
     /* Remove First */
     -webkit-appearance: none;
