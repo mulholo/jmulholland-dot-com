@@ -50,6 +50,21 @@ const reset = css`
     border: 0;
   }
 
+  button,
+  input {
+    border-radius: 0;
+  }
+
+  // Remove shadow on inputs
+  input[type='email'],
+  input[type='password'],
+  input[type='text'] {
+    /* Remove First */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
   /* HTML5 display-role reset for older browsers */
   article,
   aside,
