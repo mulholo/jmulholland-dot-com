@@ -50,6 +50,11 @@ const reset = css`
     border: 0;
   }
 
+  button,
+  input {
+    border-radius: 0;
+  }
+
   /* HTML5 display-role reset for older browsers */
   article,
   aside,
