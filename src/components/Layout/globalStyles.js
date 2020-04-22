@@ -53,7 +53,14 @@ const reset = css`
   button,
   input {
     border-radius: 0;
-    box-shadow: none;
+  }
+
+  // Remove shadow on inputs
+  input[type='text'] {
+    /* Remove First */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
 
   /* HTML5 display-role reset for older browsers */
