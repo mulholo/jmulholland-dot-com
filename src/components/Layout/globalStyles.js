@@ -53,6 +53,7 @@ const reset = css`
   button,
   input {
     border-radius: 0;
+    box-shadow: none;
   }
 
   /* HTML5 display-role reset for older browsers */
