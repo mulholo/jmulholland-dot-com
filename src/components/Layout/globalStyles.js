@@ -183,6 +183,13 @@ const GlobalStyle = createGlobalStyle`
   blockquote:before, blockquote:after {
     content: '"'
   }
+
+
+  // Stop code blocks overflowing
+  .gatsby-highlight {
+    overflow: scroll;
+    max-width: calc(100vw - ${props => props.theme.sizes[7]})
+  }
 `
 
 export { GlobalStyle }
