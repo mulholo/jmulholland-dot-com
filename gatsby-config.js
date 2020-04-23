@@ -88,6 +88,13 @@ module.exports = {
         pageTransitionDelay: 0,
       },
     },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        color: `hsl(208,60%,35%)`, // b400 from theme
+        showSpinner: false,
+      },
+    },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
   ],
