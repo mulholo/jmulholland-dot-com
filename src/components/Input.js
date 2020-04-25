@@ -6,9 +6,8 @@ const Input = styled.input(
     border: 1px solid ${theme.colors.n500};
     color: ${theme.colors.n200};
     flex: 1 1 0;
-    font-size: ${theme.fontSizes[2]};
     margin: 0;
-    padding: ${theme.size[4]} ${theme.size[4]};
+    padding: ${theme.sizes.s0};
 
     transition: 0.2s border, 0.2s box-shadow;
 

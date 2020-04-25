@@ -12,8 +12,8 @@ const Grid = styled.div(
     ${outline &&
       css`
         background-color: ${theme.colors.n400};
-        border: ${theme.size[1]} solid ${theme.colors.n400};
-        gap: ${theme.size[1]} ${theme.size[1]};
+        border: ${theme.sizes['s-4']} solid ${theme.colors.n400};
+        gap: ${theme.sizes['s-4']} ${theme.sizes['s-4']};
       `}
 
     ${media.tablet`

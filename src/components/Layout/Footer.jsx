@@ -1,13 +1,21 @@
 import React from 'react'
 import { media } from '../../utils'
 
+const FooterLink = ({ href, title }) => (
+  <li>
+    <a href={href} target='_blank' rel='noopener noreferrer'>
+      {title}
+    </a>
+  </li>
+)
+
 const Footer = () => (
   <footer
     css={`
       background: ${props => props.theme.colors.n900};
       border-top: solid ${props => props.theme.colors.n400};
-      padding: ${({ theme }) => theme.size[5]}
-        ${({ theme }) => theme.size[6]};
+      padding: ${({ theme }) => theme.sizes.s1}
+        ${({ theme }) => theme.sizes.s2};
     `}
   >
     <div
@@ -17,7 +25,7 @@ const Footer = () => (
         align-items: center;
         justify-content: space-between;
         & > * + * {
-          margin-top: ${({ theme }) => theme.size[3]};
+          margin-top: ${({ theme }) => theme.sizes['s-1']};
         }
 
         ${media.tablet`
@@ -40,11 +48,11 @@ const Footer = () => (
             justify-content: flex-start;
           `}
           & > * + * {
-            margin-left: ${({ theme }) => theme.size[4]};
+            margin-left: ${({ theme }) => theme.sizes.s1};
           }
           a {
             margin: 0;
-            font-size: ${({ theme }) => theme.fontSizes[2]};
+            font-size: ${({ theme }) => theme.fontSizes.s0};
           }
           li {
             margin-top: 0;
@@ -52,47 +60,27 @@ const Footer = () => (
           }
         `}
       >
-        <li>
-          <a
-            href='https://github.com/mulholio'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            GitHub
-          </a>
-        </li>
-        <li>
-          <a
-            href='https://twitter.com/mulholio'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Twitter
-          </a>
-        </li>
-        <li>
-          <a
-            href='https://www.linkedin.com/in/mulholio'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            LinkedIn
-          </a>
-        </li>
-        <li>
-          <a
-            href='mailto:james@jmulholland.com'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Email
-          </a>
-        </li>
+        <FooterLink
+          title='GitHub'
+          href='https://github.com/mulholio'
+        />
+        <FooterLink
+          title='Twitter'
+          href='https://twitter.com/mulholio'
+        />
+        <FooterLink
+          title='LinkedIn'
+          href='https://www.linkedin.com/in/mulholio'
+        />
+        <FooterLink
+          title='Email'
+          href='mailto:james@jmulholland.com'
+        />
       </ul>
       <span
         css={`
           color: ${({ theme }) => theme.colors.n400};
-          font-size: ${({ theme }) => theme.fontSizes[2]};
+          font-size: ${({ theme }) => theme.fontSizes.s0};
         `}
       >{`© James Mulholland ${new Date().getFullYear()}`}</span>
     </div>

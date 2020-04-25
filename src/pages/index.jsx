@@ -31,7 +31,7 @@ const WrapperLink = styled(Link)(
     }
     &:focus ${Box}, &:hover ${Box} {
       /* prettier-ignore */
-      box-shadow: inset 0px 0px 0px ${theme.size[3]} ${theme.colors.b500};
+      box-shadow: inset 0px 0px 0px ${theme.sizes['s-1']} ${theme.colors.b500};
     }
     &:focus h4,
     &:hover h4 {
@@ -44,7 +44,7 @@ const optionTitleCss = css`
   font-weight: 600;
   margin: 0;
   font-size: ${({ theme, big }) =>
-    big ? theme.fontSizes[6] : theme.fontSizes[5]};
+    big ? theme.fontSizes.s4 : theme.fontSizes.s2};
 `
 
 const Option = ({ title, children, link }) => {

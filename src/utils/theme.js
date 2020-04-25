@@ -10,6 +10,8 @@ const genSize = n =>
 const genSizeUnit = unit => n => genSize(n).toString() + unit
 const genRemSize = genSizeUnit('rem')
 
+const genFontSize = n => `calc(${genRemSize(n)} + 0.05vw)` // slight dynamic font-sizing
+
 export default {
   // 100 is darkest
   // 500 is default
@@ -70,30 +72,29 @@ export default {
     y800: 'hsl(043,93%,72%)',
     y900: 'hsl(042,100%,92%)',
   },
-  size: [
-    '0',
-    genRemSize(-4),
-    genRemSize(-3),
-    genRemSize(-2),
-    genRemSize(-1),
-    genRemSize(0),
-    genRemSize(1),
-    genRemSize(2),
-    genRemSize(3),
-    genRemSize(4),
-  ],
-  fontSizes: [
-    genRemSize(-2),
-    genRemSize(-1),
-    genRemSize(0),
-    genRemSize(1),
-    genRemSize(2),
-    genRemSize(3),
-    genRemSize(4),
-  ],
-  fonts: [
-    // One day I shall have Univers Next
-    "'Inter var', Helvetica, sans-serif",
-    "'Source Code Pro', Menlo, monospace",
-  ],
+  sizes: {
+    's-4': genRemSize(-4),
+    's-3': genRemSize(-3),
+    's-2': genRemSize(-2),
+    's-1': genRemSize(-1),
+    s0: genRemSize(0),
+    s1: genRemSize(1),
+    s2: genRemSize(2),
+    s3: genRemSize(3),
+    s4: genRemSize(4),
+  },
+  fontSizes: {
+    's-2': genFontSize(-2),
+    's-1': genFontSize(-1),
+    s0: genFontSize(0),
+    s1: genFontSize(1),
+    s2: genFontSize(2),
+    s3: genFontSize(3),
+    s4: genFontSize(4),
+  },
+  fonts: {
+    // One day, I shall have Univers Next
+    sans: "'Inter var', Helvetica, sans-serif",
+    mono: "'Source Code Pro', Menlo, monospace",
+  },
 }

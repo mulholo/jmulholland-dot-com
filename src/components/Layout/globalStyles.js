@@ -108,7 +108,7 @@ const GlobalStyle = createGlobalStyle`
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: ${({ theme }) => theme.fonts[0]};
+    font-family: ${({ theme }) => theme.fonts.sans};
     height: 100%;
   }
   *, *:before, *:after {
@@ -160,7 +160,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   p, li, ul, blockquote {
-    font-size: ${props => props.theme.fontSizes[2]};
+    font-size: ${props => props.theme.fontSizes.s0};
     line-height: 1.625;
     color: ${props => props.theme.colors.n200};
   }
@@ -170,18 +170,22 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ul {
-    padding-left: ${props => props.theme.size[4]};
+    padding-left: ${props => props.theme.sizes.s0};
   }
 
   figure {
-    margin: ${props => props.theme.size[6]} 0;
+    margin: ${props => props.theme.sizes.s2} 0;
+  }
+
+  h1 {
+    font-size: ${props => props.theme.fontSizes.s4};
   }
 
   figcaption {
-    font-family: ${props => props.theme.fonts[1]};
-    font-size: ${props => props.theme.fontSizes[1]};
+    font-family: ${props => props.theme.fonts.mono};
+    font-size: ${props => props.theme.fontSizes['s-1']};
     text-align: center;
-    margin-top: ${props => props.theme.size[3]};
+    margin-top: ${props => props.theme.sizes['s-1']};
     color: ${props => props.theme.colors.n300};
   }
   
@@ -199,11 +203,10 @@ const GlobalStyle = createGlobalStyle`
     content: '"'
   }
 
-
   // Stop code blocks overflowing
   .gatsby-highlight {
     overflow: scroll;
-    max-width: calc(100vw - ${props => props.theme.size[7]})
+    max-width: calc(100vw - ${props => props.theme.sizes.s3})
   }
 `
 

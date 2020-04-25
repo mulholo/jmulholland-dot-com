@@ -14,7 +14,7 @@ const Stack = styled.div`
     spacer &&
     `
   & > * + * {
-    margin-top: ${theme.size[spacer]}
+    margin-top: ${theme.sizes[spacer]}
   }`}
 `
 

@@ -8,16 +8,16 @@ const numCss = css`
   font-weight: 800;
   margin: 0;
   flex-grow: 1;
-  font-size: ${({ theme }) => theme.fontSizes[6]};
+  font-size: ${({ theme }) => theme.fontSizes.s2};
   ${media.tablet`
     font-size: 12rem;
   `}
 `
 
 const pCss = css`
-  font-size: ${({ theme }) => theme.fontSizes[3]};
+  font-size: ${({ theme }) => theme.fontSizes.s1};
   ${media.tablet`
-    font-size: ${({ theme }) => theme.fontSizes[5]};
+    font-size: ${({ theme }) => theme.fontSizes.s5};
   `}
 `
 
