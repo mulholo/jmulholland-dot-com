@@ -8,7 +8,7 @@ const Button = styled.button(
     font-size: ${theme.fontSizes[2]};
     font-weight: 600;
     margin: 0;
-    padding: ${theme.space[4]} ${theme.space[4]};
+    padding: ${theme.size[4]} ${theme.size[4]};
     text-transform: uppercase;
     transition: 0.2s background;
 

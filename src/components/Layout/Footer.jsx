@@ -6,8 +6,8 @@ const Footer = () => (
     css={`
       background: ${props => props.theme.colors.n900};
       border-top: 1px solid ${props => props.theme.colors.n400};
-      padding: ${({ theme }) => theme.space[4]}
-        ${({ theme }) => theme.space[6]};
+      padding: ${({ theme }) => theme.size[4]}
+        ${({ theme }) => theme.size[6]};
     `}
   >
     <div
@@ -17,7 +17,7 @@ const Footer = () => (
         align-items: center;
         justify-content: space-between;
         & > * + * {
-          margin-top: ${({ theme }) => theme.sizes[3]};
+          margin-top: ${({ theme }) => theme.size[3]};
         }
 
         ${media.tablet`
@@ -40,7 +40,7 @@ const Footer = () => (
             justify-content: flex-start;
           `}
           & > * + * {
-            margin-left: ${({ theme }) => theme.space[4]};
+            margin-left: ${({ theme }) => theme.size[4]};
           }
           a {
             margin: 0;

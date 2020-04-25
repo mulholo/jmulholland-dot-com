@@ -11,38 +11,40 @@ import {
 } from '../components'
 import { media } from '../utils'
 
-const WrapperLink = styled(Link)`
-  display: flex;
-  align-items: stretch;
-  border: none;
-  flex-direction: column;
-  flex: 1;
-  & div {
-    transition: box-shadow 0.2s;
-  }
-  & h4 {
-    transition: color 0.2s;
-  }
-  &:focus,
-  &:active {
-    outline: none;
-    text-decoration: none;
-  }
-  &:focus ${Box}, &:hover ${Box} {
-    box-shadow: inset 0px 0px 0px 8px
-      ${({ theme }) => theme.colors.b500};
-  }
-  &:focus h4,
-  &:hover h4 {
-    color: ${({ theme }) => theme.colors.b400};
-  }
-`
+const WrapperLink = styled(Link)(
+  ({ theme }) => css`
+    display: flex;
+    align-items: stretch;
+    border: none;
+    flex-direction: column;
+    flex: 1;
+    & div {
+      transition: box-shadow 0.2s;
+    }
+    & h4 {
+      transition: color 0.2s;
+    }
+    &:focus,
+    &:active {
+      outline: none;
+      text-decoration: none;
+    }
+    &:focus ${Box}, &:hover ${Box} {
+      /* prettier-ignore */
+      box-shadow: inset 0px 0px 0px ${theme.size[3]} ${theme.colors.b500};
+    }
+    &:focus h4,
+    &:hover h4 {
+      color: ${theme.colors.b400};
+    }
+  `
+)
 
 const optionTitleCss = css`
   font-weight: 600;
   margin: 0;
   font-size: ${({ theme, big }) =>
-    big ? theme.fontSizes[9] : theme.fontSizes[6]};
+    big ? theme.fontSizes[6] : theme.fontSizes[5]};
 `
 
 const Option = ({ title, children, link }) => {

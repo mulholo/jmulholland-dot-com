@@ -26,9 +26,8 @@ const Ulholland = styled.span`
 
 const secondaryCss = css`
   color: ${({ theme }) => theme.colors.n400};
-  font-size: ${({ theme }) => theme.fontSizes[4]};
+  font-size: ${({ theme }) => theme.fontSizes[3]};
   font-weight: 500;
-  padding-left: ${({ theme }) => theme.sizes[2]};
   margin: 0;
   display: ${({ hide }) => (hide ? 'none' : 'block')};
 `
@@ -41,9 +40,9 @@ const Header = ({ pageName }) => {
         align-items: center;
         border-bottom: 1px solid ${({ theme }) => theme.colors.n400};
         display: flex;
-        min-height: ${({ theme }) => theme.sizes[7]};
+        min-height: ${({ theme }) => theme.size[7]};
         padding: ${({ theme }) =>
-          `${theme.space[4]} ${theme.space[6]}`};
+          `${theme.size[5]} ${theme.size[6]}`};
         width: 100%;
       `}
     >
@@ -68,7 +67,7 @@ const Header = ({ pageName }) => {
       >
         <h1
           css={`
-            font-size: ${({ theme }) => theme.fontSizes[4]};
+            font-size: ${({ theme }) => theme.fontSizes[3]};
             margin: 0;
           `}
         >
@@ -82,9 +81,9 @@ const Header = ({ pageName }) => {
         <>
           <h2
             css={`
-              font-size: ${({ theme }) => theme.fontSizes[4]};
+              font-size: ${({ theme }) => theme.fontSizes[3]};
               font-weight: 300;
-              margin: 0 ${({ theme }) => theme.sizes[2]};
+              margin: 0 ${({ theme }) => theme.size[3]};
             `}
           >
             {`/`}

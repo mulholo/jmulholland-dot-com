@@ -9,7 +9,7 @@ const Box = styled.div(
   ({ theme, padding }) => css`
     background: ${theme.colors.n900};
     flex: 1 1 0;
-    padding: ${theme.space[padding]};
+    padding: ${theme.size[padding]};
   `
 )
 

@@ -170,18 +170,18 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ul {
-    padding-left: ${props => props.theme.sizes[4]};
+    padding-left: ${props => props.theme.size[4]};
   }
 
   figure {
-    margin: ${props => props.theme.sizes[6]} 0;
+    margin: ${props => props.theme.size[6]} 0;
   }
 
   figcaption {
     font-family: ${props => props.theme.fonts[1]};
     font-size: ${props => props.theme.fontSizes[1]};
     text-align: center;
-    margin-top: ${props => props.theme.sizes[3]};
+    margin-top: ${props => props.theme.size[3]};
     color: ${props => props.theme.colors.n300};
   }
   
@@ -203,7 +203,7 @@ const GlobalStyle = createGlobalStyle`
   // Stop code blocks overflowing
   .gatsby-highlight {
     overflow: scroll;
-    max-width: calc(100vw - ${props => props.theme.sizes[7]})
+    max-width: calc(100vw - ${props => props.theme.size[7]})
   }
 `
 
