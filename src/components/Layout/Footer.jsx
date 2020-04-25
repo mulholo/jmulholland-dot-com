@@ -5,8 +5,8 @@ const Footer = () => (
   <footer
     css={`
       background: ${props => props.theme.colors.n900};
-      border-top: 1px solid ${props => props.theme.colors.n400};
-      padding: ${({ theme }) => theme.size[4]}
+      border-top: solid ${props => props.theme.colors.n400};
+      padding: ${({ theme }) => theme.size[5]}
         ${({ theme }) => theme.size[6]};
     `}
   >
@@ -44,7 +44,7 @@ const Footer = () => (
           }
           a {
             margin: 0;
-            font-size: ${({ theme }) => theme.fontSizes[1]};
+            font-size: ${({ theme }) => theme.fontSizes[2]};
           }
           li {
             margin-top: 0;
@@ -92,7 +92,7 @@ const Footer = () => (
       <span
         css={`
           color: ${({ theme }) => theme.colors.n400};
-          font-size: ${({ theme }) => theme.fontSizes[1]};
+          font-size: ${({ theme }) => theme.fontSizes[2]};
         `}
       >{`© James Mulholland ${new Date().getFullYear()}`}</span>
     </div>
