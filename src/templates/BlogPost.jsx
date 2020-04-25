@@ -10,6 +10,7 @@ import { readingTime } from '../utils'
  */
 function useScroll() {
   const calcPctComplete = () => {
+    if (typeof window === 'undefined') return 0
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop
     const height =
