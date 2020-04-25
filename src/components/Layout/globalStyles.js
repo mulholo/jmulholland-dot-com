@@ -10,6 +10,16 @@ v2.0 | 20110126
 License: none (public domain)
 */
 const reset = css`
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  li,
+  span,
   html,
   body,
   div,
@@ -157,20 +167,21 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     color: ${props => props.theme.colors.n200};
+    font-weight: 600;
   }
 
   p, li, ul, blockquote {
     font-size: ${props => props.theme.fontSizes.s0};
-    line-height: 1.625;
+    line-height: 1.618;
     color: ${props => props.theme.colors.n200};
   }
   
   li {
-    margin: 0.5rem 0;
+    margin: 0;
   }
 
   ul {
-    padding-left: ${props => props.theme.sizes.s0};
+    padding-left: ${props => props.theme.sizes.s1};
   }
 
   figure {
@@ -178,12 +189,35 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: ${props => props.theme.fontSizes.s4};
+    font-size: ${props => props.theme.fontSizes.s2};
+    hyphens: none;
+    line-height: 1.1;
+  }
+  h2 {
+    font-size: ${props => props.theme.fontSizes.s2};
+    hyphens: none;
+    line-height: 1.1;
+  }
+  h3 {
+    font-size: ${props => props.theme.fontSizes.s1};
+    line-height: 1.1;
+  }
+  h4 {
+    font-size: ${props => props.theme.fontSizes.s1};
+    line-height: 1.1;
+  }
+  h5 {
+    font-size: ${props => props.theme.fontSizes.s0};
+    line-height: 1.1;
+  }
+  h6 {
+    font-size: ${props => props.theme.fontSizes.s0};
+    line-height: 1.1;
   }
 
   figcaption {
     font-family: ${props => props.theme.fonts.mono};
-    font-size: ${props => props.theme.fontSizes['s-1']};
+    font-size: ${props => props.theme.fontSizes.s0};
     text-align: center;
     margin-top: ${props => props.theme.sizes['s-1']};
     color: ${props => props.theme.colors.n300};
@@ -203,11 +237,6 @@ const GlobalStyle = createGlobalStyle`
     content: '"'
   }
 
-  // Stop code blocks overflowing
-  .gatsby-highlight {
-    overflow: scroll;
-    max-width: calc(100vw - ${props => props.theme.sizes.s3})
-  }
 `
 
 export { GlobalStyle }

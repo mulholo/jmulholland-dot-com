@@ -33,9 +33,15 @@ function useScroll() {
   return pctComplete
 }
 
+const FrontMatter = ({ numWords, date }) => (
+  <div>
+    <Detail>{`${date} • ${readingTime(numWords)}`}</Detail>
+  </div>
+)
+
 const BlogPost = ({ data }) => {
   const { frontmatter, html, wordCount } = data.markdownRemark
-  const { title } = frontmatter
+  const { title, date } = frontmatter
 
   // Track read to end
   const pctComplete = useScroll()
@@ -53,7 +59,7 @@ const BlogPost = ({ data }) => {
     <Layout pageName='Blog'>
       <TextColumn>
         <h1>{title}</h1>
-        <Detail>{readingTime(wordCount.words)}</Detail>
+        <FrontMatter date={date} numWords={wordCount.words} />
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </TextColumn>
     </Layout>
@@ -66,6 +72,7 @@ export const query = graphql`
       html
       frontmatter {
         title
+        date
       }
       wordCount {
         words

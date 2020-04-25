@@ -8,7 +8,7 @@ const J = styled.span`
 
 const Ames = styled.span`
   display: none;
-  @media (min-width: 30rem) {
+  @media (min-width: 40rem) {
     display: inline;
   }
 `
@@ -19,7 +19,7 @@ const M = styled.span`
 
 const Ulholland = styled.span`
   display: none;
-  @media (min-width: 25rem) {
+  @media (min-width: 35rem) {
     display: inline;
   }
 `
@@ -38,7 +38,7 @@ const Header = ({ pageName }) => {
     <header
       css={`
         align-items: center;
-        border-bottom: 1px solid ${({ theme }) => theme.colors.n400};
+        border-bottom: 1px solid ${({ theme }) => theme.colors.n300};
         display: flex;
         min-height: ${({ theme }) => theme.sizes.s3};
         padding: ${({ theme }) =>
@@ -79,15 +79,15 @@ const Header = ({ pageName }) => {
       </Link>
       {pageName && (
         <>
-          <h2
+          <span
             css={`
-              font-size: ${({ theme }) => theme.fontSizes.s1}
+              font-size: ${({ theme }) => theme.fontSizes.s1};
               font-weight: 300;
               margin: 0 ${({ theme }) => theme.sizes.s0};
             `}
           >
             {`/`}
-          </h2>
+          </span>
           <h2 hide={linkIsHovered} css={secondaryCss}>
             {pageName}
           </h2>

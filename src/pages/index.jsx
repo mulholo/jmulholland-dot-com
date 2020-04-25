@@ -8,6 +8,7 @@ import {
   Input,
   Layout,
   Stack,
+  TextContainer,
 } from '../components'
 import { media } from '../utils'
 
@@ -33,8 +34,8 @@ const WrapperLink = styled(Link)(
       /* prettier-ignore */
       box-shadow: inset 0px 0px 0px ${theme.sizes['s-1']} ${theme.colors.b500};
     }
-    &:focus h4,
-    &:hover h4 {
+    &:focus h2,
+    &:hover h2 {
       color: ${theme.colors.b400};
     }
   `
@@ -44,16 +45,21 @@ const optionTitleCss = css`
   font-weight: 600;
   margin: 0;
   font-size: ${({ theme, big }) =>
-    big ? theme.fontSizes.s4 : theme.fontSizes.s2};
+    big ? theme.fontSizes.s3 : theme.fontSizes.s2};
 `
 
 const Option = ({ title, children, link }) => {
   const contents = (
     <Box>
-      <h4 big={typeof children === 'undefined'} css={optionTitleCss}>
-        {title}
-      </h4>
-      {children}
+      <TextContainer recursive={false}>
+        <h2
+          big={typeof children === 'undefined'}
+          css={optionTitleCss}
+        >
+          {title}
+        </h2>
+        {children}
+      </TextContainer>
     </Box>
   )
   const Wrapper = link
@@ -99,7 +105,7 @@ const NewsletterSignUp = () => (
 const Start = () => {
   return (
     <Layout pageName='What brings you here?'>
-      <Grid>
+      <Grid outline={true}>
         <Option title='About'>
           <p>
             I'm a software engineer living in London where I spend

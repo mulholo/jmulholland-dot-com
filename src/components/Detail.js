@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 const Detail = styled.span(
   ({ theme }) => css`
     font-family: ${theme.fonts.mono};
-    font-size: ${theme.fontSizes['s-1']};
+    font-size: ${theme.fontSizes.s0};
     color: ${theme.colors.n400};
   `
 )
