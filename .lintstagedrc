@@ -4,6 +4,5 @@
   ],
   "*.+(js|jsx|ts|tsx|json|css|md|graphql|mdx)": [
     "prettier --write",
-    "git add"
   ]
 }
