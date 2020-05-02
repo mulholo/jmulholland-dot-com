@@ -22,8 +22,8 @@ The biggest thing I could recommend is getting a new, ergonomic
 keyboard. It turns out the term ‘ergonomic’, much like ‘organic’,
 doesn’t really mean anything, so you might have to do some
 experimentation to find something that fits your body well. For me,
-that meant switching to the ErgoDox (EZ) _/link and image/_. People
-also seem to like
+that meant switching to the [ErgoDox (EZ)](https://ergodox-ez.com/).
+People also seem to like
 [Microsoft](https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwi4tIH8j5zkAhVFtO0KHbLUD7oYABABGgJkZw&ohost=www.google.com&cid=CAESQOD2llcH5qEVUm86rdsoXED_ZcmYKOvPbJsSEwOYdcuX_MSCO8RapixHCjVZahCNMBX1aqT2BDub-a_9um46elg&sig=AOD64_12SmhdIxvrTv6b15ZLKGL52JFXSw&ctype=5&q=&ved=0ahUKEwi88fn7j5zkAhULUxUIHYE1D-0Q9aACCDw&adurl=)
 and [Kinesis’s](https://kinesis-ergo.com/shop/advantage2/)
 alternatives.

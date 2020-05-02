@@ -31,7 +31,6 @@ const SiteMetadata = ({ pathname }) => (
           name='viewport'
           content='width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover'
         />
-
         <link
           rel='apple-touch-icon'
           sizes='180x180'
