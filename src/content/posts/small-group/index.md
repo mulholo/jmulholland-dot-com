@@ -10,7 +10,7 @@ Lying somewhere between a club and a loosely defined set of friends,
 the Small Group is a repeated theme in the lives of the successful.
 Benjamin Franklin had the
 [Junto Club](http://www.benjamin-franklin-history.org/junto-club/),
-Tolkein and C.S. Lewis had
+Tolkien and C.S. Lewis had
 [The Inklings](https://www.ignatius.com/promotions/looking-for-the-king/who-were-the-inklings.htm),
 Jobs and Wozniak had
 [Homebrew](https://en.wikipedia.org/wiki/Homebrew_Computer_Club).
