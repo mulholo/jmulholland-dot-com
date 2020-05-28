@@ -236,7 +236,6 @@ const GlobalStyle = createGlobalStyle`
   blockquote:before, blockquote:after {
     content: '"'
   }
-
 `
 
 export { GlobalStyle }

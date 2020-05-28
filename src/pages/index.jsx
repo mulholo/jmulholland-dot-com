@@ -104,7 +104,7 @@ const NewsletterSignUp = () => (
 
 const Start = () => {
   return (
-    <Layout pageName='What brings you here?'>
+    <Layout pageName='Home'>
       <Grid outline={true}>
         <Option title='About'>
           <p>
