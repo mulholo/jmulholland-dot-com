@@ -236,6 +236,14 @@ const GlobalStyle = createGlobalStyle`
   blockquote:before, blockquote:after {
     content: '"'
   }
+
+  // Stop code blocks and images overflowing	
+  .gatsby-highlight,
+  .gatsby-resp-image-link
+  {	
+    overflow: scroll;	
+    max-width: calc(100vw - ${props => props.theme.sizes.s4})	
+  }
 `
 
 export { GlobalStyle }
