@@ -31,7 +31,14 @@ const Footer = () => (
       flex-wrap: wrap;
       align-items: baseline;
       padding: ${({ theme }) => theme.sizes.s1}
+        ${({ theme }) => theme.sizes.s2}
+        ${({ theme }) => theme.sizes.s2}
         ${({ theme }) => theme.sizes.s2};
+
+      ${media.mobile`
+        padding: ${({ theme }) => theme.sizes.s1}
+          ${({ theme }) => theme.sizes.s2};
+      `}
     `}
   >
     <ul
