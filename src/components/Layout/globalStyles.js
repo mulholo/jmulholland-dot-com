@@ -237,9 +237,10 @@ const GlobalStyle = createGlobalStyle`
     content: '"'
   }
 
-  // Stop code blocks and images overflowing	
+  // Stop code blocks, images and footnotes from overflowing	
   .gatsby-highlight,
-  .gatsby-resp-image-link
+  .gatsby-resp-image-link,
+  .footnotes
   {	
     overflow: scroll;	
     max-width: calc(100vw - ${props => props.theme.sizes.s4})	
