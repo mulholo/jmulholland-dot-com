@@ -1,3 +1,17 @@
+const RATIO = 1.618
+
+const genSize = n =>
+  n === 0
+    ? 1 // rem
+    : n === Math.abs(n)
+    ? genSize(n - 1) * RATIO
+    : genSize(n + 1) / RATIO
+
+const genSizeUnit = unit => n => genSize(n).toString() + unit
+const genRemSize = genSizeUnit('rem')
+
+const genFontSize = n => `calc(${genRemSize(n)} + 0.05vw)` // slight dynamic font-sizing
+
 export default {
   // 100 is darkest
   // 500 is default
@@ -58,44 +72,29 @@ export default {
     y800: 'hsl(043,93%,72%)',
     y900: 'hsl(042,100%,92%)',
   },
-  space: [
-    '0',
-    '1px',
-    '0.25rem', // 4px
-    '0.5rem', // 8px
-    '1rem', // 16px
-    '1.5rem', // 24px
-    '2rem', // 32px
-    '4rem', // 64px
-    '8rem', // 128px
-  ],
-  sizes: [
-    '0',
-    '1px',
-    '0.25rem', // 4px
-    '0.5rem', // 8px
-    '1rem', // 16px
-    '1.5rem', // 24px
-    '2rem', // 32px
-    '4rem', // 64px
-    '8rem', // 128px
-  ],
-  fontSizes: [
-    '0.75rem', // 12px
-    '0.875rem', // 14px
-    '1rem', // 16px
-    '1.125rem', // 18px
-    '1.25rem', // 20px
-    '1.5rem', // 24px
-    '1.875rem', // 30px
-    '2.25rem', // 36px
-    '3rem', // 48px
-    '3.75rem', // 60px
-    '4.5rem', // 72px
-  ],
-  fonts: [
-    // One day I shall have Univers Next
-    "'Inter var', Helvetica, sans-serif",
-    "'Source Code Pro', Menlo, monospace",
-  ],
+  sizes: {
+    's-4': genRemSize(-4),
+    's-3': genRemSize(-3),
+    's-2': genRemSize(-2),
+    's-1': genRemSize(-1),
+    s0: genRemSize(0),
+    s1: genRemSize(1),
+    s2: genRemSize(2),
+    s3: genRemSize(3),
+    s4: genRemSize(4),
+  },
+  fontSizes: {
+    's-2': genFontSize(-2),
+    's-1': genFontSize(-1),
+    s0: genFontSize(0),
+    s1: genFontSize(1),
+    s2: genFontSize(2),
+    s3: genFontSize(3),
+    s4: genFontSize(4),
+  },
+  fonts: {
+    // One day, I shall have Univers Next
+    sans: "'Inter var', Helvetica, sans-serif",
+    mono: "'Source Code Pro', Menlo, monospace",
+  },
 }

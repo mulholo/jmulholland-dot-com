@@ -17,14 +17,14 @@ then course correcting as appropriate. This means that I’ll be working
 from the most granular level upwards, explaining each new level as it
 naturally comes up from the one below it.
 
-### Table of Contents
+## Table of Contents
 
 - [Daily Meeze](#daily-meeze)
 - [Weekly Meeze](#weekly-meeze)
 - [Quarterly Meeze](#quarterly-meeze)
 - [Annual Meeze](#quarterly-meeze)
 
-### Daily Meeze
+## Daily Meeze
 
 At 18:00 on a typical workday, I do what I call the Daily Meeze[^2]
 which takes the form of a checklist in Notion that looks like this:
@@ -104,7 +104,7 @@ struggle to answer the question ‘what is the first action for this
 task?’, you are almost certainly trying to file that item in the wrong
 place.
 
-### Weekly Meeze
+## Weekly Meeze
 
 For a long time, I thought about weekly reviews in the wrong way.
 Before I got this system working, weekly reviews were for positive
@@ -167,7 +167,7 @@ next day so that I’m ready to hit the ground running.
 Finally, I note the week’s events in a journal and water my plants
 (somewhat irrelevant, but I don’t want them to die).
 
-### Quarterly Meeze
+## Quarterly Meeze
 
 I don’t set quarterly goals. I think it would be quite odd if all
 goals happened to fit into neat, three-month chunks. Instead, I run my
@@ -195,7 +195,7 @@ Going to a new coffee shop and writing openly in this way is a very
 pleasant experience and I enjoy doing it slowly over a few hours do it
 to a sufficient depth.
 
-### Annual Meeze
+## Annual Meeze
 
 The Annual Meeze is, obviously, the most in-depth section of my
 productivity system. As well as doing a complete quarterly review, I
@@ -250,12 +250,10 @@ post and generally, I maintain a list on this site at
 
 [^1]:
 
-  Primarily, Nat Eliason’s at
-  [https://www.nateliason.com/blog/productive](https://www.nateliason.com/blog/productive)
-  and
-  [https://www.nateliason.com/blog/notion-goals-productivity](https://www.nateliason.com/blog/notion-goals-productivity)
-  and much of Tiago Forte’s work on
-  [http://praxis.fortelabs.com/](http://praxis.fortelabs.com/). I am
+  Primarily, Nat Eliason's
+  [here](https://www.nateliason.com/blog/productive) and
+  [here](https://www.nateliason.com/blog/notion-goals-productivity)
+  and much of [Tiago Forte’s work](http://praxis.fortelabs.com/). I am
   sure there are also a dozen other subconscious influences for this
   post that I am unable to recall.
 

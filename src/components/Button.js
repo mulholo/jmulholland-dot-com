@@ -5,10 +5,10 @@ const Button = styled.button(
     background: ${theme.colors.b500};
     border: none;
     color: ${theme.colors.n900};
-    font-size: ${theme.fontSizes[2]};
+    font-size: ${theme.fontSizes.s0};
     font-weight: 600;
     margin: 0;
-    padding: ${theme.space[4]} ${theme.space[4]};
+    padding: ${theme.sizes.s0};
     text-transform: uppercase;
     transition: 0.2s background;
 

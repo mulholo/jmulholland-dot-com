@@ -9,12 +9,12 @@ const Box = styled.div(
   ({ theme, padding }) => css`
     background: ${theme.colors.n900};
     flex: 1 1 0;
-    padding: ${theme.space[padding]};
+    padding: ${theme.sizes[padding]};
   `
 )
 
 Box.defaultProps = {
-  padding: 6,
+  padding: 's2',
 }
 
 export default Box

@@ -10,6 +10,16 @@ v2.0 | 20110126
 License: none (public domain)
 */
 const reset = css`
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  li,
+  span,
   html,
   body,
   div,
@@ -108,7 +118,7 @@ const GlobalStyle = createGlobalStyle`
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: ${({ theme }) => theme.fonts[0]};
+    font-family: ${({ theme }) => theme.fonts.sans};
     height: 100%;
   }
   *, *:before, *:after {
@@ -157,31 +167,59 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     color: ${props => props.theme.colors.n200};
+    font-weight: 600;
   }
 
-  p, li, ul, blockquote {
-    font-size: ${props => props.theme.fontSizes[2]};
-    line-height: 1.625;
+  p, li, ul, ol, blockquote {
+    font-size: ${props => props.theme.fontSizes.s0};
+    line-height: 1.618;
     color: ${props => props.theme.colors.n200};
   }
   
   li {
-    margin: 0.5rem 0;
+    margin: 0;
   }
 
-  ul {
-    padding-left: ${props => props.theme.sizes[4]};
+  ul, ol {
+    padding-left: ${props => props.theme.sizes.s1};
   }
 
   figure {
-    margin: ${props => props.theme.sizes[6]} 0;
+    margin: ${props => props.theme.sizes.s2} 0;
+  }
+
+  h1 {
+    font-size: ${props => props.theme.fontSizes.s2};
+    hyphens: none;
+    line-height: 1.1;
+  }
+  h2 {
+    font-size: ${props => props.theme.fontSizes.s2};
+    hyphens: none;
+    line-height: 1.1;
+  }
+  h3 {
+    font-size: ${props => props.theme.fontSizes.s1};
+    line-height: 1.1;
+  }
+  h4 {
+    font-size: ${props => props.theme.fontSizes.s1};
+    line-height: 1.1;
+  }
+  h5 {
+    font-size: ${props => props.theme.fontSizes.s0};
+    line-height: 1.1;
+  }
+  h6 {
+    font-size: ${props => props.theme.fontSizes.s0};
+    line-height: 1.1;
   }
 
   figcaption {
-    font-family: ${props => props.theme.fonts[1]};
-    font-size: ${props => props.theme.fontSizes[1]};
+    font-family: ${props => props.theme.fonts.mono};
+    font-size: ${props => props.theme.fontSizes.s0};
     text-align: center;
-    margin-top: ${props => props.theme.sizes[3]};
+    margin-top: ${props => props.theme.sizes['s-1']};
     color: ${props => props.theme.colors.n300};
   }
   
@@ -197,13 +235,6 @@ const GlobalStyle = createGlobalStyle`
 
   blockquote:before, blockquote:after {
     content: '"'
-  }
-
-
-  // Stop code blocks overflowing
-  .gatsby-highlight {
-    overflow: scroll;
-    max-width: calc(100vw - ${props => props.theme.sizes[7]})
   }
 `
 

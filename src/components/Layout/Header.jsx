@@ -8,7 +8,7 @@ const J = styled.span`
 
 const Ames = styled.span`
   display: none;
-  @media (min-width: 30rem) {
+  @media (min-width: 40rem) {
     display: inline;
   }
 `
@@ -19,16 +19,15 @@ const M = styled.span`
 
 const Ulholland = styled.span`
   display: none;
-  @media (min-width: 25rem) {
+  @media (min-width: 35rem) {
     display: inline;
   }
 `
 
 const secondaryCss = css`
   color: ${({ theme }) => theme.colors.n400};
-  font-size: ${({ theme }) => theme.fontSizes[4]};
+  font-size: ${({ theme }) => theme.fontSizes.s1};
   font-weight: 500;
-  padding-left: ${({ theme }) => theme.sizes[2]};
   margin: 0;
   display: ${({ hide }) => (hide ? 'none' : 'block')};
 `
@@ -39,11 +38,11 @@ const Header = ({ pageName }) => {
     <header
       css={`
         align-items: center;
-        border-bottom: 1px solid ${({ theme }) => theme.colors.n400};
+        border-bottom: 1px solid ${({ theme }) => theme.colors.n300};
         display: flex;
-        min-height: ${({ theme }) => theme.sizes[7]};
+        min-height: ${({ theme }) => theme.sizes.s3};
         padding: ${({ theme }) =>
-          `${theme.space[4]} ${theme.space[6]}`};
+          `${theme.sizes.s1} ${theme.sizes.s2}`};
         width: 100%;
       `}
     >
@@ -68,7 +67,7 @@ const Header = ({ pageName }) => {
       >
         <h1
           css={`
-            font-size: ${({ theme }) => theme.fontSizes[4]};
+            font-size: ${({ theme }) => theme.fontSizes.s1};
             margin: 0;
           `}
         >
@@ -80,15 +79,15 @@ const Header = ({ pageName }) => {
       </Link>
       {pageName && (
         <>
-          <h2
+          <span
             css={`
-              font-size: ${({ theme }) => theme.fontSizes[4]};
+              font-size: ${({ theme }) => theme.fontSizes.s1};
               font-weight: 300;
-              margin: 0 ${({ theme }) => theme.sizes[2]};
+              margin: 0 ${({ theme }) => theme.sizes.s0};
             `}
           >
             {`/`}
-          </h2>
+          </span>
           <h2 hide={linkIsHovered} css={secondaryCss}>
             {pageName}
           </h2>

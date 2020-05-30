@@ -36,13 +36,13 @@ const BlogBox = ({
     `}
   >
     <Box>
-      <Stack spacer={3}>
+      <Stack spacer={'s-1'}>
         <h4
           css={`
             margin: 0;
-            font-size: ${({ theme }) => theme.fontSizes[3]};
+            font-size: ${({ theme }) => theme.fontSizes.s1};
             ${media.tablet`
-              font-size: ${({ theme }) => theme.fontSizes[4]};
+              font-size: ${({ theme }) => theme.fontSizes.s2};
             `}
           `}
         >

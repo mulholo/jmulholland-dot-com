@@ -1,102 +1,84 @@
 import React from 'react'
 import { media } from '../../utils'
 
-const Footer = () => (
-  <footer
+const FooterLink = ({ href, title }) => (
+  <li
     css={`
-      background: ${props => props.theme.colors.n900};
-      border-top: 1px solid ${props => props.theme.colors.n400};
-      padding: ${({ theme }) => theme.space[4]}
-        ${({ theme }) => theme.space[6]};
+      margin-top: 0;
+      margin-bottom: 0;
     `}
   >
-    <div
+    <a
+      href={href}
+      target='_blank'
+      rel='noopener noreferrer'
       css={`
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        & > * + * {
-          margin-top: ${({ theme }) => theme.sizes[3]};
-        }
+        margin: 0;
+        font-size: ${({ theme }) => theme.fontSizes.s0};
+      `}
+    >
+      {title}
+    </a>
+  </li>
+)
 
-        ${media.tablet`
-          flex-direction: row;
-          & > * + * {
-            margin: 0;
-          }
-        `}
+// Footer is wrapped in a div to avoid collapse issue on Safari
+
+const Footer = () => (
+  <div>
+    <footer
+      css={`
+        background: ${props => props.theme.colors.n900};
+        border-top: 1px solid ${props => props.theme.colors.n300};
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        padding: ${({ theme }) => theme.sizes.s1}
+          ${({ theme }) => theme.sizes.s2}
+          ${({ theme }) => theme.sizes.s2}
+          ${({ theme }) => theme.sizes.s2};
+
+        ${media.mobile`
+        padding: ${({ theme }) => theme.sizes.s1}
+          ${({ theme }) => theme.sizes.s2};
+      `}
       `}
     >
       <ul
         css={`
-          padding: 0;
           margin: 0;
+          padding: 0;
           list-style: none;
           display: flex;
-          flex-direction: row;
-          justify-content: center;
+          flex: 1;
+          & * > * {
+            margin-right: ${({ theme }) => theme.sizes['s-1']};
+          }
+          flex-direction: column;
           ${media.mobile`
-            justify-content: flex-start;
-          `}
-          & > * + * {
-            margin-left: ${({ theme }) => theme.space[4]};
-          }
-          a {
-            margin: 0;
-            font-size: ${({ theme }) => theme.fontSizes[1]};
-          }
-          li {
-            margin-top: 0;
-            margin-bottom: 0;
-          }
+          flex-direction: row;
+        `}
         `}
       >
-        <li>
-          <a
-            href='https://github.com/mulholio'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            GitHub
-          </a>
-        </li>
-        <li>
-          <a
-            href='https://twitter.com/mulholio'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Twitter
-          </a>
-        </li>
-        <li>
-          <a
-            href='https://www.linkedin.com/in/mulholio'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            LinkedIn
-          </a>
-        </li>
-        <li>
-          <a
-            href='mailto:james@jmulholland.com'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Email
-          </a>
-        </li>
+        <FooterLink
+          title='GitHub'
+          href='https://github.com/mulholio'
+        />
+        <FooterLink
+          title='Twitter'
+          href='https://twitter.com/mulholio'
+        />
+        <FooterLink
+          title='LinkedIn'
+          href='https://www.linkedin.com/in/mulholio'
+        />
+        <FooterLink
+          title='Email'
+          href='mailto:james@jmulholland.com'
+        />
       </ul>
-      <span
-        css={`
-          color: ${({ theme }) => theme.colors.n400};
-          font-size: ${({ theme }) => theme.fontSizes[1]};
-        `}
-      >{`© James Mulholland ${new Date().getFullYear()}`}</span>
-    </div>
-  </footer>
+    </footer>
+  </div>
 )
 
 export default Footer
