@@ -250,12 +250,10 @@ post and generally, I maintain a list on this site at
 
 [^1]:
 
-  Primarily, Nat Eliason’s at
-  [https://www.nateliason.com/blog/productive](https://www.nateliason.com/blog/productive)
-  and
-  [https://www.nateliason.com/blog/notion-goals-productivity](https://www.nateliason.com/blog/notion-goals-productivity)
-  and much of Tiago Forte’s work on
-  [http://praxis.fortelabs.com/](http://praxis.fortelabs.com/). I am
+  Primarily, Nat Eliason's
+  [here](https://www.nateliason.com/blog/productive) and
+  [here](https://www.nateliason.com/blog/notion-goals-productivity)
+  and much of [Tiago Forte’s work](http://praxis.fortelabs.com/). I am
   sure there are also a dozen other subconscious influences for this
   post that I am unable to recall.
 
