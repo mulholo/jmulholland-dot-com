@@ -40,6 +40,10 @@ const TextContainer = styled(Stack)(
           & h6 + ul {
             margin-top: 1.618em;
           }
+
+          & blockquote p + footer {
+            margin-top: calc(1.618em / 2);
+          }
         `
       : // Copy and paste the above but add child selector
         css`

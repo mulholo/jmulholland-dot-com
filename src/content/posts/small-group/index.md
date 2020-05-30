@@ -31,8 +31,9 @@ of being your nerdy self amongst other like-minded nerds.
 > to the point of calling each other prigs and adulterers quite
 > happily when the company is small & select, but its rather a
 > question whether we could do it with a larger number of people who
-> might not feel that they were quite on neutral ground" - Vanessa
-> Bell, Member of the Bloomsbury Group
+> might not feel that they were quite on neutral ground"
+>
+> <footer>Vanessa Bell, Member of the Bloomsbury Group</footer>
 
 Twelve appears to be a magic number of members for the Small Group.
 Although

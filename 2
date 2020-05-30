@@ -238,18 +238,13 @@ const GlobalStyle = createGlobalStyle`
     margin-right: 0;
     padding-left: ${props => props.theme.sizes.s0};
     border-left: 2px solid ${props => props.theme.colors.b400};
-
-    p {
-      font-style: italic;
-    }
   }
-  // Source styling
+
   blockquote > footer:before {
-    content: "— ";
+    content: "~ ";
   }
   blockquote > footer {
-    margin-top: 0;
-    font-style: normal;
+    font-family: ${props => props.theme.fonts.mono};
   }
 `
 
