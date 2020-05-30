@@ -22,53 +22,63 @@ const FooterLink = ({ href, title }) => (
   </li>
 )
 
-const Footer = () => (
-  <footer
-    css={`
-      background: ${props => props.theme.colors.n900};
-      border-top: 1px solid ${props => props.theme.colors.n300};
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      padding: ${({ theme }) => theme.sizes.s1}
-        ${({ theme }) => theme.sizes.s2}
-        ${({ theme }) => theme.sizes.s3}
-        ${({ theme }) => theme.sizes.s2};
+// Footer is wrapped in a div to avoid collapse issue on Safari
 
-      ${media.mobile`
+const Footer = () => (
+  <div>
+    <footer
+      css={`
+        background: ${props => props.theme.colors.n900};
+        border-top: 1px solid ${props => props.theme.colors.n300};
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        padding: ${({ theme }) => theme.sizes.s1}
+          ${({ theme }) => theme.sizes.s2}
+          ${({ theme }) => theme.sizes.s3}
+          ${({ theme }) => theme.sizes.s2};
+
+        ${media.mobile`
         padding: ${({ theme }) => theme.sizes.s1}
           ${({ theme }) => theme.sizes.s2};
       `}
-    `}
-  >
-    <ul
-      css={`
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: flex;
-        flex: 1;
-        & * > * {
-          margin-right: ${({ theme }) => theme.sizes['s-1']};
-        }
-        flex-direction: column;
-        ${media.mobile`
-          flex-direction: row;
-        `}
       `}
     >
-      <FooterLink title='GitHub' href='https://github.com/mulholio' />
-      <FooterLink
-        title='Twitter'
-        href='https://twitter.com/mulholio'
-      />
-      <FooterLink
-        title='LinkedIn'
-        href='https://www.linkedin.com/in/mulholio'
-      />
-      <FooterLink title='Email' href='mailto:james@jmulholland.com' />
-    </ul>
-  </footer>
+      <ul
+        css={`
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          display: flex;
+          flex: 1;
+          & * > * {
+            margin-right: ${({ theme }) => theme.sizes['s-1']};
+          }
+          flex-direction: column;
+          ${media.mobile`
+          flex-direction: row;
+        `}
+        `}
+      >
+        <FooterLink
+          title='GitHub'
+          href='https://github.com/mulholio'
+        />
+        <FooterLink
+          title='Twitter'
+          href='https://twitter.com/mulholio'
+        />
+        <FooterLink
+          title='LinkedIn'
+          href='https://www.linkedin.com/in/mulholio'
+        />
+        <FooterLink
+          title='Email'
+          href='mailto:james@jmulholland.com'
+        />
+      </ul>
+    </footer>
+  </div>
 )
 
 export default Footer
