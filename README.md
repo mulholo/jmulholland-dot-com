@@ -59,3 +59,13 @@ type: 'page'
 ```markdown
 ![my-caption-alt](my-image-in-same-folder.jpg)
 ```
+
+#### Adding Blockquote Sources
+
+When adding blockquotes, use an inline HTML footer to add a source.
+
+```markdown
+> To be or not to be? That is the question.
+>
+> <footer>Hamlet</footer>
+```
