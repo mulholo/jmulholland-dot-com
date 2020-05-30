@@ -170,7 +170,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 600;
   }
 
-  p, li, ul, blockquote {
+  p, li, ul, ol, blockquote {
     font-size: ${props => props.theme.fontSizes.s0};
     line-height: 1.618;
     color: ${props => props.theme.colors.n200};
@@ -180,7 +180,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
-  ul {
+  ul, ol {
     padding-left: ${props => props.theme.sizes.s1};
   }
 
@@ -235,15 +235,6 @@ const GlobalStyle = createGlobalStyle`
 
   blockquote:before, blockquote:after {
     content: '"'
-  }
-
-  // Stop code blocks, images and footnotes from overflowing	
-  .gatsby-highlight,
-  .gatsby-resp-image-link,
-  .footnotes
-  {	
-    overflow: scroll;	
-    max-width: calc(100vw - ${props => props.theme.sizes.s4})	
   }
 `
 
