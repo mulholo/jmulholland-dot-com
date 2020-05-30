@@ -65,7 +65,7 @@ type: 'page'
 When adding blockquotes, use an inline HTML footer to add a source.
 
 ```markdown
-> To be or not to be? That is the question.
+> To be, or not to be? That is the question.
 >
 > <footer>Hamlet</footer>
 ```
