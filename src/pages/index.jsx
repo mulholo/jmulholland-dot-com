@@ -140,7 +140,7 @@ const Start = () => {
         <Option title='Writing' link='/blog' />
         <Option title='Newsletter'>
           <p>
-            I write about technology, the future, self-imporvement,
+            I write about technology, the future, self-improvement,
             and philosophy. If you would like to join me in exploring
             these topics, sign up here.
           </p>
