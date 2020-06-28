@@ -7,10 +7,10 @@ import {
   Grid,
   Input,
   Layout,
+  Sidebar,
   Stack,
   TextContainer,
 } from '../components'
-import { media } from '../utils'
 
 const WrapperLink = styled(Link)(
   ({ theme }) => css`
@@ -73,33 +73,32 @@ const Option = ({ title, children, link }) => {
 }
 
 const NewsletterSignUp = () => (
-  <form
-    css={`
-      display: flex;
-      flex-direction: column;
-      ${media.tablet`
-                flex-direction: row;
-              `}
-    `}
-    action='https://buttondown.email/api/emails/embed-subscribe/mulholio'
-    method='post'
-    target='popupwindow'
-    onSubmit={() =>
-      window.open('https://buttondown.email/mulholio', 'popupwindow')
-    }
-    className='embeddable-buttondown-form'
-  >
-    <Input
-      type='email'
-      name='email'
-      id='bd-email'
-      placeholder='email@address.com'
-    ></Input>
-    <input type='hidden' value='1' name='embed'></input>
-    <Button type='submit' value='Subscribe'>
-      Subscribe
-    </Button>
-  </form>
+  <Sidebar flipSides contentMin='61.8%'>
+    <form
+      action='https://buttondown.email/api/emails/embed-subscribe/mulholio'
+      method='post'
+      target='popupwindow'
+      onSubmit={() =>
+        window.open(
+          'https://buttondown.email/mulholio',
+          'popupwindow'
+        )
+      }
+      // className needed for email signup (non-styling)
+      className='embeddable-buttondown-form'
+    >
+      <Input
+        type='email'
+        name='email'
+        id='bd-email'
+        placeholder='email@address.com'
+      ></Input>
+      <input type='hidden' value='1' name='embed'></input>
+      <Button type='submit' value='Subscribe'>
+        Subscribe
+      </Button>
+    </form>
+  </Sidebar>
 )
 
 const Start = () => {
