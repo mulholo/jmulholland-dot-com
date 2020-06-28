@@ -5,7 +5,6 @@ const Input = styled.input(
     background: ${theme.colors.n900};
     border: 1px solid ${theme.colors.n500};
     color: ${theme.colors.n200};
-    flex: 1 1 0;
     margin: 0;
     padding: ${theme.sizes.s0};
     font-size: ${theme.fontSizes.s0};
