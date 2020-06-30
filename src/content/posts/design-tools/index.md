@@ -1,0 +1,64 @@
+---
+title: 'Design Tools I Want'
+date: '2020-06-30'
+---
+
+Since Sketch, Figma and Framer have come on the scene, design tools
+have become relatively pleasant to work with. However, Sketch is 10
+years old this September and we're still yet to progress past the
+basic paradigm of drawing boxes on a screen. This blog post is an
+articulation of what I want to come next.
+
+### Rule-Based Design
+
+The first paradigm of improvement is the better implementation of
+rules that developers an designers already use. Many companies now
+have design systems, yet design tools often seem painfully unaware of
+the constraints that their users work with. Why can't I constrain the
+colours I use in Figma, rather than just picking them? Why am I
+manually dragging objects around to fit our 8px grid? Of course, code
+is the ultimate constraint but its API is too wide and not all
+designers code. Plus, GUIs are often faster to work with, especially
+in experimentation stages. I'd love to see design tool config for
+utilising constraint-based design. Think
+[Zeroheight](https://zeroheight.com/) but with your design system
+affecting Figma's functionality.
+
+### AI-Assisted Design
+
+The next step from rule-based design is AI-assisted design. While some
+elements can easily be codified in rules (spacing, colours, icon
+choice, typography, and layouts if you are more adventurous), others
+are still _somewhat_ formulaic yet with a degree of fluidity that
+makes them harder to deal with through rule-based design. For this
+category of design tasks, I'd like to systems which aid the designer
+and automate trial and error tasks. Can we auto-generate desktop
+designs from mobile ones? Do we need to run A/B experiments or is this
+the kind of thing that a clever model could help us with (if only
+partially)? Can we quickly suggest different layout options from the
+elements we already have on the screen? Another thing I'd like in my
+design tool is a linter to spot visual errors. Just as
+[`eslint`](https://eslint.org/) warns me when I forget to use a
+variable, why can't my design tool warn me when something is
+misaligned? This sounds like an achievable tasks for an image
+recognition model.
+
+### AI-Generated Design
+
+The final step in the design tool hierarchy is complete design
+generation. At this point, the design tool becomes redundant, instead
+being replaced by a black box where you pass in a spec and receive a
+full, responsive mockup. Of course, this goal can be achieved in
+degrees. Although basic graphic design is a far easier task than
+constructing responsive mockups,
+[Alibaba is already generating product images](https://www.alibabacloud.com/blog/alibaba-luban-ai-based-graphic-design-tool_594294)
+with AI. Just as a head architect will design a whole building and
+then pass the details off to other employees lower down the hierarchy,
+we can similarly imagine a designer conceiving of a high-level design
+and then letting a GAN fill in the details.
+
+---
+
+This is an area I'm actively exploring and I would love to hear from
+you with any thoughts you have on the topic. Drop me a
+[DM](https://twitter.com/mulholio).
