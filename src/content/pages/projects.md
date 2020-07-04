@@ -1,0 +1,55 @@
+---
+title: 'Projects'
+type: 'page'
+---
+
+## Jobs
+
+### Memrise
+
+##### May 2019 → Present
+
+I am a front-end engineer at [Memrise](https://memrise.com/), the
+world's most entertaining language learning app. At Memrise, I'm
+currently involved in driving forward our transition to a new stack
+built in React. I deliver high-quality features to a user base of
+hundreds of thousands and love seeing the impact I can make for our
+language-learning users.
+
+### PeopleGoal
+
+##### June 2018 → April 2019
+
+My first engineering role was as a front-end engineer at
+[PeopleGoal](https://peoplegoal.com). I was responsible for building
+and designing UIs for a data-focused, enterprise React application and
+lead the construction of a new and performant content site, built on
+Next.js.
+
+## Side Projects
+
+### Blog and Newsletter
+
+On this site and in my newsletter, I blog about technology and
+engineering.
+
+I also enjoy experimenting with new front-end ideas in its
+[codebase](https://github.com/mulholio/jmulholland-dot-com).
+
+### Copy That
+
+Copy That was a newsletter and website dedicated to sharing the best
+of interesting web design. It is now archived but you can find the old
+code (React, Node, GrapghQL,TypeScript, Next.js)
+[here](https://github.com/mulholio/copy-that-front) and
+[here](https://github.com/mulholio/copy-that-back).
+
+## Education
+
+### Philosophy, University of Bristol
+
+##### 2015 → 2018
+
+I studied philosophy from 2015 to 2018 at Bristol. I specialised in
+the philosophy of science, decision-theory and logic and continue my
+interest to the present.

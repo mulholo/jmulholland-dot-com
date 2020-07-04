@@ -107,41 +107,34 @@ const Start = () => {
       <Grid outline={true}>
         <Option title='About'>
           <p>
-            I'm a software engineer living in London where I spend
-            most of my time building things at{' '}
-            <a href='https://www.memrise.com/'>Memrise</a> and&nbsp;
-            <a href='https://github.com/mulholio'>
-              for other random projects
-            </a>
-            .
+            {`I'm James, a London based software engineer working on `}
+            <a href='https://www.memrise.com/'>front-end systems</a>{' '}
+            and thinking hard about the future.
           </p>
           <p>
-            Outside of code, I'm into{' '}
-            <Link to='/thoughts#philosophy'>philosophy</Link> (my
-            previous primary subject matter), systems-thinking,&nbsp;
-            <Link to='/thoughts#design'>design,</Link>
-            <Link to='/thoughts#meta-learning-and-productivity'>
-              {' '}
-              personal development
-            </Link>{' '}
-            and the future. If you're interested in finding out more
-            about me then head to{' '}
-            <Link to='/thoughts'>/thoughts</Link>.
+            This site is where I explore new ideas and share what I've
+            learned so far. I'm particularly interested in effective
+            engineering, producing better technology products, and
+            exploring the next wave of computing paradigms. You can
+            peak inside my brain on the{' '}
+            <Link to='thoughts'>{`thoughts`}</Link> page or see a list
+            of <Link to='projects'>projects I've worked on</Link>.
           </p>
           <p>
-            I view this blog as a vehicle for meeting interesting
-            people so, if there is anything here you find
-            interesting,&nbsp;
-            <a href='https://twitter.com/mulholio'>DM me</a> or let me
-            buy you a coffee if you're in London.
+            I've found this blog to be a great vehicle for meeting
+            interesting people. If there's anything here you find
+            interesting, please{' '}
+            <a href='https://twitter.com/mulholio'>DM</a>/
+            <a href='mailto:james@jmulholland.com'>email</a> me or
+            let's go for coffee if you're in London.
           </p>
         </Option>
         <Option title='Writing' link='/blog' />
         <Option title='Newsletter'>
           <p>
-            I write about technology, the future, self-improvement,
-            and philosophy. If you would like to join me in exploring
-            these topics, sign up here.
+            I run the Explore-Exploit newsletter where I write about
+            being a better engineer and play with future ideas in
+            technology. Sign up below.
           </p>
           <NewsletterSignUp />
         </Option>
@@ -150,6 +143,10 @@ const Start = () => {
             <li>
               <Link to='/thoughts'>Thoughts</Link> - My thoughts,
               articulated.
+            </li>
+            <li>
+              <Link to='/projects'>Projects</Link> - Things I have
+              worked on.
             </li>
             <li>
               <Link to='/uses'>Uses</Link> - A list of tools and apps
