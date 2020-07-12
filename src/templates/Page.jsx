@@ -1,15 +1,16 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { TextColumn, Layout } from '../components'
 
 const Page = ({ data }) => {
-  const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const { mdx } = data
+  const { frontmatter, body } = mdx
   const { title } = frontmatter
   return (
     <Layout pageName={title}>
       <TextColumn>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <MDXRenderer>{body}</MDXRenderer>
       </TextColumn>
     </Layout>
   )
@@ -17,11 +18,11 @@ const Page = ({ data }) => {
 
 export const query = graphql`
   query pageQuery($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
       }
-      html
+      body
     }
   }
 `
