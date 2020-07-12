@@ -44,15 +44,15 @@ const Sidebar = styled.div(
       }
 
       /* the 'sidebar' itself */
-      & > * > *:${flipSides ? 'last-child' : 'first-child'} {
+      &>*>*: ${flipSides ? 'last-child' : 'first-child'} {
         ${sidebarWidth &&
-          `flex-basis: ${theme.sizes[sidebarWidth]};`} /* default width of sidebar; omit this line for intrinsic width of sidebar */
+        `flex-basis: ${theme.sizes[sidebarWidth]};`} /* default width of sidebar; omit this line for intrinsic width of sidebar */
       flex-grow: 1; /* makes the sidebar grow after wrap */
         align-items: stretch;
       }
 
       /* 'content' */
-      & > * > *:${flipSides ? 'first-child' : 'last-child'} {
+      &>*>*: ${flipSides ? 'first-child' : 'last-child'} {
         flex-grow: 999; /* make content take up remaining space */
         flex-basis: 0; /* needed so the contents does not force wrap instantly */
         min-width: calc(${contentMin} - (${gapValue} * 2));

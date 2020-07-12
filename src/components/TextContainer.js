@@ -12,7 +12,7 @@ const TextContainer = styled(Stack)(
     // Stop code blocks and footnotes overflowing
     & > div {
       overflow: scroll;
-      max-width: calc(100vw - ${props => props.theme.sizes.s3});
+      max-width: calc(100vw - ${(props) => props.theme.sizes.s3});
     }
     ${recursive
       ? css`

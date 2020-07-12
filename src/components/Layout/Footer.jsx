@@ -28,8 +28,8 @@ const Footer = () => (
   <div>
     <footer
       css={`
-        background: ${props => props.theme.colors.n900};
-        border-top: 1px solid ${props => props.theme.colors.n300};
+        background: ${(props) => props.theme.colors.n900};
+        border-top: 1px solid ${(props) => props.theme.colors.n300};
         display: flex;
         flex-wrap: wrap;
         align-items: baseline;

@@ -63,8 +63,8 @@ const Option = ({ title, children, link }) => {
     </Box>
   )
   const Wrapper = link
-    ? props => <WrapperLink to={link} {...props} />
-    : props => <>{props.children}</>
+    ? (props) => <WrapperLink to={link} {...props} />
+    : (props) => <>{props.children}</>
   return (
     <Stack alignItems='stretch'>
       <Wrapper>{contents}</Wrapper>
