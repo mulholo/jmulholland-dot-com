@@ -15,16 +15,27 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const result = await graphql(`
+  const { data } = await graphql(`
     query {
-      allMdx {
+      posts: allMdx(
+        filter: { frontmatter: { type: { eq: "post" } } }
+      ) {
         edges {
           node {
             fields {
               slug
             }
-            frontmatter {
-              type
+            body
+          }
+        }
+      }
+      pages: allMdx(
+        filter: { frontmatter: { type: { eq: "page" } } }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
             }
             body
           }
@@ -32,21 +43,25 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  result.data.allMdx.edges.forEach(({ node }) => {
-    const { fields, frontmatter } = node
-    const { slug } = fields
-    const { type } = frontmatter
-    createPage({
-      path: slug,
-      component: path.resolve(
-        `./src/templates/${type === 'page' ? 'Page' : 'BlogPost'}.jsx`
-      ),
-      // context is the fields available to gql queries
-      context: {
-        slug,
-        body: node.body,
-        type,
-      },
+
+  function makePages(dataType, templateName) {
+    data[dataType].edges.forEach(({ node }) => {
+      const { fields, body } = node
+      const { slug } = fields
+      createPage({
+        path: slug,
+        component: path.resolve(
+          `./src/templates/${templateName}.jsx`
+        ),
+        // context is the fields available to gql queries
+        context: {
+          slug,
+          body,
+        },
+      })
     })
-  })
+  }
+
+  makePages('posts', 'BlogPost')
+  makePages('pages', 'Page')
 }

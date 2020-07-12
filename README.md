@@ -33,8 +33,9 @@ This is the repo for my personal website,
 
 ```markdown
 ---
-date: '2019-05-04'
 title: 'My blog post'
+date: '2019-05-04'
+type: 'post'
 ---
 ```
 
@@ -45,8 +46,7 @@ title: 'My blog post'
 
 ```markdown
 ---
-date: '2019-05-04'
-title: 'My blog post'
+title: 'About'
 type: 'page'
 ---
 ```
