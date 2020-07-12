@@ -1,5 +1,6 @@
 export { default as Box } from './Box'
 export { default as Button } from './Button'
+export { default as Concept } from './Concept'
 export { default as Detail } from './Detail'
 export { default as Grid } from './Grid'
 export { default as Input } from './Input'
