@@ -41,13 +41,10 @@ title: 'My blog post'
 #### Adding a new page
 
 1. Create a new `.mdx?` file in `src/content/pages`
-2. Add frontmatter with the following fields:
 
 ```markdown
 ---
-date: '2019-05-04'
-title: 'My blog post'
-type: 'page'
+title: 'About'
 ---
 ```
 

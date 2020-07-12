@@ -23,29 +23,27 @@ exports.createPages = async ({ graphql, actions }) => {
             fields {
               slug
             }
-            frontmatter {
-              type
-            }
             body
+            fileAbsolutePath
           }
         }
       }
     }
   `)
   result.data.allMdx.edges.forEach(({ node }) => {
-    const { fields, frontmatter } = node
+    const { fields, fileAbsolutePath } = node
+    console.log('fileAbsolutePath: ', fileAbsolutePath)
+    const isPage = /page/i.test(fileAbsolutePath)
     const { slug } = fields
-    const { type } = frontmatter
     createPage({
       path: slug,
       component: path.resolve(
-        `./src/templates/${type === 'page' ? 'Page' : 'BlogPost'}.jsx`
+        `./src/templates/${isPage ? 'Page' : 'BlogPost'}.jsx`
       ),
       // context is the fields available to gql queries
       context: {
         slug,
         body: node.body,
-        type,
       },
     })
   })
