@@ -2,7 +2,7 @@
   "*.+(js|jsx|ts|tsx)": [
     "eslint"
   ],
-  "*.+(js|jsx|ts|tsx|json|css|md|graphql|mdx)": [
+  "*.+(js|jsx|ts|tsx|json|css|graphql)": [
     "prettier --write",
   ]
 }
