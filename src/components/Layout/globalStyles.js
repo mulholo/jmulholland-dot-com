@@ -216,13 +216,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   figcaption {
+    color: ${props => props.theme.colors.n300};
     font-family: ${props => props.theme.fonts.mono};
     font-size: ${props => props.theme.fontSizes.s0};
-    text-align: center;
     margin-top: ${props => props.theme.sizes['s-1']};
-    color: ${props => props.theme.colors.n300};
-  }
-  
+    text-align: center;
+  } 
+
   a {
     font-weight: 600;
     text-decoration: none;
@@ -231,6 +231,15 @@ const GlobalStyle = createGlobalStyle`
 
   a:hover {
     color: ${props => props.theme.colors.b500};
+  }
+
+  // Overrride header link styles
+  .anchor.before {
+    position: absolute;
+    left: -${props => props.theme.sizes.s1};
+  }
+  .anchor.before svg {
+    height: 1em;
   }
 
   blockquote {
