@@ -1,16 +1,16 @@
 const RATIO = 1.618
 
-const genSize = n =>
+const genSize = (n) =>
   n === 0
     ? 1 // rem
     : n === Math.abs(n)
     ? genSize(n - 1) * RATIO
     : genSize(n + 1) / RATIO
 
-const genSizeUnit = unit => n => genSize(n).toString() + unit
+const genSizeUnit = (unit) => (n) => genSize(n).toString() + unit
 const genRemSize = genSizeUnit('rem')
 
-const genFontSize = n => `calc(${genRemSize(n)} + 0.05vw)` // slight dynamic font-sizing
+const genFontSize = (n) => `calc(${genRemSize(n)} + 0.05vw)` // slight dynamic font-sizing
 
 export default {
   // 100 is darkest

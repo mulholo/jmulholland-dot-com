@@ -3,7 +3,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === 'MarkdownRemark') {
+  if (node.internal.type === 'Mdx') {
     const slug = createFilePath({ node, getNode, basePath: `posts` })
     createNodeField({
       node,
@@ -15,38 +15,53 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const result = await graphql(`
+  const { data } = await graphql(`
     query {
-      allMarkdownRemark {
+      posts: allMdx(
+        filter: { frontmatter: { type: { eq: "post" } } }
+      ) {
         edges {
           node {
             fields {
               slug
             }
-            frontmatter {
-              type
+            body
+          }
+        }
+      }
+      pages: allMdx(
+        filter: { frontmatter: { type: { eq: "page" } } }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
             }
-            html
+            body
           }
         }
       }
     }
   `)
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const { fields, frontmatter } = node
-    const { slug } = fields
-    const { type } = frontmatter
-    createPage({
-      path: slug,
-      component: path.resolve(
-        `./src/templates/${type === 'page' ? 'Page' : 'BlogPost'}.jsx`
-      ),
-      // context is the fields available to gql queries
-      context: {
-        slug,
-        html: node.html,
-        type,
-      },
+
+  function makePages(dataType, templateName) {
+    data[dataType].edges.forEach(({ node }) => {
+      const { fields, body } = node
+      const { slug } = fields
+      createPage({
+        path: slug,
+        component: path.resolve(
+          `./src/templates/${templateName}.jsx`
+        ),
+        // context is the fields available to gql queries
+        context: {
+          slug,
+          body,
+        },
+      })
     })
-  })
+  }
+
+  makePages('posts', 'BlogPost')
+  makePages('pages', 'Page')
 }

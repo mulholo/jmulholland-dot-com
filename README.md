@@ -28,25 +28,25 @@ This is the repo for my personal website,
 
 #### Adding a new blog post
 
-1. Create a new `.md` file in `src/content/posts`
+1. Create a new `.mdx?` file in `src/content/posts`
 2. Add frontmatter with the following fields:
 
 ```markdown
 ---
-date: '2019-05-04'
 title: 'My blog post'
+date: '2019-05-04'
+type: 'post'
 ---
 ```
 
 #### Adding a new page
 
-1. Create a new `.md` file in `src/content/pages`
+1. Create a new `.mdx?` file in `src/content/pages`
 2. Add frontmatter with the following fields:
 
 ```markdown
 ---
-date: '2019-05-04'
-title: 'My blog post'
+title: 'About'
 type: 'page'
 ---
 ```

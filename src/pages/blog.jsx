@@ -57,7 +57,7 @@ const BlogBox = ({
 const Blog = ({ data }) => (
   <Layout pageName='Blog'>
     <Grid>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
+      {data.posts.edges.map(({ node }) => (
         <BlogBox
           key={node.fields.slug}
           link={node.fields.slug}
@@ -74,8 +74,8 @@ const Blog = ({ data }) => (
 
 export const query = graphql`
   query blogQuery {
-    allMarkdownRemark(
-      filter: { frontmatter: { type: { ne: "page" } } }
+    posts: allMdx(
+      filter: { frontmatter: { type: { eq: "post" } } }
       sort: { order: DESC, fields: frontmatter___date }
     ) {
       edges {

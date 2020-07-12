@@ -4,6 +4,7 @@ import debounce from 'lodash.debounce'
 import { trackCustomEvent } from 'gatsby-plugin-google-analytics'
 import { Detail, Layout, TextColumn } from '../components'
 import { readingTime } from '../utils'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 /**
  * Returns amount of page scrolled as a percentage
@@ -40,7 +41,8 @@ const FrontMatter = ({ numWords, date }) => (
 )
 
 const BlogPost = ({ data }) => {
-  const { frontmatter, html, wordCount } = data.markdownRemark
+  const { mdx } = data
+  const { frontmatter, body, wordCount } = mdx
   const { title, date } = frontmatter
 
   // Track read to end
@@ -60,7 +62,7 @@ const BlogPost = ({ data }) => {
       <TextColumn>
         <h1>{title}</h1>
         <FrontMatter date={date} numWords={wordCount.words} />
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+        <MDXRenderer>{body}</MDXRenderer>
       </TextColumn>
     </Layout>
   )
@@ -68,8 +70,8 @@ const BlogPost = ({ data }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         title
         date
