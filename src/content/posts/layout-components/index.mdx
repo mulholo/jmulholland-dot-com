@@ -6,7 +6,7 @@ type: 'post'
 
 import { Concept } from '../../../components'
 
-Over the past month or so, I've thought a lot about CSS. Triggered by
+Over the past month or so, I've thought a lot about CSS. Thanks to
 [some tweets](https://twitter.com/jhooks/status/1254541122946228224?s=20),
 watching
 [Layout Land](https://www.youtube.com/channel/UC7TizprGknbDalbHplROtag),
@@ -31,13 +31,13 @@ situation:
 
 1. Utilise the <Concept>Layout Component</Concept>
 2. Adapt styles with <Concept>style props</Concept>, not ad hoc CSS
-3. Write <Concept>Intrinsic Styling</Concept>
+3. Use <Concept>Intrinsic Styling</Concept>
 
 While the position these principles have got me to is certainly not
 perfect, they have made things dramatically better. Instead of
 reimplementing the same patterns over and over again, I reach for
 ready-made solutions. Styling has fewer bugs as reusable solutions are
-thought out in advanced. Designs look great at **all** screen sizes.
+thought out in advanced. Designs look great at _all_ screen sizes.
 Most importantly, however, I have a far clearer view of the overall
 structure of the DOM and my styling. I feel like an architect, not a
 builder.
@@ -105,18 +105,19 @@ Although the Layout Component is simple in theory, it does lead to some initiall
 
 ### Padding Over Margin
 
-First, it will soon be noted that applying margin directly to child components is  usually an anti-pattern in the world of the <Concept>Layout Component</Concept>. Margin applies spacing from the children in your layout whereas padding applies spacing from the parent (the <Concept>Layout Component</Concept>). Since which children are used is specific to the situation but layout components are generic, it is a case of ad hoc styling to use margin.[^2]
+First, it will soon be noted that applying margin directly to child components is  usually an anti-pattern in the world of the <Concept>Layout Component</Concept>. Margin applies spacing from the children in your layout whereas padding applies spacing from the parent (the <Concept>Layout Component</Concept>). Since which children are used is specific to the situation but layout components are generic, using margin is an ad hoc solution.[^2]
 
-The exception here is when you apply margin from the parent and, therefore, treat it like padding. For example, [lobotomised owl](https://twitter.com/adamwathan/status/1251841866242367488?s=20) spacing uses this principle.
+The exception here is when you apply margin from the parent and treat it like padding. The [lobotomised owl](https://twitter.com/adamwathan/status/1251841866242367488?s=20) technique uses this principle, for example.
 
 ### Intrinsic Over Extrinsic
 
-Second, most components should not be sized intrinsically. Rather, they should either expand according to their content or their container. Defining rigid component sizing is a sure-fire way to make your UI brittle. Defining components which fill their container or expand according to their content is far safer (see part 3 in this series: True Responsiveness).
+Second, most components should not be sized intrinsically. Rather, they should either expand according to their content or their container. Defining rigid component sizing is a sure-fire way to make your UI brittle. Defining components which fill their container or expand according to their content is far safer (see part 3 in this series for more on this).
 
 ### Generic Over Custom
 
-The third paradigm shift in the transition to <Concept>Layout Component</Concept> CSS is that you should find yourself writing very little custom CSS in your pages. If you do find yourself writing one-off CSS, perhaps it is time to see if you can come up with a more reusable solution.[^3]
+The third paradigm shift in the transition to <Concept>Layout Component</Concept> CSS is that you should find yourself writing very little custom CSS. If you do find yourself writing one-off CSS, perhaps it is time to see if you can come up with a more reusable solution.[^3]
 
+---
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">React is Legos for adults</p>&mdash; Guillermo Rauch (@rauchg) <a href="https://twitter.com/rauchg/status/1068183829737664512?ref_src=twsrc%5Etfw">November 29, 2018</a></blockquote>
 
