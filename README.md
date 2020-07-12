@@ -60,6 +60,18 @@ type: 'page'
 ![my-caption-alt](my-image-in-same-folder.jpg)
 ```
 
+#### Embedding Tweets
+
+This site uses
+[`gatsby-plugin-twitter`](https://www.gatsbyjs.org/packages/gatsby-plugin-twitter/?=twitter)
+to enable the embedding of Tweets. To embed a tweet, select the ∨
+dropdown on a tweet, follow the links to copy the embed markup and
+paste only the blockquote section (not the script). For example:
+
+```
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">React is Legos for adults</p>&mdash; Guillermo Rauch (@rauchg) <a href="https://twitter.com/rauchg/status/1068183829737664512?ref_src=twsrc%5Etfw">November 29, 2018</a></blockquote>
+```
+
 #### Adding Blockquote Sources
 
 When adding blockquotes, use an inline HTML footer to add a source.
