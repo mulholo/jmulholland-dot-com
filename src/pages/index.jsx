@@ -75,7 +75,7 @@ const Option = ({ title, children, link }) => {
 const NewsletterSignUp = () => (
   <Sidebar flipSides contentMin='61.8%'>
     <form
-      action='https://buttondown.email/api/emails/embed-subscribe/mulholio'
+      action='https://buttondown.email/api/emails/embed-subscribe/explore-exploit'
       method='post'
       target='popupwindow'
       onSubmit={() =>
