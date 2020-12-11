@@ -107,16 +107,18 @@ const Start = () => {
       <Grid outline={true}>
         <Option title='About'>
           <p>
-            {`I'm James, a London based software engineer working on `}
-            <a href='https://www.memrise.com/'>front-end systems</a>{' '}
-            and thinking hard about the future.
+            {`I'm James, a London based  `}
+            <a href='https://www.memrise.com/'>
+              software engineer
+            </a>{' '}
+            thinking hard about the future.
           </p>
           <p>
             This site is where I explore new ideas and share what I've
             learned so far. I'm particularly interested in effective
             engineering, producing better technology products, and
-            exploring the next wave of computing paradigms. You can
-            peak inside my brain on the{' '}
+            exploring the next wave of computing paradigms,
+            particularly AI. You can peak inside my brain on the{' '}
             <Link to='thoughts'>{`thoughts`}</Link> page or see a list
             of <Link to='projects'>projects I've worked on</Link>.
           </p>
