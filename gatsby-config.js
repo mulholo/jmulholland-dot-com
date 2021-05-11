@@ -1,4 +1,5 @@
 require('dotenv').config()
+const path = require('path')
 
 module.exports = {
   siteMetadata: {
@@ -12,14 +13,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/src/content/posts/`,
+        path: path.join(__dirname, '/src/content/posts/'),
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
-        path: `${__dirname}/src/content/pages/`,
+        path: path.join(__dirname, '/src/content/pages/'),
       },
     },
     `gatsby-plugin-sharp`,
@@ -28,7 +29,6 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.md`, `.mdx`],
-        footnotes: true,
         gatsbyRemarkPlugins: [
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-autolink-headers', // must be before prism.js
@@ -82,13 +82,14 @@ module.exports = {
       },
     },
     {
-      // https://www.gatsbyjs.org/packages/gatsby-plugin-google-analytics/
-      resolve: 'gatsby-plugin-google-analytics',
+      // https://www.gatsbyjs.com/plugins/gatsby-plugin-google-gtag/
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
-        head: true,
-        // Delays sending pageview hits on route update (in milliseconds)
-        pageTransitionDelay: 0,
+        trackingIds: [process.env.GOOGLE_ANALYTICS_TRACKING_ID],
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+        },
       },
     },
     {

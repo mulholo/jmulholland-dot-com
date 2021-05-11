@@ -32,7 +32,8 @@ const WrapperLink = styled(Link)(
     }
     &:focus ${Box}, &:hover ${Box} {
       /* prettier-ignore */
-      box-shadow: inset 0px 0px 0px ${theme.sizes['s-1']} ${theme.colors.b500};
+      box-shadow: inset 0px 0px 0px ${theme.sizes['s-1']} ${theme
+        .colors.b500};
     }
     &:focus h2,
     &:hover h2 {
@@ -131,7 +132,7 @@ const Start = () => {
             let's go for coffee if you're in London.
           </p>
         </Option>
-        <Option title='Writing' link='/blog' />
+        <Option title='➔ Writing' link='/blog' />
         <Option title='Newsletter'>
           <p>
             I run the Explore-Exploit newsletter where I write about
