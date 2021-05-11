@@ -4,26 +4,27 @@ date: '2021-01-29'
 type: 'post'
 ---
 
-I think tooling is a neglected part of good software architecture. Although
-thoughtful design, proactive communication and constant learning are all
-essential, tooling can be a powerful complement to these approaches.
+I think tooling is a neglected part of good software architecture.
+Although thoughtful design, proactive communication and constant
+learning are all essential, tooling can be a powerful complement to
+these approaches.
 
-Tooling streamlines back-and-forth discussion, instead providing instant,
-automated feedback. Much like testing, it produces a self-documenting codebase
-that is easier for developers to understand. Finally, enforcing consistent
-structure and boundaries in CI makes a codebase more maintainable and less
-susceptible to the 'pattern drift' that is so common in larger and older
-codebases.
+Tooling streamlines back-and-forth discussion, instead providing
+instant, automated feedback. Much like testing, it produces a
+self-documenting codebase that is easier for developers to understand.
+Finally, enforcing consistent structure and boundaries in CI makes a
+codebase more maintainable and less susceptible to the 'pattern drift'
+that is so common in larger and older codebases.
 
-Roughly from least to most complicated, here are six ways to enforce better
-architecture in your JavaScript and TypeScript projects.
+Roughly from least to most complicated, here are six ways to enforce
+better architecture in your JavaScript and TypeScript projects.
 
 ## 1. Public and Private Properties
 
-Although JavaScript is not strongly typed and has no concept of external/private
-properties, it is possible to provide implicit hints about which functions and
-values are private. The most common way of doing this is with an underscore
-prefix.
+Although JavaScript is not strongly typed and has no concept of
+external/private properties, it is possible to provide implicit hints
+about which functions and values are private. The most common way of
+doing this is with an underscore prefix.
 
 ```javascript
 export class SomeClass() {
@@ -35,36 +36,40 @@ export const _privateFn = () => // ...
 export const publicFn = () => // ...
 ```
 
-Of course, without static analysis to assist here, this is merely a hint to
-developers not to use the underscore-marked values.
+Of course, without static analysis to assist here, this is merely a
+hint to developers not to use the underscore-marked values.
 
-However, if you're working in TypeScript you can use a compiler to leverage the
+However, if you're working in TypeScript you can use a compiler to
+leverage the
 [built-in support](https://www.typescriptlang.org/docs/handbook/classes.html#public-private-and-protected-modifiers)
-for `public` and `private` class members.[^1] Marking a field or a method on a
-class as `private` means that that it won't be accessible when that class is
-used i.e. `private` methods can only be called inside that particularly class.
-This is an effective way of cleaning up your API boundaries. However, this
-approach is also fairly limited as it only applies to classes. It should also be
-noted that, even if your library is written in TypeScript, any JavaScript calling
-the library will still have access to the private properties.
+for `public` and `private` class members.[^1] Marking a field or a
+method on a class as `private` means that that it won't be accessible
+when that class is used i.e. `private` methods can only be called
+inside that particularly class. This is an effective way of cleaning
+up your API boundaries. However, this approach is also fairly limited
+as it only applies to classes. It should also be noted that, even if
+your library is written in TypeScript, any JavaScript calling the
+library will still have access to the private properties.
 
 ## 2. Linting with [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)
 
-[`eslint-plugin-import`](https://github.com/benmosher/eslint-plugin-import) is
-an [ESLint](https://eslint.org/) plugin that runs static analysis on your code
-to check for import related errors, style guide conflicts and architectural
-issues. For the purposes of this post, we'll only focus on the architectural
-side of things, but the plugin is well worth adopting for its other features
-too. There are three architecture rules in the plugin:
+[`eslint-plugin-import`](https://github.com/benmosher/eslint-plugin-import)
+is an [ESLint](https://eslint.org/) plugin that runs static analysis
+on your code to check for import related errors, style guide conflicts
+and architectural issues. For the purposes of this post, we'll only
+focus on the architectural side of things, but the plugin is well
+worth adopting for its other features too. There are three
+architecture rules in the plugin:
 [`no-internal-modules`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-internal-modules.md),
 [`no-cycle`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-cycle.md),
 and
-[`no-relative-parent-imports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-relative-parent-imports.md). I'll go through each one in turn.
+[`no-relative-parent-imports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-relative-parent-imports.md).
+I'll go through each one in turn.
 
 ### `no-internal-modules`
 
-`no-internal-modules` bans imports from submodules of other modules. In other
-words, it forces you to use
+`no-internal-modules` bans imports from submodules of other modules.
+In other words, it forces you to use
 [the barrel pattern](https://basarat.gitbook.io/typescript/main-1/barrel)
 everywhere.
 
@@ -73,19 +78,40 @@ import Dropdown from 'src/components/Dropdown' // error
 import { Dropdown } from 'src/components' // ok
 ```
 
-Enforcing `index` file exports can be useful as it forces you to explicitly decide upon your boundaries. For example, our `Dropdown` component might have related filtering and sorting functions that are only meant to be used internally. `no-internal-modules`, plus an additional export layer, can help shield these internal functions from leaking out into the rest of your project.
+Enforcing `index` file exports can be useful as it forces you to
+explicitly decide upon your boundaries. For example, our `Dropdown`
+component might have related filtering and sorting functions that are
+only meant to be used internally. `no-internal-modules`, plus an
+additional export layer, can help shield these internal functions from
+leaking out into the rest of your project.
 
 ### `no-cycle`
 
-A circular dependency occurs when module A depends on module B and module B depends on module A (even if this occurs indirectly). `no-cycle` will warn you of any such dependencies in your JavaScript project.
+A circular dependency occurs when module A depends on module B and
+module B depends on module A (even if this occurs indirectly).
+`no-cycle` will warn you of any such dependencies in your JavaScript
+project.
 
-Circular dependencies do not throw in JavaScript but they will sometimes cause [`undefined` errors](https://youtu.be/JQQX62cUaYw?t=117) to appear. They are also a sign of spaghetti code. If modules are looped together, refactors that attempt to modify this tangled structure are going to run into difficulties when pulling on one thread ends up bringing a whole section of the codebase with it.
+Circular dependencies do not throw in JavaScript but they will
+sometimes cause
+[`undefined` errors](https://youtu.be/JQQX62cUaYw?t=117) to appear.
+They are also a sign of spaghetti code. If modules are looped
+together, refactors that attempt to modify this tangled structure are
+going to run into difficulties when pulling on one thread ends up
+bringing a whole section of the codebase with it.
 
-In practice, I had a hard time making sense of the output from the `no-cycle` rule. It often had to be traced through several files, line-by-line. In my mind, cyclical dependencies are more naturally represented by graphs than sequential linting errors. `no-cycle` is better than nothing, but I think there are superior alternatives for dealing with cyclical dependencies (we'll come to `dependency-curiser` soon enough).
+In practice, I had a hard time making sense of the output from the
+`no-cycle` rule. It often had to be traced through several files,
+line-by-line. In my mind, cyclical dependencies are more naturally
+represented by graphs than sequential linting errors. `no-cycle` is
+better than nothing, but I think there are superior alternatives for
+dealing with cyclical dependencies (we'll come to `dependency-curiser`
+soon enough).
 
 ### `no-relative-parent-imports`
 
-`no-relative-parent-imports` bans any imports containing a `..` i.e. you can only import from siblings or modules.
+`no-relative-parent-imports` bans any imports containing a `..` i.e.
+you can only import from siblings or modules.
 
 ```javascript
 import foo from '../foo' // error
@@ -93,17 +119,33 @@ import bar from './bar' // ok
 import baz from 'baz' // ok
 ```
 
-This is quite a forceful rule that makes it very clear where each file goes. It encourages a clean, tree-like structure, as opposed to a complex, graph-like one.
+This is quite a forceful rule that makes it very clear where each file
+goes. It encourages a clean, tree-like structure, as opposed to a
+complex, graph-like one.
 
-Especially if you are introducing this to a pre-existing project, this rule may be a lot of work to incorporate. You'll need to refactor to use dependency injection, add new modules or restructure your filesystem. One compromise may be to add it to your `eslintrc` as a warning rather than an error and let it slowly shape your structure over time.
+Especially if you are introducing this to a pre-existing project, this
+rule may be a lot of work to incorporate. You'll need to refactor to
+use dependency injection, add new modules or restructure your
+filesystem. One compromise may be to add it to your `eslintrc` as a
+warning rather than an error and let it slowly shape your structure
+over time.
 
-Even if it initially exposed a number of conflicts with the way my code was, I found this rule incredibly helpful for noticing messy structure in my code and I'd recommend you give it a go, even if it is only as a learning experience.
+Even if it initially exposed a number of conflicts with the way my
+code was, I found this rule incredibly helpful for noticing messy
+structure in my code and I'd recommend you give it a go, even if it is
+only as a learning experience.
 
 ## 3. Project References
 
-[Project References](https://www.typescriptlang.org/docs/handbook/project-references.html) are a feature of the TypeScript compiler that allow effective splitting of your project into submodules. In short, references require you to explicitly enumerate which imports are allowed and will throw compiler errors if you try to violate these constraints.
+[Project References](https://www.typescriptlang.org/docs/handbook/project-references.html) are
+a feature of the TypeScript compiler that allow effective splitting of
+your project into submodules. In short, references require you to
+explicitly enumerate which imports are allowed and will throw compiler
+errors if you try to violate these constraints.
 
-To add a new submodule with references, add the path to the [`references`](https://www.staging-typescript.org/tsconfig#references) property in `tsconfig.json`.
+To add a new submodule with references, add the path to the
+[`references`](https://www.staging-typescript.org/tsconfig#references)
+property in `tsconfig.json`.
 
 ```json
 "references": [
@@ -111,7 +153,9 @@ To add a new submodule with references, add the path to the [`references`](https
 ]
 ```
 
-Then, in the submodule (`./src/myLib` in this case), add a new `tsconfig.json`, extending the base tsconfig and with the following properties:
+Then, in the submodule (`./src/myLib` in this case), add a new
+`tsconfig.json`, extending the base tsconfig and with the following
+properties:
 
 ```json
 "extends": "../../tsconfig.json",
@@ -124,60 +168,66 @@ Then, in the submodule (`./src/myLib` in this case), add a new `tsconfig.json`, 
 }
 ```
 
-- `noEmit`: tell the compiler to output `.js` and `.map` files from build
-- `composite`: allow `tsc` to determine whether the folder has been built yet
+- `noEmit`: tell the compiler to output `.js` and `.map` files from
+  build
+- `composite`: allow `tsc` to determine whether the folder has been
+  built yet
 - `declaration`: output a `.d.ts` file
 - `declarationMaps`: output source maps
 
-Finally, run `yarn tsc --build`. This will build the submodule for use across
-the project and throw an error if one submodule tries to import from another
-non-referenced submodule.
+Finally, run `yarn tsc --build`. This will build the submodule for use
+across the project and throw an error if one submodule tries to import
+from another non-referenced submodule.
 
-Being explicit about dependencies like this is a
-powerful tool. References encourage dependency injection over globals, better
-folder structure, more modular code and generally slow the process of your
-codebase turning into a [big ball of mud](http://www.laputan.org/mud/).
+Being explicit about dependencies like this is a powerful tool.
+References encourage dependency injection over globals, better folder
+structure, more modular code and generally slow the process of your
+codebase turning into a
+[big ball of mud](http://www.laputan.org/mud/).
 
 Additionally, using project references will allow you to break up the
-compilation of your project into discrete chunks, speeding up compile times and
-IDE performance.
+compilation of your project into discrete chunks, speeding up compile
+times and IDE performance.
 
-The one big limitation of references is that they only work
-with Microsoft's `tsc` compiler and not with `babel-preset-typescript` (for now
-at least). This means that if you're using babel to compile your TypeScript, or
-use a framework like Next.js or `create-react-app` that does so under the hood,
-you're going to struggle to incorporate this feature into your codebase.
+The one big limitation of references is that they only work with
+Microsoft's `tsc` compiler and not with `babel-preset-typescript` (for
+now at least). This means that if you're using babel to compile your
+TypeScript, or use a framework like Next.js or `create-react-app` that
+does so under the hood, you're going to struggle to incorporate this
+feature into your codebase.
 
 ## 4. Dependency Cruiser
 
 [`depdency-cruiser`](https://github.com/sverweij/dependency-cruiser/tree/develop/doc) is
-a tool to enforce rules about dependencies. Think of it as a testing library for
-dependencies and structure, instead of code behaviour.
+a tool to enforce rules about dependencies. Think of it as a testing
+library for dependencies and structure, instead of code behaviour.
 
-I found dependency-cruiser to strike an excellent balance between ease of use and
-impact. The `--init` command was very easy to get going with and caught some
-small issues in my codebase right away.
+I found dependency-cruiser to strike an excellent balance between ease
+of use and impact. The `--init` command was very easy to get going
+with and caught some small issues in my codebase right away.
 
-`dependency-cruiser` has a lot of overlap with the goals of `eslint-plugin-import`.
-Like the ESLint plugin, it
-will identify both dependency errors (e.g. correct placement of packages inside
-`devDependencies`/`dependencies`, identifying missing packages, deprecation
-warnings), and architecture rules (e.g. restricting imports, no circular
-dependencies).
+`dependency-cruiser` has a lot of overlap with the goals of
+`eslint-plugin-import`. Like the ESLint plugin, it will identify both
+dependency errors (e.g. correct placement of packages inside
+`devDependencies`/`dependencies`, identifying missing packages,
+deprecation warnings), and architecture rules (e.g. restricting
+imports, no circular dependencies).
 
-However, `dependency-cruiser` works as an independent tool, not
-an ESLint plugin. This means it is a more powerful and flexible way of
-accomplishing architecture goals. For example, `dependency-cruiser` allows you
-to
+However, `dependency-cruiser` works as an independent tool, not an
+ESLint plugin. This means it is a more powerful and flexible way of
+accomplishing architecture goals. For example, `dependency-cruiser`
+allows you to
 [write your own rules](https://github.com/sverweij/dependency-cruiser/blob/develop/doc/rules-tutorial.md)
-to define which imports are restricted. This is an incredibly powerful tool for
-architecture refactors and essentially gives you TDD for architecture.
+to define which imports are restricted. This is an incredibly powerful
+tool for architecture refactors and essentially gives you TDD for
+architecture.
 
-Let's say you have a cookie package that provides a small, usable wrapper around the
-browser cookie APIs. This dependency should have no dependencies to avoid
-tangling the domain specific code in the rest of your app with this isolated
-library. With `dependency-cruiser`, we can define a rule to enforce that our
-cookie library is a leaf node with no dependencies.
+Let's say you have a cookie package that provides a small, usable
+wrapper around the browser cookie APIs. This dependency should have no
+dependencies to avoid tangling the domain specific code in the rest of
+your app with this isolated library. With `dependency-cruiser`, we can
+define a rule to enforce that our cookie library is a leaf node with
+no dependencies.
 
 ```javascript
 module.exports = {
@@ -208,71 +258,75 @@ import bannedImport from '../some/bannedImport';
 error cookies-leaf: src/cookies/index.ts → src/some/bannedImport.ts
 ```
 
-Graphing is another area where `dependency-cruiser`'s architecture-first
-approach shines. Dependency graphs can be generated for your project to give you
-a high-level overview of what to focus on and highlight any circular
-dependencies in your codebase.
+Graphing is another area where `dependency-cruiser`'s
+architecture-first approach shines. Dependency graphs can be generated
+for your project to give you a high-level overview of what to focus on
+and highlight any circular dependencies in your codebase.
 
 ![The dependency graph for chalk.js, a popular JavaScript project.](chalk.png)
 
 ## 5. Yarn Workspaces and Lerna
 
-All the approaches so far are applicable to defining boundaries within a single
-package. However, if your project grows you may want to turn your one big bundle
-into a multi-package monorepo. Although it does come with additional overhead,
-this approach is a powerful way to separate boundaries and crystallise clean
-structure.
+All the approaches so far are applicable to defining boundaries within
+a single package. However, if your project grows you may want to turn
+your one big bundle into a multi-package monorepo. Although it does
+come with additional overhead, this approach is a powerful way to
+separate boundaries and crystallise clean structure.
 
 There are two tools in the JavaScript ecosystem to help you manage
 multiple packages in a monorepo:
 [Yarn Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) and
 [Lerna](https://lerna.js.org/).
 
-Yarn Workspaces is the simplest of the two
-approaches.[^2] Its main job is to ensure that the dependencies for each of your separate
-sub-packages are synchronised and optimised. However, Yarn
-Workspaces by themselves do make synchronisation over the various sub-modules
+Yarn Workspaces is the simplest of the two approaches.[^2] Its main
+job is to ensure that the dependencies for each of your separate
+sub-packages are synchronised and optimised. However, Yarn Workspaces
+by themselves do make synchronisation over the various sub-modules
 difficult.
 
 This is where the next tool, Lerna, comes in. Lerna provides extra
-power to coordinate packages across monorepos. For example, the `lerna run`
-command provides a way to run scripts from multiple `package.json`s at once.
-Lerna can also synchronise package publishing and automate changelogs, ensuring
-that all dependencies of your project can easily adapt to API changes and
-refactor accordingly.
+power to coordinate packages across monorepos. For example, the
+`lerna run` command provides a way to run scripts from multiple
+`package.json`s at once. Lerna can also synchronise package publishing
+and automate changelogs, ensuring that all dependencies of your
+project can easily adapt to API changes and refactor accordingly.
 
 ## 6. Hosted Packages
 
-The next step would be to completely separate packages into separate repos and
-host them on a tool such as [NPM](http://npmjs.com/) or
-[GitHub packages](https://github.com/features/packages). If you're sharing your
-code with multiple end users, this is a great way to scale your project.
+The next step would be to completely separate packages into separate
+repos and host them on a tool such as [NPM](http://npmjs.com/) or
+[GitHub packages](https://github.com/features/packages). If you're
+sharing your code with multiple end users, this is a great way to
+scale your project.
 
-However, this being the last item on the list, the work here is much more
-involved. As well as the work you'll need to do to setup all those regular
-first-time project things (Prettier, ESLint, TypeScript, Babel, Husky, ...),
-you'll also have to manage NPM publishing and library-first building (probably
-with [Rollup](https://rollupjs.org/guide/en/)).
+However, this being the last item on the list, the work here is much
+more involved. As well as the work you'll need to do to setup all
+those regular first-time project things (Prettier, ESLint, TypeScript,
+Babel, Husky, ...), you'll also have to manage NPM publishing and
+library-first building (probably with
+[Rollup](https://rollupjs.org/guide/en/)).
 
-While the extra friction you
-add from having an independent repo can be great for cleanly separating
-boundaries and enforcing structure, it does mean that changes are also harder to
-make. Use this approach with caution and only apply it when absolutely
-necessary.
+While the extra friction you add from having an independent repo can
+be great for cleanly separating boundaries and enforcing structure, it
+does mean that changes are also harder to make. Use this approach with
+caution and only apply it when absolutely necessary.
 
 ## Conclusion
 
-Of course, many of the approaches here can be combined. You could potentially
-use all of them together across a large enough application. I'm also looking
-forwards to the landscape evolving as more and more of this architecture work
-starts to get automated ([Destiny](https://github.com/benawad/destiny), in
-particular, is something I'm keeping my eye on). If there's a favourite tool of
-yours that you're excited about, email me or
+Of course, many of the approaches here can be combined. You could
+potentially use all of them together across a large enough
+application. I'm also looking forwards to the landscape evolving as
+more and more of this architecture work starts to get automated
+([Destiny](https://github.com/benawad/destiny), in particular, is
+something I'm keeping my eye on). If there's a favourite tool of yours
+that you're excited about, email me or
 [send me a DM](https://twitter.com/mulholio) and let me know.
 
+[^1]:
+    There is also a JavaScript proposal for `#` prefixes to make class
+    members as private which is also supported in the TypeScript. See
+    [MDN page here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields).
 
-[^1]: There is also a JavaScript proposal for `#` prefixes to make class members as private which is also
-supported in the TypeScript. See
-[MDN page here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields).
-
-[^2]: In fact, if working with Yarn and not NPM, Lerna uses Workspaces under the hood.
+[^2]:
+    In fact, if working with Yarn and not NPM, Lerna uses Workspaces
+    under the hood.
