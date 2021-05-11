@@ -48,9 +48,8 @@ const BlogPost = ({ data }) => {
   const pctComplete = useScroll()
   useEffect(() => {
     if (pctComplete > 92) {
-      track({
+      track('read_to_end', {
         category: 'Blog Post',
-        action: 'Read to end',
         label: title,
       })
     }

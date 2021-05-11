@@ -89,6 +89,7 @@ module.exports = {
         trackingIds: [process.env.GOOGLE_ANALYTICS_TRACKING_ID],
         pluginConfig: {
           head: true,
+          respectDNT: true,
         },
       },
     },
