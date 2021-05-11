@@ -132,7 +132,7 @@ const Start = () => {
             let's go for coffee if you're in London.
           </p>
         </Option>
-        <Option title='Writing' link='/blog' />
+        <Option title='➔ Writing' link='/blog' />
         <Option title='Newsletter'>
           <p>
             I run the Explore-Exploit newsletter where I write about
