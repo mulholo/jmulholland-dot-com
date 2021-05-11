@@ -29,7 +29,6 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.md`, `.mdx`],
-        footnotes: true,
         gatsbyRemarkPlugins: [
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-autolink-headers', // must be before prism.js
