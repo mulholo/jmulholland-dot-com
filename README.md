@@ -21,7 +21,7 @@ This is the repo for my personal website,
 
 - Auto-deploys to
   [Netlify](https://app.netlify.com/sites/james/overview) on merge to
-  master.
+  main.
 - Netlify also generates a preview build for each PR.
 
 ### Content
