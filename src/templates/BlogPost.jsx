@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import debounce from 'lodash.debounce'
-import { trackCustomEvent } from 'gatsby-plugin-google-analytics'
 import { Detail, Layout, TextColumn } from '../components'
-import { readingTime } from '../utils'
+import { readingTime, track } from '../utils'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 /**
@@ -49,7 +48,7 @@ const BlogPost = ({ data }) => {
   const pctComplete = useScroll()
   useEffect(() => {
     if (pctComplete > 92) {
-      trackCustomEvent({
+      track({
         category: 'Blog Post',
         action: 'Read to end',
         label: title,
