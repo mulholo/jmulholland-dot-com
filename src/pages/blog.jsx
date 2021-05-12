@@ -75,7 +75,7 @@ const Blog = ({ data }) => (
 export const query = graphql`
   query blogQuery {
     posts: allMdx(
-      filter: { frontmatter: { type: { eq: "post" } } }
+      filter: { fileAbsolutePath: { regex: "/content/posts/" } }
       sort: { order: DESC, fields: frontmatter___date }
     ) {
       edges {

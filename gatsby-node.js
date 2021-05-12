@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
@@ -6,7 +7,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { data } = await graphql(`
     query {
       posts: allMdx(
-        filter: { frontmatter: { type: { eq: "post" } } }
+        filter: { fileAbsolutePath: { regex: "/content/posts/" } }
       ) {
         edges {
           node {
@@ -18,7 +19,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
       pages: allMdx(
-        filter: { frontmatter: { type: { eq: "page" } } }
+        filter: { fileAbsolutePath: { regex: "/content/pages/" } }
       ) {
         edges {
           node {
@@ -57,7 +58,11 @@ exports.createPages = async ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === 'Mdx') {
-    const slug = createFilePath({ node, getNode, basePath: `posts` })
+    const slug = createFilePath({
+      node,
+      getNode,
+    })
+    // Create slug field which can be accessed on node.fields.slug above
     createNodeField({
       node,
       name: `slug`,
