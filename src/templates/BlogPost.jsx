@@ -34,9 +34,7 @@ function useScroll() {
 }
 
 const FrontMatter = ({ numWords, date }) => (
-  <div>
-    <Detail>{`${date} • ${readingTime(numWords)}`}</Detail>
-  </div>
+  <Detail>{`${date} • ${readingTime(numWords)}`}</Detail>
 )
 
 const BlogPost = ({ data }) => {

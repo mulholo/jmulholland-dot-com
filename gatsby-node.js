@@ -3,7 +3,6 @@ const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
   const { data } = await graphql(`
     query {
       posts: allMdx(
@@ -30,9 +29,22 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      notes: allMdx(
+        filter: { fileAbsolutePath: { regex: "/content/notes/" } }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            body
+          }
+        }
+      }
     }
   `)
 
+  const { createPage } = actions
   function makePages(dataType, templateName) {
     data[dataType].edges.forEach(({ node }) => {
       const { fields, body } = node
@@ -53,6 +65,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   makePages('posts', 'BlogPost')
   makePages('pages', 'Page')
+  makePages('notes', 'Note')
 }
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
