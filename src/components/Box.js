@@ -6,10 +6,15 @@ import styled, { css } from 'styled-components'
  * Not a layout component.
  */
 const Box = styled.div(
-  ({ theme, padding }) => css`
+  ({ theme, padding, borderY }) => css`
     background: ${theme.colors.n900};
     flex: 1 1 0;
     padding: ${theme.sizes[padding]};
+    ${borderY &&
+    `
+    border-top: 1px solid ${theme.colors.n100};
+    border-bottom: 1px solid ${theme.colors.n100};
+    `}
   `
 )
 

@@ -1,14 +1,15 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { Box, Grid, Layout } from '../components'
+import { Box, Stack, Layout } from '../components'
 import { media } from '../utils'
 
-const NoteBox = ({
+const NoteRow = ({
   /**
    * Internal page to link to
    */
   link,
   title,
+  tags,
 }) => (
   <Link
     to={link}
@@ -33,33 +34,52 @@ const NoteBox = ({
       }
     `}
   >
-    <Box>
-      <h4
+    <Box borderY>
+      <div
         css={`
-          margin: 0;
-          font-size: ${({ theme }) => theme.fontSizes.s1};
-          ${media.tablet`
-              font-size: ${({ theme }) => theme.fontSizes.s2};
-            `}
+          display: flex;
+          align-items: baseline;
+          & > :first-child {
+            margin-right: auto;
+          }
         `}
       >
-        {title}
-      </h4>
+        <h4
+          css={`
+            margin: 0;
+            font-size: ${({ theme }) => theme.fontSizes.s0};
+            ${media.tablet`
+              font-size: ${({ theme }) => theme.fontSizes.s1};
+            `}
+          `}
+        >
+          {title}
+        </h4>
+        <p>
+          {tags.map((tag, i) => (
+            <>
+              <span key={tag}>{tag}</span>
+              {i !== tags.length - 1 && ', '}
+            </>
+          ))}
+        </p>
+      </div>
     </Box>
   </Link>
 )
 
-const Blog = ({ data }) => (
+const Notes = ({ data }) => (
   <Layout pageName='Notes'>
-    <Grid>
+    <Stack>
       {data.notes.edges.map(({ node }) => (
-        <NoteBox
+        <NoteRow
           key={node.fields.slug}
           link={node.fields.slug}
           title={node.frontmatter.title}
+          tags={node.frontmatter.tags}
         />
       ))}
-    </Grid>
+    </Stack>
   </Layout>
 )
 
@@ -72,6 +92,7 @@ export const query = graphql`
         node {
           frontmatter {
             title
+            tags
           }
           fields {
             slug
@@ -82,4 +103,4 @@ export const query = graphql`
   }
 `
 
-export default Blog
+export default Notes
