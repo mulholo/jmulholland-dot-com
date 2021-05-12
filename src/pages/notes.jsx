@@ -1,16 +1,14 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { format } from 'date-fns'
-import { Box, Detail, Grid, Layout, Stack } from '../components'
+import { Box, Grid, Layout } from '../components'
 import { media } from '../utils'
 
-const BlogBox = ({
+const NoteBox = ({
   /**
    * Internal page to link to
    */
   link,
   title,
-  date,
 }) => (
   <Link
     to={link}
@@ -36,36 +34,29 @@ const BlogBox = ({
     `}
   >
     <Box>
-      <Stack spacer={'s-1'}>
-        <h4
-          css={`
-            margin: 0;
-            font-size: ${({ theme }) => theme.fontSizes.s1};
-            ${media.tablet`
+      <h4
+        css={`
+          margin: 0;
+          font-size: ${({ theme }) => theme.fontSizes.s1};
+          ${media.tablet`
               font-size: ${({ theme }) => theme.fontSizes.s2};
             `}
-          `}
-        >
-          {title}
-        </h4>
-        <Detail>{date}</Detail>
-      </Stack>
+        `}
+      >
+        {title}
+      </h4>
     </Box>
   </Link>
 )
 
 const Blog = ({ data }) => (
-  <Layout pageName='Blog'>
+  <Layout pageName='Notes'>
     <Grid>
-      {data.posts.edges.map(({ node }) => (
-        <BlogBox
+      {data.notes.edges.map(({ node }) => (
+        <NoteBox
           key={node.fields.slug}
           link={node.fields.slug}
           title={node.frontmatter.title}
-          date={format(
-            new Date(node.frontmatter.date),
-            'do MMM yyyy'
-          )}
         />
       ))}
     </Grid>
@@ -73,16 +64,14 @@ const Blog = ({ data }) => (
 )
 
 export const query = graphql`
-  query blogQuery {
-    posts: allMdx(
-      filter: { fileAbsolutePath: { regex: "/content/posts/" } }
-      sort: { order: DESC, fields: frontmatter___date }
+  query notesQuery {
+    notes: allMdx(
+      filter: { fileAbsolutePath: { regex: "/content/notes/" } }
     ) {
       edges {
         node {
           frontmatter {
             title
-            date
           }
           fields {
             slug

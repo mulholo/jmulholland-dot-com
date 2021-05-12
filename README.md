@@ -73,10 +73,7 @@ paste only the blockquote section (not the script). For example:
   <p lang='en' dir='ltr'>
     React is Legos for adults
   </p>
-  &mdash; Guillermo Rauch (@rauchg){' '}
-  <a href='https://twitter.com/rauchg/status/1068183829737664512?ref_src=twsrc%5Etfw'>
-    November 29, 2018
-  </a>
+  &mdash; Guillermo Rauch (@rauchg) <a href='https://twitter.com/rauchg/status/1068183829737664512?ref_src=twsrc%5Etfw'>November 29, 2018</a>
 </blockquote>
 ```
 
