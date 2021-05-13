@@ -40,23 +40,11 @@ const WrapperLink = styled(Link)(
   `
 )
 
-const optionTitleCss = css`
-  font-weight: 600;
-  margin: 0;
-  font-size: ${({ theme, big }) =>
-    big ? theme.fontSizes.s3 : theme.fontSizes.s2};
-`
-
 const Option = ({ title, children, link }) => {
   const contents = (
     <Box>
       <TextContainer recursive={false}>
-        <h2
-          big={typeof children === 'undefined'}
-          css={optionTitleCss}
-        >
-          {title}
-        </h2>
+        <h2>{title}</h2>
         {children}
       </TextContainer>
     </Box>
