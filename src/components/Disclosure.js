@@ -12,6 +12,7 @@ export const Disclosure = ({ children, title }) => {
         onClick={() => setIsOpen((isOpen) => !isOpen)}
         css={`
           background: none;
+          cursor: pointer;
           border: none;
           text-align: left;
           padding: 0;

@@ -1,38 +1,77 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql, Link } from 'gatsby'
 import {
   Box,
-  Stack,
+  Cluster,
   Disclosure,
-  TextContainer,
   Layout,
+  Stack,
+  Tag,
+  TextContainer,
 } from '../components'
 import { media } from '../utils'
 
-// TODO remove
-const repeat = (arr) => {
-  let newArr = []
-  for (let i = 0; i < 20; i++) {
-    newArr = newArr.concat(arr)
-  }
-  return newArr
-}
+const Notes = ({ data }) => {
+  const notes = data.notes.edges
+  const tags = [
+    ...new Set(notes.flatMap(({ node }) => node.frontmatter.tags)),
+  ]
 
-const Notes = ({ data }) => (
-  <Layout pageName='Notes'>
-    <Stack>
-      <WhatIsThisPage />
-      {repeat(data.notes.edges).map(({ node }) => (
-        <NoteRow
-          key={node.fields.slug}
-          link={node.fields.slug}
-          title={node.frontmatter.title}
-          tags={node.frontmatter.tags}
-        />
-      ))}
-    </Stack>
-  </Layout>
-)
+  const [selectedTags, setSelectedTags] = useState([])
+
+  const toggleTag = (tag) =>
+    console.log('tag', tag) ||
+    setSelectedTags((tags) =>
+      tags.includes(tag)
+        ? tags.filter((_tag) => _tag !== tag)
+        : [...tags, tag]
+    )
+
+  return (
+    <Layout pageName='Notes'>
+      <Stack>
+        <WhatIsThisPage />
+        <Box borderY padding='s0'>
+          <Cluster>
+            <ul>
+              {tags.map((tag) => (
+                <li
+                  key={tag}
+                  css={`
+                    list-style: none;
+                  `}
+                >
+                  <Tag
+                    onClick={() => toggleTag(tag)}
+                    selected={selectedTags.includes(tag)}
+                  >
+                    {tag}
+                  </Tag>
+                </li>
+              ))}
+            </ul>
+          </Cluster>
+        </Box>
+        {notes
+          .filter(
+            ({ node }) =>
+              selectedTags.length === 0 ||
+              node.frontmatter.tags.some((tag) =>
+                selectedTags.includes(tag)
+              )
+          )
+          .map(({ node }) => (
+            <NoteRow
+              key={node.fields.slug}
+              link={node.fields.slug}
+              title={node.frontmatter.title}
+              tags={node.frontmatter.tags}
+            />
+          ))}
+      </Stack>
+    </Layout>
+  )
+}
 
 const WhatIsThisPage = () => {
   return (
