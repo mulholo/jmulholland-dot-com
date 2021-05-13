@@ -1,7 +1,67 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
-import { Box, Stack, Layout } from '../components'
+import {
+  Box,
+  Stack,
+  Disclosure,
+  TextContainer,
+  Layout,
+} from '../components'
 import { media } from '../utils'
+
+// TODO remove
+const repeat = (arr) => {
+  let newArr = []
+  for (let i = 0; i < 20; i++) {
+    newArr = newArr.concat(arr)
+  }
+  return newArr
+}
+
+const Notes = ({ data }) => (
+  <Layout pageName='Notes'>
+    <Stack>
+      <WhatIsThisPage />
+      {repeat(data.notes.edges).map(({ node }) => (
+        <NoteRow
+          key={node.fields.slug}
+          link={node.fields.slug}
+          title={node.frontmatter.title}
+          tags={node.frontmatter.tags}
+        />
+      ))}
+    </Stack>
+  </Layout>
+)
+
+const WhatIsThisPage = () => {
+  return (
+    <Box borderY>
+      <TextContainer>
+        <Disclosure
+          title={({ icon }) => <h4>{icon} What is this page?</h4>}
+        >
+          <>
+            <p>This page contains my notes for learning in public.</p>
+            <p>
+              It can be thought of as a{' '}
+              <a href='https://joelhooks.com/digital-garden'>
+                Digital Garden
+              </a>
+              : fast, evolving, messy, tangled. Expect book reviews,
+              tips and tricks, notes on understanding computers, and
+              my mental models.
+            </p>
+            <p>
+              For more polished pieces, please head to{' '}
+              <Link to='/blog'>/blog</Link>.
+            </p>
+          </>
+        </Disclosure>
+      </TextContainer>
+    </Box>
+  )
+}
 
 const NoteRow = ({
   /**
@@ -66,21 +126,6 @@ const NoteRow = ({
       </div>
     </Box>
   </Link>
-)
-
-const Notes = ({ data }) => (
-  <Layout pageName='Notes'>
-    <Stack>
-      {data.notes.edges.map(({ node }) => (
-        <NoteRow
-          key={node.fields.slug}
-          link={node.fields.slug}
-          title={node.frontmatter.title}
-          tags={node.frontmatter.tags}
-        />
-      ))}
-    </Stack>
-  </Layout>
 )
 
 export const query = graphql`
