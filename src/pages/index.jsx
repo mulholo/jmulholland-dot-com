@@ -3,11 +3,9 @@ import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
 import {
   Box,
-  Button,
   Grid,
-  Input,
   Layout,
-  Sidebar,
+  NewsletterSignUp,
   Stack,
   TextContainer,
 } from '../components'
@@ -73,35 +71,6 @@ const Option = ({ title, children, link }) => {
   )
 }
 
-const NewsletterSignUp = () => (
-  <Sidebar flipSides contentMin='61.8%'>
-    <form
-      action='https://buttondown.email/api/emails/embed-subscribe/explore-exploit'
-      method='post'
-      target='popupwindow'
-      onSubmit={() =>
-        window.open(
-          'https://buttondown.email/mulholio',
-          'popupwindow'
-        )
-      }
-      // className needed for email signup (non-styling)
-      className='embeddable-buttondown-form'
-    >
-      <Input
-        type='email'
-        name='email'
-        id='bd-email'
-        placeholder='email@address.com'
-      ></Input>
-      <input type='hidden' value='1' name='embed'></input>
-      <Button type='submit' value='Subscribe'>
-        Subscribe
-      </Button>
-    </form>
-  </Sidebar>
-)
-
 const Start = () => {
   return (
     <Layout pageName='Home'>
@@ -132,20 +101,17 @@ const Start = () => {
             let's go for coffee if you're in London.
           </p>
         </Option>
-        <Option title='➔ Blog' link='/blog' />
-        <Option title='Newsletter'>
-          <p>
-            I run the Explore-Exploit newsletter where I write about
-            being a better engineer and play with future ideas in
-            technology. Sign up below.
-          </p>
-          <NewsletterSignUp />
+        <Option title='➔ Blog' link='/blog'>
+          <p>Longer form writing</p>
+        </Option>
+        <Option title='➔ Notes' link='/notes'>
+          <p>Work in progress notes</p>
         </Option>
         <Option title='Other'>
           <ul>
             <li>
-              <Link to='/thoughts'>Thoughts</Link> - My thoughts,
-              articulated.
+              <Link to='/thoughts'>Thoughts</Link> - High-level
+              summary of my beliefs and interests.
             </li>
             <li>
               <Link to='/projects'>Projects</Link> - Things I have
@@ -158,6 +124,7 @@ const Start = () => {
           </ul>
         </Option>
       </Grid>
+      <NewsletterSignUp />
     </Layout>
   )
 }
