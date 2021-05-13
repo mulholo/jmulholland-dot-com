@@ -83,6 +83,7 @@ export default {
     s2: genRemSize(2),
     s3: genRemSize(3),
     s4: genRemSize(4),
+    s5: genRemSize(5),
   },
   fontSizes: {
     's-2': genFontSize(-2),

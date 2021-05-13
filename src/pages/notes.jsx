@@ -34,10 +34,10 @@ const Notes = ({ data }) => {
       <Stack>
         <WhatIsThisPage />
         <Sidebar
-          gutter='s0'
-          sidebarWidth='s8'
-          contentMin='20%'
+          contentMin='80%'
+          sidebarWidth='s5'
           flipSides
+          dividingBorder
         >
           <Box borderY padding='0'>
             <Box padding='s0'>
@@ -105,17 +105,16 @@ const Notes = ({ data }) => {
 const FilterButton = styled.button(
   ({ theme, selected }) => `
   height: 100%;
-  width: ${theme.sizes.s3};
+  width: 50%;
+  min-width: ${theme.sizes.s3};
   text-transform: uppercase;
   font-weight: bold;
   background: ${selected ? theme.colors.b500 : 'none'};
   color: ${selected ? theme.colors.n900 : 'inherit'};
-  border-top: none;
-  border-right: none;
-  border-bottom: none;
-  border-left: 2px solid ${theme.colors.n100};
+  border: none;
+  padding: ${theme.sizes.s0};
   transition: 0.1s color, 0.1s background, box-shadow 0.2s, border 0.2s;
-  ${selected && `cursor: pointer;`}
+  ${!selected && `cursor: pointer;`}
 
   &:active,
   &:hover,
@@ -125,10 +124,7 @@ const FilterButton = styled.button(
         ? `inset 0px 0px 0px 3px ${theme.colors.b300}`
         : `inset 0px 0px 0px 3px ${theme.colors.b500}`
     };
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
-    border-left: 2px solid ${theme.colors.n100};
+    border: none;
     outline: none;
   }
 `
