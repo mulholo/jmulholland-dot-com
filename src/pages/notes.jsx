@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import {
   Box,
@@ -6,6 +7,7 @@ import {
   Disclosure,
   Layout,
   Stack,
+  Sidebar,
   Tag,
   TextContainer,
 } from '../components'
@@ -18,9 +20,9 @@ const Notes = ({ data }) => {
   ]
 
   const [selectedTags, setSelectedTags] = useState([])
+  const [filterType, setFilterType] = useState('or')
 
   const toggleTag = (tag) =>
-    console.log('tag', tag) ||
     setSelectedTags((tags) =>
       tags.includes(tag)
         ? tags.filter((_tag) => _tag !== tag)
@@ -31,34 +33,61 @@ const Notes = ({ data }) => {
     <Layout pageName='Notes'>
       <Stack>
         <WhatIsThisPage />
-        <Box borderY padding='s0'>
-          <Cluster>
-            <ul>
-              {tags.map((tag) => (
-                <li
-                  key={tag}
-                  css={`
-                    list-style: none;
-                  `}
-                >
-                  <Tag
-                    onClick={() => toggleTag(tag)}
-                    selected={selectedTags.includes(tag)}
-                  >
-                    {tag}
-                  </Tag>
-                </li>
-              ))}
-            </ul>
-          </Cluster>
-        </Box>
+        <Sidebar
+          gutter='s0'
+          sidebarWidth='s8'
+          contentMin='20%'
+          flipSides
+        >
+          <Box borderY padding='0'>
+            <Box padding='s0'>
+              <Cluster>
+                <ul>
+                  {tags.map((tag) => (
+                    <li
+                      key={tag}
+                      css={`
+                        list-style: none;
+                      `}
+                    >
+                      <Tag
+                        onClick={() => toggleTag(tag)}
+                        selected={selectedTags.includes(tag)}
+                      >
+                        {tag}
+                      </Tag>
+                    </li>
+                  ))}
+                </ul>
+              </Cluster>
+            </Box>
+            <div>
+              <FilterButton
+                selected={filterType === 'or'}
+                onClick={() => setFilterType('or')}
+              >
+                or
+              </FilterButton>
+              <FilterButton
+                selected={filterType === 'and'}
+                onClick={() => setFilterType('and')}
+              >
+                and
+              </FilterButton>
+            </div>
+          </Box>
+        </Sidebar>
         {notes
-          .filter(
-            ({ node }) =>
-              selectedTags.length === 0 ||
-              node.frontmatter.tags.some((tag) =>
-                selectedTags.includes(tag)
-              )
+          .filter(({ node }) =>
+            selectedTags.length === 0
+              ? true
+              : filterType === 'or'
+              ? node.frontmatter.tags.some((tag) =>
+                  selectedTags.includes(tag)
+                )
+              : selectedTags.every((selectedTag) =>
+                  node.frontmatter.tags.includes(selectedTag)
+                )
           )
           .map(({ node }) => (
             <NoteRow
@@ -72,6 +101,38 @@ const Notes = ({ data }) => {
     </Layout>
   )
 }
+
+const FilterButton = styled.button(
+  ({ theme, selected }) => `
+  height: 100%;
+  width: ${theme.sizes.s3};
+  text-transform: uppercase;
+  font-weight: bold;
+  background: ${selected ? theme.colors.b500 : 'none'};
+  color: ${selected ? theme.colors.n900 : 'inherit'};
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-left: 2px solid ${theme.colors.n100};
+  transition: 0.1s color, 0.1s background, box-shadow 0.2s, border 0.2s;
+  ${selected && `cursor: pointer;`}
+
+  &:active,
+  &:hover,
+  &:focus-visible {
+    box-shadow: ${
+      selected
+        ? `inset 0px 0px 0px 3px ${theme.colors.b300}`
+        : `inset 0px 0px 0px 3px ${theme.colors.b500}`
+    };
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-left: 2px solid ${theme.colors.n100};
+    outline: none;
+  }
+`
+)
 
 const WhatIsThisPage = () => {
   return (
