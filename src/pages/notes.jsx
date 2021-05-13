@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
+import * as JsSearch from 'js-search'
 import {
   Box,
   Cluster,
   Disclosure,
   Layout,
+  Input,
   Stack,
   Sidebar,
   Tag,
@@ -13,21 +15,50 @@ import {
 } from '../components'
 import { media } from '../utils'
 
-const Notes = ({ data }) => {
-  const notes = data.notes.edges
-  const tags = [
-    ...new Set(notes.flatMap(({ node }) => node.frontmatter.tags)),
-  ]
+// TODO const dataToSearch = new JsSearch.Search("title")
+// TODO search.addIndex('tags')
+// TODO map data to be more convenient
+// TODO consider adding stemming if search is not working well https://github.com/bvaughn/js-search#stemming
+// TODO see if search.indexStrategy = new JsSearch.AllSubstringsIndexStrategy(); works better
 
+// Puts the note in a slightly more workable format
+const formatNote = ({ node }) => ({
+  title: node.frontmatter.title,
+  tags: node.frontmatter.tags,
+  slug: node.fields.slug,
+})
+
+const Notes = ({ data }) => {
+  const allNotes = data.notes.edges.map(formatNote)
+  const allTags = [...new Set(allNotes.flatMap((note) => note.tags))]
+
+  // Tags
   const [selectedTags, setSelectedTags] = useState([])
   const [filterType, setFilterType] = useState('or')
-
   const toggleTag = (tag) =>
     setSelectedTags((tags) =>
       tags.includes(tag)
         ? tags.filter((_tag) => _tag !== tag)
         : [...tags, tag]
     )
+
+  // Text search
+  const [searchQuery, setSearchQuery] = useState('')
+  const [search, setSearch] = useState()
+  const [queryResult, setQueryResult] = useState([])
+  useEffect(() => {
+    const search = new JsSearch.Search('slug') // use slug as uid
+    search.addIndex('title') // make title searchable
+    search.addIndex('tags') // make tags searchable
+    search.addDocuments(allNotes)
+    setSearch(search)
+  }, [])
+  const handleSearch = ({ currentTarget }) => {
+    const { value } = currentTarget
+    const queryResult = search.search(value)
+    setQueryResult(queryResult)
+    setSearchQuery(value)
+  }
 
   return (
     <Layout pageName='Notes'>
@@ -43,7 +74,7 @@ const Notes = ({ data }) => {
             <Box padding='s0'>
               <Cluster>
                 <ul>
-                  {tags.map((tag) => (
+                  {allTags.map((tag) => (
                     <li
                       key={tag}
                       css={`
@@ -77,24 +108,41 @@ const Notes = ({ data }) => {
             </div>
           </Box>
         </Sidebar>
-        {notes
-          .filter(({ node }) =>
+        <Box
+          borderY
+          padding='0'
+          css={`
+            flex-grow: 0;
+          `}
+        >
+          <Input
+            placeholder='Search note titles and tags'
+            value={searchQuery}
+            onChange={handleSearch}
+            css={`
+              width: 100%;
+              padding-left: ${({ theme }) => theme.sizes.s2};
+              padding-right: ${({ theme }) => theme.sizes.s2};
+              border: none;
+            `}
+          />
+        </Box>
+        {(searchQuery ? queryResult : allNotes)
+          .filter((note) =>
             selectedTags.length === 0
               ? true
               : filterType === 'or'
-              ? node.frontmatter.tags.some((tag) =>
-                  selectedTags.includes(tag)
-                )
+              ? note.tags.some((tag) => selectedTags.includes(tag))
               : selectedTags.every((selectedTag) =>
-                  node.frontmatter.tags.includes(selectedTag)
+                  note.tags.includes(selectedTag)
                 )
           )
-          .map(({ node }) => (
+          .map((note) => (
             <NoteRow
-              key={node.fields.slug}
-              link={node.fields.slug}
-              title={node.frontmatter.title}
-              tags={node.frontmatter.tags}
+              key={note.slug}
+              link={note.slug}
+              title={note.title}
+              tags={note.tags}
             />
           ))}
       </Stack>
@@ -132,10 +180,16 @@ const FilterButton = styled.button(
 
 const WhatIsThisPage = () => {
   return (
-    <Box borderY>
+    <Box
+      borderY
+      padding='s2'
+      css={`
+        flex-grow: 0;
+      `}
+    >
       <TextContainer>
         <Disclosure
-          title={({ icon }) => <h4>{icon} What is this page?</h4>}
+          title={({ icon }) => <h5>{icon} What is this page?</h5>}
         >
           <>
             <p>This page contains my notes for learning in public.</p>
