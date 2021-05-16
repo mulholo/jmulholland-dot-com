@@ -5,13 +5,12 @@ import * as JsSearch from 'js-search'
 import {
   Box,
   Cluster,
-  Disclosure,
   Layout,
   Input,
   Stack,
+  Separator,
   Sidebar,
   Tag,
-  TextContainer,
 } from '../components'
 import { media } from '../utils'
 
@@ -50,7 +49,6 @@ const Notes = ({ data }) => {
   return (
     <Layout pageName='Notes'>
       <Stack>
-        <WhatIsThisPage />
         <Sidebar
           contentMin='80%'
           sidebarWidth='s5'
@@ -114,6 +112,7 @@ const Notes = ({ data }) => {
             `}
           />
         </Box>
+        <Separator />
         {(searchQuery ? queryResult : allNotes)
           .filter((note) =>
             selectedTags.length === 0
@@ -164,41 +163,6 @@ const FilterButton = styled.button(
   }
 `
 )
-
-const WhatIsThisPage = () => {
-  return (
-    <Box
-      borderY
-      padding='s2'
-      css={`
-        flex-grow: 0;
-      `}
-    >
-      <TextContainer>
-        <Disclosure
-          title={({ icon }) => <h5>{icon} What is this page?</h5>}
-        >
-          <>
-            <p>This page contains my notes for learning in public.</p>
-            <p>
-              It can be thought of as a{' '}
-              <a href='https://joelhooks.com/digital-garden'>
-                Digital Garden
-              </a>
-              : fast, evolving, messy, tangled. Expect book reviews,
-              tips and tricks, notes on understanding computers, and
-              my mental models.
-            </p>
-            <p>
-              For more polished pieces, please head to{' '}
-              <Link to='/blog'>/blog</Link>.
-            </p>
-          </>
-        </Disclosure>
-      </TextContainer>
-    </Box>
-  )
-}
 
 /**
  * Put graphql note data in a slightly more workable format
