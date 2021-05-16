@@ -35,7 +35,7 @@ const BlogBox = ({
       }
     `}
   >
-    <Box>
+    <Box backgroundColor='n900'>
       <Stack spacer={'s-1'}>
         <h4
           css={`

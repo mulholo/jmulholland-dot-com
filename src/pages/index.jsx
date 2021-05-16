@@ -42,7 +42,7 @@ const WrapperLink = styled(Link)(
 
 const Option = ({ title, children, link }) => {
   const contents = (
-    <Box>
+    <Box backgroundColor='n900'>
       <TextContainer recursive={false}>
         <h2>{title}</h2>
         {children}
@@ -93,7 +93,7 @@ const Start = () => {
           <p>Longer form writing</p>
         </Option>
         <Option title='➔ Notes' link='/notes'>
-          <p>Work in progress notes</p>
+          <p>Work in progress notes; my Digital Garden</p>
         </Option>
         <Option title='Other'>
           <ul>
