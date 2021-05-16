@@ -3,11 +3,9 @@ import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
 import {
   Box,
-  Button,
   Grid,
-  Input,
   Layout,
-  Sidebar,
+  NewsletterSignUp,
   Stack,
   TextContainer,
 } from '../components'
@@ -42,23 +40,11 @@ const WrapperLink = styled(Link)(
   `
 )
 
-const optionTitleCss = css`
-  font-weight: 600;
-  margin: 0;
-  font-size: ${({ theme, big }) =>
-    big ? theme.fontSizes.s3 : theme.fontSizes.s2};
-`
-
 const Option = ({ title, children, link }) => {
   const contents = (
-    <Box>
+    <Box backgroundColor='n900'>
       <TextContainer recursive={false}>
-        <h2
-          big={typeof children === 'undefined'}
-          css={optionTitleCss}
-        >
-          {title}
-        </h2>
+        <h2>{title}</h2>
         {children}
       </TextContainer>
     </Box>
@@ -72,35 +58,6 @@ const Option = ({ title, children, link }) => {
     </Stack>
   )
 }
-
-const NewsletterSignUp = () => (
-  <Sidebar flipSides contentMin='61.8%'>
-    <form
-      action='https://buttondown.email/api/emails/embed-subscribe/explore-exploit'
-      method='post'
-      target='popupwindow'
-      onSubmit={() =>
-        window.open(
-          'https://buttondown.email/mulholio',
-          'popupwindow'
-        )
-      }
-      // className needed for email signup (non-styling)
-      className='embeddable-buttondown-form'
-    >
-      <Input
-        type='email'
-        name='email'
-        id='bd-email'
-        placeholder='email@address.com'
-      ></Input>
-      <input type='hidden' value='1' name='embed'></input>
-      <Button type='submit' value='Subscribe'>
-        Subscribe
-      </Button>
-    </form>
-  </Sidebar>
-)
 
 const Start = () => {
   return (
@@ -132,20 +89,17 @@ const Start = () => {
             let's go for coffee if you're in London.
           </p>
         </Option>
-        <Option title='➔ Writing' link='/blog' />
-        <Option title='Newsletter'>
-          <p>
-            I run the Explore-Exploit newsletter where I write about
-            being a better engineer and play with future ideas in
-            technology. Sign up below.
-          </p>
-          <NewsletterSignUp />
+        <Option title='➔ Blog' link='/blog'>
+          <p>Longer form writing</p>
+        </Option>
+        <Option title='➔ Notes' link='/notes'>
+          <p>Work in progress notes; my Digital Garden</p>
         </Option>
         <Option title='Other'>
           <ul>
             <li>
-              <Link to='/thoughts'>Thoughts</Link> - My thoughts,
-              articulated.
+              <Link to='/thoughts'>Thoughts</Link> - High-level
+              summary of my beliefs and interests.
             </li>
             <li>
               <Link to='/projects'>Projects</Link> - Things I have
@@ -158,6 +112,7 @@ const Start = () => {
           </ul>
         </Option>
       </Grid>
+      <NewsletterSignUp />
     </Layout>
   )
 }

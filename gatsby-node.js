@@ -1,24 +1,12 @@
+/* eslint-disable no-useless-escape */
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
-  if (node.internal.type === 'Mdx') {
-    const slug = createFilePath({ node, getNode, basePath: `posts` })
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug,
-    })
-  }
-}
-
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
   const { data } = await graphql(`
     query {
       posts: allMdx(
-        filter: { frontmatter: { type: { eq: "post" } } }
+        filter: { fileAbsolutePath: { regex: "/content/posts/" } }
       ) {
         edges {
           node {
@@ -30,7 +18,19 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
       pages: allMdx(
-        filter: { frontmatter: { type: { eq: "page" } } }
+        filter: { fileAbsolutePath: { regex: "/content/pages/" } }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            body
+          }
+        }
+      }
+      notes: allMdx(
+        filter: { fileAbsolutePath: { regex: "/content/notes/" } }
       ) {
         edges {
           node {
@@ -44,6 +44,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  const { createPage } = actions
   function makePages(dataType, templateName) {
     data[dataType].edges.forEach(({ node }) => {
       const { fields, body } = node
@@ -64,4 +65,21 @@ exports.createPages = async ({ graphql, actions }) => {
 
   makePages('posts', 'BlogPost')
   makePages('pages', 'Page')
+  makePages('notes', 'Note')
+}
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === 'Mdx') {
+    const slug = createFilePath({
+      node,
+      getNode,
+    })
+    // Create slug field which can be accessed on node.fields.slug above
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+  }
 }

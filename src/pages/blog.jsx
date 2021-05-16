@@ -35,7 +35,7 @@ const BlogBox = ({
       }
     `}
   >
-    <Box>
+    <Box backgroundColor='n900'>
       <Stack spacer={'s-1'}>
         <h4
           css={`
@@ -75,7 +75,7 @@ const Blog = ({ data }) => (
 export const query = graphql`
   query blogQuery {
     posts: allMdx(
-      filter: { frontmatter: { type: { eq: "post" } } }
+      filter: { fileAbsolutePath: { regex: "/content/posts/" } }
       sort: { order: DESC, fields: frontmatter___date }
     ) {
       edges {
@@ -87,7 +87,6 @@ export const query = graphql`
           fields {
             slug
           }
-          excerpt
         }
       }
     }

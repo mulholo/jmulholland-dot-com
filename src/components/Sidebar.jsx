@@ -12,6 +12,7 @@ import styled, { css } from 'styled-components'
  * @param {string} gap - Theme size accessor to control gutter width e.g. 's2'
  * @param {string} contentMin - Percentage value at which the component breaks onto two lines
  * @param {boolean} flipSides - Whether to flip the component so that sidebar is on the right and content on left
+ * @param {boolean} dividingBorder - Whether to put a line between the sidebar and content
  * @param {ReactNode} children - Must have a single child which has 2 children (see example)
  *
  * @example
@@ -25,12 +26,13 @@ import styled, { css } from 'styled-components'
 const Sidebar = styled.div(
   ({
     sidebarWidth,
-    gap,
+    gap = '0',
     contentMin = '50%',
     flipSides = false,
+    dividingBorder,
     theme,
   }) => {
-    const gapValue = gap ? theme.sizes[gap] : 0
+    const gapValue = theme.sizes[gap]
     return css`
       & > * {
         display: flex;
@@ -43,20 +45,36 @@ const Sidebar = styled.div(
         margin: ${gapValue};
       }
 
-      /* the 'sidebar' itself */
-      &>*>*: ${flipSides ? 'last-child' : 'first-child'} {
-        ${sidebarWidth &&
-        `flex-basis: ${theme.sizes[sidebarWidth]};`} /* default width of sidebar; omit this line for intrinsic width of sidebar */
-      flex-grow: 1; /* makes the sidebar grow after wrap */
+      /* the 'sidebar' itself (unless flipped) */
+      // prettier-ignore
+      & > * > * :${flipSides ? 'last-child' : 'first-child'} {
+        ${
+        // prettier-ignore
+        // default width of sidebar
+        sidebarWidth && `flex-basis: ${theme.sizes[sidebarWidth]};`
+      }
+        flex-grow: 1; /* makes the sidebar grow after wrap */
         align-items: stretch;
       }
 
-      /* 'content' */
-      &>*>*: ${flipSides ? 'first-child' : 'last-child'} {
+      /* 'content' (unless flipped) */
+      // prettier-ignore
+      & > * > * :${flipSides ? 'first-child' : 'last-child'} {
         flex-grow: 999; /* make content take up remaining space */
         flex-basis: 0; /* needed so the contents does not force wrap instantly */
         min-width: calc(${contentMin} - (${gapValue} * 2));
       }
+
+      ${dividingBorder &&
+      `
+      & > * > * {
+        position: relative;
+        border-top: 2px solid ${theme.colors.n200};
+        border-left: 2px solid ${theme.colors.n200};
+        margin-top: -2px;
+        margin-left: -2px;
+      }
+    `}
     `
   }
 )

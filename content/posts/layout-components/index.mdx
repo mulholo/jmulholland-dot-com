@@ -1,10 +1,9 @@
 ---
 title: "I've Been Writing CSS Wrong Part 1: The Layout Component"
 date: '2020-07-12'
-type: 'post'
 ---
 
-import { Concept } from '../../../components'
+import { Concept } from '/src/components'
 
 Over the past month or so, I've thought a lot about CSS. Thanks to
 [some tweets](https://twitter.com/jhooks/status/1254541122946228224?s=20),
@@ -41,28 +40,34 @@ Most importantly, however, I have a far clearer view of the overall
 structure of the DOM and my styling. I feel like an architect, not a
 builder.
 
-In this post, we'l examine the first approach: the <Concept>Layout
-Component</Concept>.
+<p>
+  In this post, we'l examine the first approach: the{' '}
+  <Concept>Layout Component</Concept>.
+</p>
 
 ## What is the Layout Component?
 
-Most component libraries will contain some collection of buttons,
-inputs, forms, and date-pickers. These are what we traditionally call
-'components' and they have a satisfying, visible tangibility to them.
-However, as any good front-end developer knows, there are other kinds
-of components
-too—[higher-order components](https://reactjs.org/docs/higher-order-components.html),
-[render-prop components](https://reactjs.org/docs/render-props.html#use-render-props-for-cross-cutting-concerns)
-and
-[containers](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
-to name but a few. In this post, I shall introduce a new category of
-component that I've seen appear in various component libraries: the
-<Concept>Layout Component</Concept>. The <Concept>Layout
-Component</Concept> abstracts the responsive spacing and arrangement
-patterns used in your app. It renders and styles `children`, yet
-provides no direct functionality or styling if used in isolation. In
-other words, the Higher-order Component is to logic as the
-<Concept>Layout Component</Concept> is to styling.
+<p>
+  Most component libraries will contain some collection of buttons,
+  inputs, forms, and date-pickers. These are what we traditionally
+  call 'components' and they have a satisfying, visible tangibility to
+  them. However, as any good front-end developer knows, there are
+  other kinds of components too—
+  <a href='https://reactjs.org/docs/higher-order-components.html'>
+    higher-order components
+  </a>, <a href='https://reactjs.org/docs/render-props.html#use-render-props-for-cross-cutting-concerns'>
+    render-prop components
+  </a>, and <a href='https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0'>
+    containers
+  </a> to name but a few. In this post, I shall introduce a new category
+  of component that I've seen appear in various component libraries: the
+  <Concept>Layout Component</Concept>. The{' '}
+  <Concept> Layout Component</Concept> abstracts the responsive
+  spacing and arrangement patterns used in your app. It renders and
+  styles `children`, yet provides no direct functionality or styling
+  if used in isolation. In other words, the Higher-order Component is
+  to logic as the <Concept>Layout Component</Concept> is to styling.
+</p>
 
 ## A Simple Example: The Stack
 
@@ -103,14 +108,17 @@ component gets you.
 
 ## Benefits of the Layout Component
 
-Layout components like the `<Stack />` reduce boilerplate and make
-your team more productive. They provide off-the-shelf solutions to
-common layout problems, thus ensuring high-quality design and cleaner
-code through consistency. However, the biggest benefit I find with the
-<Concept>Layout Component</Concept> is that you are forced to write
-good CSS. When you write CSS for many screens, not one, you take more
-care. Furthermore, designing a component for many situations makes
-your CSS more robust as you have to think of edge cases up front.
+<p>
+  Layout components like the <code>{`<Stack />`}</code> reduce
+  boilerplate and make your team more productive. They provide
+  off-the-shelf solutions to common layout problems, thus ensuring
+  high-quality design and cleaner code through consistency. However,
+  the biggest benefit I find with the
+  <Concept>Layout Component</Concept> is that you are forced to write good
+  CSS. When you write CSS for many screens, not one, you take more care.
+  Furthermore, designing a component for many situations makes your CSS
+  more robust as you have to think of edge cases up front.
+</p>
 
 ## Writing CSS the Layout Component Way
 
@@ -120,12 +128,12 @@ some initially counter-intuitive approaches to developing UI.
 ### Padding Over Margin
 
 First, it will soon be noted that applying margin directly to child
-components is usually an anti-pattern in the world of the
-<Concept>Layout Component</Concept>. Margin applies spacing from the
-children in your layout whereas padding applies spacing from the
-parent (the <Concept>Layout Component</Concept>). Since which children
-are used is specific to the situation but layout components are
-generic, using margin is an ad hoc solution.[^2]
+components is usually an anti-pattern in the world of the Layout
+Component. Margin applies spacing from the children in your layout
+whereas padding applies spacing from the parent (the Layout
+Component). Since which children are used is specific to the situation
+but layout components are generic, using margin is an ad hoc solution.
+[^2]
 
 The exception here is when you apply margin from the parent and treat
 it like padding. The
@@ -155,10 +163,7 @@ solution.[^3]
   <p lang='en' dir='ltr'>
     React is Legos for adults
   </p>
-  &mdash; Guillermo Rauch (@rauchg){' '}
-  <a href='https://twitter.com/rauchg/status/1068183829737664512?ref_src=twsrc%5Etfw'>
-    November 29, 2018
-  </a>
+  &mdash; Guillermo Rauch (@rauchg) <a href='https://twitter.com/rauchg/status/1068183829737664512?ref_src=twsrc%5Etfw'>November 29, 2018</a>
 </blockquote>
 
 The ideal of the <Concept>Layout Component</Concept> is to have all

@@ -73,6 +73,7 @@ export default {
     y900: 'hsl(042,100%,92%)',
   },
   sizes: {
+    0: '0px',
     's-4': genRemSize(-4),
     's-3': genRemSize(-3),
     's-2': genRemSize(-2),
@@ -82,6 +83,7 @@ export default {
     s2: genRemSize(2),
     s3: genRemSize(3),
     s4: genRemSize(4),
+    s5: genRemSize(5),
   },
   fontSizes: {
     's-2': genFontSize(-2),

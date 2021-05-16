@@ -8,6 +8,7 @@ const Input = styled.input(
     margin: 0;
     padding: ${theme.sizes.s0};
     font-size: ${theme.fontSizes.s0};
+    cursor: pointer;
 
     transition: 0.2s border, 0.2s box-shadow;
 

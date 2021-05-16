@@ -13,22 +13,27 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: path.join(__dirname, '/src/content/posts/'),
+        path: path.join(__dirname, '/content/posts/'),
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
-        path: path.join(__dirname, '/src/content/pages/'),
+        path: path.join(__dirname, '/content/pages/'),
       },
     },
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-twitter`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `notes`,
+        path: path.join(__dirname, '/content/notes/'),
+      },
+    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [`.md`, `.mdx`],
+        extensions: [`.mdx`],
         gatsbyRemarkPlugins: [
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-autolink-headers', // must be before prism.js
@@ -99,6 +104,8 @@ module.exports = {
         showSpinner: false,
       },
     },
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-twitter`,
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
   ],

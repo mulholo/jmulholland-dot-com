@@ -1,7 +1,6 @@
 ---
 title: '6 Tools for Enforcing Good Web Archtichture'
 date: '2021-01-29'
-type: 'post'
 ---
 
 I think tooling is a neglected part of good software architecture.
@@ -251,7 +250,7 @@ Now, if we try and import an external dependency we'll get an error.
 
 ```javascript
 // src/cookie/index.ts
-import bannedImport from '../some/bannedImport';
+import bannedImport from '../some/bannedImport'
 ```
 
 ```bash
