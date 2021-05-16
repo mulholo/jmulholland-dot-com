@@ -15,19 +15,6 @@ import {
 } from '../components'
 import { media } from '../utils'
 
-// TODO const dataToSearch = new JsSearch.Search("title")
-// TODO search.addIndex('tags')
-// TODO map data to be more convenient
-// TODO consider adding stemming if search is not working well https://github.com/bvaughn/js-search#stemming
-// TODO see if search.indexStrategy = new JsSearch.AllSubstringsIndexStrategy(); works better
-
-// Puts the note in a slightly more workable format
-const formatNote = ({ node }) => ({
-  title: node.frontmatter.title,
-  tags: node.frontmatter.tags,
-  slug: node.fields.slug,
-})
-
 const Notes = ({ data }) => {
   const allNotes = data.notes.edges.map(formatNote)
   const allTags = [...new Set(allNotes.flatMap((note) => note.tags))]
@@ -213,6 +200,15 @@ const WhatIsThisPage = () => {
   )
 }
 
+/**
+ * Put graphql note data in a slightly more workable format
+ */
+const formatNote = ({ node }) => ({
+  title: node.frontmatter.title,
+  tags: node.frontmatter.tags,
+  slug: node.fields.slug,
+})
+
 const NoteRow = ({
   /**
    * Internal page to link to
@@ -224,8 +220,6 @@ const NoteRow = ({
   <Link
     to={link}
     css={`
-      display: flex;
-      flex-direction: column;
       ${Box} {
         transition: box-shadow 0.2s;
       }
@@ -244,19 +238,28 @@ const NoteRow = ({
       }
     `}
   >
-    <Box borderY>
+    <Box borderY padding='s2'>
       <div
         css={`
           display: flex;
+          flex-direction: column;
           align-items: baseline;
-          & > :first-child {
-            margin-right: auto;
+          & > *:last-child {
+            margin-left: 0;
+            margin-top: ${({ theme }) => theme.sizes['s-2']};
           }
+
+          ${media.tablet`
+            flex-direction: row;
+            & > *:last-child {
+              margin-left: auto;
+              margin-top: 0;
+            }
+          `}
         `}
       >
         <h4
           css={`
-            margin: 0;
             font-size: ${({ theme }) => theme.fontSizes.s0};
             ${media.tablet`
               font-size: ${({ theme }) => theme.fontSizes.s1};
@@ -265,10 +268,24 @@ const NoteRow = ({
         >
           {title}
         </h4>
-        <p>
+        <p
+          css={`
+            font-size: ${({ theme }) => theme.fontSizes['s-1']};
+            ${media.tablet`
+              font-size: ${({ theme }) => theme.fontSizes.s0};
+            `}
+          `}
+        >
           {tags.map((tag, i) => (
             <>
-              <span key={tag}>{tag}</span>
+              <span
+                key={tag}
+                css={`
+                  color: ${({ theme }) => theme.colors.n400};
+                `}
+              >
+                {tag}
+              </span>
               {i !== tags.length - 1 && ', '}
             </>
           ))}
