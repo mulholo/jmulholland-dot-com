@@ -28,28 +28,38 @@ This is the repo for my personal website,
 
 #### Adding a new blog post
 
-1. Create a new `.mdx?` file in `src/content/posts`
+1. Create a new `.mdx` file in `content/posts`
 2. Add frontmatter with the following fields:
 
 ```markdown
 ---
 title: 'My blog post'
 date: '2019-05-04'
-type: 'post'
 ---
 ```
 
-#### Adding a new page
+#### Adding a new note page
 
-1. Create a new `.mdx?` file in `src/content/pages`
+1. Create a new `.mdx` file in `content/notes`
+2. Add frontmatter with the following fields:
+
+```markdown
+title: 'Title here'
+lastUpdated: '2021-09-20'
+tags: ['Tag One', 'Tag Two']
+```
+
+#### Adding a new generic page
+
+1. Create a new `.mdx` file in `content/pages`
 2. Add frontmatter with the following fields:
 
 ```markdown
 ---
 title: 'About'
-type: 'page'
 ---
 ```
+
 
 #### Adding Images to `.md` files
 
