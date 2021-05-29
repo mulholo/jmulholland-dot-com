@@ -44,9 +44,11 @@ date: '2019-05-04'
 2. Add frontmatter with the following fields:
 
 ```markdown
+---
 title: 'Title here'
 lastUpdated: '2021-09-20'
 tags: ['Tag One', 'Tag Two']
+---
 ```
 
 #### Adding a new generic page
