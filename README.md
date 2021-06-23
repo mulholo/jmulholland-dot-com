@@ -62,7 +62,6 @@ title: 'About'
 ---
 ```
 
-
 #### Adding Images to `.md` files
 
 1. Add an image in the same directory as the markdown post
