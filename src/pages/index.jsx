@@ -84,7 +84,7 @@ const Start = () => {
             I've found this blog to be a great vehicle for meeting
             interesting people. If there's anything here you find
             interesting, please{' '}
-            <a href='https://twitter.com/mulholio'>DM</a>/
+            <a href='https://twitter.com/mulholo'>DM</a>/
             <a href='mailto:james@jmulholland.com'>email</a> me or
             let's go for coffee if you're in London.
           </p>
