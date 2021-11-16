@@ -62,15 +62,15 @@ const Footer = () => (
       >
         <FooterLink
           title='GitHub'
-          href='https://github.com/mulholio'
+          href='https://github.com/mulholo'
         />
         <FooterLink
           title='Twitter'
-          href='https://twitter.com/mulholio'
+          href='https://twitter.com/mulholo'
         />
         <FooterLink
           title='LinkedIn'
-          href='https://www.linkedin.com/in/mulholio'
+          href='https://www.linkedin.com/in/mulholo'
         />
         <FooterLink
           title='Email'

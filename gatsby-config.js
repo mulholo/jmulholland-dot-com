@@ -5,7 +5,7 @@ module.exports = {
     title: 'James Mulholland',
     siteUrl: 'https://jmulholland.com',
     description: 'My personal website',
-    twitter: '@mulholio',
+    twitter: '@mulholo',
   },
   plugins: [
     {
