@@ -1,11 +1,12 @@
+const MINS_IN_SECOND = 60
+const WORDS_PER_SECOND = 4.8 // according to Ulysses writing app
+
 /**
  * Takes a word-count and calcs the number of mins it would take
  * to read it on average
  */
 export const wordsToMinutes = (n) => {
-  const minsInSecond = 60
-  const wordPerSecond = 4.8 // according to Ulysses writing app
-  const minutesToRead = n / wordPerSecond / minsInSecond
+  const minutesToRead = n / WORDS_PER_SECOND / MINS_IN_SECOND
   return parseInt(minutesToRead.toFixed())
 }
 
