@@ -47,7 +47,7 @@ ON
   )
 ```
 
-The advantage of adding `STORING` over an index with just the other three keys is that it removes the
+The advantage of adding `STORING` over an index with just the other two keys is that it removes the
 need to join on the base `tasks` table which makes the query cheaper as `priority` is colocated with
 the index. If we did not store `priority`, Spanner would have to look at the values in our index then
 go to the base `tasks` table to look up the `priority` value.
@@ -56,8 +56,9 @@ But adding `priority` to the indexed keys would also avoid having to look up the
 table. Let's imagine our app limits the user to three active (`compelted_at IS NOT NULL`) HIGH
 priority tasks and five active MEDIUM priority tasks (focus is important). This means that when we
 create a new task, we need to first do a read inside a read-write transaction to avoid a task being
-created which exceeds the task limit. What is the difference between using indexed keys and `STORING`
-if we create one HIGH priority task then one MEDIUM priority task?
+created which exceeds the task limit, then do our write to create the task. What is the difference
+between using indexed keys and `STORING` if we create one HIGH priority task then one MEDIUM priority
+task?
 
 If `STORING` is used and we create a new HIGH priority task, the transaction will lock all rows
 matching the specified `created_by_user_id` and `completed_at` values. i.e. All user task creation
@@ -67,7 +68,10 @@ will be blocked.
 If `priority` is an indexed key, on the other hand, the transaction will only lock rows which match
 the queried `priority`. Consequently, the MEDIUM priority task creation will not be blocked.
 
-[Read-only transactions do not acquire locks](https://cloud.google.com/spanner/docs/introspection/lock-statistics)
+This is a trivial example where the blocking is minimal. However, with larger amounts of data, this
+difference can cause serious performance issues.
+
+Also note that [read-only transactions do not acquire locks](https://cloud.google.com/spanner/docs/introspection/lock-statistics)
 so this difference only applies to read-write transactions.
 
 ## Open Questions
