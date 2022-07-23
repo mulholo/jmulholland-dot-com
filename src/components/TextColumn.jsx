@@ -25,6 +25,7 @@ const TextColumn = ({ children }) => (
       // Stop code blocks, images and footnotes from overflowing	
       .gatsby-highlight,
       .gatsby-resp-image-link,
+      .no-overflow,
       .footnotes
       {	
         overflow: scroll;	

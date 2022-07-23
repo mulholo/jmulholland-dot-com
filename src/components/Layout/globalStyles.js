@@ -231,7 +231,7 @@ const GlobalStyle = createGlobalStyle`
 
   a:hover {
     color: ${(props) => props.theme.colors.b500};
-  }
+g }
 
   // Overrride header link styles
   .anchor.before {
