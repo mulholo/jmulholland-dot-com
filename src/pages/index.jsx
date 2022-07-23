@@ -5,7 +5,6 @@ import {
   Box,
   Grid,
   Layout,
-  NewsletterSignUp,
   Stack,
   TextContainer,
 } from '../components'
@@ -112,7 +111,6 @@ const Start = () => {
           </ul>
         </Option>
       </Grid>
-      <NewsletterSignUp />
     </Layout>
   )
 }
