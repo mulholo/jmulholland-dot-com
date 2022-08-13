@@ -1,5 +1,7 @@
 import { createGlobalStyle, css } from 'styled-components'
 
+import { RATIO } from '../../utils/theme'
+
 import './code.css'
 
 /*
@@ -109,17 +111,15 @@ const reset = css`
 `
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://rsms.me/inter/inter.css');
-  @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
-
   ${reset}
 
   html {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: ${({ theme }) => theme.fonts.sans};
+    font-family: ${({ theme }) => theme.fonts.serif};
     height: 100%;
+    font-size: 16px;
   }
   *, *:before, *:after {
     -webkit-font-smoothing: antialiased;
@@ -167,12 +167,13 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     color: ${(props) => props.theme.colors.n200};
+    font-family: ${({ theme }) => theme.fonts.sans};
     font-weight: 600;
   }
 
   p, li, ul, ol, blockquote {
     font-size: ${(props) => props.theme.fontSizes.s0};
-    line-height: 1.618;
+    line-height: ${RATIO};
     color: ${(props) => props.theme.colors.n200};
   }
   
@@ -194,24 +195,13 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.1;
   }
   h2 {
-    font-size: ${(props) => props.theme.fontSizes.s2};
+    font-size: ${(props) => props.theme.fontSizes.s1};
     hyphens: none;
     line-height: 1.1;
   }
   h3 {
-    font-size: ${(props) => props.theme.fontSizes.s1};
-    line-height: 1.1;
-  }
-  h4 {
-    font-size: ${(props) => props.theme.fontSizes.s1};
-    line-height: 1.1;
-  }
-  h5 {
     font-size: ${(props) => props.theme.fontSizes.s0};
-    line-height: 1.1;
-  }
-  h6 {
-    font-size: ${(props) => props.theme.fontSizes.s0};
+    hyphens: none;
     line-height: 1.1;
   }
 
@@ -231,15 +221,20 @@ const GlobalStyle = createGlobalStyle`
 
   a:hover {
     color: ${(props) => props.theme.colors.b500};
-g }
+  }
 
-  // Overrride header link styles
+  // Override header link styles
   .anchor.before {
     position: absolute;
     left: -${(props) => props.theme.sizes.s1};
   }
   .anchor.before svg {
     height: 1em;
+  }
+
+  .footnotes * {
+    font-family: ${({theme}) => theme.fonts.sans};
+    font-size: ${(props) => props.theme.fontSizes['s0']};
   }
 
   blockquote {
