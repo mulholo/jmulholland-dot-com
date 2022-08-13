@@ -10,13 +10,14 @@ code[class*='language-'],
 pre[class*='language-'] {
   color: hsl(207, 84%, 24%);
   background: none;
-  font-family: Menlo, Monaco, monospace;
+  font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace; /* system */
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
-  line-height: 1.5;
+  line-height: 1.618;
+  font-size: 0.8rem; /* optically aligned to 1rem in body text */
 
   -moz-tab-size: 4;
   -o-tab-size: 4;
@@ -46,7 +47,7 @@ code[class*='language'] {
   overflow: auto;
 }
 
-/* Margin bottom to accomodate shadow */
+/* Margin bottom to accommodate shadow */
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
   background-color: hsl(207, 72%, 99%);
@@ -61,7 +62,7 @@ pre[class*='language-'] {
   position: relative;
   padding: 0.2em;
   color: hsl(206, 61%, 40%);
-  font-size: 1rem;
+  font-size: 0.8rem;
   border: 1px solid hsl(201, 14%, 94%);
   display: inline;
   white-space: normal;

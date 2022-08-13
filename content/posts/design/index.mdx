@@ -1,0 +1,156 @@
+---
+title: 'On the Design of this Website'
+date: '2022-08-07'
+---
+
+import { Concept } from '/src/components'
+
+### Todo
+
+- [ ] Font
+- [ ] Typography
+- [ ] Tune fonts and @import only what I need
+- [ ] Links & colours
+- [ ] Heading side Links
+- [ ] Hanging typogrpahy
+- [ ] Footnotes
+- [ ] Quote blocks
+- [ ] Code: inline
+- [ ] Code: block
+- [ ] Concept
+- [ ] Aside section
+- [ ] Description/intro
+- [ ] Section separator
+- [ ] Images
+- [ ] Write about typography scale
+
+## Features
+
+### Considered Typography
+
+Paragraphs are styled in EB Garamond. It's a classic and time-tested
+font, and it's hard to find a better, more readable serif.
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+There are no Heading 4s.
+
+### Links
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tortor
+urna, efficitur venenatis ante rutrum, suscipit commodo lectus.
+Praesent [aliquam nisi](/design) vitae erat tempus blandit. Ut
+lobortis facilisis orci faucibus condimentum. Proin sit amet risus
+efficitur, pellentesque neque a, malesuada mauris. Nulla gravida,
+ligula sed gravida hendrerit, odio purus semper velit, a iaculis augue
+mi id nulla. Ut placerat, dui eget rhoncus placerat, eros velit congue
+diam, eu ullamcorper magna eros a arcu. Nam id nisl odio. Suspendisse
+in dapibus odio, at ultrices nunc.
+
+### Bullet Points
+
+#### Short Bullet Points
+
+- Foo
+- Bar
+- Baz
+
+### Long Bullet Points
+
+- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tortor
+  urna, efficitur venenatis ante rutrum, suscipit commodo lectus.
+  Praesent [aliquam nisi](/design) vitae erat tempus blandit. Ut
+  lobortis facilisis orci faucibus condimentum. Proin sit amet risus
+  efficitur, pellentesque neque a, malesuada mauris.
+- Nulla gravida, ligula sed gravida hendrerit, odio purus semper
+  velit, a iaculis augue mi id nulla. Ut placerat, dui eget rhoncus
+  placerat, eros velit congue diam, eu ullamcorper magna eros a arcu.
+  Nam id nisl odio.
+- Suspendisse in dapibus odio, at ultrices nunc.
+
+#### Numbered List Items
+
+1. Uno
+2. Dos
+3. Tres
+
+#### Quotes
+
+> "The chief [reason to meet in a private space] seems to me to be
+> that, as you say, we should have to eradicate politeness. We can get
+> to the point of calling each other prigs and adulterers quite
+> happily when the company is small & select, but its rather a
+> question whether we could do it with a larger number of people who
+> might not feel that they were quite on neutral ground"
+>
+> <footer>Vanessa Bell, Member of the Bloomsbury Group</footer>
+
+### Footnotes
+
+We can also add footnotes into paragraphs.[^1] These allow me to add
+extra context or references where appropriate. I like the way they add
+context without being a distraction from the main text.
+
+### Sections
+
+I can separate sections with a `---` in markdown, like so:
+
+### Code
+
+#### Inline
+
+Inline code can be represented thus: `const f = () => 42`.
+
+#### Block
+
+Blocks can be represnted with complete syntax highlighting and a
+custom colour theme.
+
+```ts
+interface Foo {
+  bar: string
+}
+
+const foo: Foo = {
+  bar: 'baz',
+}
+```
+
+---
+
+### MDX
+
+This site uses MDX. This means I can put whatever React component I
+choose, right in the middle of a piece of text. It's a great
+
+### `<Concept />`
+
+Sometimes, I want to highlight a concept in the body of a text, to
+highlight a propper term, much like you would see illustrated with
+small caps in a philosophy essay. I use my custom MDX `<Concept />`
+component to achieve this. e.g. <Concept>Concept</Concept>.
+
+---
+
+## Inspiration
+
+### Input
+
+- Refactoring UI
+
+### Websites
+
+- Gwern
+- TODO
+
+[^1]:
+    Footnotes show up in the side on larger screens or in the footer
+    on smaller screens.
+
+```
+
+```
