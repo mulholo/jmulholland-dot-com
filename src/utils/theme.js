@@ -64,6 +64,6 @@ export default {
   fonts: {
     serif: "Charter, Georgia, serif",
     sans: "'Inter', Helvetica, sans-serif",
-    mono: "Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace", // system; see code.css for other setting of mono
+    mono: "Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace", // system mono; see code.css for other setting of mono
   },
 }

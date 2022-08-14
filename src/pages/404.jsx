@@ -2,23 +2,23 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { css } from 'styled-components'
 import { Stack, Grid, Box, Layout } from '../components'
-import { media } from '../utils'
 
 const numCss = css`
   font-weight: 800;
   margin: 0;
   flex-grow: 1;
   font-size: ${({ theme }) => theme.fontSizes.s2};
-  ${media.tablet`
+
+  @media (min-width: ${780 / 16}em) {
     font-size: 12rem;
-  `}
+  }
 `
 
 const pCss = css`
   font-size: ${({ theme }) => theme.fontSizes.s1};
-  ${media.tablet`
+  @media (min-width: ${780 / 16}em) {
     font-size: ${({ theme }) => theme.fontSizes.s5};
-  `}
+  }
 `
 
 const FourOhFour = ({ location }) => (

@@ -12,7 +12,6 @@ import {
   Sidebar,
   Tag,
 } from '../components'
-import { media } from '../utils'
 
 const Notes = ({ data }) => {
   const allNotes = data.notes.edges.map(formatNote)
@@ -213,21 +212,21 @@ const NoteRow = ({
             margin-top: ${({ theme }) => theme.sizes['s-2']};
           }
 
-          ${media.tablet`
+          @media (min-width: ${780/ 16}em) {
             flex-direction: row;
             & > *:last-child {
               margin-left: auto;
               margin-top: 0;
             }
-          `}
+          }
         `}
       >
         <h4
           css={`
             font-size: ${({ theme }) => theme.fontSizes.s0};
-            ${media.tablet`
+            @media (min-width: ${780/ 16}em) {
               font-size: ${({ theme }) => theme.fontSizes.s1};
-            `}
+            }
           `}
         >
           {title}
@@ -235,9 +234,9 @@ const NoteRow = ({
         <p
           css={`
             font-size: ${({ theme }) => theme.fontSizes['s-1']};
-            ${media.tablet`
+            @media (min-width: ${780/ 16}em) {
               font-size: ${({ theme }) => theme.fontSizes.s0};
-            `}
+            }
           `}
         >
           {tags.map((tag, i) => (

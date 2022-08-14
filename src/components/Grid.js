@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import { media } from '../utils'
 
 const numToGridProperty = (n) => '1fr '.repeat(n).trim()
 
@@ -16,10 +15,10 @@ const Grid = styled.div(
       gap: 1px;
     `}
 
-    ${media.tablet`
+    @media (min-width: ${780 / 16}em) {
       grid-template-columns: ${numToGridProperty(numCols[1])};
       grid-auto-rows: 1fr;
-    `}
+    }
   `
 )
 
