@@ -9,20 +9,38 @@ import { Concept } from '/src/components'
 
 - [x] Font
 - [ ] Typography
-- [ ] Tune fonts and @import only what I need
+  - [ ] Put fonts in `<link>` via helmet, only what I need
+  - [ ] Headers
+- [x] Footnotes
+  - [ ] Highly proximate footnotes
 - [ ] Links & colours
 - [ ] Heading side Links
 - [ ] Hanging typogrpahy
-- [ ] Footnotes
 - [ ] Quote blocks
 - [ ] Code: inline
 - [ ] Code: block
 - [ ] Concept
 - [ ] Aside section
 - [ ] Description/intro
-- [ ] Section separator
+- [ ] Section separator (style `hr` tag)
 - [ ] Images
+  - [ ] If going wider than the 40rem, adjust gatsby-plugin-mdx
+        maxWdith in gatsby-config.js
 - [ ] Write about typography scale
+- [ ] Add bug report form
+- [ ] Inline tweets
+- [ ] nprogress bar (gatsby-config.js)
+- [ ] Config shortcode
+      https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/?=mdx#shortcodes
+- [ ] Spellchecking system
+- [ ] Remote editing
+- [ ] Pages
+  - Blog post
+  - Page
+  - /note
+  - /blog
+  - /notes
+  - Home
 
 ## Features
 
@@ -30,6 +48,8 @@ import { Concept } from '/src/components'
 
 Paragraphs are styled in EB Garamond. It's a classic and time-tested
 font, and it's hard to find a better, more readable serif.
+
+abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
 
 # Heading 1
 
@@ -99,6 +119,8 @@ context without being a distraction from the main text.
 
 I can separate sections with a `---` in markdown, like so:
 
+---
+
 ### Code
 
 #### Inline
@@ -125,7 +147,7 @@ const foo: Foo = {
 ### MDX
 
 This site uses MDX. This means I can put whatever React component I
-choose, right in the middle of a piece of text. It's a great
+choose, right in the middle of a piece of text. It's a great [^2]
 
 ### `<Concept />`
 
@@ -151,6 +173,6 @@ component to achieve this. e.g. <Concept>Concept</Concept>.
     Footnotes show up in the side on larger screens or in the footer
     on smaller screens.
 
-```
-
-```
+[^2]:
+    Footnotes show up in the side on larger screens or in the footer
+    on smaller screens.

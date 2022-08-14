@@ -51,6 +51,7 @@ export default {
     s3: genRemSize(3),
     s4: genRemSize(4),
     s5: genRemSize(5),
+    s6: genRemSize(6),
   },
   fontSizes: {
     's-2': genFontSize(-2),
