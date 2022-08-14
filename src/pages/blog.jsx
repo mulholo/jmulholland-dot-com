@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { format } from 'date-fns'
 import { Box, Detail, Grid, Layout, Stack } from '../components'
-import { media } from '../utils'
 
 const BlogBox = ({
   /**
@@ -41,9 +40,10 @@ const BlogBox = ({
           css={`
             margin: 0;
             font-size: ${({ theme }) => theme.fontSizes.s1};
-            ${media.tablet`
+
+            @media (min-width: ${780 / 16}em) {
               font-size: ${({ theme }) => theme.fontSizes.s2};
-            `}
+            }
           `}
         >
           {title}

@@ -1,5 +1,4 @@
 import React from 'react'
-import { media } from '../../utils'
 
 const FooterLink = ({ href, title }) => (
   <li
@@ -30,6 +29,7 @@ const Footer = () => (
       css={`
         background: ${(props) => props.theme.colors.n900};
         border-top: 1px solid ${(props) => props.theme.colors.n300};
+        font-family: ${(props) => props.theme.fonts.sans};
         display: flex;
         flex-wrap: wrap;
         align-items: baseline;
@@ -38,10 +38,10 @@ const Footer = () => (
           ${({ theme }) => theme.sizes.s2}
           ${({ theme }) => theme.sizes.s2};
 
-        ${media.mobile`
-        padding: ${({ theme }) => theme.sizes.s1}
-          ${({ theme }) => theme.sizes.s2};
-      `}
+        @media (min-width: ${450 / 16}em) {
+          padding: ${({ theme }) => theme.sizes.s1}
+            ${({ theme }) => theme.sizes.s2};
+        }
       `}
     >
       <ul
@@ -55,9 +55,9 @@ const Footer = () => (
             margin-right: ${({ theme }) => theme.sizes['s-1']};
           }
           flex-direction: column;
-          ${media.mobile`
-          flex-direction: row;
-        `}
+          @media (min-width: ${450 / 16}em) {
+            flex-direction: row;
+          }
         `}
       >
         <FooterLink
