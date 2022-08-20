@@ -57,7 +57,9 @@ const BlogPost = ({ data }) => {
     <Layout pageName='Blog'>
       <h1>{title}</h1>
       <FrontMatter date={date} numWords={wordCount.words} />
-      <MDXRenderer>{body}</MDXRenderer>
+      <TextColumn>
+        <MDXRenderer>{body}</MDXRenderer>
+      </TextColumn>
     </Layout>
   )
 }
