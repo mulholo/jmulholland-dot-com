@@ -54,7 +54,7 @@ const BlogPost = ({ data }) => {
   }, [pctComplete])
 
   return (
-    <Layout pageName='Blog'>
+    <Layout>
       <h1>{title}</h1>
       <FrontMatter date={date} numWords={wordCount.words} />
       <TextColumn>

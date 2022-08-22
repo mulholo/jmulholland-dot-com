@@ -52,6 +52,10 @@ export default {
     s4: genRemSize(4),
     s5: genRemSize(5),
     s6: genRemSize(6),
+    s7: genRemSize(7),
+    s8: genRemSize(8),
+    s9: genRemSize(9),
+    s10: genRemSize(10),
   },
   fontSizes: {
     's-2': genFontSize(-2),
@@ -61,6 +65,10 @@ export default {
     s2: genFontSize(2),
     s3: genFontSize(3),
     s4: genFontSize(4),
+  },
+  fontWeights: {
+    regular: 400,
+    semiBold: 500,
   },
   fonts: {
     serif: "Charter, Georgia, serif",

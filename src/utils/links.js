@@ -1,0 +1,1 @@
+export const YOUTUBE_LINK = "https://www.youtube.com/channel/UCoM-EVJlUBxoGdSkyQaEH4w"
