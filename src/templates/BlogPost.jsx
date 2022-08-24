@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import debounce from 'lodash.debounce'
-import { Detail, Layout, TextColumn } from '../components'
-import { readingTime, track } from '../utils'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
+import debounce from 'lodash.debounce'
+import { RATIO, track } from '../utils'
+import { Detail, Layout, TextColumn } from '../components'
 
 /**
  * Returns amount of page scrolled as a percentage
@@ -33,8 +34,17 @@ function useScroll() {
   return pctComplete
 }
 
+const Header = styled.header`
+  margin-bottom: ${({ theme }) => theme.sizes.s2};
+  width: ${(1 / RATIO) * 100}%;
+`
+
+const Title = styled.h1`
+  margin-bottom: ${({ theme }) => theme.sizes.s0};
+`
+
 const FrontMatter = ({ numWords, date }) => (
-  <Detail>{`${date} • ${readingTime(numWords)}`}</Detail>
+  <Detail>{`${date} • ${numWords} words`}</Detail>
 )
 
 const BlogPost = ({ data }) => {
@@ -55,8 +65,10 @@ const BlogPost = ({ data }) => {
 
   return (
     <Layout>
-      <h1>{title}</h1>
-      <FrontMatter date={date} numWords={wordCount.words} />
+      <Header>
+        <Title>{title}</Title>
+        <FrontMatter date={date} numWords={wordCount.words} />
+      </Header>
       <TextColumn>
         <MDXRenderer>{body}</MDXRenderer>
       </TextColumn>
