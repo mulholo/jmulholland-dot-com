@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import debounce from 'lodash.debounce'
 import { RATIO, track } from '../utils'
-import { Detail, Layout, TextColumn } from '../components'
+import { Detail, Layout, TextContainer } from '../components'
 
 /**
  * Returns amount of page scrolled as a percentage
@@ -69,9 +69,9 @@ const BlogPost = ({ data }) => {
         <Title>{title}</Title>
         <FrontMatter date={date} numWords={wordCount.words} />
       </Header>
-      <TextColumn>
+      <TextContainer>
         <MDXRenderer>{body}</MDXRenderer>
-      </TextColumn>
+      </TextContainer>
     </Layout>
   )
 }

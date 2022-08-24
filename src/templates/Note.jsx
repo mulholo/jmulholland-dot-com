@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Detail, Layout, TextColumn } from '../components'
+import { Detail, Layout, TextContainer } from '../components'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 const FrontMatter = ({ lastUpdated }) => (
@@ -14,11 +14,11 @@ const BlogPost = ({ data }) => {
 
   return (
     <Layout pageName='Notes'>
-      <TextColumn>
+      <TextContainer>
         <h1>{title}</h1>
         <FrontMatter lastUpdated={lastUpdated} />
         <MDXRenderer>{body}</MDXRenderer>
-      </TextColumn>
+      </TextContainer>
     </Layout>
   )
 }
