@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { MDXProvider } from '@mdx-js/react'
 import { theme, YOUTUBE_LINK } from '../../utils'
-import { Stack } from '..'
+import { Stack, Footnote, FootnoteStack, FootnoteParagraphWrapper } from '..'
 import { GlobalStyle } from './globalStyles'
 import Meta from './Meta'
 import Footer from './Footer'
@@ -64,9 +64,16 @@ const Content = styled.div`
   padding: ${({ theme }) => theme.sizes.s2} 0;
 `
 
+// Make these components available globally in .mdx files
+const SHORT_CODES = {
+  Footnote,
+  FootnoteStack,
+  FootnoteParagraphWrapper,
+}
+
 export const Layout = ({ children, pathname }) => (
   <ThemeProvider theme={theme}>
-    <MDXProvider>
+    <MDXProvider components={SHORT_CODES}>
       <>
         <GlobalStyle />
         <Meta pathname={pathname} />

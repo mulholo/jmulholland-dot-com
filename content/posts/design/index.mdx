@@ -111,13 +111,22 @@ in dapibus odio, at ultrices nunc.
 
 ### Footnotes
 
-We can also add footnotes into paragraphs.[^1] These allow me to add
-extra context or references where appropriate. I like the way they add
-context without being a distraction from the main text.
-
-[^1]:
-    Footnotes show up in the side on larger screens or in the footer
-    on smaller screens.
+<FootnoteParagraphWrapper>
+  <p>
+    We can also add footnotes into paragraphs. These allow me to add
+    extra context or references where appropriate. I like the way they
+    add context without being a distraction from the main text.
+  </p>
+  <FootnoteStack>
+    <Footnote n={1}>
+      Footnotes show up in the side on larger screens or in the footer
+      on smaller screens.
+    </Footnote>
+    <Footnote n={2}>
+      You can happily stack as many footnotes as you like
+    </Footnote>
+  </FootnoteStack>
+</FootnoteParagraphWrapper>
 
 ### Sections
 
