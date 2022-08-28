@@ -1,66 +1,43 @@
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { MDXProvider } from '@mdx-js/react'
-import { theme, YOUTUBE_LINK } from '../../utils'
+import { theme } from '../../utils'
 import { Stack, Footnote, FootnoteStack, FootnoteParagraphWrapper } from '..'
 import { GlobalStyle } from './globalStyles'
+import { Header  } from './Header'
+import { HEADER_SWITCH_SIZE } from './constants'
 import Meta from './Meta'
 import Footer from './Footer'
-import { Link } from 'gatsby'
 
 const Container = styled.div`
   display: grid;
   position: relative;
   flex: 1;
   font-size: ${({ theme }) => theme.fontSizes.s5};
-  grid-template-columns: minmax(${({ theme }) => theme.sizes.s0}, 1fr) 8fr 60rem 8fr;
-`
 
-const Header = styled.div`
-  padding-top: ${({ theme }) => theme.sizes.s2};
-  padding-right: ${({ theme }) => theme.sizes.s0};
-`
+  grid-auto-rows: auto 1fr;
+  grid-template-columns: ${({ theme }) => theme.sizes.s0} 1fr 1fr ${({ theme }) => theme.sizes.s0};
+  grid-template-areas:
+    "header header header header"
+    "spacera main main spacerb";
 
-const Title = styled.h1`
-  font-size: ${({ theme }) => theme.fontSizes.s1};
-  margin-bottom: ${({ theme }) => theme.sizes.s1};
-  text-decoration: none;
-`
-
-const SubTitle = styled.h2`
-  font-size: ${({ theme }) => theme.fontSizes.s0};
-  font-weight: ${({ theme }) => theme.fontWeights.bold};
-  margin-top: ${({ theme }) => theme.sizes.s0};
-  margin-bottom: ${({ theme }) => theme.sizes['s-1']};
-`
-
-const MenuList = styled.ul`
-  list-style: none;
-  font-size: ${({ theme }) => theme.fontSizes.s0};
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-`
-
-const MenuListItem = styled.li`
-  margin: 0;
-  font-family: ${({ theme }) => theme.fonts.sans};
-  font-weight: ${({ theme }) => theme.fontWeights.regular};
-`
-
-const HeaderLink = styled(Link)`
-  font-weight: ${({ theme }) => theme.fontWeights.regular};
-
-  &:focus, &:active {
-    text-decoration: none;
+  @media (min-width: ${HEADER_SWITCH_SIZE}) {
+    grid-template-columns: minmax(${({ theme }) => theme.sizes.s0}, 1fr) 8fr 60rem 8fr;
+    grid-template-areas:
+      "spacera header main spacerb";
   }
 `
 
-const HeaderA = styled.a`
-  font-weight: ${({ theme }) => theme.fontWeights.regular};
+const SpacerA = styled.div`
+  grid-area: spacera;
+`
+
+const SpacerB = styled.div`
+  grid-area: spacerb;
 `
 
 const Content = styled.div`
+  grid-area: main;
   padding: ${({ theme }) => theme.sizes.s2} 0;
 `
 
@@ -79,40 +56,10 @@ export const Layout = ({ children, pathname }) => (
         <Meta pathname={pathname} />
         <Stack>
           <Container>
-            <div /> {/* Spacer */}
-            <Header>
-              <HeaderLink to='/'>
-                <Title>James Mulholland</Title>
-              </HeaderLink>
-              <SubTitle>Content</SubTitle>
-              <MenuList>
-                <MenuListItem>
-                  <HeaderLink to='/blog'>Blog</HeaderLink>
-                </MenuListItem>
-                <MenuListItem>
-                  <HeaderLink to='/notes'>Notes</HeaderLink>
-                </MenuListItem>
-                <MenuListItem>
-                  <HeaderA href={YOUTUBE_LINK}>YouTube</HeaderA>
-                </MenuListItem>
-              </MenuList>
-              <SubTitle>About</SubTitle>
-              <MenuList>
-                <MenuListItem>
-                  <MenuListItem>
-                    <HeaderLink to='/thoughts'>Thoughts</HeaderLink>
-                  </MenuListItem>
-                  <MenuListItem>
-                    <HeaderLink to='/projects'>Projects</HeaderLink>
-                  </MenuListItem>
-                  <MenuListItem>
-                    <HeaderLink to='/uses'>Uses</HeaderLink>
-                  </MenuListItem>
-                </MenuListItem>
-              </MenuList>
-            </Header>
+            <SpacerA />
+            <Header />
             <Content>{children}</Content>
-            <div /> {/* Spacer */}
+            <SpacerB />
           </Container>
           <Footer />
         </Stack>
