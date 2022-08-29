@@ -78,11 +78,8 @@ const HeaderA = styled.a`
   font-weight: ${({ theme }) => theme.fontWeights.regular};
 `
 
-const DesktopHeader = ({ className }) => (
-  <DesktopHeaderContainer className={className}>
-    <HeaderLink to='/'>
-      <Title>James Mulholland</Title>
-    </HeaderLink>
+const MenuContent = () => (
+  <>
     <SubTitle>Content</SubTitle>
     <MenuList>
       <MenuListItem>
@@ -109,6 +106,16 @@ const DesktopHeader = ({ className }) => (
         </MenuListItem>
       </MenuListItem>
     </MenuList>
+
+  </>
+)
+
+const DesktopHeader = ({ className }) => (
+  <DesktopHeaderContainer className={className}>
+    <HeaderLink to='/'>
+      <Title>James Mulholland</Title>
+    </HeaderLink>
+    <MenuContent />
   </DesktopHeaderContainer>
 )
 
@@ -144,36 +151,7 @@ const MobileHeader = () => {
           {open ? <CloseIcon /> : <BurgerIcon />}
         </Burger>
       </MobileHeaderTopRow>
-      {open && (
-        <>
-          <SubTitle>Content</SubTitle>
-          <MenuList>
-            <MenuListItem>
-              <HeaderLink to='/blog'>Blog</HeaderLink>
-            </MenuListItem>
-            <MenuListItem>
-              <HeaderLink to='/notes'>Notes</HeaderLink>
-            </MenuListItem>
-            <MenuListItem>
-              <HeaderA href={YOUTUBE_LINK}>YouTube</HeaderA>
-            </MenuListItem>
-          </MenuList>
-          <SubTitle>About</SubTitle>
-          <MenuList>
-            <MenuListItem>
-              <MenuListItem>
-                <HeaderLink to='/thoughts'>Thoughts</HeaderLink>
-              </MenuListItem>
-              <MenuListItem>
-                <HeaderLink to='/projects'>Projects</HeaderLink>
-              </MenuListItem>
-              <MenuListItem>
-                <HeaderLink to='/uses'>Uses</HeaderLink>
-              </MenuListItem>
-            </MenuListItem>
-          </MenuList>
-        </>
-      )}
+      {open && <MenuContent />}
     </MobileHeaderContainer>
   )
 }
