@@ -21,7 +21,7 @@ const FooterLink = ({ href, title }) => (
   </li>
 )
 
-const Footer = () => (
+export const Footer = () => (
   <footer
     css={`
       grid-area: footer;
@@ -71,5 +71,3 @@ const Footer = () => (
     </ul>
   </footer>
 )
-
-export default Footer

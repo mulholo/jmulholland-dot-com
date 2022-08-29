@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { YOUTUBE_LINK, useClickOutside } from '../../utils'
-import { HEADER_SWITCH_SIZE } from './constants'
+import {
+  useClickOutside,
+  YOUTUBE_LINK,
+  HEADER_SWITCH_SIZE,
+} from '../../utils'
 import { BurgerIcon, CloseIcon } from '../icons'
 
 const Container = styled.div`
@@ -147,7 +150,10 @@ const MobileHeader = () => {
         <HeaderLink to='/'>
           <MobileTitle>James Mulholland</MobileTitle>
         </HeaderLink>
-        <BurgerButton ariaLabel='Toggle menu open' onClick={toggleOpen}>
+        <BurgerButton
+          ariaLabel='Toggle menu open'
+          onClick={toggleOpen}
+        >
           {open ? <CloseIcon /> : <BurgerIcon />}
         </BurgerButton>
       </MobileHeaderTopRow>
