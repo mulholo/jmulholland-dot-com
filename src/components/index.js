@@ -5,6 +5,7 @@ export { default as Detail } from './Detail'
 export { Cluster } from './Cluster'
 export {
   Footnote,
+  FootnoteN,
   FootnoteStack,
   FootnoteParagraphWrapper,
 } from './Footnote'

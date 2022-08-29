@@ -17,6 +17,13 @@ const N = styled.span`
   font-weight: ${({ theme }) => theme.fontWeights.semiBold};
 `
 
+export const FootnoteN = styled.sup`
+  color: ${({ theme }) => theme.colors.b400};
+  font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+  font-family: ${({ theme }) => theme.fonts.sans};
+  font-size: ${({ theme }) => theme.fontSizes['s-1']};
+`
+
 export const Footnote = ({ children, n }) => (
   <FootnoteContainer>
     {n && <N>{n}</N>}
