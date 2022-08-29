@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { YOUTUBE_LINK } from '../../utils'
 import { HEADER_SWITCH_SIZE } from './constants'
+import { BurgerIcon, CloseIcon } from '../icons'
 
 const Container = styled.div`
   grid-area: header;
@@ -35,6 +36,11 @@ const MobileHeaderContainer = styled.header`
 const Title = styled.h1`
   font-size: ${({ theme }) => theme.fontSizes.s1};
   margin-bottom: ${({ theme }) => theme.sizes.s1};
+  text-decoration: none;
+`
+
+const MobileTitle = styled.h1`
+  font-size: ${({ theme }) => theme.fontSizes.s1};
   text-decoration: none;
 `
 
@@ -117,70 +123,79 @@ const Burger = styled.button`
   align-items: center;
   justify-content: center;
   padding: 0;
+  margin-left: auto;
 `
 
-const BurgerIcon = () => (
-  <svg width='24' height='24' fill='none' viewBox='0 0 24 24'>
-    <path
-      stroke='currentColor'
-      strokeLinecap='round'
-      strokeLinejoin='round'
-      strokeWidth='1.5'
-      d='M4.75 5.75H19.25'
-    ></path>
-    <path
-      stroke='currentColor'
-      strokeLinecap='round'
-      strokeLinejoin='round'
-      strokeWidth='1.5'
-      d='M4.75 18.25H19.25'
-    ></path>
-    <path
-      stroke='currentColor'
-      strokeLinecap='round'
-      strokeLinejoin='round'
-      strokeWidth='1.5'
-      d='M4.75 12H19.25'
-    ></path>
-  </svg>
-)
+export function useClickOutside(ref, handler) {
+  React.useEffect(
+    () => {
+      const listener = (event) => {
+        // Do nothing if clicking ref's element or descendent elements
+        if (!ref.current || ref.current.contains(event.target)) {
+          return;
+        }
+        handler(event);
+      };
 
-const CloseIcon = () => (
-  <svg width='24' height='24' fill='none' viewBox='0 0 24 24'>
-    <path
-      stroke='currentColor'
-      strokeLinecap='round'
-      strokeLinejoin='round'
-      strokeWidth='1.5'
-      d='M17.25 6.75L6.75 17.25'
-    ></path>
-    <path
-      stroke='currentColor'
-      strokeLinecap='round'
-      strokeLinejoin='round'
-      strokeWidth='1.5'
-      d='M6.75 6.75L17.25 17.25'
-    ></path>
-  </svg>
-)
+      document.addEventListener("mousedown", listener);
+      document.addEventListener("touchstart", listener);
+
+      return () => {
+        document.removeEventListener("mousedown", listener);
+        document.removeEventListener("touchstart", listener);
+      };
+    },
+    [ref, handler]
+  );
+}
 
 const MobileHeader = () => {
   const [open, setOpen] = React.useState(false)
+  const close = () => setOpen(false)
   const toggleOpen = () => setOpen((o) => !o)
 
+  const menuRef = React.useRef()
+  useClickOutside(menuRef, close)
+
   return (
-    <MobileHeaderContainer>
+    <MobileHeaderContainer ref={menuRef}>
       <MobileHeaderTopRow>
+        <HeaderLink to='/'>
+          <MobileTitle>James Mulholland</MobileTitle>
+        </HeaderLink>
         <Burger ariaLabel='Toggle menu open' onClick={toggleOpen}>
           {open ? <CloseIcon /> : <BurgerIcon />}
         </Burger>
       </MobileHeaderTopRow>
       {open && (
-        <div>
-          <ol>
-            <li>1</li>
-          </ol>
-        </div>
+        <>
+          <SubTitle>Content</SubTitle>
+          <MenuList>
+            <MenuListItem>
+              <HeaderLink to='/blog'>Blog</HeaderLink>
+            </MenuListItem>
+            <MenuListItem>
+              <HeaderLink to='/notes'>Notes</HeaderLink>
+            </MenuListItem>
+            <MenuListItem>
+              <HeaderA href={YOUTUBE_LINK}>YouTube</HeaderA>
+            </MenuListItem>
+          </MenuList>
+          <SubTitle>About</SubTitle>
+          <MenuList>
+            <MenuListItem>
+              <MenuListItem>
+                <HeaderLink to='/thoughts'>Thoughts</HeaderLink>
+              </MenuListItem>
+              <MenuListItem>
+                <HeaderLink to='/projects'>Projects</HeaderLink>
+              </MenuListItem>
+              <MenuListItem>
+                <HeaderLink to='/uses'>Uses</HeaderLink>
+              </MenuListItem>
+            </MenuListItem>
+          </MenuList>
+        </>
       )}
     </MobileHeaderContainer>
   )
