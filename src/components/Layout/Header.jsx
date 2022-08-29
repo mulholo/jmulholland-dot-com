@@ -113,7 +113,56 @@ const MobileHeaderTopRow = styled.div`
 const Burger = styled.button`
   border: none;
   background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 `
+
+const BurgerIcon = () => (
+  <svg width='24' height='24' fill='none' viewBox='0 0 24 24'>
+    <path
+      stroke='currentColor'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      strokeWidth='1.5'
+      d='M4.75 5.75H19.25'
+    ></path>
+    <path
+      stroke='currentColor'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      strokeWidth='1.5'
+      d='M4.75 18.25H19.25'
+    ></path>
+    <path
+      stroke='currentColor'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      strokeWidth='1.5'
+      d='M4.75 12H19.25'
+    ></path>
+  </svg>
+)
+
+const CloseIcon = () => (
+  <svg width='24' height='24' fill='none' viewBox='0 0 24 24'>
+    <path
+      stroke='currentColor'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      strokeWidth='1.5'
+      d='M17.25 6.75L6.75 17.25'
+    ></path>
+    <path
+      stroke='currentColor'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      strokeWidth='1.5'
+      d='M6.75 6.75L17.25 17.25'
+    ></path>
+  </svg>
+)
 
 const MobileHeader = () => {
   const [open, setOpen] = React.useState(false)
@@ -123,7 +172,7 @@ const MobileHeader = () => {
     <MobileHeaderContainer>
       <MobileHeaderTopRow>
         <Burger ariaLabel='Toggle menu open' onClick={toggleOpen}>
-          {open ? 'x' : '|||'}
+          {open ? <CloseIcon /> : <BurgerIcon />}
         </Burger>
       </MobileHeaderTopRow>
       {open && (
