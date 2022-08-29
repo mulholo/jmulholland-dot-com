@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { YOUTUBE_LINK } from '../../utils'
+import { YOUTUBE_LINK, useClickOutside } from '../../utils'
 import { HEADER_SWITCH_SIZE } from './constants'
 import { BurgerIcon, CloseIcon } from '../icons'
 
@@ -125,29 +125,6 @@ const Burger = styled.button`
   padding: 0;
   margin-left: auto;
 `
-
-export function useClickOutside(ref, handler) {
-  React.useEffect(
-    () => {
-      const listener = (event) => {
-        // Do nothing if clicking ref's element or descendent elements
-        if (!ref.current || ref.current.contains(event.target)) {
-          return;
-        }
-        handler(event);
-      };
-
-      document.addEventListener("mousedown", listener);
-      document.addEventListener("touchstart", listener);
-
-      return () => {
-        document.removeEventListener("mousedown", listener);
-        document.removeEventListener("touchstart", listener);
-      };
-    },
-    [ref, handler]
-  );
-}
 
 const MobileHeader = () => {
   const [open, setOpen] = React.useState(false)
