@@ -2,7 +2,7 @@
  * The point above which the header is presented on the side of the
  * screen
  */
-export const HEADER_SWITCH_SIZE = `${1200 / 16}rem`
+export const HEADER_SWITCH_SIZE = `78rem`
 
 export const RATIO = 1.618
 
