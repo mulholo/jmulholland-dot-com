@@ -2,12 +2,11 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { useScroll, RATIO, track } from '../utils'
+import { useScroll, track } from '../utils'
 import { Detail, Layout, TextContainer } from '../components'
 
 const Header = styled.header`
   margin-bottom: ${({ theme }) => theme.sizes.s2};
-  width: ${(1 / RATIO) * 100}%;
 `
 
 const Title = styled.h1`

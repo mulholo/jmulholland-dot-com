@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { RATIO } from "../utils"
+import { RATIO, HEADER_SWITCH_SIZE } from "../utils"
 import Stack from './Stack'
 
 /**
@@ -16,8 +16,10 @@ export const TextContainer = styled(Stack)(
       max-width: calc(100vw - ${(props) => props.theme.sizes.s3});
     }
 
-    & > * {
-      margin-right: ${(1 - (1/RATIO)) * 100}%;
+    @media (min-width: ${HEADER_SWITCH_SIZE}) {
+      & > * {
+        margin-right: ${(1 - (1/RATIO)) * 100}%;
+      }
     }
 
     ${recursive

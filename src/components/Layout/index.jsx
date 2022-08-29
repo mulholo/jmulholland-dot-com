@@ -19,9 +19,9 @@ const Container = styled.div`
   font-size: ${({ theme }) => theme.fontSizes.s5};
 
   grid-auto-rows: auto 1fr auto;
-  grid-template-columns: ${({ theme }) => theme.sizes.s0} 1fr 1fr ${({
+  grid-template-columns: minmax(${({ theme }) => theme.sizes.s0}, 2fr) 3fr 3fr minmax(${({
       theme,
-    }) => theme.sizes.s0};
+    }) => theme.sizes.s0}, 2fr);
   grid-template-areas:
     'header header header header'
     'spacera main main spacerb'
@@ -31,7 +31,7 @@ const Container = styled.div`
     grid-template-columns: minmax(
         ${({ theme }) => theme.sizes.s0},
         1fr
-      ) 8fr 60rem 8fr;
+      ) 8fr 55rem 8fr;
     grid-template-areas:
       'spacera header main spacerb'
       'footer footer footer footer';
