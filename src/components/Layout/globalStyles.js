@@ -1,6 +1,6 @@
 import { createGlobalStyle, css } from 'styled-components'
 
-import { RATIO } from '../../utils/theme'
+import { RATIO } from '../../utils'
 
 import './code.css'
 
@@ -110,7 +110,7 @@ const reset = css`
   }
 `
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   ${reset}
 
   html {
@@ -234,7 +234,7 @@ const GlobalStyle = createGlobalStyle`
 
   .footnotes * {
     font-family: ${({theme}) => theme.fonts.sans};
-    font-size: ${(props) => props.theme.fontSizes['s0']};
+    font-size: ${(props) => props.theme.fontSizes.s0};
   }
 
   blockquote {
@@ -256,5 +256,3 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 `
-
-export { GlobalStyle }

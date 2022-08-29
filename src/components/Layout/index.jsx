@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { MDXProvider } from '@mdx-js/react'
-import { theme } from '../../utils'
+import { theme, HEADER_SWITCH_SIZE } from '../../utils'
 import {
   Footnote,
   FootnoteStack,
@@ -9,9 +9,8 @@ import {
 } from '..'
 import { GlobalStyle } from './globalStyles'
 import { Header } from './Header'
-import { HEADER_SWITCH_SIZE } from './constants'
-import Meta from './Meta'
-import Footer from './Footer'
+import { Meta } from './Meta'
+import { Footer } from './Footer'
 
 const Container = styled.div`
   display: grid;

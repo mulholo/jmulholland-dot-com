@@ -5,7 +5,7 @@ import { graphql, StaticQuery } from 'gatsby'
 // TODO import card
 // import card from '../assets/twitter-card.png'
 
-const SiteMetadata = ({ pathname }) => (
+export const Meta = ({ pathname }) => (
   <StaticQuery
     query={graphql`
       query SiteMetadata {
@@ -71,5 +71,3 @@ const SiteMetadata = ({ pathname }) => (
     )}
   />
 )
-
-export default SiteMetadata

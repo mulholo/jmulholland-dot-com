@@ -1,4 +1,4 @@
-export const RATIO = 1.618
+import { RATIO } from './constants'
 
 const genSize = (n) =>
   n === 0
@@ -12,7 +12,7 @@ const genRemSize = genSizeUnit('rem')
 
 const genFontSize = (n) => `calc(${genRemSize(n)} + 0.05vw)` // slight dynamic font-sizing
 
-export default {
+export const theme = {
   // 100 is darkest
   // 500 is default
   // 900 is lightest
