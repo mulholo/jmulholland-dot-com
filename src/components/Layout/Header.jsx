@@ -106,7 +106,6 @@ const MenuContent = () => (
         </MenuListItem>
       </MenuListItem>
     </MenuList>
-
   </>
 )
 
@@ -121,16 +120,17 @@ const DesktopHeader = ({ className }) => (
 
 const MobileHeaderTopRow = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 `
 
-const Burger = styled.button`
+const BurgerButton = styled.button`
   border: none;
   background: none;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  margin-left: auto;
 `
 
 const MobileHeader = () => {
@@ -147,9 +147,9 @@ const MobileHeader = () => {
         <HeaderLink to='/'>
           <MobileTitle>James Mulholland</MobileTitle>
         </HeaderLink>
-        <Burger ariaLabel='Toggle menu open' onClick={toggleOpen}>
+        <BurgerButton ariaLabel='Toggle menu open' onClick={toggleOpen}>
           {open ? <CloseIcon /> : <BurgerIcon />}
-        </Burger>
+        </BurgerButton>
       </MobileHeaderTopRow>
       {open && <MenuContent />}
     </MobileHeaderContainer>

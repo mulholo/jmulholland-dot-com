@@ -3,7 +3,6 @@ export { default as Button } from './Button'
 export { default as Concept } from './Concept'
 export { default as Detail } from './Detail'
 export { Cluster } from './Cluster'
-export { Disclosure } from './Disclosure'
 export { Footnote, FootnoteStack, FootnoteParagraphWrapper } from "./Footnote"
 export { default as Grid } from './Grid'
 export { default as Input } from './Input'
