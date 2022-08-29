@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { MDXProvider } from '@mdx-js/react'
 import { theme, HEADER_SWITCH_SIZE } from '../../utils'
-import { Footnote, FootnoteStack, FootnoteParagraphWrapper } from '..'
+import { Footnote, FootnoteStack, FootnoteN, FootnoteParagraphWrapper } from '..'
 import { GlobalStyle } from './globalStyles'
 import { Header } from './Header'
 import { Meta } from './Meta'
@@ -47,6 +47,7 @@ const Content = styled.div`
 // Make these components available globally in .mdx files
 const SHORT_CODES = {
   Footnote,
+  FootnoteN,
   FootnoteStack,
   FootnoteParagraphWrapper,
 }
