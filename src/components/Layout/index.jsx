@@ -2,11 +2,7 @@ import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { MDXProvider } from '@mdx-js/react'
 import { theme, HEADER_SWITCH_SIZE } from '../../utils'
-import {
-  Footnote,
-  FootnoteStack,
-  FootnoteParagraphWrapper,
-} from '..'
+import { Footnote, FootnoteStack, FootnoteParagraphWrapper } from '..'
 import { GlobalStyle } from './globalStyles'
 import { Header } from './Header'
 import { Meta } from './Meta'
@@ -19,19 +15,16 @@ const Container = styled.div`
   font-size: ${({ theme }) => theme.fontSizes.s5};
 
   grid-auto-rows: auto 1fr auto;
-  grid-template-columns: minmax(${({ theme }) => theme.sizes.s0}, 2fr) 3fr 3fr minmax(${({
-      theme,
-    }) => theme.sizes.s0}, 2fr);
+  grid-template-columns: minmax(${({ theme }) => theme.sizes.s0}, auto) minmax(20rem, 40rem) minmax(${({ theme }) => theme.sizes.s0}, auto);
   grid-template-areas:
-    'header header header header'
-    'spacera main main spacerb'
-    'footer footer footer footer';
+    'header header header'
+    'spacera main spacerb'
+    'footer footer footer';
 
   @media (min-width: ${HEADER_SWITCH_SIZE}) {
-    grid-template-columns: minmax(
-        ${({ theme }) => theme.sizes.s0},
-        1fr
-      ) 8fr 55rem 8fr;
+    grid-template-columns:
+      minmax(${({ theme }) => theme.sizes.s0}, 1fr)
+      8fr 62rem 8fr;
     grid-template-areas:
       'spacera header main spacerb'
       'footer footer footer footer';
