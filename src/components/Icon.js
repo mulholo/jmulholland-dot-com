@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const BurgerIcon = () => (
+export const Burger = () => (
   <svg width='24' height='24' fill='none' viewBox='0 0 24 24'>
     <path
       stroke='currentColor'
@@ -26,7 +26,7 @@ export const BurgerIcon = () => (
   </svg>
 )
 
-export const CloseIcon = () => (
+export const Close = () => (
   <svg width='24' height='24' fill='none' viewBox='0 0 24 24'>
     <path
       stroke='currentColor'

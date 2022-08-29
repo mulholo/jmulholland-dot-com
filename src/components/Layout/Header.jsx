@@ -6,7 +6,7 @@ import {
   YOUTUBE_LINK,
   HEADER_SWITCH_SIZE,
 } from '../../utils'
-import { BurgerIcon, CloseIcon } from '../icons'
+import { Icon } from '..'
 
 const Container = styled.div`
   grid-area: header;
@@ -154,7 +154,7 @@ const MobileHeader = () => {
           ariaLabel='Toggle menu open'
           onClick={toggleOpen}
         >
-          {open ? <CloseIcon /> : <BurgerIcon />}
+          {open ? <Icon.Close /> : <Icon.Burger />}
         </BurgerButton>
       </MobileHeaderTopRow>
       {open && <MenuContent />}
