@@ -4,10 +4,12 @@ lastUpdated: '2022-02-01'
 tags: ['Cloud Spanner', 'SQL', 'Databases']
 ---
 
-Regular indexed keys and the [`STORING` clause](https://cloud.google.com/spanner/docs/secondary-indexes#storing-clause)
+Regular indexed keys and the
+[`STORING` clause](https://cloud.google.com/spanner/docs/secondary-indexes#storing-clause)
 serve very similar purposes in Google Cloud Spanner.
 
-For example, let's consider this table which describes completable tasks.
+For example, let's consider this table which describes completable
+tasks.
 
 ```sql
 CREATE TABLE tasks
@@ -19,8 +21,9 @@ CREATE TABLE tasks
   completed_at TIMESTAMP,
 ```
 
-Let's imagine we want to show the current user all their tasks for a given priority. One way we
-can speed up this query is by creating the following index.
+Let's imagine we want to show the current user all their tasks for a
+given priority. One way we can speed up this query is by creating the
+following index.
 
 ```sql
 CREATE INDEX
@@ -33,7 +36,8 @@ ON
   )
 ```
 
-Alternatively, we could have `priority` in a `STORING` clause instead of in the index keys.
+Alternatively, we could have `priority` in a `STORING` clause instead
+of in the index keys.
 
 ```sql
 CREATE INDEX
@@ -47,37 +51,48 @@ ON
   )
 ```
 
-The advantage of adding `STORING` over an index with just the other two keys is that it removes the
-need to join on the base `tasks` table which makes the query cheaper as `priority` is colocated with
-the index. If we did not store `priority`, Spanner would have to look at the values in our index then
-go to the base `tasks` table to look up the `priority` value.
+The advantage of adding `STORING` over an index with just the other
+two keys is that it removes the need to join on the base `tasks` table
+which makes the query cheaper as `priority` is colocated with the
+index. If we did not store `priority`, Spanner would have to look at
+the values in our index then go to the base `tasks` table to look up
+the `priority` value.
 
-But adding `priority` to the indexed keys would also avoid having to look up the value in the base
-table. Let's imagine our app limits the user to three active (`compelted_at IS NOT NULL`) HIGH
-priority tasks and five active MEDIUM priority tasks (focus is important). This means that when we
-create a new task, we need to first do a read inside a read-write transaction to avoid a task being
-created which exceeds the task limit, then do our write to create the task. What is the difference
-between using indexed keys and `STORING` if we create one HIGH priority task then one MEDIUM priority
-task?
+But adding `priority` to the indexed keys would also avoid having to
+look up the value in the base table. Let's imagine our app limits the
+user to three active (`compelted_at IS NOT NULL`) HIGH priority tasks
+and five active MEDIUM priority tasks (focus is important). This means
+that when we create a new task, we need to first do a read inside a
+read-write transaction to avoid a task being created which exceeds the
+task limit, then do our write to create the task. What is the
+difference between using indexed keys and `STORING` if we create one
+HIGH priority task then one MEDIUM priority task?
 
-If `STORING` is used and we create a new HIGH priority task, the transaction will lock all rows
-matching the specified `created_by_user_id` and `completed_at` values. i.e. All user task creation
-will be locked, regardless of priority. This means that the subsequent MEDIUM priority task creation
-will be blocked.
+If `STORING` is used and we create a new HIGH priority task, the
+transaction will lock all rows matching the specified
+`created_by_user_id` and `completed_at` values. i.e. All user task
+creation will be locked, regardless of priority. This means that the
+subsequent MEDIUM priority task creation will be blocked.
 
-If `priority` is an indexed key, on the other hand, the transaction will only lock rows which match
-the queried `priority`. Consequently, the MEDIUM priority task creation will not be blocked.
+If `priority` is an indexed key, on the other hand, the transaction
+will only lock rows which match the queried `priority`. Consequently,
+the MEDIUM priority task creation will not be blocked.
 
-This is a trivial example where the blocking is minimal. However, with larger amounts of data, this
-difference can cause serious performance issues.
+This is a trivial example where the blocking is minimal. However, with
+larger amounts of data, this difference can cause serious performance
+issues.
 
-Also note that [read-only transactions do not acquire locks](https://cloud.google.com/spanner/docs/introspection/lock-statistics)
+Also note that
+[read-only transactions do not acquire locks](https://cloud.google.com/spanner/docs/introspection/lock-statistics)
 so this difference only applies to read-write transactions.
 
 ## Open Questions
 
-- `STORING` comes at the cost of extra storage space vs not using `STORING`. However, this is also true
-of additional index keys. What is the difference in cost here?
+- `STORING` comes at the cost of extra storage space vs not using
+  `STORING`. However, this is also true of additional index keys. What
+  is the difference in cost here?
 - How can we illustrate this with the query planner?
-- Why don't we always use indexed keys if they come with reduced locking costs?
-- How does `INTERLEAVE` fit in here? Like `STORING`, it is an approach to reduce join costs.
+- Why don't we always use indexed keys if they come with reduced
+  locking costs?
+- How does `INTERLEAVE` fit in here? Like `STORING`, it is an approach
+  to reduce join costs.

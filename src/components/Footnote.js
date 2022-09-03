@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { RATIO } from '../utils'
+import { RATIO, HEADER_SWITCH_SIZE } from '../utils'
 
 const FootnoteContainer = styled.aside`
   position: relative;
@@ -35,24 +35,42 @@ export const FootnoteStack = styled.div`
   &&& {
     margin: 0 0 0 ${({ theme }) => theme.sizes.s3};
     position: absolute;
-    right: 0;
     top: 5px;
-    left: ${(1 / RATIO) * 100}%;
 
     font-family: ${({ theme }) => theme.fonts.sans};
     font-size: ${({ theme }) => theme.fontSizes['s-1']};
     line-height: ${RATIO};
     color: ${({ theme }) => theme.colors.n400};
+
+    left: calc(100% + ${({ theme }) => theme.sizes.s0});
+    right: -20rem;
+
+    @media (min-width: ${HEADER_SWITCH_SIZE}) {
+      left: ${(1 / RATIO) * 100}%;
+      right: 0;
+    }
   }
 `
 
 export const FootnoteParagraphWrapper = styled.div`
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  margin-right: 0;
+  && {
+    position: relative;
 
-  & > *:not(${FootnoteStack}) {
-    margin-right: ${(1 - 1 / RATIO) * 100}%;
+    overflow-y: initial;
+    overflow-x: initial;
+
+    & > *:not(${FootnoteStack}) {
+      margin-right: 0;
+    }
+
+    @media (min-width: ${HEADER_SWITCH_SIZE}) {
+      overflow: scroll;
+      width: 100%;
+
+      & > *:not(${FootnoteStack}) {
+        margin-right: ${(1 - 1 / RATIO) * 100}%;
+        max-width: 100%;
+      }
+    }
   }
 `

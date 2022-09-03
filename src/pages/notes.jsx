@@ -212,7 +212,7 @@ const NoteRow = ({
             margin-top: ${({ theme }) => theme.sizes['s-2']};
           }
 
-          @media (min-width: ${780/ 16}em) {
+          @media (min-width: ${780 / 16}em) {
             flex-direction: row;
             & > *:last-child {
               margin-left: auto;
@@ -224,7 +224,7 @@ const NoteRow = ({
         <h4
           css={`
             font-size: ${({ theme }) => theme.fontSizes.s0};
-            @media (min-width: ${780/ 16}em) {
+            @media (min-width: ${780 / 16}em) {
               font-size: ${({ theme }) => theme.fontSizes.s1};
             }
           `}
@@ -234,7 +234,7 @@ const NoteRow = ({
         <p
           css={`
             font-size: ${({ theme }) => theme.fontSizes['s-1']};
-            @media (min-width: ${780/ 16}em) {
+            @media (min-width: ${780 / 16}em) {
               font-size: ${({ theme }) => theme.fontSizes.s0};
             }
           `}

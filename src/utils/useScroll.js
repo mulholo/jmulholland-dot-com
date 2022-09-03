@@ -15,7 +15,9 @@ export function useScroll() {
     return (winScroll / height) * 100
   }
 
-  const [pctComplete, setPctComplete] = React.useState(calcPctComplete())
+  const [pctComplete, setPctComplete] = React.useState(
+    calcPctComplete()
+  )
 
   React.useEffect(() => {
     const listener = debounce(
