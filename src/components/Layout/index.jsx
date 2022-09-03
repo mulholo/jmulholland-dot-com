@@ -1,8 +1,14 @@
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { MDXProvider } from '@mdx-js/react'
+import { Link } from 'gatsby'
 import { theme, HEADER_SWITCH_SIZE } from '../../utils'
-import { Footnote, FootnoteStack, FootnoteN, FootnoteParagraphWrapper } from '..'
+import {
+  Footnote,
+  FootnoteStack,
+  FootnoteN,
+  FootnoteParagraphWrapper,
+} from '..'
 import { GlobalStyle } from './globalStyles'
 import { Header } from './Header'
 import { Meta } from './Meta'
@@ -13,9 +19,16 @@ const Container = styled.div`
   position: relative;
   flex: 1;
   font-size: ${({ theme }) => theme.fontSizes.s5};
+  overflow-x: clip;
 
   grid-auto-rows: auto 1fr auto;
-  grid-template-columns: minmax(${({ theme }) => theme.sizes.s0}, auto) minmax(20rem, 40rem) minmax(${({ theme }) => theme.sizes.s0}, auto);
+  grid-template-columns: minmax(
+      ${({ theme }) => theme.sizes.s0},
+      auto
+    ) minmax(20rem, 40rem) minmax(
+      ${({ theme }) => theme.sizes.s0},
+      auto
+    );
   grid-template-areas:
     'header header header'
     'spacera main spacerb'
@@ -50,6 +63,7 @@ const SHORT_CODES = {
   FootnoteN,
   FootnoteStack,
   FootnoteParagraphWrapper,
+  Link,
 }
 
 export const Layout = ({ children, pathname }) => (

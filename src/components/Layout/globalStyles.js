@@ -233,7 +233,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .footnotes * {
-    font-family: ${({theme}) => theme.fonts.sans};
+    font-family: ${({ theme }) => theme.fonts.sans};
     font-size: ${(props) => props.theme.fontSizes.s0};
   }
 

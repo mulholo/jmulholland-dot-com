@@ -10,7 +10,8 @@ code[class*='language-'],
 pre[class*='language-'] {
   color: hsl(207, 84%, 24%);
   background: none;
-  font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace; /* system */
+  font-family: Menlo, Consolas, Monaco, Liberation Mono,
+    Lucida Console, monospace; /* system */
   text-align: left;
   white-space: pre;
   word-spacing: normal;
