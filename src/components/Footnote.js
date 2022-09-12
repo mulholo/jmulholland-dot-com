@@ -55,21 +55,14 @@ export const FootnoteStack = styled.div`
 export const FootnoteParagraphWrapper = styled.div`
   && {
     position: relative;
-
     overflow-y: initial;
     overflow-x: initial;
 
-    & > *:not(${FootnoteStack}) {
-      margin-right: 0;
-    }
-
     @media (min-width: ${HEADER_SWITCH_SIZE}) {
-      overflow: scroll;
       width: 100%;
 
       & > *:not(${FootnoteStack}) {
         margin-right: ${(1 - 1 / RATIO) * 100}%;
-        max-width: 100%;
       }
     }
   }
