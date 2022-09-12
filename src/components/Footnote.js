@@ -33,7 +33,7 @@ export const Footnote = ({ children, n }) => (
 
 export const FootnoteStack = styled.div`
   &&& {
-    margin: 0 0 0 ${({ theme }) => theme.sizes.s3};
+    margin: 0 0 0 ${({ theme }) => theme.sizes.s1};
     position: absolute;
     top: 5px;
 

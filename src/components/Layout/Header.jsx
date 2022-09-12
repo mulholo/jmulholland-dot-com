@@ -11,6 +11,7 @@ import { Icon } from '..'
 const Container = styled.div`
   grid-area: header;
   width: 100%;
+  max-width: 100vw;
 `
 
 const DesktopHeaderContainer = styled.header`
