@@ -23,10 +23,10 @@ const Container = styled.div`
 
   grid-auto-rows: auto 1fr auto;
   grid-template-columns: minmax(
-      ${({ theme }) => theme.sizes.s0},
+      ${({ theme }) => theme.sizes.s2},
       auto
     ) minmax(20rem, 40rem) minmax(
-      ${({ theme }) => theme.sizes.s0},
+      ${({ theme }) => theme.sizes.s3},
       auto
     );
   grid-template-areas:
