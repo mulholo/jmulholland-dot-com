@@ -30,11 +30,11 @@ const WrapperLink = styled(Link)(
     &:focus ${Box}, &:hover ${Box} {
       /* prettier-ignore */
       box-shadow: inset 0px 0px 0px ${theme.sizes['s-1']} ${theme
-        .colors.b500};
+        .colors.r500};
     }
     &:focus h2,
     &:hover h2 {
-      color: ${theme.colors.b400};
+      color: ${theme.colors.r400};
     }
   `
 )

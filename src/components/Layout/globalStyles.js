@@ -134,13 +134,13 @@ export const GlobalStyle = createGlobalStyle`
   input:active,
   input:focus,
   button:focus {
-    outline: 2px solid ${({ theme }) => theme.colors.b500};
+    outline: 2px solid ${({ theme }) => theme.colors.r500};
   }
 
   a:active,
   a:focus {
     text-decoration: underline;
-    color: ${(props) => props.theme.colors.b500};
+    color: ${(props) => props.theme.colors.r500};
     outline: none;
   }
 
@@ -155,7 +155,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body *::selection {
-    background: ${(props) => props.theme.colors.b500};
+    background: ${(props) => props.theme.colors.r500};
     color: ${(props) => props.theme.colors.n900};
   }
 
@@ -216,11 +216,11 @@ export const GlobalStyle = createGlobalStyle`
   a {
     font-weight: 600;
     text-decoration: none;
-    color: ${(props) => props.theme.colors.b400};
+    color: ${(props) => props.theme.colors.r400};
   }
 
   a:hover {
-    color: ${(props) => props.theme.colors.b500};
+    color: ${(props) => props.theme.colors.r500};
   }
 
   // Override header link styles
@@ -241,7 +241,7 @@ export const GlobalStyle = createGlobalStyle`
     margin-left: 0;
     margin-right: 0;
     padding-left: ${(props) => props.theme.sizes.s0};
-    border-left: 2px solid ${(props) => props.theme.colors.b400};
+    border-left: 2px solid ${(props) => props.theme.colors.r400};
 
     p {
       font-style: italic;
