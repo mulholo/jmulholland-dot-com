@@ -120,7 +120,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
-        color: `hsl(208,60%,35%)`, // b400 from theme
+        color: `hsl(208,60%,35%)`, // r400 from theme
         showSpinner: false,
       },
     },

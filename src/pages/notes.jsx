@@ -142,7 +142,7 @@ const FilterButton = styled.button(
   min-width: ${theme.sizes.s3};
   text-transform: uppercase;
   font-weight: bold;
-  background: ${selected ? theme.colors.b500 : 'none'};
+  background: ${selected ? theme.colors.r500 : 'none'};
   color: ${selected ? theme.colors.n900 : 'inherit'};
   border: none;
   padding: ${theme.sizes.s0};
@@ -154,8 +154,8 @@ const FilterButton = styled.button(
   &:focus-visible {
     box-shadow: ${
       selected
-        ? `inset 0px 0px 0px 3px ${theme.colors.b300}`
-        : `inset 0px 0px 0px 3px ${theme.colors.b500}`
+        ? `inset 0px 0px 0px 3px ${theme.colors.r300}`
+        : `inset 0px 0px 0px 3px ${theme.colors.r500}`
     };
     border: none;
     outline: none;
@@ -193,11 +193,11 @@ const NoteRow = ({
       }
       &:focus ${Box}, &:hover ${Box} {
         box-shadow: inset 0px 0px 0px 8px
-          ${({ theme }) => theme.colors.b500};
+          ${({ theme }) => theme.colors.r500};
       }
       &:focus h4,
       &:hover h4 {
-        color: ${({ theme }) => theme.colors.b400};
+        color: ${({ theme }) => theme.colors.r400};
       }
     `}
   >
