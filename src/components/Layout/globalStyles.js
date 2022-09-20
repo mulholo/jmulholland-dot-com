@@ -155,8 +155,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body *::selection {
-    background: ${(props) => props.theme.colors.b500};
-    color: ${(props) => props.theme.colors.n900};
+    background: ${(props) => props.theme.colors.b900};
   }
 
   html, body, #___gatsby, #gatsby-focus-wrapper {
@@ -214,8 +213,7 @@ export const GlobalStyle = createGlobalStyle`
   } 
 
   a {
-    font-weight: 600;
-    text-decoration: none;
+    font-weight: 500;
     color: ${(props) => props.theme.colors.b400};
   }
 

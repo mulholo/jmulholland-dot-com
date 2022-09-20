@@ -72,6 +72,7 @@ const MenuListItem = styled.li`
 const HeaderLink = styled(Link)`
   font-weight: ${({ theme }) => theme.fontWeights.regular};
 
+  &,
   &:focus,
   &:active {
     text-decoration: none;
@@ -80,6 +81,12 @@ const HeaderLink = styled(Link)`
 
 const HeaderA = styled.a`
   font-weight: ${({ theme }) => theme.fontWeights.regular};
+
+  &,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
 `
 
 const MenuContent = () => (
