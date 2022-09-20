@@ -16,25 +16,31 @@ import { Concept } from '/src/components'
 - [x] Colors
 - [x] Links
 - [x] Heading side Links
-- [ ] Quote blocks
-- [ ] Code: inline
-- [ ] Code: block
+- [x] Quote blocks
+- [x] Code: inline
+- [x] Code: block
 - [x] Concept
-- [ ] Aside section
-- [ ] Description/intro
+- [x] Inline tweets
 - [ ] Section separator (style `hr` tag)
+- [ ] Refactor footnotes across site
 - [ ] Images
   - [ ] If going wider than the 40rem, adjust gatsby-plugin-mdx
         maxWdith in gatsby-config.js
-- [ ] Write about typography scale
 - [ ] Add bug report form
-- [ ] Inline tweets
-- [ ] nprogress bar (gatsby-config.js)
-- [ ] Config shortcode
-      https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/?=mdx#shortcodes
-- [ ] Spellchecking system
-- [ ] Remote editing
 - [ ] Twitter cards (see Meta)
+
+### Other site todos
+
+- [ ] Remote editing
+- [ ] Spellchecking system
+- [ ] Refactor to use shortcodes
+      https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/?=mdx#shortcodes
+
+### Write up
+
+- [ ] Better example content
+- [ ] Typography scale
+
 - [ ] Pages
   - Blog post
   - Page
@@ -45,6 +51,7 @@ import { Concept } from '/src/components'
 
 Future
 
+- [ ] Aside/callout sections
 - [ ] Hanging typogrpahy
 
 ## Features
@@ -77,6 +84,23 @@ ligula sed gravida hendrerit, odio purus semper velit, a iaculis augue
 mi id nulla. Ut placerat, dui eget rhoncus placerat, eros velit congue
 diam, eu ullamcorper magna eros a arcu. Nam id nisl odio. Suspendisse
 in dapibus odio, at ultrices nunc.
+
+### Inline Tweets
+
+<blockquote class='twitter-tweet' data-lang='en' data-dnt='true'>
+  <p lang='en' dir='ltr'>
+    🟦New essay: The Small Group🟦
+    <br />
+    <br />- How Benjamin Franklin, Virginia Woolf, Steve Jobs, J.R.R.
+    Tolkien and more all used Small Groups to be successful
+    <br />- How to go about making a new Small Group in 2020
+    <br />
+    <br />↓<a href='https://t.co/xtOen8Cj9d'>
+      https://t.co/xtOen8Cj9d
+    </a>
+  </p>
+  &mdash; James (@mulholo) <a href='https://twitter.com/mulholo/status/1259449311118725120?ref_src=twsrc%5Etfw'>May 10, 2020</a>
+</blockquote>
 
 ### Footnotes
 
@@ -212,7 +236,3 @@ component to achieve this. e.g. <Concept>Concept</Concept>.
 
 - Gwern
 - TODO
-
-[^2]:
-    Footnotes show up in the side on larger screens or in the footer
-    on smaller screens.
