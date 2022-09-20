@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const Tag = styled.button(
   ({ selected, theme }) => `
-  border: 4px solid ${theme.colors.r500};
-  background: ${selected ? theme.colors.r500 : 'transparent'};
+  border: 4px solid ${theme.colors.b500};
+  background: ${selected ? theme.colors.b500 : 'transparent'};
   color: ${selected ? theme.colors.n900 : 'inherit'};
   font-weight: bold;
   padding: ${theme.sizes.s0};
@@ -16,11 +16,11 @@ export const Tag = styled.button(
   &:focus-visible {
     box-shadow: ${
       selected
-        ? `inset 0px 0px 0px 3px ${theme.colors.r300}`
-        : `inset 0px 0px 0px 3px ${theme.colors.r500}`
+        ? `inset 0px 0px 0px 3px ${theme.colors.b300}`
+        : `inset 0px 0px 0px 3px ${theme.colors.b500}`
     };
     border: 4px solid ${
-      selected ? theme.colors.r300 : theme.colors.r500
+      selected ? theme.colors.b300 : theme.colors.b500
     };
     outline: none;
   }

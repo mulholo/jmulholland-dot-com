@@ -15,12 +15,12 @@ const N = styled.span`
   position: absolute;
   left: -${({ theme }) => theme.sizes.s0};
   top: 0;
-  color: ${({ theme }) => theme.colors.r400};
+  color: ${({ theme }) => theme.colors.b400};
   font-weight: ${({ theme }) => theme.fontWeights.semiBold};
 `
 
 const FootnoteNContainer = styled.sup`
-  color: ${({ theme }) => theme.colors.r400};
+  color: ${({ theme }) => theme.colors.b400};
   font-weight: ${({ theme }) => theme.fontWeights.semiBold};
   font-family: ${({ theme }) => theme.fonts.sans};
   font-size: ${({ theme }) => theme.fontSizes['s-1']};

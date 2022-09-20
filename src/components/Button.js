@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 const Button = styled.button(
   ({ theme }) => css`
-    background: ${theme.colors.r500};
+    background: ${theme.colors.b500};
     border: none;
     color: ${theme.colors.n900};
     cursor: pointer;
@@ -16,7 +16,7 @@ const Button = styled.button(
     &:focus,
     &:active {
       outline: none;
-      background: ${theme.colors.r300};
+      background: ${theme.colors.b300};
     }
   `
 )

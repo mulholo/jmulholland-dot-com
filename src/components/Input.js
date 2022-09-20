@@ -15,9 +15,9 @@ const Input = styled.input(
     &:active,
     &:focus {
       outline: none;
-      border: 1px solid ${theme.colors.r500};
+      border: 1px solid ${theme.colors.b500};
       box-shadow: inset 0px 0px 0px 3px
-        ${({ theme }) => theme.colors.r500};
+        ${({ theme }) => theme.colors.b500};
     }
   `
 )
