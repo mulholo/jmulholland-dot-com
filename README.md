@@ -97,3 +97,7 @@ When adding blockquotes, use an inline HTML footer to add a source.
 >
 > <footer>Hamlet</footer>
 ```
+
+### Make something full width in text column
+
+- Add `.full-width` class
