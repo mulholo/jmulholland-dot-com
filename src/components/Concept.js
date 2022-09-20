@@ -12,11 +12,11 @@ const Concept = styled.span(
     font-size: 0.9em;
 
     // Gradient effect
-    background-color: ${theme.colors.r400};
+    background-color: ${theme.colors.b400};
     background-image: linear-gradient(
       0.25turn,
-      ${theme.colors.r400},
-      ${theme.colors.r600}
+      ${theme.colors.b400},
+      ${theme.colors.b600}
     );
     background-size: 200% 200%;
     -webkit-background-clip: text;

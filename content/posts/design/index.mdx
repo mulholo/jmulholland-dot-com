@@ -12,7 +12,7 @@ import { Concept } from '/src/components'
   - [ ] Put fonts in `<link>` via helmet, only what I need
   - [ ] Headers
 - [x] Footnotes
-  - [ ] Footnote refinements
+  - [ ] Highly proximate footnotes
 - [ ] Links & colours
 - [ ] Heading side Links
 - [ ] Hanging typogrpahy
@@ -154,33 +154,6 @@ interface Foo {
 
 const foo: Foo = {
   bar: 'baz',
-}
-
-type Baz = Foo | never
-
-class Car extends Vehicle() {
-  public async beep(): Promise<string> {
-    return Promise.resolve('beep!')
-  }
-}
-
-/**
- * Demonstrates syntax highlighting
- */
-export async function someFunc() {
-  const url = 'https://jmulholland.com'
-  const x = url.length
-
-  const cond = true
-  if (cond) {
-    return x + 2
-  }
-
-  return x
-}
-
-for (const x of y) {
-  window.alert(x)
 }
 ```
 
