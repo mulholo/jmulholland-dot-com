@@ -8,7 +8,7 @@
 
 code[class*='language-'],
 pre[class*='language-'] {
-  color: hsl(207, 84%, 24%);
+  color: hsl(203,10%,22%);
   background: none;
   font-family: Menlo, Consolas, Monaco, Liberation Mono,
     Lucida Console, monospace; /* system */
@@ -34,8 +34,7 @@ pre[class*='language-'] {
 pre[class*='language-'] {
   position: relative;
   margin: 0.5em 0;
-  border-left: 10px solid hsl(206, 61%, 40%);
-  background-color: hsl(207, 72%, 99%);
+  /* border: 2px solid hsl(206, 61%, 40%); */
   overflow: visible;
   padding: 0;
 }
@@ -51,7 +50,8 @@ code[class*='language'] {
 /* Margin bottom to accommodate shadow */
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
-  background-color: hsl(207, 72%, 99%);
+  background: hsl(201, 14%, 94%);
+  padding: 1.618rem 0.618rem;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -63,6 +63,8 @@ pre[class*='language-'] {
   position: relative;
   padding: 0.2em;
   color: hsl(206, 61%, 40%);
+  background: hsl(201, 14%, 94%);
+  border-radius: 2px;
   font-size: 0.8rem;
   border: 1px solid hsl(201, 14%, 94%);
   display: inline;
@@ -88,63 +90,55 @@ pre[class*='language-']:after {
   left: auto;
 }
 
+
+.token.keyword {
+  color: hsl(207, 84%, 24%);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.property,
+.token.function-name,
+.token.constant,
+.token.class-name {
+  color: hsl(206, 61%, 40%);
+}
+
 .token.comment,
 .token.block-comment,
 .token.prolog,
 .token.doctype,
+.token.punctuation,
 .token.cdata {
   color: hsl(208, 1%, 53%);
 }
 
-.token.punctuation {
+.token.operator {
   color: hsl(049, 96%, 42%);
-}
-
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.function-name,
-.token.constant,
-.token.symbol,
-.token.deleted {
-  color: hsl(206, 61%, 40%);
 }
 
 .token.selector,
 .token.attr-name,
 .token.string,
 .token.char,
-.token.function,
 .token.builtin,
-.token.inserted {
-  color: hsl(206, 61%, 40%);
-}
-
-.token.operator,
+.token.inserted,
+.token.tag,
+.token.symbol,
 .token.entity,
 .token.url,
-.token.variable {
-  color: hsl(206, 61%, 40%);
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.token.atrule,
-.token.attr-value,
-.token.keyword,
-.token.class-name {
+.language-css .token.string,
+.style .token.string,
+.token.variable,
+.token.deleted {
   color: hsl(110, 97%, 20%);
 }
 
 .token.regex,
+.token.number,
 .token.important {
   color: hsl(008, 92%, 31%);
-}
-
-.language-css .token.string,
-.style .token.string {
-  color: hsl(206, 61%, 40%);
-  background: rgba(255, 255, 255, 0.5);
 }
 
 .token.important {
