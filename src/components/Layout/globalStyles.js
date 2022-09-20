@@ -170,7 +170,7 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 600;
   }
 
-  p, li, ul, ol, blockquote {
+  p, li, ul, ol {
     font-size: ${(props) => props.theme.fontSizes.s0};
     line-height: ${RATIO};
     color: ${(props) => props.theme.colors.n200};
@@ -238,11 +238,18 @@ export const GlobalStyle = createGlobalStyle`
   blockquote {
     margin-left: 0;
     margin-right: 0;
-    padding-left: ${(props) => props.theme.sizes.s0};
-    border-left: 2px solid ${(props) => props.theme.colors.b400};
+
+    padding: ${(props) => props.theme.sizes.s1} ${(props) => props.theme.sizes.s1};
+    border-top: 2px solid ${(props) => props.theme.colors.b400};
+    border-bottom: 2px solid ${(props) => props.theme.colors.b400};
+    border-radius: 2px;
+
+    color: ${(props) => props.theme.colors.n200};
 
     p {
       font-style: italic;
+      font-size: ${(props) => props.theme.fontSizes.s1};
+      line-height: ${RATIO};
     }
   }
   // Source styling
@@ -252,5 +259,6 @@ export const GlobalStyle = createGlobalStyle`
   blockquote > footer {
     margin-top: 0;
     font-style: normal;
+    font-size: ${(props) => props.theme.fontSizes.s0};
   }
 `
