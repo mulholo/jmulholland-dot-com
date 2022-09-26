@@ -24,7 +24,7 @@ export const TextContainer = styled(Stack)(
 
     ${recursive
       ? css`
-          & * + * {
+          & * + *:not(button) {
             margin-top: 1.618em;
           }
 
@@ -55,7 +55,7 @@ export const TextContainer = styled(Stack)(
         `
       : // Copy and paste the above but add child selector
         css`
-          & > * + * {
+          & > * + *:not(button) {
             margin-top: 1.618em;
           }
 
