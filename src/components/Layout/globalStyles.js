@@ -212,6 +212,11 @@ export const GlobalStyle = createGlobalStyle`
     text-align: center;
   } 
 
+  hr {
+    border: 1px solid ${({theme}) => theme.colors.n700};
+    width: 100%;
+  }
+
   a {
     font-weight: 500;
     color: ${(props) => props.theme.colors.b400};
