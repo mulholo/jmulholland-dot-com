@@ -38,17 +38,36 @@ export const publicFn = () => // ...
 Of course, without static analysis to assist here, this is merely a
 hint to developers not to use the underscore-marked values.
 
-However, if you're working in TypeScript you can use a compiler to
-leverage the
-[built-in support](https://www.typescriptlang.org/docs/handbook/classes.html#public-private-and-protected-modifiers)
-for `public` and `private` class members.[^1] Marking a field or a
-method on a class as `private` means that that it won't be accessible
-when that class is used i.e. `private` methods can only be called
-inside that particularly class. This is an effective way of cleaning
-up your API boundaries. However, this approach is also fairly limited
-as it only applies to classes. It should also be noted that, even if
-your library is written in TypeScript, any JavaScript calling the
-library will still have access to the private properties.
+<FootnoteParagraphWrapper>
+  <p>
+    However, if you're working in TypeScript you can use a compiler to
+    leverage the{' '}
+    <a href='https://www.typescriptlang.org/docs/handbook/classes.html#public-private-and-protected-modifiers'>
+      built-in support
+    </a>{' '}
+    for <code class='language-text'>public</code> and{' '}
+    <code class='language-text'>private</code> class members.
+    <FootnoteN>1</FootnoteN> Marking a field or a method on a class as
+    `private` means that that it won't be accessible when that class is
+    used i.e. <code class='language-text'>private</code> methods can only
+    be called inside that particularly class. This is an effective way
+    of cleaning up your API boundaries. However, this approach is also
+    fairly limited as it only applies to classes. It should also be noted
+    that, even if your library is written in TypeScript, any JavaScript
+    calling the library will still have access to the private properties.
+  </p>
+  <FootnoteStack>
+    <Footnote n={1}>
+      There is also a JavaScript proposal for `#` prefixes to make
+      class members as private which is also supported in the
+      TypeScript. See{' '}
+      <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields'>
+        MDN page here
+      </a>
+      .
+    </Footnote>
+  </FootnoteStack>
+</FootnoteParagraphWrapper>
 
 ## 2. Linting with [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import)
 
@@ -277,11 +296,21 @@ multiple packages in a monorepo:
 [Yarn Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) and
 [Lerna](https://lerna.js.org/).
 
-Yarn Workspaces is the simplest of the two approaches.[^2] Its main
-job is to ensure that the dependencies for each of your separate
-sub-packages are synchronised and optimised. However, Yarn Workspaces
-by themselves do make synchronisation over the various sub-modules
-difficult.
+<FootnoteParagraphWrapper>
+  <p>
+    Yarn Workspaces is the simplest of the two approaches.
+    <FootnoteN>2</FootnoteN> Its main job is to ensure that the
+    dependencies for each of your separate sub-packages are
+    synchronised and optimised. However, Yarn Workspaces by themselves
+    do make synchronisation over the various sub-modules difficult.
+  </p>
+  <FootnoteStack>
+    <Footnote n={2}>
+      In fact, if working with Yarn and not NPM, Lerna uses Workspaces
+      under the hood.
+    </Footnote>
+  </FootnoteStack>
+</FootnoteParagraphWrapper>
 
 This is where the next tool, Lerna, comes in. Lerna provides extra
 power to coordinate packages across monorepos. For example, the
@@ -320,12 +349,3 @@ more and more of this architecture work starts to get automated
 something I'm keeping my eye on). If there's a favourite tool of yours
 that you're excited about, email me or
 [send me a DM](https://twitter.com/mulholio) and let me know.
-
-[^1]:
-    There is also a JavaScript proposal for `#` prefixes to make class
-    members as private which is also supported in the TypeScript. See
-    [MDN page here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields).
-
-[^2]:
-    In fact, if working with Yarn and not NPM, Lerna uses Workspaces
-    under the hood.

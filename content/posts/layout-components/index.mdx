@@ -71,10 +71,28 @@ builder.
 
 ## A Simple Example: The Stack
 
-One of the simplest ways to illustrate the <Concept>Layout
-Component</Concept> is with the `<Stack />`.[^1] The `<Stack/>` has
-one job: take an array of children and arrange them next to one
-another.
+<FootnoteParagraphWrapper>
+  <p>
+    One of the simplest ways to illustrate the{' '}
+    <Concept>Layout Component</Concept> is with the{' '}
+    <code class='language-text'>{'<Stack />'}</code>.
+    <FootnoteN>1</FootnoteN> The{' '}
+    <code class='language-text'>{'<Stack />'}</code> has one job: take
+    an array of children and arrange them next to one another.
+  </p>
+  <FootnoteStack>
+    <Footnote n={1}>
+      SwiftUI has my favourite implementation of the Stack. It can
+      also be found within{' '}
+      <a href='https://polaris.shopify.com/components/structure/stack#navigation'>
+        Polaris
+      </a>
+      , <a href='https://every-layout.dev/'>Every Layout</a> and <Link to='/figma-auto-layout'>
+        Figma auto-layout
+      </Link>.
+    </Footnote>
+  </FootnoteStack>
+</FootnoteParagraphWrapper>
 
 ```jsx
 <Stack>
@@ -127,13 +145,23 @@ some initially counter-intuitive approaches to developing UI.
 
 ### Padding Over Margin
 
-First, it will soon be noted that applying margin directly to child
-components is usually an anti-pattern in the world of the Layout
-Component. Margin applies spacing from the children in your layout
-whereas padding applies spacing from the parent (the Layout
-Component). Since which children are used is specific to the situation
-but layout components are generic, using margin is an ad hoc solution.
-[^2]
+<FootnoteParagraphWrapper>
+  <p>
+    First, it will soon be noted that applying margin directly to
+    child components is usually an anti-pattern in the world of the
+    Layout Component. Margin applies spacing from the children in your
+    layout whereas padding applies spacing from the parent (the Layout
+    Component). Since which children are used is specific to the
+    situation but layout components are generic, using margin is an ad
+    hoc solution.<FootnoteN>2</FootnoteN>
+  </p>
+  <FootnoteStack>
+    <Footnote n={2}>
+      Max Stoiber has further thoughts on this topic of no margin{' '}
+      <a href='https://mxstbr.com/thoughts/margin'>here</a>.
+    </Footnote>
+  </FootnoteStack>
+</FootnoteParagraphWrapper>
 
 The exception here is when you apply margin from the parent and treat
 it like padding. The
@@ -151,13 +179,34 @@ series for more on this).
 
 ### Generic Over Custom
 
-The third paradigm shift in the transition to <Concept>Layout
-Component</Concept> CSS is that you should find yourself writing very
-little custom CSS. If you do find yourself writing one-off CSS,
-perhaps it is time to see if you can come up with a more reusable
-solution.[^3]
+<FootnoteParagraphWrapper>
+  <p>
+    The third paradigm shift in the transition to{' '}
+    <Concept>Layout Component</Concept> CSS is that you should find
+    yourself writing very little custom CSS. If you do find yourself
+    writing one-off CSS, perhaps it is time to see if you can come up
+    with a more reusable solution.<FootnoteN>3</FootnoteN>
+  </p>
+  <FootnoteStack>
+    <Footnote n={3}>
+      Counterintuitively, I've found the best way to encourage correct
+      abstraction into parameterised layout components is to write
+      inline styles (
+      <a href='https://twitter.com/buildsghost/status/1251218278434791424?s=20'>
+        thanks to this thread from Jamie Kyle
+      </a>
+      ) . Markup-muddying inline styling screams in your face that you
+      need to be doing some refactoring and is an excellent incentive to
+      move more CSS into your design system.
+    </Footnote>
+  </FootnoteStack>
+</FootnoteParagraphWrapper>
 
 ---
+
+The ideal of the <Concept>Layout Component</Concept> is to have all
+your UI pre-made, and as easy to construct as Lego. Of course, this is
+an **ideal**, not a reality, but it is a good one to strive for.
 
 <blockquote class='twitter-tweet'>
   <p lang='en' dir='ltr'>
@@ -166,32 +215,9 @@ solution.[^3]
   &mdash; Guillermo Rauch (@rauchg) <a href='https://twitter.com/rauchg/status/1068183829737664512?ref_src=twsrc%5Etfw'>November 29, 2018</a>
 </blockquote>
 
-The ideal of the <Concept>Layout Component</Concept> is to have all
-your UI pre-made, and as easy to construct as Lego. Of course, this is
-an **ideal**, not a reality, but it is a good one to strive for.
-
 ---
 
 ## Series links
 
 - Part 2: Style Props - _Coming soon_
 - Part 3: Intrinsic Styling - _Coming soon_
-
-[^1]:
-    SwiftUI has my favourite implementation of the Stack. It can also
-    be found within
-    [Polaris](https://polaris.shopify.com/components/structure/stack#navigation),
-    [Every Layout](https://every-layout.dev/) and Figma (auto-layout).
-
-[^2]:
-    Max Stoiber has further thoughts on this topic of no margin
-    [here](https://mxstbr.com/thoughts/margin).
-
-[^3]:
-    Counterintuitively, I've found the best way to encourage correct
-    abstraction into parameterised layout components is to write
-    inline styles (thanks to
-    [this thread](https://twitter.com/buildsghost/status/1251218278434791424?s=20)
-    from Jamie Kyle). Markup-muddying inline styling screams in your
-    face that you need to be doing some refactoring and is an
-    excellent incentive to move more CSS into your design system.
