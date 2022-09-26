@@ -17,7 +17,7 @@ export const TextContainer = styled(Stack)(
     }
 
     @media (min-width: ${HEADER_SWITCH_SIZE}) {
-      & > *:not(.full-width):not(blockquote) {
+      & > *:not(.full-width):not(blockquote):not(hr) {
         margin-right: ${(1 - 1 / RATIO) * 100}%;
       }
     }
