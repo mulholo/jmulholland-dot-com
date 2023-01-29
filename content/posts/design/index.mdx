@@ -5,23 +5,17 @@ date: '2022-08-07'
 
 import { Concept } from '/src/components'
 
+_This is a meta-page on the design of this website. It contains
+details on typography, layout and design, and showcases
+[jmulholland.com](/)'s interesting and novel features. This page is
+also personally useful to me as I test, tweak and refine the details
+below._
+
+_All code for this website is open source, and you are welcome to
+[view it on GitHub](https://github.com/mulholo/jmulholland-dot-com)._
+
+```
 ### Todo
-
-- [ ] Typography
-  - [ ] Put fonts in `<link>` via helmet, only what I need
-  - [ ] Headers
-
-### Other site todos
-
-- [ ] Remote editing
-- [ ] Spellchecking system
-- [ ] Refactor to use shortcodes
-      https://www.gatsbyjs.com/plugins/gatsby-plugin-mdx/?=mdx#shortcodes
-
-### Write up
-
-- [ ] Better example content
-- [ ] Typography scale
 
 - [ ] Pages
   - Blog post
@@ -30,55 +24,83 @@ import { Concept } from '/src/components'
   - /blog
   - /notes
   - Home
+```
 
-Future
+---
 
-- [ ] Twitter cards
-- [ ] Aside/callout sections
-- [ ] Hanging typogrpahy
+## Typography
 
-## Features
+### Typefaces
 
-### Considered Typography
+Body text is styled in a stack of `Charter, Georgia, serif`. I wanted
+a serif typeface for readability, and chose this selection to utilise
+pre-installed system fonts and avoid additional network requests.
 
-#### Fonts
-
-Paragraphs are styled in a stack of 'Charter, Georgia, serif'. I
-wanted a serif font for readability, and chose this list to utilise
-pre-installed system fonts to avoid additional network requests.
+I also use a system font stack for my monospaced fonts:
+`Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace`.
 
 Elsewhere, predominantly for headings, I use
 [Inter](https://rsms.me/inter/). It is similar to Helvetica in its
 clean, classic feel, but works much better in digital formats.
 
-abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz
+### Scale
 
-# Heading 1
+Font sizes (as well as many other dimensions of the site) are
+determined by a programmatically generated scale using the
+[golden ratio](https://en.wikipedia.org/wiki/Golden_ratio).
 
-## Heading 2
+This approach keeps sizing consistent across the size, and provides a
+pleasant visual hierarchy.
 
-### Heading 3
+They also incorporate a slight size change based upon the viewport
+width so that text expands on bigger screens and shrinks on smaller
+ones.
 
-There are no Heading 4s.
+### Measure
 
-Headings also contain links that appear on hover. This is useful for
+The width of text columns (also known as the measure) is set using the
+rule of thumb that it should be approximately 2-3 alphabets in length.
+
+abcdefghijklmnopqrstuvwxyz|abcdefghijklmnopqrstuvwxyz|abcdefghijklmnopqrstuvwxyz
+
+This provides a good balance between making your eyes lose their place
+when jumping through long lines and breaking up text too much with
+short lines.
+
+### Bullet Points
+
+- Specific bullet point styling has been taken into account. You'll
+  notice that it works well with longer, multi-line bullet points like
+  this one...
+- ...and also short ones such as this.
+
+### Numbered Lists
+
+1. Numbered lists can also be added.
+2. They look like this.
+
+### Quotes
+
+Large display quotes can be added like so:
+
+> "Perfection is achieved, not when there is nothing more to add, but
+> when there is nothing left to take away."
+>
+> <footer>Antoine de Saint-Exupéry, Airman's Odyssey</footer>
+
+### Body Links
+
+Of course, body text would not be complete without good link styling.
+They [look like this](/design).
+
+## Heading Links
+
+Headings contain links that appear on hover. This is useful for
 sharing links to particular sections of text.
 
-### Links
+## Inline Tweets
 
-I can put links in text like this.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tortor
-urna, efficitur venenatis ante rutrum, suscipit commodo lectus.
-Praesent [aliquam nisi](/design) vitae erat tempus blandit. Ut
-lobortis facilisis orci faucibus condimentum. Proin sit amet risus
-efficitur, pellentesque neque a, malesuada mauris. Nulla gravida,
-ligula sed gravida hendrerit, odio purus semper velit, a iaculis augue
-mi id nulla. Ut placerat, dui eget rhoncus placerat, eros velit congue
-diam, eu ullamcorper magna eros a arcu. Nam id nisl odio. Suspendisse
-in dapibus odio, at ultrices nunc.
-
-### Inline Tweets
+Tweets can be displayed inline.
 
 <blockquote class='twitter-tweet' data-lang='en' data-dnt='true'>
   <p lang='en' dir='ltr'>
@@ -95,14 +117,16 @@ in dapibus odio, at ultrices nunc.
   &mdash; James (@mulholo) <a href='https://twitter.com/mulholo/status/1259449311118725120?ref_src=twsrc%5Etfw'>May 10, 2020</a>
 </blockquote>
 
-### Footnotes
+## Footnotes
 
 <FootnoteParagraphWrapper>
   <p>
-    We can also add footnotes into paragraphs.<FootnoteN>1</FootnoteN>{' '}
-    These allow me to add extra context or references where
+    We can add footnotes into paragraphs.<FootnoteN>1</FootnoteN>{' '}
+    These allow me to add extra details or references where
     appropriate. I like the way they add context without being a
-    distraction from the main text.<FootnoteN>2</FootnoteN>
+    distraction from the main text.<FootnoteN>2</FootnoteN> On mobile,
+    I use a novel design of slide-in footnotes that are triggered by
+    tapping the footnote in body text.
   </p>
   <FootnoteStack>
     <Footnote n={1}>
@@ -115,60 +139,31 @@ in dapibus odio, at ultrices nunc.
   </FootnoteStack>
 </FootnoteParagraphWrapper>
 
-### Bullet Points
+## Images
 
-#### Short Bullet Points
+It's easy to add images, with or without captions, to body text.
 
-- Foo
-- Bar
-- Baz
-
-### Long Bullet Points
-
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tortor
-  urna, efficitur venenatis ante rutrum, suscipit commodo lectus.
-  Praesent [aliquam nisi](/design) vitae erat tempus blandit. Ut
-  lobortis facilisis orci faucibus condimentum. Proin sit amet risus
-  efficitur, pellentesque neque a, malesuada mauris.
-- Nulla gravida, ligula sed gravida hendrerit, odio purus semper
-  velit, a iaculis augue mi id nulla. Ut placerat, dui eget rhoncus
-  placerat, eros velit congue diam, eu ullamcorper magna eros a arcu.
-  Nam id nisl odio.
-- Suspendisse in dapibus odio, at ultrices nunc.
-
-#### Numbered List Items
-
-1. Uno
-2. Dos
-3. Tres
-
-#### Quotes
-
-> "Perfection is achieved, not when there is nothing more to add, but
-> when there is nothing left to take away."
->
-> <footer>Antoine de Saint-Exupéry, Airman's Odyssey</footer>
-
-### Images
+Performant images are loaded progressively. Give the page a refresh to
+observe the brief blur effect as an image loads.
 
 ![Xerox PARC](./parc.jpg)
 
-### Sections
+## Sections
 
 I can separate sections with a `---` in markdown, like so:
 
 ---
 
-### Code
+## Code
 
-#### Inline
+### Inline
 
-Inline code can be represented thus: `const f = () => 42`.
+Inline code can be added like this: `const f = () => 42`.
 
-#### Block
+### Block
 
-Blocks can be represnted with complete syntax highlighting and a
-custom colour theme.
+The site also supports code blocks with language-specific syntax
+highlighting and a custom colour theme.
 
 ```ts
 interface Foo {
@@ -194,8 +189,8 @@ export async function someFunc() {
   const url = 'https://jmulholland.com'
   const x = url.length
 
-  const cond = true
-  if (cond) {
+  const condition = true
+  if (condition) {
     return x + 2
   }
 
@@ -207,29 +202,52 @@ for (const x of y) {
 }
 ```
 
----
+## MDX
 
-### MDX
-
-This site uses MDX. This means I can put whatever React component I
-choose, right in the middle of a piece of text. It's a great [^2]
+This site uses [MDX](https://mdxjs.com/). This means I not only get
+the benefits of writing in
+[Markdown](https://daringfireball.net/projects/markdown/), but I can
+also insert whatever customer React component I want, right in the
+middle of a piece of text.
 
 ### `<Concept />`
 
 Sometimes, I want to highlight a concept in the body of a text, to
-highlight a propper term, much like you would see illustrated with
+highlight a proper term, much like you would see illustrated with
 small caps in a philosophy essay. I use my custom MDX `<Concept />`
 component to achieve this. e.g. <Concept>Concept</Concept>.
+
+## Editing
+
+All code and content on this site is hosted on GitHub. I can easily
+edit content on the go using the brilliant
+[Working Copy](https://workingcopy.app/) app.
 
 ---
 
 ## Inspiration
 
-### Input
+Although highly personal and custom built, this site is not without
+its sources of inspiration. I am particular grateful for the following
+resources:
 
-- Refactoring UI
+- [Ryan Singer](https://feltpresence.com/) - layout, typography vibe
+- [Rasmus Andersson](https://rsms.me/) - typography
+- [Molly Mielke](https://www.mollymielke.com/) - layout, typography,
+  vibe
+- [Gwern](https://gwern.net/) - so many things
+- [Refactoring UI](https://www.refactoringui.com/) - general design
+  tips
 
-### Websites
+---
 
-- Gwern
-- TODO
+## Future Features
+
+At some point, you must ship whatever you have in an unfinished state.
+That said, in the future, I would love to add the following features
+to the site:
+
+- Spellchecking system (ideally through CI on GitHub).
+- Twitter cards
+- Aside/call-out sections
+- Hanging typography
