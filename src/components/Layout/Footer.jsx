@@ -1,12 +1,7 @@
 import React from 'react'
+import {BUG_REPORT_LINK, GITHUB_LINK, LINKEDIN_LINK, MAILTO_LINK, TWITTER_LINK} from "../../utils/constants"
 
 const FooterLink = ({ href, title }) => (
-  <li
-    css={`
-      margin-top: 0;
-      margin-bottom: 0;
-    `}
-  >
     <a
       href={href}
       target='_blank'
@@ -14,10 +9,21 @@ const FooterLink = ({ href, title }) => (
       css={`
         margin: 0;
         font-size: ${({ theme }) => theme.fontSizes.s0};
+        text-decoration: none;
       `}
     >
       {title}
     </a>
+)
+
+const FooterLinkLi = ({ href, title }) => (
+  <li
+    css={`
+      margin-top: 0;
+      margin-bottom: 0;
+    `}
+  >
+    <FooterLink href={href} title={title} />
   </li>
 )
 
@@ -58,16 +64,25 @@ export const Footer = () => (
         }
       `}
     >
-      <FooterLink title='GitHub' href='https://github.com/mulholo' />
-      <FooterLink
+      <FooterLinkLi
+        title='GitHub'
+        href={GITHUB_LINK}
+      />
+      <FooterLinkLi
         title='Twitter'
-        href='https://twitter.com/mulholo'
+        href={TWITTER_LINK}
       />
-      <FooterLink
+      <FooterLinkLi
         title='LinkedIn'
-        href='https://www.linkedin.com/in/mulholo'
+        href={LINKEDIN_LINK}
       />
-      <FooterLink title='Email' href='mailto:james@jmulholland.com' />
+      <FooterLinkLi
+        title='Email'
+        href={MAILTO_LINK}
+      />
     </ul>
+    <div>
+      <FooterLink title='Submit a bug' href={BUG_REPORT_LINK} />
+    </div>
   </footer>
 )
