@@ -72,7 +72,7 @@ export const theme = {
   },
   fonts: {
     serif: 'Charter, Georgia, serif',
-    sans: "'Inter', Helvetica, sans-serif",
+    sans: "'Inter var', 'Inter', Helvetica, sans-serif",
     mono: 'Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace', // system mono; see code.css for other setting of mono
   },
 }
