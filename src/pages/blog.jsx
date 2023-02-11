@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { format } from 'date-fns'
-import { Box, Detail, Grid, Layout, Stack } from '../components'
+import { Box, Detail, Layout, Stack } from '../components'
 
-const BlogBox = ({
+const BlogPost = ({
   /**
    * Internal page to link to
    */
@@ -16,49 +16,41 @@ const BlogBox = ({
     css={`
       display: flex;
       flex-direction: column;
-      ${Box} {
-        transition: box-shadow 0.2s;
-      }
+      text-decoration: none;
       &:focus,
-      &:active {
-        outline: none;
-        text-decoration: none;
-      }
-      &:focus ${Box}, &:hover ${Box} {
-        box-shadow: inset 0px 0px 0px 8px
-          ${({ theme }) => theme.colors.b500};
-      }
+      &:active,
+      &:hover,
       &:focus h4,
+      &:active h4,
       &:hover h4 {
+        text-decoration: none;
         color: ${({ theme }) => theme.colors.b400};
       }
     `}
   >
-    <Box backgroundColor='n900'>
-      <Stack spacer={'s-1'}>
-        <h4
-          css={`
-            margin: 0;
-            font-size: ${({ theme }) => theme.fontSizes.s1};
+      <Stack spacer='s0'>
+      <h4
+        css={`
+          margin: 0;
+          font-size: ${({ theme }) => theme.fontSizes.s0};
 
-            @media (min-width: ${780 / 16}em) {
-              font-size: ${({ theme }) => theme.fontSizes.s2};
-            }
-          `}
-        >
-          {title}
-        </h4>
-        <Detail>{date}</Detail>
+          @media (min-width: ${780 / 16}em) {
+            font-size: ${({ theme }) => theme.fontSizes.s1};
+          }
+        `}
+      >
+        {title}
+      </h4>
+      <Detail>{date}</Detail>
       </Stack>
-    </Box>
   </Link>
 )
 
 const Blog = ({ data }) => (
   <Layout pageName='Blog'>
-    <Grid>
+    <Stack spacer='s2'>
       {data.posts.edges.map(({ node }) => (
-        <BlogBox
+        <BlogPost
           key={node.fields.slug}
           link={node.fields.slug}
           title={node.frontmatter.title}
@@ -68,7 +60,7 @@ const Blog = ({ data }) => (
           )}
         />
       ))}
-    </Grid>
+    </Stack>
   </Layout>
 )
 
