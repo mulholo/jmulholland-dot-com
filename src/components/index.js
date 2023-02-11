@@ -1,4 +1,4 @@
-import * as Icon from "./Icon"
+import * as Icon from './Icon'
 export { Icon }
 
 export { default as Box } from './Box'
