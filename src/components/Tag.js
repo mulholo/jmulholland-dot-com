@@ -7,12 +7,10 @@ export const Tag = styled.button(
     background: ${selected ? theme.colors.b500 : 'transparent'};
     color: ${selected ? theme.colors.n900 : 'inherit'};
 
-    font-weight: bold;
-
     cursor: pointer;
 
     outline: none;
-    border-width: solid;
+    border-width: 1px;
     border-style: solid;
     border-color: ${selected ? theme.colors.b500 : theme.colors.n100};
 
