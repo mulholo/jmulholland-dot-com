@@ -35,6 +35,7 @@ const Container = styled.div`
     'footer footer footer';
 
   @media (min-width: ${HEADER_SWITCH_SIZE}) {
+    grid-auto-rows: 1fr auto;
     grid-template-columns:
       minmax(${({ theme }) => theme.sizes.s0}, 1fr)
       8fr 62rem 8fr;
