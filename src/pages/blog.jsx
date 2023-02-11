@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { format } from 'date-fns'
-import { Box, Detail, Layout, Stack } from '../components'
+import { Detail, Layout, Stack } from '../components'
 
 const BlogPost = ({
   /**
