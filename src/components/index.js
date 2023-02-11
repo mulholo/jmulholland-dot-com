@@ -12,7 +12,6 @@ export {
   FootnoteStack,
   FootnoteParagraphWrapper,
 } from './Footnote'
-export { default as Grid } from './Grid'
 export { default as Input } from './Input'
 export { Layout } from './Layout'
 export { Separator } from './Separator'
