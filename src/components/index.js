@@ -14,7 +14,6 @@ export {
 } from './Footnote'
 export { default as Input } from './Input'
 export { Layout } from './Layout'
-export { Separator } from './Separator'
 export { default as Sidebar } from './Sidebar'
 export { default as Stack } from './Stack'
 export { Tag } from './Tag'
