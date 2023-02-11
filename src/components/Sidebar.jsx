@@ -12,7 +12,6 @@ import styled, { css } from 'styled-components'
  * @param {string} gap - Theme size accessor to control gutter width e.g. 's2'
  * @param {string} contentMin - Percentage value at which the component breaks onto two lines
  * @param {boolean} flipSides - Whether to flip the component so that sidebar is on the right and content on left
- * @param {boolean} dividingBorder - Whether to put a line between the sidebar and content
  * @param {ReactNode} children - Must have a single child which has 2 children (see example)
  *
  * @example
@@ -29,7 +28,6 @@ const Sidebar = styled.div(
     gap = '0',
     contentMin = '50%',
     flipSides = false,
-    dividingBorder,
     theme,
   }) => {
     const gapValue = theme.sizes[gap]
@@ -64,17 +62,6 @@ const Sidebar = styled.div(
         flex-basis: 0; /* needed so the contents does not force wrap instantly */
         min-width: calc(${contentMin} - (${gapValue} * 2));
       }
-
-      ${dividingBorder &&
-      `
-      & > * > * {
-        position: relative;
-        border-top: 2px solid ${theme.colors.n200};
-        border-left: 2px solid ${theme.colors.n200};
-        margin-top: -2px;
-        margin-left: -2px;
-      }
-    `}
     `
   }
 )
