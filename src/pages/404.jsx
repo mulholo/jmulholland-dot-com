@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { css } from 'styled-components'
-import { Stack, Grid, Box, Layout } from '../components'
+import { Stack, Box, Layout } from '../components'
 
 const numCss = css`
   font-weight: 800;
@@ -23,7 +23,7 @@ const pCss = css`
 
 const FourOhFour = ({ location }) => (
   <Layout pageName='Not found' pathname={location.pathname}>
-    <Grid>
+    <div>
       <Box padding={6}>
         <Stack>
           <h2 css={numCss}>4</h2>
@@ -43,7 +43,7 @@ const FourOhFour = ({ location }) => (
           <Link to='/'>Go home</Link>
         </p>
       </Box>
-    </Grid>
+    </div>
   </Layout>
 )
 

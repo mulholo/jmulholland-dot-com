@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
 import {
   Box,
-  Grid,
   Layout,
   Stack,
   TextContainer,
@@ -61,7 +60,7 @@ const Option = ({ title, children, link }) => {
 const Start = () => {
   return (
     <Layout pageName='Home'>
-      <Grid outline={true}>
+      <div>
         <Option title='About'>
           <p>
             {`I'm James, a London based  `}
@@ -110,7 +109,7 @@ const Start = () => {
             </li>
           </ul>
         </Option>
-      </Grid>
+      </div>
     </Layout>
   )
 }
