@@ -25,7 +25,7 @@ const Container = styled.div`
   grid-template-columns: minmax(
       ${({ theme }) => theme.sizes.s2},
       auto
-    ) minmax(20rem, 40rem) minmax(
+    ) minmax(16rem, 40rem) minmax(
       ${({ theme }) => theme.sizes.s3},
       auto
     );
