@@ -28,12 +28,10 @@ const BlogPost = ({
       }
     `}
   >
-      <Stack spacer='s0'>
+    <Stack spacer='s0'>
       <h4
         css={`
-          margin: 0;
           font-size: ${({ theme }) => theme.fontSizes.s0};
-
           @media (min-width: ${780 / 16}em) {
             font-size: ${({ theme }) => theme.fontSizes.s1};
           }
@@ -42,7 +40,7 @@ const BlogPost = ({
         {title}
       </h4>
       <Detail>{date}</Detail>
-      </Stack>
+    </Stack>
   </Link>
 )
 
