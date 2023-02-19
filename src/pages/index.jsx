@@ -74,8 +74,9 @@ const Index = () => {
           <h2>Contact</h2>
           <p>
             I've found this blog to be a great vehicle for meeting
-            interesting people. If there's anything here you find
-            interesting, I always appreciate a{' '}
+            interesting people. If there's anything here you like,
+            disagree with or generally want to discuss, I always
+            appreciate a{' '}
             <a
               href='https://twitter.com/mulholo'
               rel='noopener noreferrer'
