@@ -5,6 +5,7 @@ import {
   LINKEDIN_LINK,
   MAILTO_LINK,
   TWITTER_LINK,
+  ARENA_LINK,
 } from '../../utils/constants'
 
 const FooterLink = ({ href, title }) => (
@@ -74,6 +75,7 @@ export const Footer = () => (
       <FooterLinkLi title='Twitter' href={TWITTER_LINK} />
       <FooterLinkLi title='GitHub' href={GITHUB_LINK} />
       <FooterLinkLi title='LinkedIn' href={LINKEDIN_LINK} />
+      <FooterLinkLi title='Are.na' href={ARENA_LINK} />
       <FooterLinkLi title='Bugs' href={BUG_REPORT_LINK} />
     </ul>
   </footer>

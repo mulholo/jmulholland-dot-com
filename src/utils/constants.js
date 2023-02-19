@@ -9,8 +9,10 @@ export const RATIO = 1.618
 // External Links
 export const YOUTUBE_LINK =
   'https://www.youtube.com/channel/UCoM-EVJlUBxoGdSkyQaEH4w'
-export const BUG_REPORT_LINK = "https://github.com/mulholo/jmulholland-dot-com/issues/new"
-export const GITHUB_LINK = "https://github.com/mulholo"
-export const TWITTER_LINK = "https://twitter.com/mulholo"
-export const LINKEDIN_LINK = "https://www.linkedin.com/in/mulholo"
-export const MAILTO_LINK = "mailto:james@jmulholland.com"
+export const BUG_REPORT_LINK =
+  'https://github.com/mulholo/jmulholland-dot-com/issues/new'
+export const GITHUB_LINK = 'https://github.com/mulholo'
+export const TWITTER_LINK = 'https://twitter.com/mulholo'
+export const LINKEDIN_LINK = 'https://www.linkedin.com/in/mulholo'
+export const MAILTO_LINK = 'mailto:james@jmulholland.com'
+export const ARENA_LINK = 'https://www.are.na/james-mulholland'

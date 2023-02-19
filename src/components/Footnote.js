@@ -32,6 +32,7 @@ const FootnoteNButton = styled.button`
   border: none;
   text-align: left;
   margin: 0;
+  padding: 0;
 
   &:active,
   &:focus {
@@ -108,11 +109,12 @@ const FootnoteParagraphWrapperContainer = styled.div`
     overflow-x: initial;
 
     transform: translateX(
-      ${({ $isOpen, theme }) => ($isOpen ? `calc(-100% - ${theme.sizes.s1})` : `0`)}
+      ${({ $isOpen, theme }) =>
+        $isOpen ? `calc(-100% - ${theme.sizes.s1})` : `0`}
     );
     transition: 0.25s transform ease-in-out;
 
-    & > *:not(${FootnoteStackContainer}) { 
+    & > *:not(${FootnoteStackContainer}) {
       margin-right: 0;
     }
 

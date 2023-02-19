@@ -142,6 +142,7 @@ const BurgerButton = styled.button`
   align-items: center;
   justify-content: center;
   padding: 0;
+  color: ${({ theme }) => theme.colors.n100};
 `
 
 const MobileHeader = () => {
