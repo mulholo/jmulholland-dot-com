@@ -12,12 +12,26 @@ import {
   Detail,
 } from '../components'
 
-const Label = styled.label(
+const labelTxtStyle = css`
+  font-family: ${({ theme }) => theme.fonts.sans};
+  font-weight: bold;
+`
+
+const HTMLLabel = styled.label(
   ({ theme }) => css`
-    font-family: ${theme.fonts.sans};
-    font-weight: bold;
+    ${labelTxtStyle}
+
+    display: flex;
+    flex-direction: column;
+    & > * + * {
+      margin-top: ${theme.sizes.s0};
+    }
   `
 )
+
+const HLabel = styled.h3`
+  ${labelTxtStyle}
+`
 
 const Notes = ({ data }) => {
   const allNotes = data.notes.edges.map(formatNote)
@@ -55,8 +69,8 @@ const Notes = ({ data }) => {
     <Layout pageName='Notes'>
       <Stack spacer='s2'>
         <Stack spacer='s1'>
-          <Stack spacer='s-1'>
-            <Label htmlFor='search'>Search</Label>
+          <HTMLLabel htmlFor='search'>
+            <span>Search</span>
             <Input
               id='search'
               placeholder='Search note titles and tags'
@@ -66,9 +80,9 @@ const Notes = ({ data }) => {
                 width: 100%;
               `}
             />
-          </Stack>
-          <Stack spacer='s-1'>
-            <Label>Tags</Label>
+          </HTMLLabel>
+          <Stack spacer='s0'>
+            <HLabel>Tags</HLabel>
             <Sidebar contentMin='20%' sidebarWidth='s8' gap='s-1'>
               <div>
                 <Cluster
