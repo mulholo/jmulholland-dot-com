@@ -1,5 +1,7 @@
 import { createGlobalStyle, css } from 'styled-components'
 
+import { RATIO } from '../../utils'
+
 import './code.css'
 
 /*
@@ -108,18 +110,16 @@ const reset = css`
   }
 `
 
-const GlobalStyle = createGlobalStyle`
-  @import url('https://rsms.me/inter/inter.css');
-  @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
-
+export const GlobalStyle = createGlobalStyle`
   ${reset}
 
   html {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: ${({ theme }) => theme.fonts.sans};
+    font-family: ${({ theme }) => theme.fonts.serif};
     height: 100%;
+    font-size: 16px;
   }
   *, *:before, *:after {
     -webkit-font-smoothing: antialiased;
@@ -155,8 +155,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body *::selection {
-    background: ${(props) => props.theme.colors.b500};
-    color: ${(props) => props.theme.colors.n900};
+    background: ${(props) => props.theme.colors.b900};
   }
 
   html, body, #___gatsby, #gatsby-focus-wrapper {
@@ -167,12 +166,13 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     color: ${(props) => props.theme.colors.n200};
+    font-family: ${({ theme }) => theme.fonts.sans};
     font-weight: 600;
   }
 
-  p, li, ul, ol, blockquote {
+  p, li, ul, ol {
     font-size: ${(props) => props.theme.fontSizes.s0};
-    line-height: 1.618;
+    line-height: ${RATIO};
     color: ${(props) => props.theme.colors.n200};
   }
   
@@ -194,24 +194,13 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.1;
   }
   h2 {
-    font-size: ${(props) => props.theme.fontSizes.s2};
+    font-size: ${(props) => props.theme.fontSizes.s1};
     hyphens: none;
     line-height: 1.1;
   }
   h3 {
-    font-size: ${(props) => props.theme.fontSizes.s1};
-    line-height: 1.1;
-  }
-  h4 {
-    font-size: ${(props) => props.theme.fontSizes.s1};
-    line-height: 1.1;
-  }
-  h5 {
     font-size: ${(props) => props.theme.fontSizes.s0};
-    line-height: 1.1;
-  }
-  h6 {
-    font-size: ${(props) => props.theme.fontSizes.s0};
+    hyphens: none;
     line-height: 1.1;
   }
 
@@ -223,17 +212,21 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
   } 
 
+  hr {
+    border: 1px solid ${({theme}) => theme.colors.n700};
+    width: 100%;
+  }
+
   a {
-    font-weight: 600;
-    text-decoration: none;
+    font-weight: 500;
     color: ${(props) => props.theme.colors.b400};
   }
 
   a:hover {
     color: ${(props) => props.theme.colors.b500};
-g }
+  }
 
-  // Overrride header link styles
+  // Override header link styles
   .anchor.before {
     position: absolute;
     left: -${(props) => props.theme.sizes.s1};
@@ -242,14 +235,26 @@ g }
     height: 1em;
   }
 
+  .footnotes * {
+    font-family: ${({ theme }) => theme.fonts.sans};
+    font-size: ${(props) => props.theme.fontSizes.s0};
+  }
+
   blockquote {
     margin-left: 0;
     margin-right: 0;
-    padding-left: ${(props) => props.theme.sizes.s0};
-    border-left: 2px solid ${(props) => props.theme.colors.b400};
+
+    padding: ${(props) => props.theme.sizes.s1} ${(props) => props.theme.sizes.s1};
+    border-top: 2px solid ${(props) => props.theme.colors.b400};
+    border-bottom: 2px solid ${(props) => props.theme.colors.b400};
+    border-radius: 2px;
+
+    color: ${(props) => props.theme.colors.n200};
 
     p {
       font-style: italic;
+      font-size: ${(props) => props.theme.fontSizes.s1};
+      line-height: ${RATIO};
     }
   }
   // Source styling
@@ -259,7 +264,6 @@ g }
   blockquote > footer {
     margin-top: 0;
     font-style: normal;
+    font-size: ${(props) => props.theme.fontSizes.s0};
   }
 `
-
-export { GlobalStyle }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { TextColumn, Layout } from '../components'
+import { TextContainer, Layout } from '../components'
 
 const Page = ({ data }) => {
   const { mdx } = data
@@ -9,9 +9,9 @@ const Page = ({ data }) => {
   const { title } = frontmatter
   return (
     <Layout pageName={title}>
-      <TextColumn>
+      <TextContainer>
         <MDXRenderer>{body}</MDXRenderer>
-      </TextColumn>
+      </TextContainer>
     </Layout>
   )
 }

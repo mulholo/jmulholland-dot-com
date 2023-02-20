@@ -1,84 +1,82 @@
 import React from 'react'
-import { media } from '../../utils'
+import {
+  BUG_REPORT_LINK,
+  GITHUB_LINK,
+  LINKEDIN_LINK,
+  MAILTO_LINK,
+  TWITTER_LINK,
+  ARENA_LINK,
+} from '../../utils/constants'
 
 const FooterLink = ({ href, title }) => (
-  <li
+  <a
+    href={href}
+    target='_blank'
+    rel='noopener noreferrer'
     css={`
-      margin-top: 0;
-      margin-bottom: 0;
+      margin: 0;
+      font-size: ${({ theme }) => theme.fontSizes.s0};
+      text-decoration: none;
     `}
   >
-    <a
-      href={href}
-      target='_blank'
-      rel='noopener noreferrer'
-      css={`
-        margin: 0;
-        font-size: ${({ theme }) => theme.fontSizes.s0};
-      `}
-    >
-      {title}
-    </a>
+    {title}
+  </a>
+)
+
+const FooterLinkLi = ({ href, title }) => (
+  <li>
+    <FooterLink href={href} title={title} />
   </li>
 )
 
-// Footer is wrapped in a div to avoid collapse issue on Safari
+export const Footer = () => (
+  <footer
+    css={`
+      grid-area: footer;
+      background: ${(props) => props.theme.colors.n900};
+      border-top: 1px solid ${(props) => props.theme.colors.n300};
+      font-family: ${(props) => props.theme.fonts.sans};
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      padding: ${({ theme }) => theme.sizes.s1}
+        ${({ theme }) => theme.sizes.s2}
+        ${({ theme }) => theme.sizes.s2}
+        ${({ theme }) => theme.sizes.s2};
 
-const Footer = () => (
-  <div>
-    <footer
+      @media (min-width: ${450 / 16}em) {
+        padding: ${({ theme }) => theme.sizes.s1}
+          ${({ theme }) => theme.sizes.s2};
+      }
+    `}
+  >
+    <ul
       css={`
-        background: ${(props) => props.theme.colors.n900};
-        border-top: 1px solid ${(props) => props.theme.colors.n300};
+        margin: 0;
+        padding: 0;
+        list-style: none;
         display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        padding: ${({ theme }) => theme.sizes.s1}
-          ${({ theme }) => theme.sizes.s2}
-          ${({ theme }) => theme.sizes.s2}
-          ${({ theme }) => theme.sizes.s2};
 
-        ${media.mobile`
-        padding: ${({ theme }) => theme.sizes.s1}
-          ${({ theme }) => theme.sizes.s2};
-      `}
+        flex-direction: column;
+        & > li + li {
+          margin-top: ${({ theme }) => theme.sizes['s-2']};
+        }
+
+        @media (min-width: ${450 / 16}em) {
+          flex-direction: row;
+          & > li + li {
+            margin-left: ${({ theme }) => theme.sizes.s1};
+            margin-top: 0;
+          }
+        }
       `}
     >
-      <ul
-        css={`
-          margin: 0;
-          padding: 0;
-          list-style: none;
-          display: flex;
-          flex: 1;
-          & * > * {
-            margin-right: ${({ theme }) => theme.sizes['s-1']};
-          }
-          flex-direction: column;
-          ${media.mobile`
-          flex-direction: row;
-        `}
-        `}
-      >
-        <FooterLink
-          title='GitHub'
-          href='https://github.com/mulholo'
-        />
-        <FooterLink
-          title='Twitter'
-          href='https://twitter.com/mulholo'
-        />
-        <FooterLink
-          title='LinkedIn'
-          href='https://www.linkedin.com/in/mulholo'
-        />
-        <FooterLink
-          title='Email'
-          href='mailto:james@jmulholland.com'
-        />
-      </ul>
-    </footer>
-  </div>
+      <FooterLinkLi title='Mail' href={MAILTO_LINK} />
+      <FooterLinkLi title='Twitter' href={TWITTER_LINK} />
+      <FooterLinkLi title='GitHub' href={GITHUB_LINK} />
+      <FooterLinkLi title='LinkedIn' href={LINKEDIN_LINK} />
+      <FooterLinkLi title='Are.na' href={ARENA_LINK} />
+      <FooterLinkLi title='Bugs' href={BUG_REPORT_LINK} />
+    </ul>
+  </footer>
 )
-
-export default Footer

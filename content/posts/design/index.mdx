@@ -1,0 +1,242 @@
+---
+title: 'On the Design of this Website'
+date: '2022-08-07'
+---
+
+import { Concept } from '/src/components'
+
+_This is a meta-page on the design of this website. It contains
+details on typography, layout and design, and showcases
+[jmulholland.com](/)'s interesting and novel features. This page is
+also personally useful to me as I test, tweak and refine the details
+below._
+
+_All code for this website is open source, and you are welcome to
+[view it on GitHub](https://github.com/mulholo/jmulholland-dot-com)._
+
+---
+
+## Typography
+
+### Typefaces
+
+Body text is styled in a stack of `Charter, Georgia, serif`. I wanted
+a serif typeface for readability, and chose this selection to utilise
+pre-installed system fonts and avoid additional network requests.
+
+I also use a system font stack for my monospaced fonts:
+`Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace`.
+
+Elsewhere, predominantly for headings, I use
+[Inter](https://rsms.me/inter/). It is similar to Helvetica in its
+clean, classic feel, but works much better in digital formats.
+
+### Scale
+
+Font sizes (as well as many other dimensions of the site) are
+determined by a programmatically generated scale using the
+[golden ratio](https://en.wikipedia.org/wiki/Golden_ratio).
+
+This approach keeps sizing consistent across the size, and provides a
+pleasant visual hierarchy.
+
+They also incorporate a slight size change based upon the viewport
+width so that text expands on bigger screens and shrinks on smaller
+ones.
+
+### Measure
+
+The width of text columns (also known as the measure) is set using the
+rule of thumb that it should be approximately 2-3 alphabets in length.
+
+This provides a good balance between making your eyes lose their place
+when jumping through long lines and breaking up text too much with
+short lines.
+
+### Bullet Points
+
+- Specific bullet point styling has been taken into account. You'll
+  notice that it works well with longer, multi-line bullet points like
+  this one...
+- ...and also short ones such as this.
+
+### Numbered Lists
+
+1. Numbered lists can also be added.
+2. They look like this.
+
+### Quotes
+
+Large display quotes can be added like so:
+
+> "Perfection is achieved, not when there is nothing more to add, but
+> when there is nothing left to take away."
+>
+> <footer>Antoine de Saint-Exupéry, Airman's Odyssey</footer>
+
+### Body Links
+
+Of course, body text would not be complete without good link styling.
+They [look like this](/design).
+
+## Heading Links
+
+Headings contain links that appear on hover. This is useful for
+sharing links to particular sections of text.
+
+## Inline Tweets
+
+Tweets can be displayed inline.
+
+<blockquote class='twitter-tweet' data-lang='en' data-dnt='true'>
+  <p lang='en' dir='ltr'>
+    🟦New essay: The Small Group🟦
+    <br />
+    <br />- How Benjamin Franklin, Virginia Woolf, Steve Jobs, J.R.R.
+    Tolkien and more all used Small Groups to be successful
+    <br />- How to go about making a new Small Group in 2020
+    <br />
+    <br />↓<a href='https://t.co/xtOen8Cj9d'>
+      https://t.co/xtOen8Cj9d
+    </a>
+  </p>
+  &mdash; James (@mulholo) <a href='https://twitter.com/mulholo/status/1259449311118725120?ref_src=twsrc%5Etfw'>May 10, 2020</a>
+</blockquote>
+
+## Footnotes
+
+<FootnoteParagraphWrapper>
+  <p>
+    We can add footnotes into paragraphs.<FootnoteN>1</FootnoteN>{' '}
+    These allow me to add extra details or references where
+    appropriate. I like the way they add context without being a
+    distraction from the main text.<FootnoteN>2</FootnoteN> On mobile,
+    I use a novel design of slide-in footnotes that are triggered by
+    tapping the footnote in body text.
+  </p>
+  <FootnoteStack>
+    <Footnote n={1}>
+      Footnotes are always visible on larger screens or are tucked
+      away behind a toggle on smaller screens.
+    </Footnote>
+    <Footnote n={2}>
+      You can happily stack as many footnotes as you like.
+    </Footnote>
+  </FootnoteStack>
+</FootnoteParagraphWrapper>
+
+## Images
+
+It's easy to add images, with or without captions, to body text.
+
+Performant images are loaded progressively. Give the page a refresh to
+observe the brief blur effect as an image loads.
+
+![Xerox PARC](./parc.jpg)
+
+## Sections
+
+I can separate sections with a `---` in markdown, like so:
+
+---
+
+## Code
+
+### Inline
+
+Inline code can be added like this: `const f = () => 42`.
+
+### Block
+
+The site also supports code blocks with language-specific syntax
+highlighting and a custom colour theme.
+
+```ts
+interface Foo {
+  bar: string
+}
+
+const foo: Foo = {
+  bar: 'baz',
+}
+
+type Baz = Foo | never
+
+class Car extends Vehicle() {
+  public async beep(): Promise<string> {
+    return Promise.resolve('beep!')
+  }
+}
+
+/**
+ * Demonstrates syntax highlighting
+ */
+export async function someFunc() {
+  const url = 'https://jmulholland.com'
+  const x = url.length
+
+  const condition = true
+  if (condition) {
+    return x + 2
+  }
+
+  return x
+}
+
+for (const x of y) {
+  window.alert(x)
+}
+```
+
+## MDX
+
+This site uses [MDX](https://mdxjs.com/). This means I not only get
+the benefits of writing in
+[Markdown](https://daringfireball.net/projects/markdown/), but I can
+also insert whatever customer React component I want, right in the
+middle of a piece of text.
+
+### `<Concept />`
+
+Sometimes, I want to highlight a concept in the body of a text, to
+highlight a proper term, much like you would see illustrated with
+small caps in a philosophy essay. I use my custom MDX `<Concept />`
+component to achieve this. e.g. <Concept>Concept</Concept>.
+
+## Editing
+
+All code and content on this site is hosted on GitHub. I can easily
+edit content on the go using the brilliant
+[Working Copy](https://workingcopy.app/) app.
+
+---
+
+## Inspiration
+
+Although highly personal and custom built, this site is not without
+its sources of inspiration. I am particular grateful for the following
+resources:
+
+- [Ryan Singer](https://feltpresence.com/) - layout, typography vibe
+- [Rasmus Andersson](https://rsms.me/) - typography
+- [Molly Mielke](https://www.mollymielke.com/) - layout, typography,
+  vibe
+- [Gwern](https://gwern.net/) - so many things
+- [Refactoring UI](https://www.refactoringui.com/) - general design
+  tips
+- [Devon Zuegal](https://devonzuegel.com/page/about-me) - Intellectual
+  vibe, and the inspiration for my [/thoughts](/thoughts) page via the
+  "Strong opinions, weakly held" section of Devon's website
+
+---
+
+## Future Features
+
+At some point, you must ship whatever you have in an unfinished state.
+That said, in the future, I would love to add the following features
+to the site:
+
+- Spellchecking system (ideally through CI on GitHub).
+- Twitter cards
+- Aside/call-out sections
+- Hanging typography

@@ -1,18 +1,37 @@
 import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import * as JsSearch from 'js-search'
 import {
-  Box,
   Cluster,
   Layout,
   Input,
   Stack,
-  Separator,
   Sidebar,
   Tag,
+  Detail,
 } from '../components'
-import { media } from '../utils'
+
+const labelTxtStyle = css`
+  font-family: ${({ theme }) => theme.fonts.sans};
+  font-weight: bold;
+`
+
+const HTMLLabel = styled.label(
+  ({ theme }) => css`
+    ${labelTxtStyle}
+
+    display: flex;
+    flex-direction: column;
+    & > * + * {
+      margin-top: ${theme.sizes.s0};
+    }
+  `
+)
+
+const HLabel = styled.h3`
+  ${labelTxtStyle}
+`
 
 const Notes = ({ data }) => {
   const allNotes = data.notes.edges.map(formatNote)
@@ -48,120 +67,126 @@ const Notes = ({ data }) => {
 
   return (
     <Layout pageName='Notes'>
-      <Stack>
-        <Sidebar
-          contentMin='80%'
-          sidebarWidth='s5'
-          flipSides
-          dividingBorder
-        >
-          <Box borderY padding='0'>
-            <Box padding='s0'>
-              <Cluster>
-                <ul>
-                  {allTags.map((tag) => (
-                    <li
-                      key={tag}
-                      css={`
-                        list-style: none;
-                      `}
-                    >
-                      <Tag
-                        onClick={() => toggleTag(tag)}
-                        selected={selectedTags.includes(tag)}
-                      >
-                        {tag}
-                      </Tag>
-                    </li>
-                  ))}
-                </ul>
-              </Cluster>
-            </Box>
-            <div>
-              <FilterButton
-                selected={filterType === 'or'}
-                onClick={() => setFilterType('or')}
-              >
-                or
-              </FilterButton>
-              <FilterButton
-                selected={filterType === 'and'}
-                onClick={() => setFilterType('and')}
-              >
-                and
-              </FilterButton>
-            </div>
-          </Box>
-        </Sidebar>
-        <Box
-          borderY
-          padding='0'
-          css={`
-            flex-grow: 0;
-          `}
-        >
-          <Input
-            placeholder='Search note titles and tags'
-            value={searchQuery}
-            onChange={handleSearch}
-            css={`
-              width: 100%;
-              padding-left: ${({ theme }) => theme.sizes.s2};
-              padding-right: ${({ theme }) => theme.sizes.s2};
-              border: none;
-            `}
-          />
-        </Box>
-        <Separator />
-        {(searchQuery ? queryResult : allNotes)
-          .filter((note) =>
-            selectedTags.length === 0
-              ? true
-              : filterType === 'or'
-              ? note.tags.some((tag) => selectedTags.includes(tag))
-              : selectedTags.every((selectedTag) =>
-                  note.tags.includes(selectedTag)
-                )
-          )
-          .map((note) => (
-            <NoteRow
-              key={note.slug}
-              link={note.slug}
-              title={note.title}
-              tags={note.tags}
+      <Stack spacer='s2'>
+        <Stack spacer='s1'>
+          <HTMLLabel htmlFor='search'>
+            <span>Search</span>
+            <Input
+              id='search'
+              placeholder='Search note titles and tags'
+              value={searchQuery}
+              onChange={handleSearch}
+              css={`
+                width: 100%;
+              `}
             />
-          ))}
+          </HTMLLabel>
+          <Stack spacer='s0'>
+            <HLabel>Tags</HLabel>
+            <Sidebar contentMin='20%' sidebarWidth='s8' gap='s-1'>
+              <div>
+                <Cluster
+                  space='s-1'
+                  css={`
+                    border: none;
+                  `}
+                >
+                  <ul
+                    css={`
+                      padding: 0;
+                    `}
+                  >
+                    {allTags.map((tag) => (
+                      <li
+                        key={tag}
+                        css={`
+                          list-style: none;
+                        `}
+                      >
+                        <Tag
+                          onClick={() => toggleTag(tag)}
+                          selected={selectedTags.includes(tag)}
+                        >
+                          {tag}
+                        </Tag>
+                      </li>
+                    ))}
+                  </ul>
+                </Cluster>
+                <div>
+                  <FilterButton
+                    selected={filterType === 'or'}
+                    onClick={() => setFilterType('or')}
+                  >
+                    or
+                  </FilterButton>
+                  <FilterButton
+                    selected={filterType === 'and'}
+                    onClick={() => setFilterType('and')}
+                  >
+                    and
+                  </FilterButton>
+                </div>
+              </div>
+            </Sidebar>
+          </Stack>
+        </Stack>
+        <Stack spacer='s2'>
+          {(searchQuery ? queryResult : allNotes)
+            .filter((note) =>
+              selectedTags.length === 0
+                ? true
+                : filterType === 'or'
+                ? note.tags.some((tag) => selectedTags.includes(tag))
+                : selectedTags.every((selectedTag) =>
+                    note.tags.includes(selectedTag)
+                  )
+            )
+            .map((note) => (
+              <NoteRow
+                key={note.slug}
+                link={note.slug}
+                title={note.title}
+                tags={note.tags}
+              />
+            ))}
+        </Stack>
       </Stack>
     </Layout>
   )
 }
 
 const FilterButton = styled.button(
-  ({ theme, selected }) => `
-  height: 100%;
-  width: 50%;
-  min-width: ${theme.sizes.s3};
-  text-transform: uppercase;
-  font-weight: bold;
-  background: ${selected ? theme.colors.b500 : 'none'};
-  color: ${selected ? theme.colors.n900 : 'inherit'};
-  border: none;
-  padding: ${theme.sizes.s0};
-  transition: 0.1s color, 0.1s background, box-shadow 0.2s, border 0.2s;
-  ${!selected && `cursor: pointer;`}
+  ({ theme, selected }) => css`
+    height: 100%;
+    width: 50%;
+    min-width: ${theme.sizes.s3};
 
-  &:active,
-  &:hover,
-  &:focus-visible {
-    box-shadow: ${
-      selected
-        ? `inset 0px 0px 0px 3px ${theme.colors.b300}`
-        : `inset 0px 0px 0px 3px ${theme.colors.b500}`
-    };
-    border: none;
+    text-transform: uppercase;
+
+    color: ${selected ? theme.colors.n900 : 'inherit'};
+    background: ${selected ? theme.colors.b500 : 'none'};
+
+    border-width: 1px;
+    border-style: solid;
+
+    border-color: ${selected ? theme.colors.b500 : theme.colors.n100};
+
     outline: none;
-  }
-`
+
+    &:active,
+    &:hover,
+    &:focus {
+      color: ${selected ? theme.colors.n900 : theme.colors.b500};
+      border-color: ${selected
+        ? theme.colors.b300
+        : theme.colors.b500};
+      outline: none;
+    }
+
+    transition: 0.1s color, 0.1s background, border 0.2s;
+    ${!selected && `cursor: pointer;`}
+  `
 )
 
 /**
@@ -184,17 +209,11 @@ const NoteRow = ({
   <Link
     to={link}
     css={`
-      ${Box} {
-        transition: box-shadow 0.2s;
-      }
+      text-decoration: none;
       &:focus,
       &:active {
         outline: none;
         text-decoration: none;
-      }
-      &:focus ${Box}, &:hover ${Box} {
-        box-shadow: inset 0px 0px 0px 8px
-          ${({ theme }) => theme.colors.b500};
       }
       &:focus h4,
       &:hover h4 {
@@ -202,60 +221,33 @@ const NoteRow = ({
       }
     `}
   >
-    <Box borderY padding='s2'>
-      <div
+    <Stack spacer='s0'>
+      <h4
         css={`
-          display: flex;
-          flex-direction: column;
-          align-items: baseline;
-          & > *:last-child {
-            margin-left: 0;
-            margin-top: ${({ theme }) => theme.sizes['s-2']};
+          font-size: ${({ theme }) => theme.fontSizes.s0};
+          @media (min-width: ${780 / 16}em) {
+            font-size: ${({ theme }) => theme.fontSizes.s1};
           }
-
-          ${media.tablet`
-            flex-direction: row;
-            & > *:last-child {
-              margin-left: auto;
-              margin-top: 0;
-            }
-          `}
         `}
       >
-        <h4
-          css={`
-            font-size: ${({ theme }) => theme.fontSizes.s0};
-            ${media.tablet`
-              font-size: ${({ theme }) => theme.fontSizes.s1};
-            `}
-          `}
-        >
-          {title}
-        </h4>
-        <p
-          css={`
-            font-size: ${({ theme }) => theme.fontSizes['s-1']};
-            ${media.tablet`
-              font-size: ${({ theme }) => theme.fontSizes.s0};
-            `}
-          `}
-        >
-          {tags.map((tag, i) => (
-            <>
-              <span
-                key={tag}
-                css={`
-                  color: ${({ theme }) => theme.colors.n400};
-                `}
-              >
-                {tag}
-              </span>
-              {i !== tags.length - 1 && ', '}
-            </>
-          ))}
-        </p>
-      </div>
-    </Box>
+        {title}
+      </h4>
+      <Detail>
+        {tags.map((tag, i) => (
+          <>
+            <span
+              key={tag}
+              css={`
+                color: ${({ theme }) => theme.colors.n400};
+              `}
+            >
+              {tag}
+            </span>
+            {i !== tags.length - 1 && ', '}
+          </>
+        ))}
+      </Detail>
+    </Stack>
   </Link>
 )
 

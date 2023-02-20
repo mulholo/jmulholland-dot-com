@@ -38,7 +38,13 @@ module.exports = {
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
               destinationDir: `path/to/dir`,
-              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`], // handled by sharp
+              ignoreFileExtensions: [
+                `png`,
+                `jpg`,
+                `jpeg`,
+                `bmp`,
+                `tiff`,
+              ], // handled by sharp
             },
           },
         ],
@@ -57,7 +63,7 @@ module.exports = {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 800,
+              maxWidth: 640,
               showCaptions: true,
             },
           },

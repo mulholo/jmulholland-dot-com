@@ -1,4 +1,4 @@
-const RATIO = 1.618
+import { RATIO } from './constants'
 
 const genSize = (n) =>
   n === 0
@@ -12,7 +12,7 @@ const genRemSize = genSizeUnit('rem')
 
 const genFontSize = (n) => `calc(${genRemSize(n)} + 0.05vw)` // slight dynamic font-sizing
 
-export default {
+export const theme = {
   // 100 is darkest
   // 500 is default
   // 900 is lightest
@@ -38,39 +38,6 @@ export default {
     n700: 'hsl(191,4%,84%)',
     n800: 'hsl(201,14%,94%)',
     n900: 'hsl(207,72%,99%)',
-
-    // red
-    r100: 'hsl(000,98%,23%)',
-    r200: 'hsl(008,97%,27%)',
-    r300: 'hsl(008,92%,31%)',
-    r400: 'hsl(006,80%,38%)',
-    r500: 'hsl(008,72%,44%)',
-    r600: 'hsl(008,72%,60%)',
-    r700: 'hsl(008,91%,70%)',
-    r800: 'hsl(008,99%,83%)',
-    r900: 'hsl(008,100%,95%)',
-
-    // green
-    g100: 'hsl(123,98%,9%)',
-    g200: 'hsl(115,98%,13%)',
-    g300: 'hsl(110,97%,20%)',
-    g400: 'hsl(109,95%,23%)',
-    g500: 'hsl(106,70%,30%)',
-    g600: 'hsl(108,63%,36%)',
-    g700: 'hsl(116,40%,53%)',
-    g800: 'hsl(111,53%,74%)',
-    g900: 'hsl(99,95%,94%)',
-
-    // yellow
-    y100: 'hsl(046,99%,28%)',
-    y200: 'hsl(048,98%,34%)',
-    y300: 'hsl(049,96%,42%)',
-    y400: 'hsl(049,89%,47%)',
-    y500: 'hsl(048,85%,54%)',
-    y600: 'hsl(045,90%,65%)',
-    y700: 'hsl(042,92%,69%)',
-    y800: 'hsl(043,93%,72%)',
-    y900: 'hsl(042,100%,92%)',
   },
   sizes: {
     0: '0px',
@@ -84,6 +51,11 @@ export default {
     s3: genRemSize(3),
     s4: genRemSize(4),
     s5: genRemSize(5),
+    s6: genRemSize(6),
+    s7: genRemSize(7),
+    s8: genRemSize(8),
+    s9: genRemSize(9),
+    s10: genRemSize(10),
   },
   fontSizes: {
     's-2': genFontSize(-2),
@@ -94,9 +66,13 @@ export default {
     s3: genFontSize(3),
     s4: genFontSize(4),
   },
+  fontWeights: {
+    regular: 400,
+    semiBold: 500,
+  },
   fonts: {
-    // One day, I shall have Univers Next
-    sans: "'Inter var', Helvetica, sans-serif",
-    mono: "'Source Code Pro', Menlo, monospace",
+    serif: 'Charter, Georgia, serif',
+    sans: "'Inter var', 'Inter', Helvetica, sans-serif",
+    mono: 'Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace', // system mono; see code.css for other setting of mono
   },
 }

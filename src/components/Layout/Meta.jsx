@@ -1,11 +1,9 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql, StaticQuery } from 'gatsby'
+import { theme } from "../../utils"
 
-// TODO import card
-// import card from '../assets/twitter-card.png'
-
-const SiteMetadata = ({ pathname }) => (
+export const Meta = ({ pathname }) => (
   <StaticQuery
     query={graphql`
       query SiteMetadata {
@@ -52,24 +50,22 @@ const SiteMetadata = ({ pathname }) => (
         <link
           rel='mask-icon'
           href='/safari-pinned-tab.svg'
-          color='#5bbad5'
+          color={theme.colors.n900}
         />
-        <meta name='msapplication-TileColor' content='#da532c' />
-        <meta name='theme-color' content='#ffffff' />
+        <meta name='msapplication-TileColor' content={theme.colors.n900} />
+        <meta name='theme-color' content={theme.colors.n900} />
 
         <meta property='og:url' content={siteUrl} />
         <meta property='og:type' content='website' />
         <meta property='og:locale' content='en' />
         <meta property='og:site_name' content={title} />
-        {/* TODO twitter card <meta property='og:image' content={`${siteUrl}${card}`} /> */}
-        <meta property='og:image:width' content='1200' />
-        <meta property='og:image:height' content='675' />
 
-        <meta name='twitter:card' content='summary' />
         <meta name='twitter:site' content={twitter} />
+
+        <link rel='preconnect' href='https://rsms.me/' />
+        <link rel='stylesheet' href='https://rsms.me/inter/inter.css' />
+
       </Helmet>
     )}
   />
 )
-
-export default SiteMetadata
