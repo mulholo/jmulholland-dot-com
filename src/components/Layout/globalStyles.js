@@ -213,7 +213,7 @@ export const GlobalStyle = createGlobalStyle`
   } 
 
   hr {
-    border: 1px solid ${({theme}) => theme.colors.n700};
+    border: 1px solid ${({ theme }) => theme.colors.n700};
     width: 100%;
   }
 
@@ -244,7 +244,8 @@ export const GlobalStyle = createGlobalStyle`
     margin-left: 0;
     margin-right: 0;
 
-    padding: ${(props) => props.theme.sizes.s1} ${(props) => props.theme.sizes.s1};
+    padding: ${(props) => props.theme.sizes.s1} ${(props) =>
+  props.theme.sizes.s1};
     border-top: 2px solid ${(props) => props.theme.colors.b400};
     border-bottom: 2px solid ${(props) => props.theme.colors.b400};
     border-radius: 2px;

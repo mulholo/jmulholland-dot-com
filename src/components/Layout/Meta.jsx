@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql, StaticQuery } from 'gatsby'
-import { theme } from "../../utils"
+import { theme } from '../../utils'
 
 export const Meta = ({ pathname }) => (
   <StaticQuery
@@ -52,7 +52,10 @@ export const Meta = ({ pathname }) => (
           href='/safari-pinned-tab.svg'
           color={theme.colors.n900}
         />
-        <meta name='msapplication-TileColor' content={theme.colors.n900} />
+        <meta
+          name='msapplication-TileColor'
+          content={theme.colors.n900}
+        />
         <meta name='theme-color' content={theme.colors.n900} />
 
         <meta property='og:url' content={siteUrl} />
@@ -63,8 +66,10 @@ export const Meta = ({ pathname }) => (
         <meta name='twitter:site' content={twitter} />
 
         <link rel='preconnect' href='https://rsms.me/' />
-        <link rel='stylesheet' href='https://rsms.me/inter/inter.css' />
-
+        <link
+          rel='stylesheet'
+          href='https://rsms.me/inter/inter.css'
+        />
       </Helmet>
     )}
   />
