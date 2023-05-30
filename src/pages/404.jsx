@@ -4,7 +4,7 @@ import { css } from 'styled-components'
 import { Stack, Layout } from '../components'
 import { BUG_REPORT_LINK } from '../utils'
 
-const pCss = css`
+const typographyStyles = css`
   font-size: ${({ theme }) => theme.fontSizes.s0};
 `
 
@@ -18,20 +18,18 @@ const FourOhFour = ({ location }) => (
       >
         404
       </h2>
-      <p css={pCss}>
+      <p css={typographyStyles}>
         The page you were looking for doesn't exist or has moved
         somewhere else.
       </p>
-      <p css={pCss}>
-        <ul>
-          <li>
-            <Link to='/'>Go home</Link>
-          </li>
-          <li>
-            <a href={BUG_REPORT_LINK}>Report an issue</a>
-          </li>
-        </ul>
-      </p>
+      <ul css={typographyStyles}>
+        <li>
+          <Link to='/'>Go home</Link>
+        </li>
+        <li>
+          <a href={BUG_REPORT_LINK}>Report an issue</a>
+        </li>
+      </ul>
     </Stack>
   </Layout>
 )

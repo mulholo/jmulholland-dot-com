@@ -22,13 +22,9 @@ const Container = styled.div`
   overflow-x: clip;
 
   grid-auto-rows: auto 1fr auto;
-  grid-template-columns: minmax(
-      ${({ theme }) => theme.sizes.s2},
-      auto
-    ) minmax(16rem, 40rem) minmax(
-      ${({ theme }) => theme.sizes.s3},
-      auto
-    );
+  grid-template-columns:
+    minmax(${({ theme }) => theme.sizes.s2}, auto)
+    minmax(16rem, 40rem) minmax(${({ theme }) => theme.sizes.s3}, auto);
   grid-template-areas:
     'header header header'
     'spacera main spacerb'

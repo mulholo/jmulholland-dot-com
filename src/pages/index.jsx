@@ -2,23 +2,11 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Layout, Stack, TextContainer } from '../components'
 
-/*
-- ## About
-    - I'm James, a product engineer in London.
-    - 
-- ## Blog
-    - 
-    - ### Favorites
-- ### Notes
-- ## Contact
-    - 
-*/
-
 const Index = () => {
   return (
     <Layout pageName='Home'>
       <Stack spacer='s2'>
-        <TextContainer>
+        <TextContainer recursive={false}>
           <h2>About</h2>
           <p>I'm James, a product engineer in London.</p>
           <p>
@@ -34,21 +22,19 @@ const Index = () => {
             The main way I achieve that is through my blog posts.
           </p>
           <h3>Favourites</h3>
-          <p>
-            <ul>
-              <li>
-                <Link to='/small-group'>The Small Group</Link>: The
-                history and desirability of tight-knit, productive
-                groups of people.
-              </li>
-              <li>
-                <Link to='/cascading-productivity-system'>
-                  The Cascading Productivity System
-                </Link>
-                : How I get things done.
-              </li>
-            </ul>
-          </p>
+          <ul>
+            <li>
+              <Link to='/small-group'>The Small Group</Link>: The
+              history and desirability of tight-knit, productive
+              groups of people.
+            </li>
+            <li>
+              <Link to='/cascading-productivity-system'>
+                The Cascading Productivity System
+              </Link>
+              : How I get things done.
+            </li>
+          </ul>
           <p>
             Head to <Link to='/blog'>/blog</Link> for a list of all
             posts.
