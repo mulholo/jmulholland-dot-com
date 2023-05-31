@@ -12,9 +12,13 @@ const Index = () => {
           <p>
             If you're looking for a brief introduction to who I am,
             head to <Link to='/projects'>/projects</Link> to see what
-            I've been working on, or{' '}
+            I've been working on,{' '}
             <Link to='/thoughts'>/thoughts</Link> for a glimpse into
-            how I think.
+            how I think, or{' '}
+            <a href='https://www.are.na/james-mulholland/continuous-vibe-posting'>
+              are.na
+            </a>{' '}
+            for vibes.
           </p>
           <h2>Blog</h2>
           <p>
