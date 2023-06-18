@@ -15,9 +15,7 @@ const Index = () => {
             I've been working on,{' '}
             <Link to='/thoughts'>/thoughts</Link> for a glimpse into
             how I think, or{' '}
-            <a href='https://www.are.na/james-mulholland/continuous-vibe-posting'>
-              are.na
-            </a>{' '}
+            <a href='https://www.are.na/james-mulholland'>are.na</a>{' '}
             for vibes.
           </p>
           <h2>Blog</h2>
